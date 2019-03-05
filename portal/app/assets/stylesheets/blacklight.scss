@@ -1,0 +1,12 @@
+@import 'bootstrap-sprockets';
+
+// CSpace tenant customizations
+@import 'variables';
+
+@import 'bootstrap';
+
+@import 'blacklight/blacklight';
+@import 'blacklight_marc';
+
+// CSpace tenant customizations
+@import 'extras';
