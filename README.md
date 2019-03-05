@@ -35,7 +35,7 @@ See portal/config/blacklight.yml
 
 #### Deployment instructions
 
-For local development:
+###### For local development
 
 All source code is in the RoR app directory "portal".
 
@@ -56,12 +56,45 @@ http://localhost:3000
 
 You should see the start page.
 
+
+###### on RTL servers
+
 There are two scripts for use in making Dev and Prod
 deployments on RTL servers.
 
-deploy.sh - clones the GitHub repo and configures the specified deployment
-relink.sh - switches the symlink to the specified directory
+`deploy.sh` - clones the GitHub repo and configures the specified deployment
 
+`relink.sh` - switches the symlink to the specified directory
+
+On RTL servers, it is assumed that a directory `projects` exists in the home directory
+of the user running the application.
+
+The RoR code is deployed and configured into this directory.
+
+For initial setup, you'll need to:
+
+* Have Ruby 2.4.1 installed.
+* Have Apache configured appropriately (e.g. Passenger, etc.)
+* Have a `SECRET_KEY_BASE` environment variable set (see the Blacklight docs for details).
+
+E.g.
+
+```
+$ ssh blacklight-dev.ets.berkeley.edu
+
+[...]
+
+Last login: Tue Mar  5 10:54:19 2019 from 128.32.202.5
+jblowe@blacklight-dev:~$ sudo su - blacklight
+
+blacklight@blacklight-dev:~$ printenv | grep SECRET_KEY
+SECRET_KEY_BASE=xxxxxxxxx......xxxxxxx
+
+```
+
+Then you can deploy and start up the application:
+
+E.g.
 ```
 ./deploy.sh s20190305 production 2.0.0
 ```
