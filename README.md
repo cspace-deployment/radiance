@@ -73,7 +73,7 @@ You should see the start page.
 
 A few important details, but do please read this whole section before you attempt to deploy on RTL servers:
 
-* The actual recipe for a quick and painless deploment may be found [further below](deploying-new-versions-on-rtl-servers). But do read on for the gory details.
+* The actual recipe for a quick and painless deploment may be found [further below](#deploying-new-versions-on-rtl-servers). But do read on for the gory details.
 * It is expected that a "release document" has been prepared in advance for any particular release, and a "deployment JIRA" exists as well. Please do check for these before attempting to deploy a new version!
 * Blacklight is deployed under Passenger on RTL servers, and currently expects the deployed code to be in a particular subdirectory in `~blacklight/projects`.  The application also runs under user `blacklight`.
 * The instructions below assume that you have followed the [initial instructions](#initial-setup-for-deployments-on-rtl-servers) (below) to set up the deployment scripts from the `radiance` repo. Once the scripts are set up (copied) the clone of the `radiance` repo can be removed. 
