@@ -1,5 +1,7 @@
 ### Customizations to Blacklight for UC Berkeley Museums
 
+[![build status](https://travis-ci.com/jblowe/radiance.svg?branch=master)](https://travis-ci.com/jblowe/radiance)
+
 This repo contains a customized Blacklight application.
 
 Blacklight is a Ruby on Rails application. Refer to the
