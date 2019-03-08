@@ -103,9 +103,8 @@ module ApplicationHelper
               content_tag(:inline, '',
                  url: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{x3d_csid}/content",
                  id: 'x3d',
-                 type: 'model/x3d+xml'),
-              style: 'width: 640px;')
-        )
+                 type: 'model/x3d+xml')),
+        style: 'margin-bottom: 6px; height: 660px; width: 660px;')
       end.join.html_safe
     end
   end
@@ -121,10 +120,9 @@ module ApplicationHelper
           content_tag(:scene,
               content_tag(:inline, '',
                  url: "https://cspace-prod-02.ist.berkeley.edu/pahma_nuxeo/data/#{l1}/#{l2}/#{x3d_md5}",
-                 id: 'x3d_md5',
-                 type: 'model/x3d+xml'),
-              style: 'width: 800px;'),
-        style: 'margin-bottom: 6px;')
+                 class: 'x3d',
+                 type: 'model/x3d+xml')),
+        style: 'margin-bottom: 6px; height: 660px; width: 660px;')
       end.join.html_safe
     end
   end
