@@ -10,6 +10,9 @@ deploy applications of this sort:
 
 http://projectblacklight.org/
 
+
+**_Ops folks: for RTL specific deployment info, click [here](#deploying-on-rtl-servers)._**
+
 #### Ruby version
 
 2.4.1  (at this moment; might work with other versions.)
@@ -64,7 +67,35 @@ http://localhost:3000
 
 You should see the start page.
 
-##### On RTL servers
+##### Deploying on RTL servers
+
+*Caveat lector...these instructions are still quite raw, as is the deployment process itself. Suggestions welcome!*
+
+A few important details, but do please read this whole section before you attempt to deploy on RTL servers:
+
+* The actual recipe for a quick and painless deploment may be found [further below](deploying-new-versions-on-rtl-servers). But do read on for the gory details.
+* It is expected that a "release document" has been prepared in advance for any particular release, and a "deployment JIRA" exists as well. Please do check for these before attempting to deploy a new version!
+* Blacklight is deployed under Passenger on RTL servers, and currently expects the deployed code to be in a particular subdirectory in `~blacklight/projects`.  The application also runs under user `blacklight`.
+* The instructions below assume that you have followed the [initial instructions](#initial-setup-for-deployments-on-rtl-servers) (below) to set up the deployment scripts from the `radiance` repo. Once the scripts are set up (copied) the clone of the `radiance` repo can be removed. 
+* However, you should check to ensure that you have the latest versions of these scripts before deploying. Catch-22, sorry!
+* The convention is to deploy into a subdirectory of `~projects` using a name of the form "sYYYYMMDD". This allows us to keep track of the versions that have been deployed and to roll back to an earlier version if necessary.
+* But note that in cases of `production` deployments, all deployments symlink to the same `db` and `log` directories in `/var`. This is an important consideration for db migrations and rollbacks: you may need to undo migrations in the case of a rollback. Consider whether a backup is necessary beforehand.
+* A `production` deployment means to create the production environment, both in the sense of RoR as well as in the sense of the RTL servers. A `development` deployment makes an Ror development deploy and does *not* symlink the `log` and `db` directories. In the case of a `development` deployment, the db migrations are performed, and the both the logs and database are created fresh and clean.
+
+###### Initial setup for deployments on RTL servers
+
+If you haven't already done so, clone the [radiance](https://github.com/cspace-deployment/radiance) repo and set up the helper scripts:
+
+```
+ssh blacklight-prod.ets.berkeley.edu
+
+sudo su - blacklight
+cd ~/projects
+
+# only do this if it hasn't been done already...
+git clone https://github.com/cspace-deployment/radiance.git 
+cp radiance/*.sh .
+```
 
 There are two helper scripts for use in making Dev and Prod
 deployments on RTL servers.
@@ -72,11 +103,6 @@ deployments on RTL servers.
 `deploy.sh` - clones the GitHub repo and configures the specified deployment.
 
 `relink.sh` - switches the symlink to the specified directory.
-
-On RTL servers, it is assumed that a directory `projects` exists in the home directory
-of the user running the application (user `blacklight`).
-
-The RoR code is deployed and configured into this directory.
 
 For initial setup, you'll need to:
 
@@ -96,18 +122,17 @@ jblowe@blacklight-dev:~$ sudo su - blacklight
 
 blacklight@blacklight-dev:~$ printenv | grep SECRET_KEY
 SECRET_KEY_BASE=xxxxxxxxx......xxxxxxx
-
 ```
 
 Then you can deploy and start up the application.
 
-On the RTL servers, you may assume that the two helper scripts have
-been set up in `~/projects` and are ready to use.
+###### Deploying new versions on RTL servers
 
-The convention is to deploy into a subdirectory of `~projects`
-using a name of the form "sYYYYMMDD". This allows us to keep track
-of the versions that have been deployed and to roll back to
-an earlier version if necessary.
+On the RTL servers, you may assume that the two helper scripts have
+been set up in `~/projects` and are ready to use. In theory, only these two scripts are needed
+to do a complete deployment.
+
+HOWEVER, if the deployment you are doing is not a standard, vanilla deployment of a new minor version, you may need to consider performing the steps in the scripts yourself, by hand.
 
 E.g.
 ```
@@ -142,7 +167,6 @@ Here's a recipe for actually deploying a new version on an RTL server:
 1. Sign in to blacklight server (dev or prod)
 1. Stop Apache
 1. sudo to the blacklight user
-1. If you haven't already done so, clone the [radiance](https://github.com/cspace-deployment/radiance) repo and set up the helper scripts
 1. Deploy the new version
 1. Exit the blacklight shell
 1. Start Apache
@@ -158,10 +182,6 @@ sudo apache2ctl stop
 sudo su - blacklight
 cd ~/projects
 
-# only do this if it hasn't been done already...
-git clone https://github.com/cspace-deployment/radiance.git 
-cp radiance/*.sh .
-
 # use the two helper scripts to get and configure the new version
 ./deploy.sh s20190308 production 2.0.1
 ./relink.sh s20190308 pahma production
@@ -170,7 +190,12 @@ exit
 
 sudo apache2ctl start
 exit
+```
+###### Rolling back on RTL servers
 
+In theory, rolling back is merely a matter of changing the symlink back to a previous directory. But careful about database migrations and other possible dependencies.
+
+```
 # to roll back
 
 # stop apache
@@ -178,8 +203,8 @@ cd ~/projects
 # remove symlink
 rm search_pahma
 # remake symlink
-ln -s s20180505 search_pahma
-# start apache
+ln -s s20180305/portal search_pahma
+# now start apache
 ```
 
 ##### Google Analytics and robots.txt
