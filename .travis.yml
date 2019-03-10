@@ -5,3 +5,7 @@ rvm:
 before_install:
  - cd portal
  - gem install bundler
+ - pip install --user codecov
+
+after_success:
+ - codecov --file coverage/lcov.info --disable search
