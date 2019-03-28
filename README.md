@@ -31,7 +31,7 @@ https://github.com/projectblacklight/blacklight/wiki/Quickstart
 
 Uses sqlite3.
 
-The usual "rake db:migrate" options work.
+The usual "`rake db:migrate`" options work.
 
 #### How to run the test suite
 
@@ -39,14 +39,15 @@ Dunno. Just like Blacklight, I think!
 
 #### External services needed
 
-Requires access to the UCB Museum Solr search engines, so you must
-be inside the UCB firewall to run the app.
+Requires access to the UCB Museum Solr search engines, ***so you must
+be inside the UCB firewall to run the app*** or have your own
+Solr server configured!
 
-See portal/config/blacklight.yml for details on pointing to Solr servers.
+See `portal/config/blacklight.yml` for details on pointing to Solr servers.
 
 #### Deployment instructions
 
-##### For local development
+##### For local development, quick start
 
 All source code is in the RoR app directory called "portal".
 
@@ -75,12 +76,13 @@ A few important details, but do please read this whole section before you attemp
 
 * The actual recipe for a quick and painless deploment may be found [further below](#deploying-new-versions-on-rtl-servers). But do read on for the gory details.
 * It is expected that a "release document" has been prepared in advance for any particular release, and a "deployment JIRA" exists as well. Please do check for these before attempting to deploy a new version!
-* Blacklight is deployed under Passenger on RTL servers, and currently expects the deployed code to be in a particular subdirectory in `~blacklight/projects`.  The application also runs under user `blacklight`.
+* This Blacklight app expected to deployed as user `blacklight` under Passenger on RTL servers, and currently expects the deployed code to be in a particular subdirectory in `~blacklight/projects`.  The application also *runs* under user `blacklight`.
 * The instructions below assume that you have followed the [initial instructions](#initial-setup-for-deployments-on-rtl-servers) (below) to set up the deployment scripts from the `radiance` repo. Once the scripts are set up (copied) the clone of the `radiance` repo can be removed. 
 * However, you should check to ensure that you have the latest versions of these scripts before deploying. Catch-22, sorry!
 * The convention is to deploy into a subdirectory of `~projects` using a name of the form "sYYYYMMDD". This allows us to keep track of the versions that have been deployed and to roll back to an earlier version if necessary.
 * But note that in cases of `production` deployments, all deployments symlink to the same `db` and `log` directories in `/var`. This is an important consideration for db migrations and rollbacks: you may need to undo migrations in the case of a rollback. Consider whether a backup is necessary beforehand.
 * A `production` deployment means to create the production environment, both in the sense of RoR as well as in the sense of the RTL servers. A `development` deployment makes an Ror development deploy and does *not* symlink the `log` and `db` directories. In the case of a `development` deployment, the db migrations are performed, and the both the logs and database are created fresh and clean.
+* Hope that's all clear!
 
 ###### Initial setup for deployments on RTL servers
 
@@ -132,29 +134,31 @@ On the RTL servers, you may assume that the two helper scripts have
 been set up in `~/projects` and are ready to use. In theory, only these two scripts are needed
 to do a complete deployment.
 
-HOWEVER, if the deployment you are doing is not a standard, vanilla deployment of a new minor version, you may need to consider performing the steps in the scripts yourself, by hand.
-
-E.g.
+To deploy and build the code from GitHub:
 ```
-./deploy.sh s20190305 production 2.0.0
+./deploy.sh s20190305 production 2.0.3
 ```
 
-which clones the code, and sets up a production deployment.
+This clones the code into `s20190305`, and sets up a production deployment of version 2.0.3.
 
-Then, to actually start using the new deployment:
+To actually start *using* the new deployment, you'll need to
+symlink the directory to the runtime directory and 
+attend to a few other details. This can be done tidily as follows.
+
+First, stop Apache2 (see below)
 
 ```
 ./relink.sh s20190305 pahma production
 ```
 
-... then restart Apache2.
+... then start Apache2 (see below).
 
 NB:
 
 * The "production" option on the `relink.sh` script also symlinks the Rails `db` and `log`
-directories to persistent directories in `/var`. The "development" option leaves those
-directories alone. This should be taken into consideration if migrations
-are actually necessary: the production option does not perform any migrations.
+directories to persistent directories in `/var` and then runs `db:migrate`. The "development" option leaves those
+directories alone in their pristine state. The need for migrations should be taken into consideration when
+planning upgrades.
 
 * You can use `relink.sh` to point Passenger to any existing deployment in `~/projects`.
 This is useful in testing new deployments while keeping old ones around.
@@ -167,6 +171,7 @@ Here's a recipe for actually deploying a new version on an RTL server:
 1. Sign in to blacklight server (dev or prod)
 1. Stop Apache
 1. sudo to the blacklight user
+1. Backup the sqllite3 database
 1. Deploy the new version
 1. Exit the blacklight shell
 1. Start Apache
@@ -182,13 +187,24 @@ sudo apache2ctl stop
 sudo su - blacklight
 cd ~/projects
 
+# make a copy of the database just in case
+cp /var/blacklight-db/search_pahma/* /tmp
+
 # use the two helper scripts to get and configure the new version
-./deploy.sh s20190308 production 2.0.1
+./deploy.sh s20190308 production 2.0.3
 ./relink.sh s20190308 pahma production
  
 exit
 
 sudo apache2ctl start
+
+# check in browser that the app works...
+
+# clean up
+sudo su - blacklight
+rm /tmp/production.sqllite3
+rm ...
+
 exit
 ```
 ###### Rolling back on RTL servers
@@ -206,6 +222,9 @@ rm search_pahma
 ln -s s20180305/portal search_pahma
 # now start apache
 ```
+
+But do consider whether you need to "unmigrate" the database. If so,
+the best way is probably to copy the backup you made on top of what was there...
 
 ##### Google Analytics and robots.txt
 
