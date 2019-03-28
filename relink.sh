@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# nb: this script ONLY works on RTL servers configured the way they are configured!
+# nb: this script ONLY works on servers configured in the specific way
+# that RTL servers are configured!
 # i.e. code and deployment dirs in ~/projects, logs and dbs in /var, etc.
 
 set -e
@@ -11,7 +12,7 @@ if [ $# -ne 3 ]; then
     echo
     echo "    Usage: $0 install_dir link_dir production|development"
     echo
-    echo "    e.g.   $0 s20190305 pahma prod"
+    echo "    e.g.   $0 s20190305 search_pahma production"
     echo
     exit
 fi
@@ -20,30 +21,31 @@ if ! grep -q " $3 " <<< " production development "; then
     echo
     echo "    Usage: $0 install_dir link_dir production|development"
     echo
-    echo "    e.g.   $0 s20190305 pahma production"
+    echo "    e.g.   $0 s20190305 search_pahma production"
     echo
     exit
 fi
 
-RUN_DIR=$1/portal
-if [ ! -d ${RUN_DIR} ] ; then echo "$1 does not exist... exiting" ; exit 1 ; fi
-if [ -d search_$2 -a ! -L search_$2 ] ; then echo "search_$2 exists and is not a symlink ... cowardly refusal to rm it and relink it" ; exit 1 ; fi
-rm search_$2
-ln -s ${RUN_DIR} search_$2
+INSTALL_DIR=$1/portal
+LINK_DIR=$2
+if [ ! -d ${INSTALL_DIR} ] ; then echo "$1 does not exist... exiting" ; exit 1 ; fi
+if [ -d ${LINK_DIR} -a ! -L ${LINK_DIR} ] ; then echo "${LINK_DIR} exists and is not a symlink ... cowardly refusal to rm it and relink it" ; exit 1 ; fi
+rm ${LINK_DIR}
+ln -s ${INSTALL_DIR} ${LINK_DIR}
 if [ "$3" == "production" ]; then
   echo "remaking links to db and log for production deployment"
-  cd ${RUN_DIR}
+  cd ${INSTALL_DIR}
   # link the log dir to the "permanent" log dir
   rm -rf log/
-  ln -s /var/log/blacklight/$2 log
+  ln -s /var/log/blacklight/${LINK_DIR} log
   # link the db directory to the "permanent" db directory
   rm -rf db/
-  ln -s /var/blacklight-db/$2 db
-  # no database migration is done it this case; assumes existing logs and dbs will work...
+  ln -s /var/blacklight-db/${LINK_DIR} db
+  # now we can apply migrations to the newly linked db
+  bin/rails db:migrate RAILS_ENV=production
 else
-  echo "leaving db and log as is for dev deployment"
-  cd ${RUN_DIR}
+  echo "leaving db and log as is for dev deployment (migrations applied by deploy.sh)"
+  cd ${INSTALL_DIR}
   export RAILS_ENV=development
-  rake db:migrate
 fi
 echo relinking and migrating done. now restart apache...
