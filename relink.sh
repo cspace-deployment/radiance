@@ -12,7 +12,7 @@ if [ $# -ne 3 ]; then
     echo
     echo "    Usage: $0 install_dir link_dir production|development"
     echo
-    echo "    e.g.   $0 s20190305 search_pahma production"
+    echo "    e.g.   $0 s20190305 pahma production"
     echo
     exit
 fi
@@ -21,13 +21,13 @@ if ! grep -q " $3 " <<< " production development "; then
     echo
     echo "    Usage: $0 install_dir link_dir production|development"
     echo
-    echo "    e.g.   $0 s20190305 search_pahma production"
+    echo "    e.g.   $0 s20190305 pahma production"
     echo
     exit
 fi
 
 INSTALL_DIR=$1/portal
-LINK_DIR=$2
+LINK_DIR=search_$2
 if [ ! -d ${INSTALL_DIR} ] ; then echo "$1 does not exist... exiting" ; exit 1 ; fi
 if [ -d ${LINK_DIR} -a ! -L ${LINK_DIR} ] ; then echo "${LINK_DIR} exists and is not a symlink ... cowardly refusal to rm it and relink it" ; exit 1 ; fi
 rm ${LINK_DIR}
@@ -37,10 +37,10 @@ if [ "$3" == "production" ]; then
   cd ${INSTALL_DIR}
   # link the log dir to the "permanent" log dir
   rm -rf log/
-  ln -s /var/log/blacklight/${LINK_DIR} log
+  ln -s /var/log/blacklight/$2 log
   # link the db directory to the "permanent" db directory
   rm -rf db/
-  ln -s /var/blacklight-db/${LINK_DIR} db
+  ln -s /var/blacklight-db/$2 db
   # now we can apply migrations to the newly linked db
   bin/rails db:migrate RAILS_ENV=production
 else
