@@ -24,22 +24,25 @@ module Blacklight::Catalog
     def index
       (@response, @document_list) = search_results(params)
 
+      # if the search returned a single document, redirect to the Show display.
+      # (this is mainly for supporting PAHMA ARKs, but it applies to all searches
+      # and so let's call it a feature...)
       if @document_list.size == 1
         redirect_to  :controller => 'catalog', action: 'show', id: @document_list[0][:id]
       else
-          respond_to do |format|
-            format.html { store_preferred_view }
-            format.rss  { render :layout => false }
-            format.atom { render :layout => false }
-            format.json do
-              @presenter = Blacklight::JsonPresenter.new(@response,
-                                                         @document_list,
-                                                         facets_from_request,
-                                                         blacklight_config)
-            end
-            additional_response_formats(format)
-            document_export_formats(format)
+        respond_to do |format|
+          format.html { store_preferred_view }
+          format.rss  { render :layout => false }
+          format.atom { render :layout => false }
+          format.json do
+            @presenter = Blacklight::JsonPresenter.new(@response,
+                                                       @document_list,
+                                                       facets_from_request,
+                                                       blacklight_config)
           end
+          additional_response_formats(format)
+          document_export_formats(format)
+        end
       end
     end
 
