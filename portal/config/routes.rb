@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     concerns :exportable
   end
 
+  get '/*ark_tag/:naan/:ark' => 'catalog#decode_ark', constraints: { ark_tag:'ark:' }
+
   resources :bookmarks do
     concerns :exportable
 

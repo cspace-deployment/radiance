@@ -127,4 +127,21 @@ module ApplicationHelper
     end
   end
 
+  # compute ark from museum number and render as a link
+  def render_ark options={}
+    # encode museum number as ARK ID, e.g. 11-4461.1 -> hm21114461@1, K-3711a-f -> hm210K3711a%2Df
+    options[:value].collect do |musno|
+      ark = 'hm2' + if musno.include? '-'
+        left, right = musno.split('-')
+        left = '1' + left.rjust(2, '0')
+        right = right.rjust(7, '0')
+        CGI.escape(left + right).sub('.','@')
+      else
+        'x' + CGI.escape(musno).sub('.','@')
+      end
+
+      link_to "ark:/21549/" + ark, "https://n2t.net/ark:/21549/" + ark
+    end.join.html_safe
+  end
+
 end

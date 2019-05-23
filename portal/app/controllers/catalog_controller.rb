@@ -3,7 +3,6 @@ class CatalogController < ApplicationController
   include BlacklightAdvancedSearch::Controller
 
   include Blacklight::Catalog
-  include Blacklight::Marc::Catalog
   include BlacklightRangeLimit::ControllerOverride
 
   configure_blacklight do |config|
@@ -305,6 +304,7 @@ class CatalogController < ApplicationController
     # show
     config.add_show_field 'deaccessioned_s', helper_method: 'render_status', label: 'Object status'
     config.add_show_field 'objmusno_s', label: 'Museum number'
+    # we have to use the _txt version as we are already using the _s version above
     config.add_show_field 'objaltnum_ss', label: 'Alternate number'
     config.add_show_field 'objaccno_ss', label: 'Accession number'
     #config.add_show_field 'objname_s', label: 'Object name'
@@ -362,6 +362,9 @@ class CatalogController < ApplicationController
     #config.add_show_field 'd3_csid_ss', helper_method: 'render_x3d_csid', label: '3D'
     config.add_show_field 'd3_md5_ss', helper_method: 'render_x3d_directly', label: '3D'
 
+    # the ark
+    config.add_show_field 'objmusno_txt', helper_method: 'render_ark', label: 'Cite this object'
+
     # facet
     config.add_facet_field 'objname_s', label: 'Object name', limit: true, index_range: true
     config.add_facet_field 'objtype_s', label: 'Object type', limit: true, index_range: true
@@ -414,4 +417,22 @@ class CatalogController < ApplicationController
 
     # gallery
   end
+
+  def decode_ark
+    # decode ARK ID, e.g. hm21114461@1 -> 11-4461.1, hm210K3711a%2Df -> K-3711a-f
+    museum_number = CGI.unescape(params[:ark]).sub('hm2','').sub('@','.')
+    museum_number = if museum_number[0] == 'x'
+        museum_number[1..-1]
+    else
+        left, right = museum_number[1..2], museum_number[3..-1]
+        left = left.gsub(/^0+/, '')
+        right = right.gsub(/^0+/, '')
+        left + '-' + right
+    end
+
+    redirect_to  :controller => 'catalog', action: 'index', search_field: 'objmusno_s', q: museum_number
+    #redirect_to  :controller => 'catalog', action: 'show', id: csid
+
+  end
+
 end
