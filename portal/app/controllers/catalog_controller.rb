@@ -304,6 +304,8 @@ class CatalogController < ApplicationController
     # show
     config.add_show_field 'deaccessioned_s', helper_method: 'render_status', label: 'Object status'
     config.add_show_field 'objmusno_s', label: 'Museum number'
+    # the ark: we have to use the _txt version as we are already using the _s version above
+    config.add_show_field 'objmusno_txt', helper_method: 'render_ark', label: 'Permalink'
     config.add_show_field 'objaltnum_ss', label: 'Alternate number'
     config.add_show_field 'objaccno_ss', label: 'Accession number'
     #config.add_show_field 'objname_s', label: 'Object name'
@@ -361,10 +363,7 @@ class CatalogController < ApplicationController
     #config.add_show_field 'd3_csid_ss', helper_method: 'render_x3d_csid', label: '3D'
     config.add_show_field 'd3_md5_ss', helper_method: 'render_x3d_directly', label: '3D'
 
-    # the ark: we have to use the _txt version as we are already using the _s version above
-    config.add_show_field 'objmusno_txt', helper_method: 'render_ark', label: 'Cite this object'
-
-    # facet
+    # facets
     config.add_facet_field 'objname_s', label: 'Object name', limit: true, index_range: true
     config.add_facet_field 'objtype_s', label: 'Object type', limit: true, index_range: true
     config.add_facet_field 'media_available_ss', label: 'Media available'
