@@ -418,7 +418,7 @@ class CatalogController < ApplicationController
 
   def decode_ark
     # decode ARK ID, e.g. hm21114461@1 -> 11-4461.1, hm210K3711a%2Df -> K-3711a-f
-    museum_number = CGI.unescape(params[:ark]).sub('hm2','').sub('@','.')
+    museum_number = CGI.unescape(params[:ark]).sub('hm2','').sub('@','.').sub('=','-')
     museum_number = if museum_number[0] == 'x'
         museum_number[1..-1]
     else
