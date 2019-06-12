@@ -199,13 +199,13 @@ if __name__ == "__main__":
             else:
                 bl_config[bl_field]["config.add_%s_field '%s', label: '%s'%s" % (bl_field, solr_field, label_field, limit)] = True
 
-     # add two 'constant' fields at end of 'show' display for blobs
-     bl_config['show']["config.add_show_field 'blob_ss', helper_method: 'render_media', label: 'Images'"] = True
-     bl_config['show']["config.add_show_field 'card_ss', helper_method: 'render_media', label: 'Cards'"] = True
+    # add two 'constant' fields at end of 'show' display for blobs
+    bl_config['show']["config.add_show_field 'blob_ss', helper_method: 'render_media', label: 'Images'"] = True
+    bl_config['show']["config.add_show_field 'card_ss', helper_method: 'render_media', label: 'Cards'"] = True
 
 for section in bl_config:
     print('# %s' % section)
-    for c in sorted(bl_config[section]):
+    for c in bl_config[section]:
         print(c)
 
 print('''
