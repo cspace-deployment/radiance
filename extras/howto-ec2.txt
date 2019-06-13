@@ -1,0 +1,38 @@
+# 
+# what i did to install the blacklight demos on ec2
+#
+# first, sign in to the instance, e.g.
+# ssh -i ~/Downloads/rtl-blacklight.pem ubuntu@52.27.150.123
+#
+# upgrade this server
+sudo do-release-upgrade
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt install ruby-god
+sudo gem install bundler
+
+# 1. everything goes into projects/
+mkdir ~/projects
+cd ~/projects/
+# need these two repos
+# 2. current portal configuration lives here
+git clone https://github.com/cspace-deployment/django_example_config.git
+# 3. ucb blacklight customizations.
+git clone https://github.com/cspace-deployment/radiance.git
+cp radiance/*.sh .
+
+#
+# install all ucb demo bl sites
+for t in bampfa botgarden pahma ucjeps cinefiles; do ./radiance/extras/install1.sh $t ; done
+
+# configure them (except pahma, of course, which is already 'configured'
+./radiance/extras/configall.sh
+
+# start god
+god -c radiance/extras/all.god
+# for now, stop all deployments except pahma
+god stop
+got start pahma
+god status
+#
+# now check, e.g. http://52.27.150.123:3001
