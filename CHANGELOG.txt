@@ -1,0 +1,44 @@
+CHANGELOG for the cspace_django_webapps
+
+OK, it is not a *real* change log, but a list of changes resulting from git log
+with some human annotation after the fact.
+
+This is version 2.0.5-rc1
+Thu Jun 13 13:33:15 PDT 2019
+
+c0e536e (HEAD -> master) HMP-99: revised ARK implementation to handle some corner cases
+dc522a8 (origin/master, origin/HEAD) Merge pull request #1 from jblowe/master
+800f7d4 CSW-68: instructions for making BL 'demo' deploys on EC2
+b97786c CSW-68: ruby god file, in case it comes in handy
+fec51b8 CSW-68: use generic page title for BL demos
+f6cd96b CSW-68: generic favicon for demo installs
+9a01c97 CSW-68: helpers scripts for BL demo installs
+124a413 CSW-68: incremental improvements to blacklight 'demo' install
+ff63fe9 CSW-68: improve .gitignore
+f521a97 CSW-68: add a README for the 'demo' deployment process
+48cd675 CSW-68: fix indentation error in customization script
+565cd71 CSW-68: revised Blacklight components for 'demo' portals
+a237eef HMP-99: recover lost characters in museum number; encode hyphen as =
+1dde195 (tag: 2.0.4-rc1, tag: 2.0.4) HMP-94: final (hopefully) revisions based on user feedback
+796cdd5 HMP-94: code cleanup only, and inline doc
+d09c995 HMP-94: initial implementation of ARK-enabled portal
+f3eb59e HMP-85: still a few details in the relink.sh script to handle
+93053bd (tag: 2.0.3) HMP-85: revised deployment scripts to handle db:migrate properly
+6b42737 HMP-85: revise READMES: more about db:migrate
+346f8c5 HMP-84: part 1: update Gemfile.lock based on Gemfile changes
+ec876c9 HMP-84: part 1: update Gemfile for security reasons
+8ef9c3b HMP-79: update Gemfile.lock
+2f4bb24 HMP-79: initial steps to get travis and codecov working together
+9d54cf3 HMP-53: fix typo in README.md
+5e34ff5 HMP-73: incremental improvements to deployment details.
+77acaac HMP-53: point to correctly repo for travis ci
+19fd2c3 (tag: 2.0.2) HMP-53: add .travis.yml and travis badge, in prep for doing CI
+9bd3944 HMP-68: minor revisions to rendering of X3D media
+e650551 (tag: 2.0.1) HMP-53: add a travis.yml file, baby steps towards CI...
+8ffac09 HMP-53: production deployment should not perform db:migrate
+548f7e4 HMP-53: improve deployment documentation
+aad7345 HMP-53: remove a few extraneous lines from Gemfile
+61246ad (tag: 2.0.0) HMP-53: revise documentation
+05c7e06 HMP-53: more documentation and helpers
+6cf209f HMP-63: revised customizations for UCB PAHMA Blacklight Portal
+3b0aeeb Initial commit
