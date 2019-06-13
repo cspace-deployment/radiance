@@ -23,7 +23,7 @@ if [ ! -d "${extra_dir}" ]; then
 fi
 
 # ensure that the code is fresh
-check checkout -- ${extra_dir}/*
+git checkout -- ${extra_dir}/*
 perl -i -pe "s/#TENANT#/${tenant}/g" ${extra_dir}/*
 
 # configure BL using existing Portal config file
@@ -34,6 +34,7 @@ rm bl_config_temp.txt
 # nb: the header logos for all ucb tenants are already in the public static directory
 #     we just need to copy the one for this tenant to the right place.
 cp public/header-logo-${tenant}.png public/header-logo.png
+cp ${extra_dir}/cspace_fav.png app/assets/images/favicon.png
 
 # use the generic header, footer, etc. partials
 cp ${extra_dir}/_header_navbar.html.erb app/views/shared/
@@ -51,7 +52,8 @@ cp ${extra_dir}/_search_form.html.erb app/views/catalog/
 #cp ${extra_dir}/${tenant}_search_form.html.erb app/views/catalog/_search_form.html.erb
 #cp ${extra_dir}/${tenant}_splash.html.erb app/views/shared/_splash.html.erb
 
-# generic helpers, but they do need to be configured per-tenant
+# generic helpers and config, but they do need to be configured per-tenant
 cp ${extra_dir}/application_helper.rb app/helpers
 cp ${extra_dir}/catalog_helper_behavior.rb app/helpers/blacklight
 cp ${extra_dir}/blacklight.yml config
+cp ${extra_dir}/blacklight.en.yml config/locales
