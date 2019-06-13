@@ -129,15 +129,15 @@ module ApplicationHelper
 
   # compute ark from museum number and render as a link
   def render_ark options={}
-    # encode museum number as ARK ID, e.g. 11-4461.1 -> hm21114461@1, K-3711a-f -> hm210K3711a%2Df
+    # encode museum number as ARK ID, e.g. 11-4461.1 -> hm21114461@2E1, K-3711a-f -> hm210K3711a@2Df
     options[:value].collect do |musno|
       ark = 'hm2' + if musno.include? '-'
         left, right = musno.split('-', 2)
         left = '1' + left.rjust(2, '0')
         right = right.rjust(7, '0')
-        CGI.escape(left + right).sub('.','@').sub('-','=')
+        CGI.escape(left + right).gsub('%','@').gsub('.','@2E').gsub('-','@2D')
       else
-        'x' + CGI.escape(musno).sub('.','@')
+        'x' + CGI.escape(musno).gsub('%','@').gsub('.','@2E')
       end
 
       link_to "ark:/21549/" + ark, "https://n2t.net/ark:/21549/" + ark
