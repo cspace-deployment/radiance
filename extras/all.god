@@ -10,7 +10,7 @@
 # TODO: mebbe consider make this whole thing one loop...
 #
 
-RAILS_ROOT = "/home/bitnami/projects/pahma"
+RAILS_ROOT = "/home/bitnami/projects"
 PORT = "3000"
 TENANT = "pahma"
 
@@ -20,11 +20,11 @@ God.watch do |w|
   #w.pid_file = File.join(RAILS_ROOT, "log/rails.pid")
   w.pid_file = "#{RAILS_ROOT}/log/rails.pid"
 
-  w.dir = "#{RAILS_ROOT}"
-  w.log = "#{RAILS_ROOT}/log/god.log"
-  w.start = "passenger start -d -p #{PORT} -b 0.0.0.0 -P #{RAILS_ROOT}/log/rails.pid "
-  #w.stop = "passenger stop -p #{PORT} -b 0.0.0.0 -P #{RAILS_ROOT}/log/rails.pid "
-  #w.restart = "passenger restart -p #{PORT} -b 0.0.0.0 -P #{RAILS_ROOT}/log/rails.pid "
+  w.dir = "#{RAILS_ROOT}/#{TENANT}"
+  w.log = "#{RAILS_ROOT}#{TENANT}/log/god.log"
+  w.start = "passenger start -d -p #{PORT}"
+  #w.stop = "passenger stop -p #{PORT}"
+  #w.restart = "passenger restart -p #{PORT}"
   w.keepalive
   w.interval = 60.seconds
   w.lifecycle do |on|
