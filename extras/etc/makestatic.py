@@ -51,7 +51,7 @@ with open(file, 'r') as f1:
         search, caption, objno, search_field, image = row
         original = image
         musno = ''
-        search_template = f'/?{search_field}={search}&per_page=30&search_field=advanced&view=index'
+        search_template = f'/?f[{search_field}][]={search}&per_page=30&search_field=advanced&view=index'
         # https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/67c7ea97-123f-4f4a-99d5/derivatives/Medium/content
         image = f'https://webapps.cspace.berkeley.edu/{tenant}/imageserver/blobs/{image}/derivatives/Medium/content'
         filled_in = template % (search_template,image,search_template,caption + ' >',search,musno)
