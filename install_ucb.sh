@@ -57,3 +57,10 @@ cp ${extra_dir}/application_helper.rb app/helpers
 cp ${extra_dir}/catalog_helper_behavior.rb app/helpers/blacklight
 cp ${extra_dir}/blacklight.yml config
 cp ${extra_dir}/blacklight.en.yml config/locales
+
+# to make a new splash partial for a tenant.
+# e.g. pick out 15 images to include in 4 x 4 splash partial
+# python ${extra_dir}/etc/pick8.py 4
+# python ${extra_dir}/etc/makestatic.py ${tenant}.static.csv > app/views/shared/_splash.html.erb
+# but here, we will just install the existing splash partial
+cp ${extra_dir}/etc/${tenant}_splash.html.erb app/views/shared/_splash.html.erb
