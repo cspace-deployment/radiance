@@ -428,7 +428,7 @@ class CatalogController < ApplicationController
         left + '-' + right
     end
 
-    redirect_to  :controller => 'catalog', action: 'index', search_field: 'objmusno_s', q: '"' + museum_number + '"'
+    redirect_to  :controller => 'catalog', action: 'index', search_field: 'objmusno_txt', q: '"' + museum_number + '"'
     #redirect_to  :controller => 'catalog', action: 'show', id: csid
 
   end

@@ -135,9 +135,9 @@ module ApplicationHelper
         left, right = musno.split('-', 2)
         left = '1' + left.rjust(2, '0')
         right = right.rjust(7, '0')
-        CGI.escape(left + right).gsub('%','@').gsub('.','@2E').gsub('-','@2D')
+        CGI.escape(left + right).gsub('%','@').gsub('.','@2E').gsub('-','@2D').downcase
       else
-        'x' + CGI.escape(musno).gsub('%','@').gsub('.','@2E')
+        'x' + CGI.escape(musno).gsub('%','@').gsub('.','@2E').downcase
       end
 
       link_to "ark:/21549/" + ark, "https://n2t.net/ark:/21549/" + ark
