@@ -3,11 +3,22 @@ CHANGELOG for the cspace_django_webapps
 OK, it is not a *real* change log, but a list of changes resulting from git log
 with some human annotation after the fact.
 
-This is version 2.0.5-rc1
-Thu Jun 13 13:33:15 PDT 2019
+This is version 2.0.6-rc2
+Wed Jul 17 08:36:18 PDT 2019
 
-c0e536e (HEAD -> master) HMP-99: revised ARK implementation to handle some corner cases
-dc522a8 (origin/master, origin/HEAD) Merge pull request #1 from jblowe/master
+7a6fe6b (HEAD -> master, origin/master) HMP-78: a script to make release tags and change logs for blacklight portals
+2c5a72d (upstream/master) HMP-68: fix typo in landing page for Blacklight demos
+d192bc2 HMP-68: a landing page for the Blacklight demos
+8517256 HMP-68: review botgarden splash page (better images)
+9d5a6d1 HMP-68: revise query syntax for splash page queries
+ac2e1dd Merge branch 'master' of https://github.com/cspace-deployment/radiance
+f771799 HMP-68: helpers to generate tenant-specific splash partials
+190fdc6 CSW-68: deploy tenant-specific 'splash partial' for blacklight demos
+963e0ec CSW-68: update the ruby god file for the demos
+87ea147 (tag: 2.0.6-rc1) HMP-101: support case insensitive ARKs, but promote lower case versions as 'standard'
+d34c5bd (tag: 2.0.5) CSW-68: add a 'change log'
+c0e536e (tag: 2.0.5-rc1) HMP-99: revised ARK implementation to handle some corner cases
+dc522a8 Merge pull request #1 from jblowe/master
 800f7d4 CSW-68: instructions for making BL 'demo' deploys on EC2
 b97786c CSW-68: ruby god file, in case it comes in handy
 fec51b8 CSW-68: use generic page title for BL demos
