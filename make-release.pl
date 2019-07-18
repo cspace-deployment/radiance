@@ -1,21 +1,23 @@
 #!/usr/bin/perl
 #
-# make a blacklight 'radiance' release candidate
-# ./make-release.pl <release> <radiance-directory> "commit comment"
-# e.g. ./make-release.pl 2.0.6 ~/radiance "a few fixes and enhancements"
+# make a release candidate (moderately generic helper form making release tags)
+# ./make-release.pl <release> <directory> "commit comment" --[new|release])
+# e.g.
+# ./make-release.pl 5.1.0 django_example_config "" --release
+# ./make-release.pl 5.1.0 cspace_django_project "a few fixes and enhancements"
 #
 # will look in the existing release candidates (if any) for <release> and make the next one in the series
-# e.g. if the current release candidate is v5.1.0-rc3, this script will make v5.1.0-rc4
+# e.g. if the current release candidate is 5.1.0-rc3, this script will make 5.1.0-rc4
 #
-# nb: if the release does not exist, a new initial release candidate is created if --new is specified
-#     e.g. 2.0.6 does not existing 2.0.6-rc1 is created.
-#     therefore the actual release tag (e.g. 2.1.0) has to be made and pushed by hand
-#     at the end of the development and qa process.
+# nb: if the release does not exist, you must specify either --release or --new.
+#     e.g. 5.1.1 does not exist 5.1.1-rc1 is created.
+#     to make the actual final release tag (e.g. 5.1.1) add --release
+#     to make a new first release candidate (e.g. 5.1.2-rc1) add --new
 
 use strict;
 
 if (scalar @ARGV < 3)  {
-  die "Need three (or four arguments): release directory \"comment (can be empty)\" --new (optional)\n";
+  die "Need three (or four arguments): release directory \"comment (can be empty)\" [--new/release]\n";
 }
 
 my ($RELEASE, $DIRECTORY, $MSG, $NEW) = @ARGV;
@@ -23,9 +25,10 @@ my ($RELEASE, $DIRECTORY, $MSG, $NEW) = @ARGV;
 chdir $DIRECTORY or die("could not change to $DIRECTORY directory");
     
 my @tags = `git tag --list ${RELEASE}-*`;
-if ($#tags < 0 && $NEW ne '--new') {
+if ($#tags < 0 && $NEW ne '--new' & $NEW ne '--release') {
    print "can't find any tags for ${RELEASE}-*\n";
    print "add --new if you want to make a new -rc1 for ${RELEASE}-*\n";
+   print "add --release if you want to make a (release) tag for ${RELEASE}\n";
    exit(1);
 }
 
@@ -47,9 +50,10 @@ if ($version_number) {
     if ($NEW ne '') {
         print "version $version_number already exists and --new was specified\n";
         print "can't make a new version with this value.\n";
-        print "specify a new version number or don't use --new.\n";
+        print "specify a different version number or don't use --new to make a RC.\n";
         exit;
     }
+    $version_number = "$version_number-rc$highest_rc";
 }
 else {
     if ($NEW eq '') {
@@ -58,23 +62,27 @@ else {
         print "$0 $RELEASE $DIRECTORY \"$MSG\" --new\n";
         exit;
     }
+    elsif ($NEW eq '--release') {
+        print "making release tag for $RELEASE\n";
+        $version_number = $RELEASE;
+    }
     else {
         # they specified --new, so make a new rc1 for this new release
         print "making a new 1st release candidate for $RELEASE\n";
         $highest_rc = "1";
         $version_number = $RELEASE;
+        $version_number = "$version_number-rc$highest_rc";
     }
 }
 
-my $version_number = "$version_number-rc$highest_rc";
-my $tag_message = "Release tag for django project $version_number.";
+my $tag_message = "Release tag $version_number.";
 $tag_message .= ' ' . $MSG if $MSG;
 
 print "verifying code is current and using master branch...\n";
 system "git pull -v";
 system "git checkout master";
 print "updating CHANGELOG.txt...\n";
-system "echo 'CHANGELOG for the cspace_django_webapps' > CHANGELOG.txt";
+system "echo 'CHANGELOG for $DIRECTORY' > CHANGELOG.txt";
 system "echo  >> CHANGELOG.txt";
 system "echo 'OK, it is not a *real* change log, but a list of changes resulting from git log' >> CHANGELOG.txt";
 system "echo 'with some human annotation after the fact.' >> CHANGELOG.txt";
