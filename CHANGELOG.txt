@@ -1,13 +1,17 @@
-CHANGELOG for the cspace_django_webapps
+CHANGELOG for radiance
 
 OK, it is not a *real* change log, but a list of changes resulting from git log
 with some human annotation after the fact.
 
-This is version 2.0.6-rc2
-Wed Jul 17 08:36:18 PDT 2019
+This is version 2.0.7
+Wed Oct  2 07:28:15 PDT 2019
 
-7a6fe6b (HEAD -> master, origin/master) HMP-78: a script to make release tags and change logs for blacklight portals
-2c5a72d (upstream/master) HMP-68: fix typo in landing page for Blacklight demos
+7717c35 (HEAD -> master) HMP-114: tweak release script inline documentation
+aad7b81 HMP-114: revise deployment scripts for 'new' blacklight server
+c89b9d6 (origin/master, origin/HEAD) HMP-78: improvements copied to this 'release tag helper script'
+45cb7e0 (tag: 2.0.6-rc2, tag: 2.0.6) revise change log and VERSION file for version 2.0.6-rc2
+7a6fe6b HMP-78: a script to make release tags and change logs for blacklight portals
+2c5a72d HMP-68: fix typo in landing page for Blacklight demos
 d192bc2 HMP-68: a landing page for the Blacklight demos
 8517256 HMP-68: review botgarden splash page (better images)
 9d5a6d1 HMP-68: revise query syntax for splash page queries
