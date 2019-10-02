@@ -3,8 +3,8 @@
 # make a release candidate (moderately generic helper form making release tags)
 # ./make-release.pl <release> <directory> "commit comment" --[new|release])
 # e.g.
-# ./make-release.pl 5.1.0 django_example_config "" --release
-# ./make-release.pl 5.1.0 cspace_django_project "a few fixes and enhancements"
+# ./make-release.pl 5.1.0 radiance "" --release
+# ./make-release.pl 5.1.0 radiance "a few fixes and enhancements"
 #
 # will look in the existing release candidates (if any) for <release> and make the next one in the series
 # e.g. if the current release candidate is 5.1.0-rc3, this script will make 5.1.0-rc4
