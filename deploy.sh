@@ -28,9 +28,16 @@ if [ -d ${RUN_DIR} ] ; then echo "$1 already exists... exiting" ; exit 1 ; fi
 
 git clone ${TAG} https://github.com/cspace-deployment/radiance.git ${RUN_DIR}
 cd ${RUN_DIR}/portal/
-bundle update
-bundle install
-bin/rails db:migrate RAILS_ENV=$2
+gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
+bundle install --deployment
+
+# this seems to be necessary for rails 5.2
+rm -f config/credentials.yml.enc
+rm -f config/master.key
+EDITOR=vi rails credentials:edit
+
+# migrations are applied by relink.sh
+# rails db:migrate RAILS_ENV=$2
 echo "deployed tag ${TAG} to ${RUN_DIR}, environment is $2"
 echo "for deployment on RTL servers, execute:"
 echo "./relink.sh ${RUN_DIR} pahma $2"

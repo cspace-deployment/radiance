@@ -37,15 +37,15 @@ if [ "$3" == "production" ]; then
   cd ${INSTALL_DIR}
   # link the log dir to the "permanent" log dir
   rm -rf log/
-  ln -s /var/log/blacklight/$2 log
+  ln -s /var/cspace/$2/blacklight/log log
   # link the db directory to the "permanent" db directory
   rm -rf db/
-  ln -s /var/blacklight-db/$2 db
+  ln -s /var/cspace/$2/blacklight/db db
   # now we can apply migrations to the newly linked db
-  bin/rails db:migrate RAILS_ENV=production
+  rails db:migrate RAILS_ENV=production
 else
-  echo "leaving db and log as is for dev deployment (migrations applied by deploy.sh)"
+  echo "leaving db and log as is for dev deployment, applying dev migrations"
   cd ${INSTALL_DIR}
-  export RAILS_ENV=development
+  rails db:migrate RAILS_ENV=development
 fi
 echo relinking and migrating done. now restart apache...
