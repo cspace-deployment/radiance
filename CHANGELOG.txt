@@ -3,12 +3,15 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 with some human annotation after the fact.
 
-This is version 2.0.7
-Wed Oct  2 07:28:15 PDT 2019
+This is version 2.0.8-rc1
+Fri Oct 18 05:35:49 PDT 2019
 
-7717c35 (HEAD -> master) HMP-114: tweak release script inline documentation
+ae76070 (HEAD -> master) HMP-109: use 'objmusno_s_lower' as the search field for ARKs
+98bb301 (origin/master, origin/HEAD) CSW-132: add a customized cinefiles controller for the 'demo'
+1b16fa7 (tag: 2.0.7) revise change log and VERSION file for version 2.0.7
+7717c35 HMP-114: tweak release script inline documentation
 aad7b81 HMP-114: revise deployment scripts for 'new' blacklight server
-c89b9d6 (origin/master, origin/HEAD) HMP-78: improvements copied to this 'release tag helper script'
+c89b9d6 HMP-78: improvements copied to this 'release tag helper script'
 45cb7e0 (tag: 2.0.6-rc2, tag: 2.0.6) revise change log and VERSION file for version 2.0.6-rc2
 7a6fe6b HMP-78: a script to make release tags and change logs for blacklight portals
 2c5a72d HMP-68: fix typo in landing page for Blacklight demos
