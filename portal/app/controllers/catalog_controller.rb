@@ -10,7 +10,7 @@ class CatalogController < ApplicationController
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
     # config.advanced_search[:qt] ||= 'advanced'
     config.advanced_search[:url_key] ||= 'advanced'
-    config.advanced_search[:query_parser] ||= 'dismax'
+    config.advanced_search[:query_parser] ||= 'edismax'
     config.advanced_search[:form_solr_parameters] ||= {}
 
 
@@ -229,7 +229,7 @@ class CatalogController < ApplicationController
 
     # search
     [
-      ['objmusno_s', 'Museum number'],
+      ['objmusno_s_lower', 'Museum number'],
       ['objaltnum_ss', 'Alternate number'],
       ['objaccno_ss', 'Accession number'],
       ['objname_txt', 'Object name'],
@@ -258,7 +258,7 @@ class CatalogController < ApplicationController
       config.add_search_field(search_field[0]) do |field|
         field.label = search_field[1]
         #field.solr_parameters = { :'spellcheck.dictionary' => search_field[0] }
-        field.solr_local_parameters = {
+        field.solr_parameters = {
           qf: search_field[0],
           pf: search_field[0]
         }
@@ -417,7 +417,7 @@ class CatalogController < ApplicationController
   end
 
   def decode_ark
-    # decode ARK ID, e.g. hm21114461@2E1 -> 11-4461.1, hm210K3711a@2Df -> K-3711a-f
+    # decode ARK ID, e.g. hm21114461@2E1 -> 11-4461.1, hm210k3711a@2Df -> K-3711a-f
     museum_number = CGI.unescape(params[:ark].gsub('@','%')).sub('hm2','')
     museum_number = if museum_number[0] == 'x'
         museum_number[1..-1]
@@ -428,7 +428,7 @@ class CatalogController < ApplicationController
         left + '-' + right
     end
 
-    redirect_to  :controller => 'catalog', action: 'index', search_field: 'objmusno_txt', q: '"' + museum_number + '"'
+    redirect_to  :controller => 'catalog', action: 'index', search_field: 'objmusno_s_lower', q: '"' + museum_number + '"'
     #redirect_to  :controller => 'catalog', action: 'show', id: csid
 
   end
