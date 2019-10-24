@@ -3,11 +3,13 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 with some human annotation after the fact.
 
-This is version 2.0.8-rc2
-Wed Oct 23 08:52:13 PDT 2019
+This is version 2.0.8-rc3
+Thu Oct 24 12:08:49 PDT 2019
 
-cb1e670 (HEAD -> master) HMP-109: use localhost as default solr server
-e19f4e5 (tag: 2.0.8-rc1, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.8-rc1
+b88e4e2 (HEAD -> master) HMP-114: continue minor improvements to release-making script
+9d1ff10 (tag: 2.0.8-rc2, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.8-rc2
+cb1e670 HMP-109: use localhost as default solr server
+e19f4e5 (tag: 2.0.8-rc1) revise change log and VERSION file for version 2.0.8-rc1
 ae76070 HMP-109: use 'objmusno_s_lower' as the search field for ARKs
 98bb301 CSW-132: add a customized cinefiles controller for the 'demo'
 1b16fa7 (tag: 2.0.7) revise change log and VERSION file for version 2.0.7
