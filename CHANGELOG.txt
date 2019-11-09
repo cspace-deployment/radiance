@@ -3,11 +3,12 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 with some human annotation after the fact.
 
-This is version 2.0.8-rc3
-Thu Oct 24 12:08:49 PDT 2019
+This is version 2.0.8
+Fri Nov  8 16:02:48 PST 2019
 
-b88e4e2 (HEAD -> master) HMP-114: continue minor improvements to release-making script
-9d1ff10 (tag: 2.0.8-rc2, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.8-rc2
+b1eaea9 (HEAD -> master, tag: 2.0.8-rc3, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.8-rc3
+b88e4e2 HMP-114: continue minor improvements to release-making script
+9d1ff10 (tag: 2.0.8-rc2) revise change log and VERSION file for version 2.0.8-rc2
 cb1e670 HMP-109: use localhost as default solr server
 e19f4e5 (tag: 2.0.8-rc1) revise change log and VERSION file for version 2.0.8-rc1
 ae76070 HMP-109: use 'objmusno_s_lower' as the search field for ARKs
