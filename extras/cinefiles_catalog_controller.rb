@@ -74,6 +74,7 @@ class CatalogController < ApplicationController
     # solr field configuration for document/show views
     #{show_title}
     config.show.thumbnail_field = 'blob_ss'
+    config.show.catalogcard_field = 'card_ss'
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
@@ -202,102 +203,85 @@ class CatalogController < ApplicationController
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
 
-
-    # sort
-    config.add_sort_field 'doctitle_s asc', label: 'Doc title'
-    config.add_sort_field 'filmtitle_s asc', label: 'Film title'
-    config.index.title_field =  'doctitle_s'
-    config.show.title_field =  'doctitle_s'
-
 # NB: the following two ends are added by the ucb_bl.py script
 #  end
 #end
 
-
 # facet
-config.add_facet_field 'author_ss', label: 'Document author', limit: true
-config.add_facet_field 'source_s', label: 'Document source', limit: true
+config.add_facet_field 'doctype_s', label: 'Document type', limit: true
 config.add_facet_field 'doclanguage_ss', label: 'Document language', limit: true
-config.add_facet_field 'code_s', label: 'Document code', limit: true
-config.add_facet_field 'docsubject_ss', label: 'Document subject', limit: true
-
-config.add_facet_field 'director_ss', label: 'Film director', limit: true
-config.add_facet_field 'country_ss', label: 'Film country', limit: true
-config.add_facet_field 'filmyear_s', label: 'Film year', limit: true
-config.add_facet_field 'filmlanguage_s', label: 'Film language', limit: true
-config.add_facet_field 'subject_ss', label: 'Film subject', limit: true
-config.add_facet_field 'genre_ss', label: 'Film genre', limit: true
-
-# index
-config.add_index_field 'director_ss', label: 'Film director'
-config.add_index_field 'country_ss', label: 'Film country'
-config.add_index_field 'filmyear_s', label: 'Film year'
-config.add_index_field 'filmlanguage_s', label: 'Film language'
-config.add_index_field 'subject_ss', label: 'Film subject'
-config.add_index_field 'genre_ss', label: 'Film genre'
-# config.add_index_field 'doctitle_s', label: 'Document title'
-config.add_index_field 'source_s', label: 'Document source'
-config.add_index_field 'author_ss', label: 'Document author'
-config.add_index_field 'doclanguage_ss', label: 'Document language'
-config.add_index_field 'pubdate_s', label: 'Document date'
-
+config.add_facet_field 'pubdatescalar_s', label: 'Document publication date', limit: true
+config.add_facet_field 'country_ss', label: 'Film country(ies)', limit: true
+config.add_facet_field 'filmyear_ss', label: 'Film year', limit: true
+config.add_facet_field 'filmlanguage_ss', label: 'Film language(s)', limit: true
+config.add_facet_field 'genre_ss', label: 'Film genre(s)', limit: true
+config.add_facet_field 'film_info_ss', label: 'Associated films', limit: true
 # search
-config.add_search_field 'country_ss', label: 'Film country'
-config.add_search_field 'director_ss', label: 'Film director'
-config.add_search_field 'filmyear_s', label: 'Film year'
-config.add_search_field 'filmlanguage_ss', label: 'Film language'
-config.add_search_field 'subject_ss', label: 'Film subject'
-config.add_search_field 'genre_ss', label: 'Film genre'
-config.add_search_field 'doctitle_s', label: 'Document title'
+config.add_search_field 'doctype_s', label: 'Document type'
 config.add_search_field 'source_s', label: 'Document source'
-config.add_search_field 'author_ss', label: 'Document author'
-config.add_search_field 'doclanguage_s', label: 'Document language'
+config.add_search_field 'author_ss', label: 'Document author(s)'
+config.add_search_field 'doclanguage_ss', label: 'Document language'
 config.add_search_field 'pubdate_s', label: 'Document date'
-
+config.add_search_field 'biblio_s', label: 'Has bibliography'
+config.add_search_field 'bx_info_s', label: 'Has box info'
+config.add_search_field 'cast_cr_s', label: 'Has cast credits'
+config.add_search_field 'costinfo_s', label: 'Has cost info'
+config.add_search_field 'dist_co_s', label: 'Has distribution company'
+config.add_search_field 'filmog_s', label: 'Has filmography'
+config.add_search_field 'illust_s', label: 'Has illustrations'
+config.add_search_field 'prod_co_s', label: 'Has production co'
+config.add_search_field 'tech_cr_s', label: 'Has tech credits'
+config.add_search_field 'director_ss', label: 'Film director'
+config.add_search_field 'title_ss', label: 'Film title variations'
+config.add_search_field 'film_info_ss', label: 'Associated films'
+config.add_search_field 'country_ss', label: 'Film country(ies)'
+config.add_search_field 'filmyear_s', label: 'Film year'
+config.add_search_field 'filmlanguage_ss', label: 'Film language(s)'
+config.add_search_field 'docnamesubject_ss', label: 'Document name subject'
+config.add_search_field 'prodco_ss', label: 'Film production company'
+config.add_search_field 'genre_ss', label: 'Film genre(s)'
 # show
-config.add_show_field 'id', label: 'ID'
-config.add_show_field 'film_name_id_s', label: 'Film name id'
-config.add_show_field 'doc_count_s', label: 'Film doc count'
-config.add_show_field 'filmtitle_s', label: 'Film title'
-config.add_show_field 'country_ss', label: 'Film country'
-config.add_show_field 'filmyear_s', label: 'Film year'
-config.add_show_field 'director_ss', label: 'Film director'
-config.add_show_field 'filmlanguage_ss', label: 'Film language'
-config.add_show_field 'prodco_ss', label: 'Film production company'
-config.add_show_field 'subject_ss', label: 'Film subject'
-config.add_show_field 'genre_ss', label: 'Film genre'
-config.add_show_field 'title_s', label: 'Film title 2'
-config.add_show_field 'prodco_id_s', label: 'Film production company ID'
-config.add_show_field 'updatedat_s', label: 'Updated at'
-# config.add_show_field 'doctitle_s', label: 'Document title'
+config.add_show_field 'author_ss', label: 'Document author(s)'
+config.add_show_field 'source_s', label: 'Document source'
+config.add_show_field 'srcurl_s', label: 'Document Source URL'
+config.add_show_field 'pubdate_s', label: 'Document date'
+config.add_show_field 'doclanguage_ss', label: 'Document language'
 config.add_show_field 'doctype_s', label: 'Document type'
 config.add_show_field 'pages_s', label: 'Document pages'
-config.add_show_field 'pg_info_s', label: 'Document pageinfo'
-config.add_show_field 'source_s', label: 'Document source'
-config.add_show_field 'src_id_s', label: 'Document source ID'
-config.add_show_field 'author_ss', label: 'Document author'
-config.add_show_field 'doc_name_id_s', label: 'Document name ID'
-config.add_show_field 'doclanguage_s', label: 'Document language'
-config.add_show_field 'pubdate_s', label: 'Document date'
-config.add_show_field 'code_s', label: 'Document code'
+config.add_show_field 'docnamesubject_ss', label: 'Document name subject'
 config.add_show_field 'biblio_s', label: 'Has bibliography'
 config.add_show_field 'bx_info_s', label: 'Has box info'
 config.add_show_field 'cast_cr_s', label: 'Has cast credits'
 config.add_show_field 'costinfo_s', label: 'Has cost info'
-config.add_show_field 'dist_co_s', label: 'Has dstribution company'
+config.add_show_field 'dist_co_s', label: 'Has distribution company'
 config.add_show_field 'filmog_s', label: 'Has filmography'
 config.add_show_field 'illust_s', label: 'Has illustrations'
-config.add_show_field 'prod_co_ss', label: 'Has production co'
+config.add_show_field 'prod_co_s', label: 'Has production co'
 config.add_show_field 'tech_cr_s', label: 'Has tech credits'
-config.add_show_field 'docurl_s', label: 'Document URL'
-config.add_show_field 'pubdatescalar_s', label: 'Document publication date'
-config.add_show_field 'latepubdatescalar_s', label: 'Document late pub date'
-config.add_show_field 'srcurl_s', label: 'Document Source URL'
-config.add_show_field 'docsubject_ss', label: 'Document subject'
-config.add_show_field 'docnamesubject_s', label: 'Document name subject'
+config.add_show_field 'film_info_ss', helper_method: 'render_multiline', label: 'Associated films'
+config.add_show_field 'title_ss', label: 'Film title variations'
+config.add_show_field 'director_ss', label: 'Film director'
+config.add_show_field 'country_ss', label: 'Film country(ies)'
+config.add_show_field 'filmlanguage_ss', label: 'Film language(s)'
+config.add_show_field 'prodco_ss', label: 'Film production company'
+config.add_show_field 'genre_ss', label: 'Film genre(s)'
+config.add_show_field 'subject_ss', label: 'Film subject(s)'
 config.add_show_field 'blob_ss', helper_method: 'render_media', label: 'Images'
 config.add_show_field 'card_ss', helper_method: 'render_media', label: 'Cards'
-
+config.add_show_field 'pdf_ss', helper_method: 'render_pdf', label: 'PDFs'
+# gallery
+# index
+config.add_index_field 'author_ss', label: 'Document author(s)'
+config.add_index_field 'pubdate_s', label: 'Document date'
+config.add_index_field 'source_s', label: 'Document source'
+config.add_index_field 'doclanguage_ss', label: 'Document language'
+config.add_index_field 'pages_s', label: 'Document pages'
+config.add_index_field 'pg_info_s', label: 'Document pageinfo'
+config.add_index_field 'film_info_ss', helper_method: 'render_multiline', label: 'Associated films'
+# sort
+config.index.title_field =  'doctitle_ss'
+config.show.title_field =  'doctitle_ss'
+config.add_sort_field 'doctitle_ss asc', label: 'Document title'
 
   end
 end

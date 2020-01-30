@@ -10,6 +10,31 @@ module ApplicationHelper
       end.join(', ').html_safe
   end
 
+  def render_multiline options={}
+    # render an array of values as a list
+    content_tag(:div) do
+      content_tag(:ul) do
+        options[:value].collect do |array_element|
+          content_tag(:li, array_element)
+        end.join.html_safe
+      end
+    end
+  end
+
+  def render_pdf options={}
+    # render a pdf using html5 pdf viewer
+    content_tag(:div) do
+      options[:value].collect do |pdf_csid|
+         content_tag(:object, '',
+           data: "https://webapps-dev.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{pdf_csid}/content",
+           #data: "http://localhost:8000/imageserver/blobs/#{pdf_csid}/content",
+           style: 'padding: 3px;', height: '800px', width: '600px',
+           class: 'hrefclass')
+      end.join.html_safe
+    end
+  end
+
+
   def render_media options={}
     # return a list of cards or images
     content_tag(:div) do
