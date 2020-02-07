@@ -21,6 +21,11 @@ module ApplicationHelper
     end
   end
 
+  def render_restricted_pdf options={}
+    # render a pdf using html5 pdf viewer
+    render :partial => '/shared/pdfs'
+  end
+
   def render_pdf options={}
     # render a pdf using html5 pdf viewer
     content_tag(:div) do
@@ -33,7 +38,6 @@ module ApplicationHelper
       end.join.html_safe
     end
   end
-
 
   def render_media options={}
     # return a list of cards or images
