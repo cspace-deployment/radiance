@@ -39,9 +39,9 @@ Dunno. Just like Blacklight, I think!
 
 #### External services needed
 
-Requires access to the UCB Museum Solr search engines, ***so you must
-be inside the UCB firewall to run the app*** or have your own
-Solr server configured!
+Requires access to the UCB Museum Solr search
+engines, **so you must be inside the UCB firewall to run the app**
+or have your own Solr server configured!
 
 See `portal/config/blacklight.yml` for details on pointing to Solr servers.
 
@@ -108,9 +108,8 @@ deployments on RTL servers.
 
 For initial setup, you'll need to:
 
-* Have Ruby 2.4.1 installed.
+* Have Ruby 2.5.1 or higher installed.
 * Have Apache configured appropriately (e.g. Passenger, etc.)
-* Have a `SECRET_KEY_BASE` environment variable set (see the Blacklight docs for details).
 
 E.g.
 
@@ -122,8 +121,8 @@ $ ssh blacklight-dev.ets.berkeley.edu
 Last login: Tue Mar  5 10:54:19 2019 from 128.32.202.5
 jblowe@blacklight-dev:~$ sudo su - blacklight
 
-blacklight@blacklight-dev:~$ printenv | grep SECRET_KEY
-SECRET_KEY_BASE=xxxxxxxxx......xxxxxxx
+ruby -v
+ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]
 ```
 
 Then you can deploy and start up the application.
@@ -136,10 +135,10 @@ to do a complete deployment.
 
 To deploy and build the code from GitHub:
 ```
-./deploy.sh s20190305 production 2.0.3
+./deploy.sh 20190305 production 2.0.3
 ```
 
-This clones the code into `s20190305`, and sets up a production deployment of version 2.0.3.
+This clones the code into `20190305`, and sets up a production deployment of version 2.0.3.
 
 To actually start *using* the new deployment, you'll need to
 symlink the directory to the runtime directory and 
@@ -148,7 +147,7 @@ attend to a few other details. This can be done tidily as follows.
 First, stop Apache2 (see below)
 
 ```
-./relink.sh s20190305 pahma production
+./relink.sh 20190305 pahma production
 ```
 
 ... then start Apache2 (see below).
@@ -191,8 +190,8 @@ cd ~/projects
 cp /var/blacklight-db/search_pahma/* /tmp
 
 # use the two helper scripts to get and configure the new version
-./deploy.sh s20190308 production 2.0.3
-./relink.sh s20190308 pahma production
+./deploy.sh 20190308 production 2.0.3
+./relink.sh 20190308 pahma production
  
 exit
 
@@ -219,7 +218,7 @@ cd ~/projects
 # remove symlink
 rm search_pahma
 # remake symlink
-ln -s s20180305/portal search_pahma
+ln -s 20180305/portal search_pahma
 # now start apache
 ```
 
@@ -238,7 +237,7 @@ and
 
 Yes, it is a bit complicated to get UA working in a Rails 5 app!
 
-By default, `public/robots.txt` block _all_ crawlers. For deployments where you want to admit
+By default, `public/robots.txt` blocks _all_ crawlers. For deployments where you want to admit
 crawlers (e.g. production deployments) you may wish to change this. See, e.g.:
 
 https://issues.collectionspace.org/browse/DJAN-98
