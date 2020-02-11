@@ -271,8 +271,8 @@ config.add_show_field 'filmlanguage_ss', label: 'Film language(s)'
 config.add_show_field 'prodco_ss', label: 'Film production company'
 config.add_show_field 'genre_ss', label: 'Film genre(s)'
 config.add_show_field 'subject_ss', helper_method: 'render_multiline', label: 'Film subject(s)'
-config.add_show_field 'blob_ss', helper_method: 'render_media', label: 'Images'
-config.add_show_field 'card_ss', helper_method: 'render_media', label: 'Cards'
+# config.add_show_field 'blob_ss', helper_method: 'render_media', label: 'Images'
+# config.add_show_field 'card_ss', helper_method: 'render_media', label: 'Cards'
 config.add_show_field 'pdf_ss', helper_method: 'render_restricted_pdf', label: 'PDFs'
 # gallery
 # index
