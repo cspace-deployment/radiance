@@ -8,7 +8,7 @@ else
     echo
     echo "    Usage: $0 install_dir production|development <optional-version>"
     echo
-    echo "    e.g.   $0 s20190305 production 2.0.3"
+    echo "    e.g.   $0 20190305 production 2.0.3"
     echo
     exit
 fi
@@ -17,7 +17,7 @@ if ! grep -q " $2 " <<< " production development "; then
     echo
     echo "    Usage: $0 install_dir production|development <optional-version>"
     echo
-    echo "    e.g.   $0 s20190305 production 2.0.3"
+    echo "    e.g.   $0 20190305 production 2.0.3"
     echo
     exit
 fi
@@ -34,7 +34,7 @@ bundle install --deployment
 # this seems to be necessary for rails 5.2
 rm -f config/credentials.yml.enc
 rm -f config/master.key
-EDITOR=vi rails credentials:edit
+# EDITOR=vi rails credentials:edit
 
 # migrations are applied by relink.sh
 # rails db:migrate RAILS_ENV=$2

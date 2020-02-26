@@ -12,7 +12,7 @@ if [ $# -ne 3 ]; then
     echo
     echo "    Usage: $0 install_dir link_dir production|development"
     echo
-    echo "    e.g.   $0 s20190305 pahma production"
+    echo "    e.g.   $0 20190305 pahma production"
     echo
     exit
 fi
@@ -21,7 +21,7 @@ if ! grep -q " $3 " <<< " production development "; then
     echo
     echo "    Usage: $0 install_dir link_dir production|development"
     echo
-    echo "    e.g.   $0 s20190305 pahma production"
+    echo "    e.g.   $0 20190305 pahma production"
     echo
     exit
 fi
