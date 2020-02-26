@@ -3,12 +3,14 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 with some human annotation after the fact.
 
-This is version 2.0.9-rc1
-Wed Feb 26 09:32:39 PST 2020
+This is version 2.0.9-rc2
+Wed Feb 26 11:03:41 PST 2020
 
-e4d4a0f (HEAD -> master) NOJIRA: recommended security updates and a deployment tweak only
+35fb4cf (HEAD -> master) NOJIRA: update README.md, revert 'credentials edit' deployment tweak only
+6ec2bcc (tag: 2.0.9-rc1, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.9-rc1
+e4d4a0f NOJIRA: recommended security updates and a deployment tweak only
 0be8480 Merge branch 'master' of https://github.com/cspace-deployment/radiance
-d985f8a (origin/master, origin/HEAD) Merge pull request #5 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.10.8
+d985f8a Merge pull request #5 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.10.8
 c39d605 Bump nokogiri from 1.10.4 to 1.10.8 in /portal
 4f1a743 CSW-228: do not show images in CineFile BL full display
 3b54c2f CSW-228: modernize Blacklight@UCB README.md
