@@ -3,10 +3,26 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 with some human annotation after the fact.
 
-This is version 2.0.8
-Fri Nov  8 16:02:48 PST 2019
+This is version 2.0.9-rc1
+Wed Feb 26 09:32:39 PST 2020
 
-b1eaea9 (HEAD -> master, tag: 2.0.8-rc3, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.8-rc3
+e4d4a0f (HEAD -> master) NOJIRA: recommended security updates and a deployment tweak only
+0be8480 Merge branch 'master' of https://github.com/cspace-deployment/radiance
+d985f8a (origin/master, origin/HEAD) Merge pull request #5 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.10.8
+c39d605 Bump nokogiri from 1.10.4 to 1.10.8 in /portal
+4f1a743 CSW-228: do not show images in CineFile BL full display
+3b54c2f CSW-228: modernize Blacklight@UCB README.md
+8fe02e3 Merge pull request #3 from cspace-deployment/dependabot/bundler/portal/rack-2.1.2
+cc66a1d Bump rack from 2.0.7 to 2.1.2 in /portal
+9b9020a Merge pull request #2 from cspace-deployment/dependabot/bundler/portal/loofah-2.4.0
+fe00363 Merge pull request #4 from cspace-deployment/dependabot/bundler/portal/puma-3.12.2
+041bd50 Bump puma from 3.12.1 to 3.12.2 in /portal
+80b42ce Bump loofah from 2.2.3 to 2.4.0 in /portal
+450e99c CSW-227: revisions to CineFiles BL demo
+d8fea5d CSW-229: revise config for CineFiles BL demo
+918a7d3 CSW-226: revisions to CineFiles demo to support revised Solr core
+794893c (tag: 2.0.8) revise change log and VERSION file for version 2.0.8
+b1eaea9 (tag: 2.0.8-rc3) revise change log and VERSION file for version 2.0.8-rc3
 b88e4e2 HMP-114: continue minor improvements to release-making script
 9d1ff10 (tag: 2.0.8-rc2) revise change log and VERSION file for version 2.0.8-rc2
 cb1e670 HMP-109: use localhost as default solr server
