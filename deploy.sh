@@ -34,7 +34,7 @@ bundle install --deployment
 # this seems to be necessary for rails 5.2
 rm -f config/credentials.yml.enc
 rm -f config/master.key
-# EDITOR=vi rails credentials:edit
+EDITOR=vi rails credentials:edit
 
 # migrations are applied by relink.sh
 # rails db:migrate RAILS_ENV=$2

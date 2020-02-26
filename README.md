@@ -13,9 +13,19 @@ http://projectblacklight.org/
 
 **_Ops folks: for RTL specific deployment info, click [here](#deploying-on-rtl-servers)._**
 
-#### Ruby version
+#### Ruby and Rails versions
 
-2.4.1  (at this moment; might work with other versions.)
+Ruby 2.5.1
+Rails 5.2
+
+To check:
+
+```bash
+blacklight@blacklight-dev:~/projects/20200226/portal$ ruby -v
+ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]
+blacklight@blacklight-dev:~/projects/20200226/portal$ rails -v
+Rails 5.2.2.1
+```
 
 #### System dependencies and configuration
 
@@ -67,6 +77,14 @@ Then visit:
 http://localhost:3000
 
 You should see the start page.
+
+NB: the Solr resource by default is the pahma-public Solr collection on Dev:
+
+https://webapps-dev.cspace.berkeley.edu/solr/pahma-public/select
+
+_To access this service, your application must be running within the UCB firewall,
+and in fact normally via the "Full" VPN. If you have Solr installed
+locally (and eventually, you should!) configure it in config/blacklight.yml._
 
 ##### Deploying on RTL servers
 
@@ -127,18 +145,18 @@ ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]
 
 Then you can deploy and start up the application.
 
-###### Deploying new versions on RTL servers
+###### Updating versions on RTL servers
 
 On the RTL servers, you may assume that the two helper scripts have
 been set up in `~/projects` and are ready to use. In theory, only these two scripts are needed
-to do a complete deployment.
+to do a complete deployment/update.
 
 To deploy and build the code from GitHub:
 ```
-./deploy.sh 20190305 production 2.0.3
+./deploy.sh 20200226 production 2.0.9
 ```
 
-This clones the code into `20190305`, and sets up a production deployment of version 2.0.3.
+This clones the code into `20200226`, and sets up a production deployment of version 2.0.9.
 
 To actually start *using* the new deployment, you'll need to
 symlink the directory to the runtime directory and 
@@ -147,14 +165,22 @@ attend to a few other details. This can be done tidily as follows.
 First, stop Apache2 (see below)
 
 ```
-./relink.sh 20190305 pahma production
+./relink.sh 20200226 pahma production
 ```
 
 ... then start Apache2 (see below).
 
 NB:
 
-* The "production" option on the `relink.sh` script also symlinks the Rails `db` and `log`
+* The relink script trivially 'edits' the Rails credentials as required by the
+new Rails 5.2 conventions (google e.g. "rails credentials:edit" to see what
+the fuss is about). It uses `vi` and all one needs to do when one is
+dumped into the editor is "`:q`" -- i.e. quit without saving -- and the right
+thing will happen. I could not figure out how to make this happen without a manual
+editing step. Perhaps a mightier Rails wizard than me will figure this
+out someday.
+
+* The "production" option on the `relink.sh` script symlinks the Rails `db` and `log`
 directories to persistent directories in `/var` and then runs `db:migrate`. The "development" option leaves those
 directories alone in their pristine state. The need for migrations should be taken into consideration when
 planning upgrades.
@@ -162,7 +188,7 @@ planning upgrades.
 * You can use `relink.sh` to point Passenger to any existing deployment in `~/projects`.
 This is useful in testing new deployments while keeping old ones around.
 
-* Both of these script make assumptions about the RTL servers
+* Both of these script make assumptions about the RTL Ubuntu servers
 in use...!
 
 Here's a recipe for actually deploying a new version on an RTL server:
@@ -190,7 +216,7 @@ cd ~/projects
 cp /var/blacklight-db/search_pahma/* /tmp
 
 # use the two helper scripts to get and configure the new version
-./deploy.sh 20190308 production 2.0.3
+./deploy.sh 20190308 production 2.0.9
 ./relink.sh 20190308 pahma production
  
 exit
