@@ -211,6 +211,7 @@ class CatalogController < ApplicationController
 config.add_facet_field 'doctype_s', label: 'Document type', limit: true
 config.add_facet_field 'doclanguage_ss', label: 'Document language', limit: true
 config.add_facet_field 'pubdatescalar_s', label: 'Document publication date', limit: true
+
 config.add_facet_field 'author_ss', label: 'Document Authors', limit: true
 config.add_facet_field 'director_ss', label: 'Directors', limit: true
 config.add_facet_field 'has_ss', label: 'Document contents', limit: true
@@ -219,6 +220,15 @@ config.add_facet_field 'filmyear_ss', label: 'Film year', limit: true
 config.add_facet_field 'filmlanguage_ss', label: 'Film language(s)', limit: true
 config.add_facet_field 'genre_ss', label: 'Film genre(s)', limit: true
 config.add_facet_field 'film_info_ss', label: 'Associated films', limit: true
+
+config.add_facet_field 'film_title_ss', label: 'Film title', limit: true
+config.add_facet_field 'film_country_ss', label: 'Film country(ies)', limit: true
+config.add_facet_field 'film_year_ss', label: 'Film year', limit: true
+config.add_facet_field 'film_director_ss', label: 'Film director', limit: true
+config.add_facet_field 'film_language_ss', label: 'Film language(s)', limit: true
+config.add_facet_field 'film_prodco_ss', label: 'Film production company', limit: true
+config.add_facet_field 'film_subject_ss', label: 'Film subject(s)', limit: true
+config.add_facet_field 'film_genre_ss', label: 'Film genre(s)', limit: true
 # search
 config.add_search_field 'doctype_s', label: 'Document type'
 config.add_search_field 'source_s', label: 'Document source'
@@ -252,6 +262,7 @@ config.add_show_field 'doclanguage_ss', label: 'Document language'
 config.add_show_field 'doctype_s', label: 'Document type'
 config.add_show_field 'pages_s', label: 'Document pages'
 config.add_show_field 'docnamesubject_ss', label: 'Document name subject'
+
 config.add_show_field 'has_ss', label: 'Document contains'
 config.add_show_field 'film_info_ss', helper_method: 'render_multiline', label: 'Associated films'
 # config.add_show_field 'biblio_s', label: 'Has bibliography'
@@ -266,24 +277,44 @@ config.add_show_field 'film_info_ss', helper_method: 'render_multiline', label: 
 # config.add_show_field 'film_info_ss', helper_method: 'render_multiline', label: 'Associated films'
 # config.add_show_field 'title_ss', label: 'Film title variations'
 # config.add_show_field 'director_ss', label: 'Film director'
+
+config.add_show_field 'filmyear_s', label: 'Film year'
 config.add_show_field 'country_ss', label: 'Film country(ies)'
 config.add_show_field 'filmlanguage_ss', label: 'Film language(s)'
 config.add_show_field 'prodco_ss', label: 'Film production company'
 config.add_show_field 'genre_ss', label: 'Film genre(s)'
+
 config.add_show_field 'subject_ss', helper_method: 'render_multiline', label: 'Film subject(s)'
-# config.add_show_field 'blob_ss', helper_method: 'render_media', label: 'Images'
+config.add_show_field 'blob_ss', helper_method: 'render_media', label: 'Images'
 # config.add_show_field 'card_ss', helper_method: 'render_media', label: 'Cards'
 config.add_show_field 'pdf_ss', helper_method: 'render_restricted_pdf', label: 'PDFs'
+
+config.add_show_field 'film_title_ss', label: 'Film title variations'
+config.add_show_field 'film_director_ss', label: 'Film director'
+config.add_show_field 'film_year_ss', label: 'Film year'
+config.add_show_field 'film_country_ss', label: 'Film country(ies)'
+config.add_show_field 'film_language_ss', label: 'Film language(s)'
+config.add_show_field 'film_prodco_ss', label: 'Film production company'
+config.add_show_field 'film_genre_ss', label: 'Film genre(s)'
+config.add_show_field 'film_subject_ss', label: 'Film subject(s)'
+config.add_show_field 'film_doc_count_s', label: 'Film doc count'
 # gallery
 # index
 config.add_index_field 'author_ss', label: 'Document author(s)'
 config.add_index_field 'pubdate_s', label: 'Document date'
 config.add_index_field 'source_s', label: 'Document source'
 config.add_index_field 'doclanguage_ss', label: 'Document language'
+
 config.add_index_field 'has_ss', label: 'Document contains'
 config.add_index_field 'pages_s', label: 'Document pages'
 config.add_index_field 'pg_info_s', label: 'Document pageinfo'
 config.add_index_field 'film_info_ss', helper_method: 'render_multiline', label: 'Associated films'
+
+config.add_index_field 'filmyear_s', label: 'Film year'
+config.add_index_field 'film_title_ss', label: 'Film title'
+config.add_index_field 'film_director_ss', label: 'Film director'
+config.add_index_field 'film_country_ss', label: 'Film country(ies)'
+config.add_index_field 'film_year_ss', label: 'Film year'
 # sort
 config.index.title_field =  'doctitle_ss'
 config.show.title_field =  'doctitle_ss'
