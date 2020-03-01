@@ -1,51 +1,93 @@
-<style>
-.grid {padding: 12px; }
-.splash_td {padding: 12px; background-color: light-gray; width: 230px; vertical-align: top;}
-.splash_img {max-width:280px; padding: 0px 4px 4px 0px; }
-.fr {float: right;}
-.thumb {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    margin: 2px;
-    background-position: center center;
-    background-size: cover;
-}
-</style>
-<table>
-<tr class="grid">
-<td class="splash_td">
-<h4 class='section-heading'>Explore the CineFiles collection</h4>
-<p style="text-align: justify;">
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-</p>
-</td>
-<td class="splash_td">
-<div style="height: 200px; width: 270px; background-color: lightgray;"><br><h2>Your stuff here</h2></div>
-</td>
-<td class="splash_td">
-<div style="height: 200px; width: 270px; background-color: lightgray;"><br><h2>Your stuff here</h2></div>
-</td>
-</tr>
-<tr class="grid">
-<td class="splash_td">
-<div style="height: 200px; width: 270px; background-color: lightgray;"><br><h2>Your stuff here</h2></div>
-</td>
-<td class="splash_td">
-<div style="height: 200px; width: 270px; background-color: lightgray;"><br><h2>Your stuff here</h2></div>
-</td>
-<td class="splash_td">
-<div style="height: 200px; width: 270px; background-color: lightgray;"><br><h2>Your stuff here</h2></div>
-</td>
-<tr class="grid">
-<td class="splash_td">
-<div style="height: 200px; width: 270px; background-color: lightgray;"><br><h2>Your stuff here</h2></div>
-</td>
-<td class="splash_td">
-<div style="height: 200px; width: 270px; background-color: lightgray;"><br><h2>Your stuff here</h2></div>
-</td>
-<td class="splash_td">
-<div style="height: 200px; width: 270px; background-color: lightgray;"><br><h2>Your stuff here</h2></div>
-</td>
-</tr>
-</table>
+<link rel="stylesheet" href="normalize.min.css">
+<link rel="stylesheet" href="tiles.css">
+
+<div class="main-container">
+    <div class="main clearfix">
+        <article>
+            <section id="examples" class="showcase wrapper">
+                <div class="isotope-container">
+
+                    <div class="isotope-item">
+                        <h4 class='section-heading'>Explore the CineFiles collection</h4>
+                        <p style="text-align: justify;">
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto beatae vitae dicta sunt explicabo.
+                        </p>
+                    </div>
+
+                    <div class="isotope-item" ontouchstart="this.classList.toggle(&#39;hover&#39;);">
+                        <div class="flipper">
+                            <div class="front">
+                                <img style="max-height: 300px" src="4806.c.jpeg">
+                                <p>Citizen Kane</p>
+                            </div>
+                            <div class="back">
+                                <p><strong><a href="4806">Citizen Kane</a></strong></p>
+                                <p class="desc">Program for Orson Welles' <i>Citizen Kane</i>, produced by RKO Pictures.</p>
+                                <p><a href="4806" class="button-primary-brand">Learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="isotope-item" ontouchstart="this.classList.toggle(&#39;hover&#39;);">
+                        <div class="flipper">
+                            <div class="front">
+                                <img style="max-height: 300px" src="49307.c.jpeg">
+                                <p>Monsoon Wedding</p>
+                            </div>
+                            <div class="back">
+                                <p><strong><a href="49307">Monsoon Wedding</a></strong></p>
+                                <p class="desc"><b><i>Monsoon Wedding</i></b><br/> Source: <b>Orfeo Films International</b></p>
+                                <p><a href="49307" class="button-primary-brand">Learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="isotope-item" ontouchstart="this.classList.toggle(&#39;hover&#39;);">
+                        <div class="flipper">
+                            <div class="front">
+                                <img style="max-height: 300px" src="28087.c.jpeg">
+                                <p>The River</p>
+                            </div>
+                            <div class="back">
+                                <p><strong><a href="28087">The River</a></strong></p>
+                                <p class="desc"><b><i>The River</i></b><br/> Source: <b>United Artists Corporation</b></p>
+                                <p><a href="28087" class="button-primary-brand">Learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="isotope-item" ontouchstart="this.classList.toggle(&#39;hover&#39;);">
+                        <div class="flipper">
+                            <div class="front">
+                                <img style="max-height: 300px" src="29146.c.jpeg">
+                                <p>Star wars spectacular</p>
+                            </div>
+                            <div class="back">
+                                <p><strong><a href="29146">Star wars spectacular</a></strong></p>
+                                <p class="desc"><b><i>Star wars spectacular</i></b><br/> Source: <b>Famous Monsters of Filmland</b>, c1977</p>
+                                <p><a href="29146" class="button-primary-brand">Learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="isotope-item" ontouchstart="this.classList.toggle(&#39;hover&#39;);">
+                        <div class="flipper">
+                            <div class="front">
+                                <img style="max-height: 300px" src="35395.c.jpeg">
+                                <p>Singin' in the rain</p>
+                            </div>
+                            <div class="back">
+                                <p><strong><a href="35395">Singin' in the rain</a></strong></p>
+                                <p class="desc"><b><i>Singin' in the rain</i></b><br/> Source:<b>Metro-Goldwyn-Mayer</b>, c1952</p>
+                                <p><a href="35395" class="button-primary-brand">Learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </article>
+    </div> <!-- #main -->
+</div> <!-- #main-container -->
