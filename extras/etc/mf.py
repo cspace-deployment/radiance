@@ -10,7 +10,7 @@ template = """
         <div class="back">
             <p><strong><a href="#url#">#title#</a></strong></p>
             <p class="desc">#description#</p>
-            <p><a href="#url#" class="button-primary-brand">Learn more</a></p>
+            <p><a href="#url#" class="btn btn-primary">Learn more</a></p>
         </div>
     </div>
 </div>"""
@@ -31,7 +31,7 @@ featured = [
 for f in featured:
     x = deepcopy(template)
     docid, c, jpeg = f['src'].split('.')
-    x = x.replace('#url#', f'{docid}')
+    x = x.replace('#url#', f'/catalog/{docid}')
     x = x.replace('#description#', f['blurb'])
     x = x.replace('#title#', f['title'])
     x = x.replace('#img#', f['src'])
