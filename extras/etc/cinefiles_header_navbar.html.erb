@@ -1,21 +1,22 @@
-<div id="header-navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">
+<div id="header-navbar" class="navbar navbar-inverse navbar-static-top" role="navigation" style="background: gray">
   <div class="<%= container_classes %>">
-    <div class="navbar-header">
-    <button type="button" class="navbar-toggle btn collapsed" data-toggle="collapse" data-target="#user-util-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <h4>
-      <a href="/"><img style="margin-left: -24px; margin-top:-8px; height:60px;" src="/header-logo-cinefiles-stripes.png"></a>
-      <a style="white-space: nowrap; color: black; text-decoration: none;" href="/"></a>
-    </h4>
-    <!-- span size="small">University of California  Berkeley</span -->
-    </div>
-
-    <div class="collapse navbar-collapse" id="user-util-collapse">
-      <%= render :partial=>'/user_util_links' %>
+      <div class="row">
+        <div class="col-sm-1">
+            <a href="/"><img style="height:100px;" src="/header-logo-cinefiles-stripes.png"></a>
+        </div>
+        <div class="col-sm-1">
+          <button type="button" class="navbar-toggle btn collapsed" data-toggle="collapse" data-target="#user-util-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="col-sm-1">
+          <div class="collapse navbar-collapse" id="user-util-collapse">
+            <%= render :partial=>'/user_util_links' %>
+          </div>
+        </div>
     </div>
   </div>
 </div>
