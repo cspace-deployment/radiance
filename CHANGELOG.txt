@@ -3,11 +3,27 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 with some human annotation after the fact.
 
-This is version 2.0.9-rc2
-Wed Feb 26 11:03:41 PST 2020
+This is version 2.0.9-rc3
+Fri Mar  6 08:27:50 PST 2020
 
-35fb4cf (HEAD -> master) NOJIRA: update README.md, revert 'credentials edit' deployment tweak only
-6ec2bcc (tag: 2.0.9-rc1, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.9-rc1
+f36df27 (HEAD -> master) Merge branch 'master' of https://github.com/cspace-deployment/radiance
+431805f CSW-245: minor updates to cinefiles and pahma splash pages, installation tweak
+819f9fa CSW-245: stylesheet revisions to support 'titles' in cinefiles splash page
+1a021ad CSW-245: revise cinefiles controller to handle new 'common_title' field
+6f0f36c CSW-245: first revision of cinefiles portal footer
+0d0d457 CSW-245: first version of cinefiles portal footer, by mcq
+8a550ad (origin/master, origin/HEAD) Merge pull request #7 from cspace-deployment/dependabot/bundler/portal/puma-3.12.4
+e9490b8 Bump puma from 3.12.3 to 3.12.4 in /portal
+c582bd6 Merge branch 'master' of https://github.com/cspace-deployment/radiance
+e14a6ef CSW-245: a bit more re-arranging cinefiles blacklight tiles on splash page
+450fb18 CSW-245: re-arrange cinefiles blacklight tiles on splash page
+d3fef7d Merge pull request #6 from cspace-deployment/dependabot/bundler/portal/puma-3.12.3
+2fcf2d8 CSW-245: additional Blacklight frontend stuff for cinefiles (mostly splash page)
+02236e5 Bump puma from 3.12.2 to 3.12.3 in /portal
+d73328c CSW-242: initial 'IP restrictions' for CineFiles Blacklight Portal, etc.
+4fcb26d (tag: 2.0.9-rc2) revise change log and VERSION file for version 2.0.9-rc2
+35fb4cf NOJIRA: update README.md, revert 'credentials edit' deployment tweak only
+6ec2bcc (tag: 2.0.9-rc1) revise change log and VERSION file for version 2.0.9-rc1
 e4d4a0f NOJIRA: recommended security updates and a deployment tweak only
 0be8480 Merge branch 'master' of https://github.com/cspace-deployment/radiance
 d985f8a Merge pull request #5 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.10.8
