@@ -289,7 +289,8 @@ config.add_show_field 'blob_ss', helper_method: 'render_media', label: 'Images'
 # config.add_show_field 'card_ss', helper_method: 'render_media', label: 'Cards'
 config.add_show_field 'pdf_ss', helper_method: 'render_restricted_pdf', label: 'PDFs'
 
-config.add_show_field 'film_title_ss', label: 'Film title variations'
+# config.add_show_field 'film_title_ss', label: 'Film title'
+config.add_show_field 'film_title_variations_ss', label: 'Film title variations'
 config.add_show_field 'film_director_ss', label: 'Film director'
 config.add_show_field 'film_year_ss', label: 'Film year'
 config.add_show_field 'film_country_ss', label: 'Film country(ies)'
@@ -311,13 +312,13 @@ config.add_index_field 'pg_info_s', label: 'Document pageinfo'
 config.add_index_field 'film_info_ss', helper_method: 'render_multiline', label: 'Associated films'
 
 config.add_index_field 'filmyear_s', label: 'Film year'
-config.add_index_field 'film_title_ss', label: 'Film title'
+# config.add_index_field 'film_title_ss', label: 'Film title'
 config.add_index_field 'film_director_ss', label: 'Film director'
 config.add_index_field 'film_country_ss', label: 'Film country(ies)'
 config.add_index_field 'film_year_ss', label: 'Film year'
 # sort
-config.index.title_field =  'doctitle_ss'
-config.show.title_field =  'doctitle_ss'
+config.index.title_field =  'common_title_ss'
+config.show.title_field =  'common_title_ss'
 config.add_sort_field 'doctitle_ss asc', label: 'Document title'
 
   end
