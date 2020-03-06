@@ -1,0 +1,25 @@
+.thumbnail > img,
+.thumbnail a > img {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.thumbclass {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.document-thumbnail img {
+  max-height: 240px;
+  max-width: 240px;
+}
+
+@media print {
+  a[href]:after {
+    content: none;
+  }
+  .site_footer {
+    display: none;
+  }
+}
+
