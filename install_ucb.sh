@@ -44,13 +44,16 @@ cp ${extra_dir}/_home_text.html.erb app/views/catalog/
 cp ${extra_dir}/_search_form.html.erb app/views/catalog/
 
 # we may someday add customized versions of these partials, but not yet
-#cp ${extra_dir}/_user_util_links.html.erb app/views/
+cp ${extra_dir}/etc/${tenant}_user_util_links.html.erb app/views/
 cp ${extra_dir}/etc/${tenant}_catalog_controller.rb app/controllers/catalog_controller.rb
 cp ${extra_dir}/etc/${tenant}_header_navbar.html.erb app/views/shared/_header_navbar.html.erb
 cp ${extra_dir}/etc/${tenant}_footer.html.erb app/views/shared/_footer.html.erb
 #cp ${extra_dir}/etc/${tenant}_home_text.html.erb app/views/catalog/_home_text.html.erb
 #cp ${extra_dir}/etc/${tenant}_search_form.html.erb app/views/catalog/_search_form.html.erb
 cp ${extra_dir}/etc/${tenant}_splash.html.erb app/views/shared/_splash.html.erb
+
+# scss customizations
+cp ${extra_dir}/etc/${tenant}_extras.scss /app/assets/stylesheets/extras.scss
 
 # generic helpers and config, but they do need to be configured per-tenant
 cp ${extra_dir}/application_helper.rb app/helpers
