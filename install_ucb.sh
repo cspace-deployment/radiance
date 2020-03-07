@@ -44,7 +44,7 @@ cp ${extra_dir}/_home_text.html.erb app/views/catalog/
 cp ${extra_dir}/_search_form.html.erb app/views/catalog/
 
 # we may someday add customized versions of these partials, but not yet
-cp ${extra_dir}/etc/${tenant}_user_util_links.html.erb app/views/
+cp ${extra_dir}/etc/${tenant}_user_util_links.html.erb app/views/_user_util_links.html.erb
 cp ${extra_dir}/etc/${tenant}_catalog_controller.rb app/controllers/catalog_controller.rb
 cp ${extra_dir}/etc/${tenant}_header_navbar.html.erb app/views/shared/_header_navbar.html.erb
 cp ${extra_dir}/etc/${tenant}_footer.html.erb app/views/shared/_footer.html.erb
