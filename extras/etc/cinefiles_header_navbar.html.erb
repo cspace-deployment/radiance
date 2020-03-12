@@ -1,13 +1,11 @@
-<div id="header-navbar" class="navbar navbar-inverse navbar-static-top" role="navigation" style="background: gray">
+<div id="header-navbar" class="navbar navbar-inverse navbar-static-top" role="navigation" style="background: gray; margin-bottom: 0">
   <div class="<%= container_classes %>-fluid">
-    <div class="row">
-      <div class="col-sm-1">
-        <a href="/"><img style="width:100%;" src="/header-logo-cinefiles-stripes.png"></a>
+    <div class="row nopadding">
+
+      <div class="col-sm-1 nopadding" style="width: 50%">
+        <a href="/" ><img style="width:100%" src="/header-cinefiles.png"></a>
       </div>
-      <div class="col-sm-10">
-        <a href="/"><img style="width:100%;" src="/header-logo-cinefiles-wordmark.png"></a>
-      </div>
-      <div class="col-sm-10">
+      <div class="col-sm-1" style="width: 50%">
           <button type="button" class="navbar-toggle btn collapsed" data-toggle="collapse" data-target="#user-util-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -19,9 +17,9 @@
           </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom: 0">
       <div class="col-sm">
-        <div id="search-navbar" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div id="search-navbar" class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; ">
           <div class="<%= container_classes %>">
             <%= render_search_bar  %>
           </div>
