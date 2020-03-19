@@ -10,18 +10,18 @@ cd ~/projects
 
 if [ $# -ne 3 ]; then
     echo
-    echo "    Usage: $0 install_dir link_dir production|development"
+    echo "    Usage: $0 install_dir museum production|development"
     echo
-    echo "    e.g.   $0 20190305 pahma production"
+    echo "    e.g.   $0 20200305.pahma pahma production"
     echo
     exit
 fi
 
 if ! grep -q " $3 " <<< " production development "; then
     echo
-    echo "    Usage: $0 install_dir link_dir production|development"
+    echo "    Usage: $0 install_dir museum production|development"
     echo
-    echo "    e.g.   $0 20190305 pahma production"
+    echo "    e.g.   $0 20200305.pahma pahma production"
     echo
     exit
 fi
