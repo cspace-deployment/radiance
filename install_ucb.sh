@@ -6,28 +6,26 @@ portal_config_file=$2
 current_directory=`pwd`
 extra_dir="../extras"
 
-# check the command line parameters
-
-if [ ! -f "${portal_config_file}" ]; then
-  echo "Can't find portal config file '${portal_config_file}'. Please verify name and location"
-  echo "$0 tenant portal_config_file"
-  exit
-fi
-
 cd portal
+
+# check the command line parameters
 
 if [ ! -d "${extra_dir}" ]; then
   echo "Can't find directory '${extra_dir}'. Please verify name and location"
-  echo "$0 tenant portal_config_file"
+  echo "$0 tenant <optional portal config file>"
   exit
 fi
 
-perl -i -pe "s/#TENANT#/${tenant}/g" ${extra_dir}/*
+if [ ! -f "${portal_config_file}" ]; then
+  echo "Can't find portal config file '${portal_config_file}'. skipping autogeneratin of catalog_controller"
+else
+  perl -i -pe "s/#TENANT#/${tenant}/g" ${extra_dir}/*
 
-# configure generic tenant BL controller using existing Portal config file
-python3 ${extra_dir}/ucb_bl.py ${portal_config_file} > bl_config_temp.txt
-cat ${extra_dir}/catalog_controller.template bl_config_temp.txt > app/controllers/catalog_controller.rb
-rm bl_config_temp.txt
+  # configure generic tenant BL controller using existing Portal config file
+  python3 ${extra_dir}/ucb_bl.py ${portal_config_file} > bl_config_temp.txt
+  cat ${extra_dir}/catalog_controller.template bl_config_temp.txt > app/controllers/catalog_controller.rb
+  rm bl_config_temp.txt
+fi
 
 # now apply customizations, if any
 
@@ -66,5 +64,3 @@ cp ${extra_dir}/blacklight.en.yml config/locales
 # e.g. pick out 15 images to include in 4 x 4 splash partial
 # python ${extra_dir}/etc/pick8.py 4
 # python ${extra_dir}/etc/makestatic.py ${tenant}.static.csv > app/views/shared/_splash.html.erb
-# but here, we will just install the existing splash partial
-cp ${extra_dir}/etc/${tenant}_splash.html.erb app/views/shared/_splash.html.erb

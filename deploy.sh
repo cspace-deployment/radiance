@@ -36,8 +36,7 @@ rm -f config/credentials.yml.enc
 rm -f config/master.key
 EDITOR=vi rails credentials:edit
 
-# migrations are applied by relink.sh
-# rails db:migrate RAILS_ENV=$2
+# migrations are applied by relink.sh, or you can do them by hand
 echo "deployed tag ${TAG} to ${RUN_DIR}, environment is $2"
 echo "for deployment on RTL servers, execute:"
 echo "./relink.sh ${RUN_DIR} <museum> $2"
