@@ -21,11 +21,36 @@ module ApplicationHelper
     end
   end
 
+  def render_film_links options={}
+    # return a <ul> of films with links to the films themselves
+    content_tag(:div) do
+      content_tag(:ul) do
+        options[:value].collect do |array_element|
+          parts = array_element.split(/^(.*?)\+\+(.*?)\+\+(.*)/)
+          content_tag(:li,
+            (link_to parts[2], '/catalog/' + parts[1]) +
+            parts[3]
+            )
+        end.join.html_safe
+      end
+    end
+  end
+
+  def render_doc_link options={}
+    # return a link to a search for documents for a film
+    content_tag(:div) do
+      options[:value].collect do |film_id|
+         content_tag(:a, 'click here',
+           href: "/?q=#{film_id}&search_field=film_id_ss",
+           style: 'padding: 3px;',
+           class: 'hrefclass')
+      end.join.html_safe
+    end
+  end
+
   def render_restricted_pdf options={}
     # render a pdf using html5 pdf viewer
-    options[:value].collect do |pdf_csid|
-        render :partial => '/shared/pdfs', csid: pdf_csid
-    end
+    render :partial => '/shared/pdfs'
   end
 
   def render_pdf options={}
