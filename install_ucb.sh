@@ -6,9 +6,18 @@ portal_config_file=$2
 current_directory=`pwd`
 extra_dir="../extras"
 
+WHOLE_LIST="bampfa botgarden cinefiles pahma ucjeps"
+
 cd portal
 
 # check the command line parameters
+
+if [[ ! $WHOLE_LIST =~ .*${tenant}.* || "$tenant" == "" ]]
+then
+  echo "1st argument must be one of '${WHOLE_LIST}'"
+  echo "$0 tenant <optional portal config file>"
+  exit
+fi
 
 if [ ! -d "${extra_dir}" ]; then
   echo "Can't find directory '${extra_dir}'. Please verify name and location"
@@ -16,10 +25,17 @@ if [ ! -d "${extra_dir}" ]; then
   exit
 fi
 
+if [ ! -d "${extra_dir}" ]; then
+  echo "Can't find directory '${extra_dir}'. Please verify name and location"
+  echo "$0 tenant <optional portal config file>"
+  exit
+fi
+
+perl -i -pe "s/#TENANT#/${tenant}/g" ${extra_dir}/*
+
 if [ ! -f "${portal_config_file}" ]; then
-  echo "Can't find portal config file '${portal_config_file}'. skipping autogeneratin of catalog_controller"
+  echo "Can't find portal config file '${portal_config_file}'. skipping autogeneration of catalog_controller"
 else
-  perl -i -pe "s/#TENANT#/${tenant}/g" ${extra_dir}/*
 
   # configure generic tenant BL controller using existing Portal config file
   python3 ${extra_dir}/ucb_bl.py ${portal_config_file} > bl_config_temp.txt
@@ -64,3 +80,6 @@ cp ${extra_dir}/blacklight.en.yml config/locales
 # e.g. pick out 15 images to include in 4 x 4 splash partial
 # python ${extra_dir}/etc/pick8.py 4
 # python ${extra_dir}/etc/makestatic.py ${tenant}.static.csv > app/views/shared/_splash.html.erb
+
+# reset the extras directory to pristine state
+git checkout -- ${extra_dir}
