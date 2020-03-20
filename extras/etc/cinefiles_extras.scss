@@ -22,6 +22,15 @@
     background: transparent;
 }
 
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-inverse {
+  background: gray;
+  margin-bottom: 0;
+}
+
 @media print {
   a[href]:after {
     content: none;

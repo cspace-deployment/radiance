@@ -54,6 +54,7 @@ cp ${extra_dir}/etc/${tenant}_splash.html.erb app/views/shared/_splash.html.erb
 
 # scss customizations
 cp ${extra_dir}/etc/${tenant}_extras.scss app/assets/stylesheets/extras.scss
+cp ${extra_dir}/etc/${tenant}_variables.scss app/assets/stylesheets/_variables.scss
 
 # generic helpers and config, but they do need to be configured per-tenant
 cp ${extra_dir}/application_helper.rb app/helpers
