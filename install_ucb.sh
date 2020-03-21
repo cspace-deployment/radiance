@@ -59,6 +59,7 @@ cp ${extra_dir}/_search_form.html.erb app/views/catalog/
 
 # possible customized partials
 #cp ${extra_dir}/_user_util_links.html.erb app/views/
+cp ${extra_dir}/${tenant}_user_util_links.html.erb app/views/_user_util_links.html.erb
 cp ${extra_dir}/${tenant}_catalog_controller.rb app/controllers/catalog_controller.rb
 cp ${extra_dir}/${tenant}_header_navbar.html.erb app/views/shared/_header_navbar.html.erb
 cp ${extra_dir}/${tenant}_footer.html.erb app/views/shared/_footer.html.erb
@@ -66,6 +67,7 @@ cp ${extra_dir}/${tenant}_footer.html.erb app/views/shared/_footer.html.erb
 #cp ${extra_dir}/${tenant}_search_form.html.erb app/views/catalog/_search_form.html.erb
 cp ${extra_dir}/${tenant}_splash.html.erb app/views/shared/_splash.html.erb
 cp ${extra_dir}/${tenant}_extras.scss app/assets/stylesheets/extras.scss
+cp ${extra_dir}/${tenant}_variables.scss app/assets/stylesheets/_variables.scss
 
 # custom signup for cinefiles
 cp ${extra_dir}/${tenant}_new.html.erb app/views/devise/registrations/new.html.erb
