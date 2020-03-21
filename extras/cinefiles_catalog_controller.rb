@@ -10,7 +10,7 @@ class CatalogController < ApplicationController
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
     # config.advanced_search[:qt] ||= 'advanced'
     config.advanced_search[:url_key] ||= 'advanced'
-    config.advanced_search[:query_parser] ||= 'dismax'
+    config.advanced_search[:query_parser] ||= 'edismax'
     config.advanced_search[:form_solr_parameters] ||= {}
 
 
@@ -39,13 +39,13 @@ class CatalogController < ApplicationController
     #
     # UCB customizations to support existing Solr cores
     config.default_solr_params = {
-      rows: 10,
-      'facet.mincount': 1,
-      'q.alt': '*:*',
-      'defType': 'edismax',
-      'df': 'text',
-      'q.op': 'AND',
-      'q.fl': '*,score'
+        'rows': 10,
+        'facet.mincount': 1,
+        'q.alt': '*:*',
+        'defType': 'edismax',
+        'df': 'text',
+        'q.op': 'AND',
+        'q.fl': '*,score'
     }
 
     # solr path which will be added to solr base url before the other solr params.
@@ -58,12 +58,12 @@ class CatalogController < ApplicationController
     ## parameters included in the Blacklight-jetty document requestHandler.
     #
     config.default_document_solr_params = {
-      qt: 'document',
-    #  ## These are hard-coded in the blacklight 'document' requestHandler
-    #  # fl: '*',
-    #  # rows: 1,
-    # UCB customization: this is needed for our Solr4 services
-      q: '{!term f=id v=$id}'
+        qt: 'document',
+        #  ## These are hard-coded in the blacklight 'document' requestHandler
+        #  # fl: '*',
+        #  # rows: 1,
+        # UCB customization: this is needed for our Solr4 services
+        q: '{!term f=id v=$id}'
     }
 
     # solr field configuration for search results/index views
@@ -225,30 +225,45 @@ class CatalogController < ApplicationController
     config.add_facet_field 'film_prodco_ss', label: 'Film production company', limit: true
     config.add_facet_field 'film_subject_ss', label: 'Film subject(s)', limit: true
     config.add_facet_field 'film_genre_ss', label: 'Film genre(s)', limit: true
+
     # search
-    config.add_search_field 'doctype_s', label: 'Document type'
-    config.add_search_field 'source_s', label: 'Document source'
-    config.add_search_field 'author_ss', label: 'Document author(s)'
-    config.add_search_field 'doclanguage_ss', label: 'Document language'
-    config.add_search_field 'pubdate_s', label: 'Document date'
-    config.add_search_field 'biblio_s', label: 'Has bibliography'
-    config.add_search_field 'bx_info_s', label: 'Has box info'
-    config.add_search_field 'cast_cr_s', label: 'Has cast credits'
-    config.add_search_field 'costinfo_s', label: 'Has cost info'
-    config.add_search_field 'dist_co_s', label: 'Has distribution company'
-    config.add_search_field 'filmog_s', label: 'Has filmography'
-    config.add_search_field 'illust_s', label: 'Has illustrations'
-    config.add_search_field 'prod_co_s', label: 'Has production co'
-    config.add_search_field 'tech_cr_s', label: 'Has tech credits'
-    config.add_search_field 'director_ss', label: 'Film director'
-    config.add_search_field 'title_ss', label: 'Film title variations'
-    config.add_search_field 'film_info_ss', label: 'Associated films'
-    config.add_search_field 'country_ss', label: 'Film country(ies)'
-    config.add_search_field 'filmyear_s', label: 'Film year'
-    config.add_search_field 'filmlanguage_ss', label: 'Film language(s)'
-    config.add_search_field 'docnamesubject_ss', label: 'Document name subject'
-    config.add_search_field 'prodco_ss', label: 'Film production company'
-    config.add_search_field 'genre_ss', label: 'Film genre(s)'
+    [
+        ['doctype_txt', 'Document type'],
+        ['source_txt', 'Document source'],
+        ['author_txt', 'Document author(s)'],
+        ['doclanguage_txt', 'Document language'],
+        ['pubdate_txt', 'Document date'],
+        ['biblio_txt', 'Has bibliography'],
+        ['bx_info_txt', 'Has box info'],
+        ['cast_cr_txt', 'Has cast credits'],
+        ['costinfo_txt', 'Has cost info'],
+        ['dist_co_txt', 'Has distribution company'],
+        ['filmog_txt', 'Has filmography'],
+        ['illust_txt', 'Has illustrations'],
+        ['prod_co_txt', 'Has production co'],
+        ['tech_cr_txt', 'Has tech credits'],
+        ['director_txt', 'Film director'],
+        ['title_txt', 'Film title variations'],
+        ['filmtitle_txt', 'Associated films'],
+        ['country_txt', 'Film country(ies)'],
+        ['filmyear_txt', 'Film year'],
+        ['filmlanguage_txt', 'Film language(s)'],
+        ['docnamesubject_txt', 'Document name subject'],
+        ['prodco_txt', 'Film production company'],
+        ['genre_txt', 'Film genre(s)'],
+        ['film_id_ss', 'Film ID'],
+
+    ].each do |search_field|
+      config.add_search_field(search_field[0]) do |field|
+        field.label = search_field[1]
+        #field.solr_parameters = { :'spellcheck.dictionary' => search_field[0] }
+        field.solr_parameters = {
+            qf: search_field[0],
+            pf: search_field[0]
+        }
+      end
+    end
+
     # show
     config.add_show_field 'author_ss', label: 'Document author(s)'
     config.add_show_field 'source_s', label: 'Document source'
@@ -314,25 +329,25 @@ class CatalogController < ApplicationController
     config.add_index_field 'film_year_ss', label: 'Film year'
     config.add_index_field '_id_ss', helper_method: 'render_doc_link', label: 'Related documents'
     # sort
-    config.index.title_field =  'common_title_ss'
-    config.show.title_field =  'common_title_ss'
+    config.index.title_field = 'common_title_ss'
+    config.show.title_field = 'common_title_ss'
     config.add_sort_field 'doctitle_ss asc', label: 'Document title'
 
   end
 
   def decode_ark
     # decode ARK ID, e.g. hm21114461@2E1 -> 11-4461.1, hm210k3711a@2Df -> K-3711a-f
-    museum_number = CGI.unescape(params[:ark].gsub('@','%')).sub('hm2','')
+    museum_number = CGI.unescape(params[:ark].gsub('@', '%')).sub('hm2', '')
     museum_number = if museum_number[0] == 'x'
-        museum_number[1..-1]
+      museum_number[1..-1]
     else
-        left, right = museum_number[1..2], museum_number[3..-1]
-        left = left.gsub(/^0+/, '')
-        right = right.gsub(/^0+/, '')
-        left + '-' + right
+      left, right = museum_number[1..2], museum_number[3..-1]
+      left = left.gsub(/^0+/, '')
+      right = right.gsub(/^0+/, '')
+      left + '-' + right
     end
 
-    redirect_to  :controller => 'catalog', action: 'index', search_field: 'objmusno_s_lower', q: '"' + museum_number + '"'
+    redirect_to :controller => 'catalog', action: 'index', search_field: 'objmusno_s_lower', q: '"' + museum_number + '"'
     #redirect_to  :controller => 'catalog', action: 'show', id: csid
   end
 
