@@ -13,7 +13,7 @@
 development:
   adapter: solr
   #url: <%= ENV['SOLR_URL'] || "http://127.0.0.1:8983/solr/#TENANT#-public" %>
-  url: <%= ENV['SOLR_URL'] || "https://webapps.cspace.berkeley.edu/solr/#TENANT#-public" %>
+  url: <%= ENV['SOLR_URL'] || "https://webapps-dev.cspace.berkeley.edu/solr/#TENANT#-public" %>
   #url: <%= ENV['SOLR_URL'] || "https://apis.berkeley.edu/uat/cspace/v1/artifacts/#TENANT#-public" %>
   # nb: access via the api-central api using basicauth does not work yet: need to make a small change
   # in the configuration at api central to allow access to at least the select and suggest endpoints, and not
@@ -26,5 +26,5 @@ test: &test
   url: <%= ENV['SOLR_URL'] || "http://127.0.0.1:#{ENV['TEST_JETTY_PORT'] || 8983}/solr/#TENANT#-public" %>
 production:
   adapter: solr
-  url: <%= ENV['SOLR_URL'] || "https://webapps.cspace.berkeley.edu/solr/#TENANT#-public" %>
+  url: <%= ENV['SOLR_URL'] || "https://webapps-dev.cspace.berkeley.edu/solr/#TENANT#-public" %>
   #url: <%= ENV['SOLR_URL'] || "http://127.0.0.1:8983/solr/#TENANT#-public" %>
