@@ -1,31 +1,30 @@
-<script>
-function show_pdf () {
-    $('#pdf').collapse('show');
-    $('#copyrightstatement').css('display','none');
-}
-</script>
-<div id="copyrightstatement" class="alert alert-info col-sm-12 collapse.show ">
-<h5>A PDF of this document is available</h5>
-<p>
-You are requesting access to materials from the BAMPFA Film Library & Study Center’s CineFiles project
-that are protected by U.S. copyright, and possibly other statutes. Please be advised that we are
-providing these materials for personal study purposes only under the
-Fair Use clause of the U.S. Copyright Act; please contact the publisher if you plan any other type of use.
-</p>
-<p><i>
-By clicking “I agree” below, you indicate that you acknowledge these terms, and assume responsibility
-for complying with these and any other applicable terms.
-</i></p>
-<p>
-Thank you for your interest in CineFiles. We would love to hear your comments! Use the feedback link below
-</p>
-<p>
-<button id="agree-button" class="btn btn-primary" type="button" onclick="show_pdf()">I agree</button>
-<a style="padding-left: 220px" href="https://bampfa.org/about/contact-us">Provide feedback</a>
-</p>
-</div>
-<div id="pdf" class="col-sm-12 collapse">
-<object data="https://webapps-dev.cspace.berkeley.edu/cinefiles/imageserver/blobs/956ad76d-9a17-4530-8c3f/content"
-style="padding: 3px;" height="800px" width="600px" class="hrefclass">
-</object>
-</div>
+<%- if current_user -%>
+  <div id="pdf" class="col-sm-12">
+    <object data="https://webapps-dev.cspace.berkeley.edu/cinefiles/imageserver/blobs/<%= @blob.csid %>/content"
+    style="padding: 3px;" height="800px" width="600px" class="hrefclass">
+    </object>
+  </div>
+<%- else -%>
+  <div id="copyrightstatement" class="alert alert-info col-sm-12 collapse.show ">
+    <h5>A PDF of this document is available</h5>
+    <p>
+    These  materials from the BAMPFA Film Library & Study Center’s CineFiles project
+    may be protected by U.S. copyright, and possibly other statutes. Please be advised that we are
+    providing these materials for personal study purposes only under the
+    Fair Use clause of the U.S. Copyright Act; please contact the publisher if you plan any other type of use.
+    </p>
+    <p><i>
+    In order to access these materials, you must create a login
+    and indicate that you acknowledge and will comply with these terms.
+    Please click below to visit the sign up page;
+    once you have logged in, you will be able to access PDFs and images.
+    </i></p>
+    <p>
+    Thank you for your interest in CineFiles. We would love to hear your comments! Use the feedback link below.
+    </p>
+    <p>
+    <a class="btn btn-primary" type="button" href="/users/sign_up">I would like to sign up!</a>
+    <a class="btn btn-primary" type="button" href="https://bampfa.org/about/contact-us" style="float: right;">Provide feedback</a>
+    </p>
+  </div>
+<%- end -%>

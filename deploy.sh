@@ -8,7 +8,7 @@ else
     echo
     echo "    Usage: $0 install_dir production|development <optional-version>"
     echo
-    echo "    e.g.   $0 20190305 production 2.0.3"
+    echo "    e.g.   $0 20200305.cinefiles production 2.0.3-rc2"
     echo
     exit
 fi
@@ -17,7 +17,7 @@ if ! grep -q " $2 " <<< " production development "; then
     echo
     echo "    Usage: $0 install_dir production|development <optional-version>"
     echo
-    echo "    e.g.   $0 20190305 production 2.0.3"
+    echo "    e.g.   $0 20200305.cinefiles production 2.0.3-rc2"
     echo
     exit
 fi
@@ -36,9 +36,8 @@ rm -f config/credentials.yml.enc
 rm -f config/master.key
 EDITOR=vi rails credentials:edit
 
-# migrations are applied by relink.sh
-# rails db:migrate RAILS_ENV=$2
+# migrations are applied by relink.sh, or you can do them by hand
 echo "deployed tag ${TAG} to ${RUN_DIR}, environment is $2"
 echo "for deployment on RTL servers, execute:"
-echo "./relink.sh ${RUN_DIR} pahma $2"
+echo "./relink.sh ${RUN_DIR} <museum> $2"
 echo "then restart Apache, or (re)start some other server."

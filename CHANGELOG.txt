@@ -3,16 +3,18 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 with some human annotation after the fact.
 
-This is version 2.0.9-rc3
-Fri Mar  6 08:27:50 PST 2020
+This is version 2.0.9-rc1
+Wed Mar 18 09:53:36 PDT 2020
 
-f36df27 (HEAD -> master) Merge branch 'master' of https://github.com/cspace-deployment/radiance
+e6500f2 (HEAD -> master, origin/master, origin/HEAD) CSW-274: incremental improvements to cinefiles blacklight look-and-feel and functionality
+c23b4a2 revise change log and VERSION file for version 2.0.9-rc3
+f36df27 Merge branch 'master' of https://github.com/cspace-deployment/radiance
 431805f CSW-245: minor updates to cinefiles and pahma splash pages, installation tweak
 819f9fa CSW-245: stylesheet revisions to support 'titles' in cinefiles splash page
 1a021ad CSW-245: revise cinefiles controller to handle new 'common_title' field
 6f0f36c CSW-245: first revision of cinefiles portal footer
 0d0d457 CSW-245: first version of cinefiles portal footer, by mcq
-8a550ad (origin/master, origin/HEAD) Merge pull request #7 from cspace-deployment/dependabot/bundler/portal/puma-3.12.4
+8a550ad Merge pull request #7 from cspace-deployment/dependabot/bundler/portal/puma-3.12.4
 e9490b8 Bump puma from 3.12.3 to 3.12.4 in /portal
 c582bd6 Merge branch 'master' of https://github.com/cspace-deployment/radiance
 e14a6ef CSW-245: a bit more re-arranging cinefiles blacklight tiles on splash page
@@ -21,9 +23,9 @@ d3fef7d Merge pull request #6 from cspace-deployment/dependabot/bundler/portal/p
 2fcf2d8 CSW-245: additional Blacklight frontend stuff for cinefiles (mostly splash page)
 02236e5 Bump puma from 3.12.2 to 3.12.3 in /portal
 d73328c CSW-242: initial 'IP restrictions' for CineFiles Blacklight Portal, etc.
-4fcb26d (tag: 2.0.9-rc2) revise change log and VERSION file for version 2.0.9-rc2
+4fcb26d revise change log and VERSION file for version 2.0.9-rc2
 35fb4cf NOJIRA: update README.md, revert 'credentials edit' deployment tweak only
-6ec2bcc (tag: 2.0.9-rc1) revise change log and VERSION file for version 2.0.9-rc1
+6ec2bcc revise change log and VERSION file for version 2.0.9-rc1
 e4d4a0f NOJIRA: recommended security updates and a deployment tweak only
 0be8480 Merge branch 'master' of https://github.com/cspace-deployment/radiance
 d985f8a Merge pull request #5 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.10.8
@@ -40,18 +42,18 @@ fe00363 Merge pull request #4 from cspace-deployment/dependabot/bundler/portal/p
 d8fea5d CSW-229: revise config for CineFiles BL demo
 918a7d3 CSW-226: revisions to CineFiles demo to support revised Solr core
 794893c (tag: 2.0.8) revise change log and VERSION file for version 2.0.8
-b1eaea9 (tag: 2.0.8-rc3) revise change log and VERSION file for version 2.0.8-rc3
+b1eaea9 revise change log and VERSION file for version 2.0.8-rc3
 b88e4e2 HMP-114: continue minor improvements to release-making script
-9d1ff10 (tag: 2.0.8-rc2) revise change log and VERSION file for version 2.0.8-rc2
+9d1ff10 revise change log and VERSION file for version 2.0.8-rc2
 cb1e670 HMP-109: use localhost as default solr server
-e19f4e5 (tag: 2.0.8-rc1) revise change log and VERSION file for version 2.0.8-rc1
+e19f4e5 revise change log and VERSION file for version 2.0.8-rc1
 ae76070 HMP-109: use 'objmusno_s_lower' as the search field for ARKs
 98bb301 CSW-132: add a customized cinefiles controller for the 'demo'
 1b16fa7 (tag: 2.0.7) revise change log and VERSION file for version 2.0.7
 7717c35 HMP-114: tweak release script inline documentation
 aad7b81 HMP-114: revise deployment scripts for 'new' blacklight server
 c89b9d6 HMP-78: improvements copied to this 'release tag helper script'
-45cb7e0 (tag: 2.0.6-rc2, tag: 2.0.6) revise change log and VERSION file for version 2.0.6-rc2
+45cb7e0 (tag: 2.0.6) revise change log and VERSION file for version 2.0.6-rc2
 7a6fe6b HMP-78: a script to make release tags and change logs for blacklight portals
 2c5a72d HMP-68: fix typo in landing page for Blacklight demos
 d192bc2 HMP-68: a landing page for the Blacklight demos
@@ -61,9 +63,9 @@ ac2e1dd Merge branch 'master' of https://github.com/cspace-deployment/radiance
 f771799 HMP-68: helpers to generate tenant-specific splash partials
 190fdc6 CSW-68: deploy tenant-specific 'splash partial' for blacklight demos
 963e0ec CSW-68: update the ruby god file for the demos
-87ea147 (tag: 2.0.6-rc1) HMP-101: support case insensitive ARKs, but promote lower case versions as 'standard'
+87ea147 HMP-101: support case insensitive ARKs, but promote lower case versions as 'standard'
 d34c5bd (tag: 2.0.5) CSW-68: add a 'change log'
-c0e536e (tag: 2.0.5-rc1) HMP-99: revised ARK implementation to handle some corner cases
+c0e536e HMP-99: revised ARK implementation to handle some corner cases
 dc522a8 Merge pull request #1 from jblowe/master
 800f7d4 CSW-68: instructions for making BL 'demo' deploys on EC2
 b97786c CSW-68: ruby god file, in case it comes in handy
@@ -76,7 +78,7 @@ f521a97 CSW-68: add a README for the 'demo' deployment process
 48cd675 CSW-68: fix indentation error in customization script
 565cd71 CSW-68: revised Blacklight components for 'demo' portals
 a237eef HMP-99: recover lost characters in museum number; encode hyphen as =
-1dde195 (tag: 2.0.4-rc1, tag: 2.0.4) HMP-94: final (hopefully) revisions based on user feedback
+1dde195 (tag: 2.0.4) HMP-94: final (hopefully) revisions based on user feedback
 796cdd5 HMP-94: code cleanup only, and inline doc
 d09c995 HMP-94: initial implementation of ARK-enabled portal
 f3eb59e HMP-85: still a few details in the relink.sh script to handle

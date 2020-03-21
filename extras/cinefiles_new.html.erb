@@ -1,0 +1,48 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <p>
+  This website contains materials from the BAMPFA Film Library & Study Center’s CineFiles project
+  that may be protected by U.S. copyright, and possibly other statutes. Please be advised that we are
+  providing these materials for personal study purposes ONLY under the
+  Fair Use clause of the U.S. Copyright Act; please contact the publisher if you plan any other type of use.
+  </p>
+  <p><b><i>
+  By creating a login, and logging in, you acknowledge these terms and assume responsibility
+  for complying with these and any other applicable terms.
+  </i></b></p>
+
+  <p>(Also, having a login enables you to save searches between sessions and to see your search history.)</p>
+
+  <p>
+  Your login information is used ONLY to authenticate you for access to restricted materials and to allow you to
+  save and retrieve your searches.
+  </p>    
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+  <hr/>
+<%= render "devise/shared/links" %>
