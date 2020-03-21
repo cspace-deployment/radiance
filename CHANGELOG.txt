@@ -3,10 +3,38 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 with some human annotation after the fact.
 
-This is version 2.0.9-rc1
-Wed Mar 18 09:53:36 PDT 2020
+This is version 2.0.9-rc2
+Sat Mar 21 14:43:15 PDT 2020
 
-e6500f2 (HEAD -> master, origin/master, origin/HEAD) CSW-274: incremental improvements to cinefiles blacklight look-and-feel and functionality
+7305ca2 (HEAD -> master) CSW-274: for now, use solr server on webapps-dev by default
+5a62dc0 CSW-274: tidy up ucb-specific partials a bit
+f4c8a31 (origin/master, origin/HEAD) Merge pull request #8 from BAM-PFA/master
+58edcf4 oops only made changes to deployed footer partial and not cinefiles_footer, this fixes it
+78a49cf actually add cinefiles_variables.scss; incorporate JBL's footer language and BL logo
+421ca1a replace (?) cinefiles header and user util links partials
+0ecd06a Merge remote-tracking branch 'upstream/master'
+85ed4d5 bampfa cinefiles resolve merge conflicts
+5388d52 more tweaks to cinefiles header and colors; add cinefiles_variables.scss and add it to install_ucb.sh
+ac852d0 CSW-274: code reformat plus one teensy legacy bug
+c28162c CSW-274: pass local variable (csid) to cinefiles pdf renderer
+a79c977 CSW-274: cinefiles footer variations
+87a81cf CSW-274: code reformat only, no changes
+dabe83c CSW-274: include all possible cinefiles header logos, for now
+c8b7aa6 CSW-285: more bulletproofing of blacklight ucb-specific customization script
+93ebc66 CSW-274: code reformatting and adding back in the ark decoder
+b9908a9 CSW-274: add links to film titles in docs, docs in film records, for helper in extras/
+d1b9682 CSW-274: add links to film titles in docs, docs in film records
+f4d00e4 CSW-285: more minor refactoring of blacklight deployment scripts
+11679dc CSW-285: minor refactoring of blacklight deployment scripts
+008e415 (tag: 2.0.9-rc1) revise change log and VERSION file for version 2.0.9-rc1
+e6500f2 CSW-274: incremental improvements to cinefiles blacklight look-and-feel and functionality
+496df29 more work on cinefiles header; still a weird margin @ left of header logo
+1e23bd1 fix path in install_ucb.sh
+b06a895 fix name of custom user_util_links partial
+012d3b5 fix typo
+d9d6d12 add customized extras.scss to install_ucb.sh; further work on cinefiles header
+1561cdd start working on cinefiles header; update install_ucb.sh to account for missing /etc/ in custom partials paths
+16dc59b add header logo elements; mod footer background
 c23b4a2 revise change log and VERSION file for version 2.0.9-rc3
 f36df27 Merge branch 'master' of https://github.com/cspace-deployment/radiance
 431805f CSW-245: minor updates to cinefiles and pahma splash pages, installation tweak
