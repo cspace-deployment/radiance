@@ -225,6 +225,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'film_prodco_ss', label: 'Film production company', limit: true
     config.add_facet_field 'film_subject_ss', label: 'Film subject(s)', limit: true
     config.add_facet_field 'film_genre_ss', label: 'Film genre(s)', limit: true
+    config.add_facet_field 'common_doctype_s', label: 'Record type', limit: true
 
     # search
     [
@@ -309,7 +310,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'film_genre_ss', label: 'Film genre(s)'
     config.add_show_field 'film_subject_ss', label: 'Film subject(s)'
     config.add_show_field 'film_doc_count_s', label: 'Film doc count'
-    config.add_show_field '_id_ss', helper_method: 'render_doc_link', label: 'Related documents'
+    config.add_show_field 'film_link_ss', helper_method: 'render_doc_link', label: 'Related documents'
     # gallery
     # index
     config.add_index_field 'author_ss', label: 'Document author(s)'
@@ -327,7 +328,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'film_director_ss', label: 'Film director'
     config.add_index_field 'film_country_ss', label: 'Film country(ies)'
     config.add_index_field 'film_year_ss', label: 'Film year'
-    config.add_index_field '_id_ss', helper_method: 'render_doc_link', label: 'Related documents'
+    config.add_index_field 'film_link_ss', helper_method: 'render_doc_link', label: 'Related documents'
     # sort
     config.index.title_field = 'common_title_ss'
     config.show.title_field = 'common_title_ss'
