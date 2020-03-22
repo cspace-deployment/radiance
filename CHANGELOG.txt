@@ -3,12 +3,14 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 with some human annotation after the fact.
 
-This is version 2.0.9-rc2
-Sat Mar 21 14:43:15 PDT 2020
+This is version 2.0.9-rc3
+Sat Mar 21 17:04:37 PDT 2020
 
-7305ca2 (HEAD -> master) CSW-274: for now, use solr server on webapps-dev by default
+9b70775 (HEAD -> master) CSW-274: use refactored solr variable 'film_link_ss'; also recover code reformatting in helper
+5b4d808 (tag: 2.0.9-rc2, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.9-rc2
+7305ca2 CSW-274: for now, use solr server on webapps-dev by default
 5a62dc0 CSW-274: tidy up ucb-specific partials a bit
-f4c8a31 (origin/master, origin/HEAD) Merge pull request #8 from BAM-PFA/master
+f4c8a31 Merge pull request #8 from BAM-PFA/master
 58edcf4 oops only made changes to deployed footer partial and not cinefiles_footer, this fixes it
 78a49cf actually add cinefiles_variables.scss; incorporate JBL's footer language and BL logo
 421ca1a replace (?) cinefiles header and user util links partials
