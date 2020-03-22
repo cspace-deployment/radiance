@@ -37,7 +37,7 @@ module ApplicationHelper
     # return a link to a search for documents for a film
     content_tag(:div) do
       options[:value].collect do |film_id|
-        content_tag(:a, 'click here',
+        content_tag(:a, 'Click for documents related to this film',
           href: "/?q=#{film_id}&search_field=film_id_ss",
           style: 'padding: 3px;',
           class: 'hrefclass')
