@@ -53,6 +53,12 @@
 }
 
 @font-face {
+  font-family: MontserratMedium;
+  src: url(/fonts/Montserrat/Montserrat-Medium.ttf);
+  font-weight: normal;
+}
+
+@font-face {
   font-family: Montserrat;
   src: url(/fonts/Montserrat/Montserrat-Bold.ttf);
   font-weight: bold;
@@ -87,4 +93,27 @@ div {
 .search_field {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   font-weight: normal;
+}
+
+h3.index_title > a {
+    font-family: MontserratMedium, Helvetica, Arial, sans-serif;
+}
+
+#startOverLink, .advanced-search-start-over {
+  background-color: #c8c8c8;
+  color: black;
+}
+
+.panel-success > .panel-heading, .facet_limit-active > .panel-heading {
+  color: #212121;
+  background-color: #fab946;
+  border-color: #e6fdfe;
+}
+
+.isotope-item {
+  text-align: justify;
+}
+
+.front {
+  text-align: center;
 }

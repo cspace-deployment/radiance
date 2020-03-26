@@ -79,6 +79,23 @@ module ApplicationHelper
     end
   end
 
+  def render_restricted_media options = {}
+    # return a list of cards or images
+    content_tag(:div) do
+        if current_user 
+          options[:value].collect do |blob_csid|
+            content_tag(:img, '',
+                src: render_csid(blob_csid, 'Medium'),
+                class: 'thumbclass')
+          end.join.html_safe
+        else content_tag(:img, '',
+                src: '../kuchar.jpg',
+                class: 'thumbclass',
+                alt: 'log in to view images')
+        end
+    end
+  end
+
   # use imageserver and blob csid to serve audio
   def render_audio_csid options = {}
     # render audio player
