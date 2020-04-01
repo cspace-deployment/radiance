@@ -39,7 +39,7 @@ my ($rc, $highest_rc, $release_to_check, $version_number);
 
 foreach my $tag (sort (@tags)) {
     chomp $tag;
-    print "checking $tag for $RELEASE\n";
+    # print "checking $tag for $RELEASE\n";
     if ($tag eq $RELEASE) {
         $release_to_check = $tag;
         $rc = '';
@@ -103,13 +103,14 @@ print "updating CHANGELOG.txt...\n";
 system "echo 'CHANGELOG for $DIRECTORY' > CHANGELOG.txt";
 system "echo  >> CHANGELOG.txt";
 system "echo 'OK, it is not a *real* change log, but a list of changes resulting from git log' >> CHANGELOG.txt";
-system "echo 'with some human annotation after the fact.' >> CHANGELOG.txt";
+system "echo 'sometimes with some human annotation after the fact.' >> CHANGELOG.txt";
 system "echo  >> CHANGELOG.txt";
 system "echo 'This is version $version_number' >> CHANGELOG.txt";
 system "echo '$version_number' > VERSION";
 system "date >> CHANGELOG.txt ; echo >> CHANGELOG.txt";
 system "git log --oneline --decorate >> CHANGELOG.txt";
-system "git commit -a -m 'revise change log and VERSION file for version $version_number'";
+system "git add CHANGELOG.txt";
+system "git commit -m 'revise change log and VERSION file for version $version_number'";
 system "git push -v" ;
 print  "git tag -a $version_number -m '$tag_message'\n";
 system "git tag -a $version_number -m '$tag_message'";
