@@ -3,11 +3,16 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 with some human annotation after the fact.
 
-This is version 2.0.9-rc3
-Sat Mar 21 17:04:37 PDT 2020
+This is version 2.0.9-rc4
+Wed Apr  1 08:16:14 PDT 2020
 
-9b70775 (HEAD -> master) CSW-274: use refactored solr variable 'film_link_ss'; also recover code reformatting in helper
-5b4d808 (tag: 2.0.9-rc2, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.9-rc2
+092adf9 (HEAD -> master, origin/master, origin/HEAD) Merge pull request #10 from BAM-PFA/master
+8c65447 CSW-274: Edits to cinefiles catalog controller, copyright language, and facet/field labels last minor tweaks to splash page
+0950549 Merge pull request #9 from BAM-PFA/cinesplash
+a93b165 CSW-274 start work on customizing cinefiles splash page; draft text, one customized splash tile
+401e585 (tag: 2.0.9-rc3) revise change log and VERSION file for version 2.0.9-rc3
+9b70775 CSW-274: use refactored solr variable 'film_link_ss'; also recover code reformatting in helper
+5b4d808 (tag: 2.0.9-rc2) revise change log and VERSION file for version 2.0.9-rc2
 7305ca2 CSW-274: for now, use solr server on webapps-dev by default
 5a62dc0 CSW-274: tidy up ucb-specific partials a bit
 f4c8a31 Merge pull request #8 from BAM-PFA/master
