@@ -79,6 +79,18 @@ module ApplicationHelper
     end
   end
 
+  def render_linkless_media options = {}
+    # return a list of cards or images
+    content_tag(:div) do
+      options[:value].collect do |blob_csid|
+        content_tag(:a, content_tag(:img, '',
+            src: render_csid(blob_csid, 'Medium'),
+            class: 'thumbclass'),
+          style: 'padding: 3px;')
+      end.join.html_safe
+    end
+  end
+
   def render_restricted_media options = {}
     # return a list of cards or images
     content_tag(:div) do
