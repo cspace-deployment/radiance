@@ -211,10 +211,15 @@ class CatalogController < ApplicationController
     config.add_facet_field 'doctype_s', label: 'Document: type', limit: true
     config.add_facet_field 'doclanguage_ss', label: 'Document: language', limit: true
     # config.add_facet_field 'pubdatescalar_s', label: 'Document: publication date', limit: true
-
+    config.add_facet_field("pubdate_i") do |field|
+      field.include_in_advanced_search = false
+      field.label = 'Document: year published'
+      field.range = true
+      field.index_range = true
+    end
     config.add_facet_field 'author_ss', label: 'Document: author', limit: true
     config.add_facet_field 'director_ss', label: 'Document: director as subject', limit: true
-    config.add_facet_field 'filmtitle_ss', label: 'Document: film as subject', limit: true
+    config.add_facet_field 'filmtitle_ss', label: 'Document: film title', limit: true
     # config.add_facet_field 'has_ss', label: 'Document: content details', limit: true
     config.add_facet_field 'country_ss', label: 'Document: film country of production', limit: true
     config.add_facet_field 'filmyear_ss', label: 'Document: film production year', limit: true
@@ -224,7 +229,13 @@ class CatalogController < ApplicationController
     # Film record fields
     config.add_facet_field 'film_title_ss', label: 'Film title', limit: true
     config.add_facet_field 'film_director_ss', label: 'Film director', limit: true
-    config.add_facet_field 'film_year_ss', label: 'Film year', limit: true
+    # config.add_facet_field 'film_year_ss', label: 'Film year', limit: true
+    config.add_facet_field("film_year_i") do |field|
+      field.include_in_advanced_search = false
+      field.label = 'Film release year'
+      field.range = true
+      field.index_range = true
+    end
     config.add_facet_field 'film_country_ss', label: 'Film country', limit: true
     config.add_facet_field 'film_language_ss', label: 'Film language', limit: true
     # config.add_facet_field 'film_prodco_ss', label: 'Film production company', limit: true
@@ -254,7 +265,7 @@ class CatalogController < ApplicationController
         # ['prod_co_txt', 'Has production co'],
         # ['tech_cr_txt', 'Has tech credits'],
         ['director_txt', 'Document: director as subject'],
-        ['title_txt', 'Document: film as subject'],
+        ['title_txt', 'Document: film title'],
         # ['filmtitle_txt', 'Associated films'],
         ['country_txt', 'Document: film country'],
         ['filmyear_txt', 'Document: film year'],
@@ -321,7 +332,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'film_title_variations_ss', label: 'Title variations'
     config.add_show_field 'film_director_ss', label: 'Director'
     config.add_show_field 'film_country_ss', label: 'Country(ies)'
-    config.add_show_field 'film_year_ss', label: 'Release year'
+    # config.add_show_field 'film_year_ss', label: 'Release year'
     config.add_show_field 'film_language_ss', label: 'Language(s)'
     config.add_show_field 'film_prodco_ss', label: 'Production company(ies)'
     config.add_show_field 'film_genre_ss', label: 'Genre(s)'
