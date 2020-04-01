@@ -259,10 +259,11 @@ class CatalogController < ApplicationController
         ['country_txt', 'Document: film country'],
         ['filmyear_txt', 'Document: film year'],
         ['filmlanguage_txt', 'Document: film language'],
-        ['docnamesubject_txt', 'Document: name subject']
+        ['docnamesubject_txt', 'Document: name subject'],
         # ['prodco_txt', 'Film production company']
         # ['genre_txt', 'Film genre(s)'],
-        # ['film_id_ss', 'Film ID'],
+        # the following field needs to stay 'active' for the film/document linking to work properly
+        ['film_id_ss', 'Film ID']
 
     ].each do |search_field|
       config.add_search_field(search_field[0]) do |field|
