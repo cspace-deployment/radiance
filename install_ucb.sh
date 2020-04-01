@@ -72,6 +72,9 @@ cp ${extra_dir}/${tenant}_variables.scss app/assets/stylesheets/_variables.scss
 # custom signup for cinefiles
 cp ${extra_dir}/${tenant}_new.html.erb app/views/devise/registrations/new.html.erb
 
+# custom cinefiles resetricted PDF warning
+cp ${extra_dir}/${tenant}_pdfs.html.erb app/views/shared/_pdfs.html.erb
+
 # generic helpers and config, but they do need to be configured per-tenant
 cp ${extra_dir}/application_helper.rb app/helpers
 cp ${extra_dir}/catalog_helper_behavior.rb app/helpers/blacklight
