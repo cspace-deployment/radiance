@@ -1,12 +1,15 @@
 CHANGELOG for radiance
 
 OK, it is not a *real* change log, but a list of changes resulting from git log
-with some human annotation after the fact.
+sometimes with some human annotation after the fact.
 
-This is version 2.0.9-rc4
-Wed Apr  1 08:16:14 PDT 2020
+This is version 2.0.9-rc5
+Wed Apr  1 14:29:11 PDT 2020
 
-092adf9 (HEAD -> master, origin/master, origin/HEAD) Merge pull request #10 from BAM-PFA/master
+3188e35 (HEAD -> master) CSW-285: revise release-making script to not try to commit unstaged changes
+38128c0 CSW-274: restore 'Film ID' to searchability, so film/doc cross-linking continues to work
+d0aedc2 (tag: 2.0.9-rc4, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.9-rc4
+092adf9 Merge pull request #10 from BAM-PFA/master
 8c65447 CSW-274: Edits to cinefiles catalog controller, copyright language, and facet/field labels last minor tweaks to splash page
 0950549 Merge pull request #9 from BAM-PFA/cinesplash
 a93b165 CSW-274 start work on customizing cinefiles splash page; draft text, one customized splash tile

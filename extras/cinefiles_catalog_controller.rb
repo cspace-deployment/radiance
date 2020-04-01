@@ -333,7 +333,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'film_title_variations_ss', label: 'Title variations'
     config.add_show_field 'film_director_ss', label: 'Director'
     config.add_show_field 'film_country_ss', label: 'Country(ies)'
-    # config.add_show_field 'film_year_ss', label: 'Release year'
+    config.add_show_field 'film_year_ss', label: 'Release year'
     config.add_show_field 'film_language_ss', label: 'Language(s)'
     config.add_show_field 'film_prodco_ss', label: 'Production company(ies)'
     config.add_show_field 'film_genre_ss', label: 'Genre(s)'
