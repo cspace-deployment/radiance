@@ -31,7 +31,7 @@ if [ ! -d "${extra_dir}" ]; then
   exit
 fi
 
-perl -i -pe "s/#TENANT#/${tenant}/g" ${extra_dir}/*
+perl -i -pe "s/#TENANT#/${tenant}/g" ${extra_dir}/* 2>&1
 
 if [ ! -f "${portal_config_file}" ]; then
   echo "Can't find portal config file '${portal_config_file}'. skipping autogeneration of catalog_controller"
