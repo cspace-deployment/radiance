@@ -3,12 +3,22 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.0.9-rc5
-Wed Apr  1 14:29:11 PDT 2020
+This is version 2.0.9-rc6
+Fri Apr  3 09:42:21 PDT 2020
 
-3188e35 (HEAD -> master) CSW-285: revise release-making script to not try to commit unstaged changes
+10b246e (HEAD -> master) CSW-285: quiet down the blacklight ucb customization script
+14afc75 CSW-285: tweak blacklight deploy relink script to leave migration out
+91ecc48 CSW-296: tiny followup to last pull request: capitalization
+45cf875 (origin/master, origin/HEAD) Merge pull request #14 from BAM-PFA/master
+a256836 add `check_pdf` application_helper method to check PDFs access_code and render correct partial
+42c8a62 Merge pull request #13 from BAM-PFA/master
+4c5654b CSW-274: Add date range widgets to facet list
+de309c3 Merge pull request #11 from BAM-PFA/master
+93b89e8 (tag: 2.0.9-rc5) revise change log and VERSION file for version 2.0.9-rc5
+3188e35 CSW-285: revise release-making script to not try to commit unstaged changes
 38128c0 CSW-274: restore 'Film ID' to searchability, so film/doc cross-linking continues to work
-d0aedc2 (tag: 2.0.9-rc4, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.9-rc4
+5b2b6aa CSW-274: remove media links from index view
+d0aedc2 (tag: 2.0.9-rc4) revise change log and VERSION file for version 2.0.9-rc4
 092adf9 Merge pull request #10 from BAM-PFA/master
 8c65447 CSW-274: Edits to cinefiles catalog controller, copyright language, and facet/field labels last minor tweaks to splash page
 0950549 Merge pull request #9 from BAM-PFA/cinesplash
