@@ -41,8 +41,10 @@ if [ "$3" == "production" ]; then
   # link the db directory to the "permanent" db directory
   rm -rf db/
   ln -s /var/cspace/$2/blacklight/db db
-  # now we can apply migrations to the newly linked db
-  rails db:migrate RAILS_ENV=production
+  # now we could apply migrations to the newly linked db
+  # but we haven't figured out how to apply any new migrations so we skip this step and
+  # just pray that the app continues to work with the existing models...
+  # rails db:migrate RAILS_ENV=production
 else
   echo "leaving db and log as is for dev deployment, applying dev migrations"
   cd ${INSTALL_DIR}
