@@ -17,9 +17,10 @@ class CatalogController < ApplicationController
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
     config.show.partials.insert(1, :openseadragon)
     config.view.gallery.partials = [:index_header, :index]
-    config.view.masonry.partials = [:index]
+    # disable 'masonry' view
+    # config.view.masonry.partials = [:index]
     # no slideshow until thumbnail rendering is fixed
-    #config.view.slideshow.partials = [:index]
+    # config.view.slideshow.partials = [:index]
 
     # disable these three document action until we have resources to configure them to work
     config.show.document_actions.delete(:citation)
@@ -213,7 +214,7 @@ class CatalogController < ApplicationController
     # config.add_facet_field 'pubdatescalar_s', label: 'Document: publication date', limit: true
     config.add_facet_field("pubdate_i") do |field|
       field.include_in_advanced_search = false
-      field.label = 'Document: Publication year'
+      field.label = 'Document: publication year'
       field.range = true
       field.index_range = true
     end
@@ -241,6 +242,9 @@ class CatalogController < ApplicationController
     # config.add_facet_field 'film_prodco_ss', label: 'Film production company', limit: true
     # config.add_facet_field 'film_subject_ss', label: 'Film subject(s)', limit: true
     config.add_facet_field 'film_genre_ss', label: 'Film genre', limit: true
+
+    # only for testing... allows one to see the value of access code in the ui
+    # config.add_facet_field 'code_s', label: 'Access code', limit: true
 
     # Common fields
     config.add_facet_field 'common_doctype_s', label: 'Record type', limit: true
@@ -342,6 +346,9 @@ class CatalogController < ApplicationController
     config.add_show_field 'film_subject_ss', helper_method: 'render_multiline', label: 'Subject(s)'
     config.add_show_field 'film_doc_count_ss', label: 'Related documents'
     config.add_show_field 'film_link_ss', helper_method: 'render_doc_link', label: 'View documents'
+    # only for testing... allows one to see the value of access code in the ui
+    # config.add_show_field 'code_s', label: 'Access code'
+
     # gallery
     
     #
