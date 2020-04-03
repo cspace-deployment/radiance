@@ -45,21 +45,37 @@ module ApplicationHelper
     end
   end
 
-  def render_restricted_pdf options = {}
+  def check_pdf options = {}
     # render a pdf using html5 pdf viewer
-    options[:value].collect do |pdf_csid|
-      render partial: '/shared/pdfs', locals: { csid: pdf_csid }
-    end.join.html_safe
+    access_code = options[:document][:code_s]
+    if access_code == '4'
+      render_pdf options
+    else 
+      render_restricted_pdf options[:value]
+    end
+  end
+
+  def render_restricted_pdf pdf_csid
+    # render a pdf using html5 pdf viewer
+    render partial: '/shared/pdfs', locals: { csid: pdf_csid }
   end
 
   def render_pdf options = {}
     # render a pdf using html5 pdf viewer
     content_tag(:div) do
       options[:value].collect do |pdf_csid|
-        content_tag(:object, '',
-          data: "https://webapps-dev.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{pdf_csid}/content",
-          style: 'padding: 3px;', height: '800px', width: '600px',
-          class: 'hrefclass')
+        content_tag(:div) do
+          content_tag(:object, '',
+            data: "https://webapps-dev.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{pdf_csid}/content",
+            style: 'padding: 3px;', height: '800px', width: '600px',
+            class: 'hrefclass')
+        end
+        # only one <div> will display here, needs a fix to get this <a> in
+        # content_tag(:div) do
+        #   content_tag(:a, 'view full size in new window',
+        #   target:'new',
+        #   href:"https://webapps-dev.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{pdf_csid}/content")
+        # end
       end.join.html_safe
     end
   end
