@@ -46,18 +46,21 @@ module ApplicationHelper
   end
 
   def check_pdf options = {}
-    # render a pdf using html5 pdf viewer
+    # access_code is set by CSpace value in publisher authority record
     access_code = options[:document][:code_s]
+    # access_code==4 => "World"
     if access_code == '4'
-      render_pdf options
+      restricted = false
+      render_restricted_pdf options[:value].first, restricted
     else 
-      render_restricted_pdf options[:value]
+      restricted = true
+      render_restricted_pdf options[:value].first, restricted
     end
   end
 
-  def render_restricted_pdf pdf_csid
+  def render_restricted_pdf pdf_csid, restricted
     # render a pdf using html5 pdf viewer
-    render partial: '/shared/pdfs', locals: { csid: pdf_csid }
+    render partial: '/shared/pdfs', locals: { csid: pdf_csid, restricted: restricted }
   end
 
   def render_pdf options = {}

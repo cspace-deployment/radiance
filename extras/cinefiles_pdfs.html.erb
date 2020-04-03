@@ -1,4 +1,4 @@
-<%- if current_user -%>
+<%- if ((current_user && restricted == true) || (restricted == false)) -%>
   <div id="pdf" class="col-sm-12">
     <a href="https://webapps-dev.cspace.berkeley.edu/cinefiles/imageserver/blobs/<%= csid %>/content" target="new">view full size in new window</a>
     <object data="https://webapps-dev.cspace.berkeley.edu/cinefiles/imageserver/blobs/<%= csid %>/content"
