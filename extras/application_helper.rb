@@ -45,42 +45,21 @@ module ApplicationHelper
     end
   end
 
-  def check_pdf options = {}
-    # access_code is set by CSpace value in publisher authority record
+  def check_and_render_pdf options = {}
+    # access_code is set by by complicated SQL expression and results in an integer code_s in solr
     access_code = options[:document][:code_s]
-    # access_code==4 => "World"
+    # access_code==4 => "World", everything else is restricted
     if access_code == '4'
       restricted = false
-      render_restricted_pdf options[:value].first, restricted
-    else 
+    else
       restricted = true
-      render_restricted_pdf options[:value].first, restricted
     end
+    render_pdf options[:value].first, restricted
   end
 
-  def render_restricted_pdf pdf_csid, restricted
+  def render_pdf pdf_csid, restricted
     # render a pdf using html5 pdf viewer
     render partial: '/shared/pdfs', locals: { csid: pdf_csid, restricted: restricted }
-  end
-
-  def render_pdf options = {}
-    # render a pdf using html5 pdf viewer
-    content_tag(:div) do
-      options[:value].collect do |pdf_csid|
-        content_tag(:div) do
-          content_tag(:object, '',
-            data: "https://webapps-dev.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{pdf_csid}/content",
-            style: 'padding: 3px;', height: '800px', width: '600px',
-            class: 'hrefclass')
-        end
-        # only one <div> will display here, needs a fix to get this <a> in
-        # content_tag(:div) do
-        #   content_tag(:a, 'view full size in new window',
-        #   target:'new',
-        #   href:"https://webapps-dev.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{pdf_csid}/content")
-        # end
-      end.join.html_safe
-    end
   end
 
   def render_media options = {}

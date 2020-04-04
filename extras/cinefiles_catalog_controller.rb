@@ -330,8 +330,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'blob_ss', helper_method: 'render_linkless_media', label: 'Images'
     # config.add_show_field 'blob_ss', helper_method: 'render_restricted_media', label: 'Images'
     # config.add_show_field 'card_ss', helper_method: 'render_media', label: 'Cards'
-    # config.add_show_field 'pdf_ss', helper_method: 'render_restricted_pdf', label: 'PDFs'
-    config.add_show_field 'pdf_ss', helper_method: 'check_pdf', label: 'PDFs'
+    config.add_show_field 'pdf_ss', helper_method: 'check_and_render_pdf', label: 'PDFs'
     # config.add_show_field 'code_s', label: 'Access code'
 
     # FILM RECORDS
