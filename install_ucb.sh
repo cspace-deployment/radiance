@@ -50,6 +50,14 @@ fi
 cp public/header-logo-${tenant}.png public/header-logo.png
 cp ${extra_dir}/cspace_fav.png app/assets/images/favicon.png
 
+# generic helpers and config, but they do need to be configured per-tenant
+cp ${extra_dir}/application_helper.rb app/helpers
+cp ${extra_dir}/catalog_helper_behavior.rb app/helpers/blacklight
+cp ${extra_dir}/blacklight.yml config
+cp ${extra_dir}/blacklight.en.yml config/locales
+
+cp ${extra_dir}/${tenant}_blacklight.en.yml config/locales/blacklight.en.yml
+
 # use our generic header, footer, etc. partials
 cp ${extra_dir}/_header_navbar.html.erb app/views/shared/
 cp ${extra_dir}/_footer.html.erb app/views/shared/
@@ -64,22 +72,21 @@ cp ${extra_dir}/${tenant}_catalog_controller.rb app/controllers/catalog_controll
 cp ${extra_dir}/${tenant}_header_navbar.html.erb app/views/shared/_header_navbar.html.erb
 cp ${extra_dir}/${tenant}_footer.html.erb app/views/shared/_footer.html.erb
 #cp ${extra_dir}/${tenant}_home_text.html.erb app/views/catalog/_home_text.html.erb
-#cp ${extra_dir}/${tenant}_search_form.html.erb app/views/catalog/_search_form.html.erb
+cp ${extra_dir}/${tenant}_search_form.html.erb app/views/catalog/_search_form.html.erb
 cp ${extra_dir}/${tenant}_splash.html.erb app/views/shared/_splash.html.erb
 cp ${extra_dir}/${tenant}_extras.scss app/assets/stylesheets/extras.scss
 cp ${extra_dir}/${tenant}_variables.scss app/assets/stylesheets/_variables.scss
 
+# so far, these two css files are only needed for cinefiles, for tiles on the splash page
+cp ${extra_dir}/${tenant}_tiles.css app/assets/stylesheets/tiles.css
+cp ${extra_dir}/${tenant}_normalize.min.css app/assets/stylesheets/normalize.min.css
+
 # custom signup for cinefiles
 cp ${extra_dir}/${tenant}_new.html.erb app/views/devise/registrations/new.html.erb
 
-# custom cinefiles resetricted PDF warning
+# custom cinefiles restricted PDF warning
 cp ${extra_dir}/${tenant}_pdfs.html.erb app/views/shared/_pdfs.html.erb
 
-# generic helpers and config, but they do need to be configured per-tenant
-cp ${extra_dir}/application_helper.rb app/helpers
-cp ${extra_dir}/catalog_helper_behavior.rb app/helpers/blacklight
-cp ${extra_dir}/blacklight.yml config
-cp ${extra_dir}/blacklight.en.yml config/locales
 
 # to make a new splash partial for a tenant.
 # e.g. pick out 15 images to include in 4 x 4 splash partial
