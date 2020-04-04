@@ -3,13 +3,18 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.0.9-rc6
-Fri Apr  3 09:42:21 PDT 2020
+This is version 2.0.9-rc7
+Sat Apr  4 13:41:13 PDT 2020
 
-10b246e (HEAD -> master) CSW-285: quiet down the blacklight ucb customization script
+d45728e (HEAD -> master) CSW-293: make 'localhost' the default server for blacklight solr cores
+f287a4d CSW-297: minor refactoring of CineFiles Blacklight 'pdf restrictions checking code'
+dad9812 (origin/master, origin/HEAD) Merge pull request #15 from BAM-PFA/master
+f0bd79c CSW-274: redo logic for displaying PDFs and "open PDF in new window" functionality by reusing _pdf partial
+b9efd73 (tag: 2.0.9-rc6) revise change log and VERSION file for version 2.0.9-rc6
+10b246e CSW-285: quiet down the blacklight ucb customization script
 14afc75 CSW-285: tweak blacklight deploy relink script to leave migration out
 91ecc48 CSW-296: tiny followup to last pull request: capitalization
-45cf875 (origin/master, origin/HEAD) Merge pull request #14 from BAM-PFA/master
+45cf875 Merge pull request #14 from BAM-PFA/master
 a256836 add `check_pdf` application_helper method to check PDFs access_code and render correct partial
 42c8a62 Merge pull request #13 from BAM-PFA/master
 4c5654b CSW-274: Add date range widgets to facet list
