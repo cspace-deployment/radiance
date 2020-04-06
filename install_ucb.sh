@@ -21,22 +21,17 @@ fi
 
 if [ ! -d "${extra_dir}" ]; then
   echo "Can't find directory '${extra_dir}'. Please verify name and location"
+  echo "This script must be executed from the base dir of the ucb blacklight customization (i.e. radiance)"
   echo "$0 tenant <optional portal config file>"
   exit
 fi
 
-if [ ! -d "${extra_dir}" ]; then
-  echo "Can't find directory '${extra_dir}'. Please verify name and location"
-  echo "$0 tenant <optional portal config file>"
-  exit
-fi
-
+# 'customize' the code in the extras directory
 perl -i -pe "s/#TENANT#/${tenant}/g" ${extra_dir}/* 2>&1
 
 if [ ! -f "${portal_config_file}" ]; then
   echo "Can't find portal config file '${portal_config_file}'. skipping autogeneration of catalog_controller"
 else
-
   # configure generic tenant BL controller using existing Portal config file
   python3 ${extra_dir}/ucb_bl.py ${portal_config_file} > bl_config_temp.txt
   cat ${extra_dir}/catalog_controller.template bl_config_temp.txt > app/controllers/catalog_controller.rb
@@ -86,7 +81,6 @@ cp ${extra_dir}/${tenant}_new.html.erb app/views/devise/registrations/new.html.e
 
 # custom cinefiles restricted PDF warning
 cp ${extra_dir}/${tenant}_pdfs.html.erb app/views/shared/_pdfs.html.erb
-
 
 # to make a new splash partial for a tenant.
 # e.g. pick out 15 images to include in 4 x 4 splash partial
