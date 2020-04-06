@@ -3,12 +3,18 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.0.9-rc7
-Sat Apr  4 13:41:13 PDT 2020
+This is version 2.0.9-rc8
+Mon Apr  6 10:20:53 PDT 2020
 
-d45728e (HEAD -> master) CSW-293: make 'localhost' the default server for blacklight solr cores
+667f773 (HEAD -> master) CSW-285: update Gemfile.lock for ucb blacklight deployments
+2fc3627 CSW-285: refactor ucb blacklight scripts deploy.sh, relink.sh and install_ucb.sh a bit
+310ce84 CSW-285: further updates blacklight ucb customization script
+07ef87e CSW-285: typo in cinefiles footer
+f2f73da CSW-285: juggle a few blacklight files that are tenant specific
+96f2e8d (tag: 2.0.9-rc7, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.9-rc7
+d45728e CSW-293: make 'localhost' the default server for blacklight solr cores
 f287a4d CSW-297: minor refactoring of CineFiles Blacklight 'pdf restrictions checking code'
-dad9812 (origin/master, origin/HEAD) Merge pull request #15 from BAM-PFA/master
+dad9812 Merge pull request #15 from BAM-PFA/master
 f0bd79c CSW-274: redo logic for displaying PDFs and "open PDF in new window" functionality by reusing _pdf partial
 b9efd73 (tag: 2.0.9-rc6) revise change log and VERSION file for version 2.0.9-rc6
 10b246e CSW-285: quiet down the blacklight ucb customization script
