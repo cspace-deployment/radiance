@@ -3,12 +3,13 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.0.9-rc9
-Thu Apr  9 09:09:46 PDT 2020
+This is version 2.0.9
+Thu Apr  9 09:51:13 PDT 2020
 
-2d9a69c (HEAD -> master) HMP-130: remove incorrectly committed file
+f9981c0 (HEAD -> master, tag: 2.0.9-rc9, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.9-rc9
+2d9a69c HMP-130: remove incorrectly committed file
 84bb242 HMP-130: revise link for pahma's twitter handle in blacklight footer
-773b181 (origin/master, origin/HEAD) Merge pull request #16 from BAM-PFA/master
+773b181 Merge pull request #16 from BAM-PFA/master
 df42096 CSW-274: update URLs to static pages hosted @ bampfa.org
 c24dc5c HMP-130: revise link for pahma's twitter handle in blacklight footer
 845e565 CSW-285: update README.md for UCB Blacklight portals
