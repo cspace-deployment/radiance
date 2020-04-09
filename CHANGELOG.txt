@@ -3,15 +3,22 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.0.9-rc8
-Mon Apr  6 10:20:53 PDT 2020
+This is version 2.0.9-rc9
+Thu Apr  9 09:09:46 PDT 2020
 
-667f773 (HEAD -> master) CSW-285: update Gemfile.lock for ucb blacklight deployments
+2d9a69c (HEAD -> master) HMP-130: remove incorrectly committed file
+84bb242 HMP-130: revise link for pahma's twitter handle in blacklight footer
+773b181 (origin/master, origin/HEAD) Merge pull request #16 from BAM-PFA/master
+df42096 CSW-274: update URLs to static pages hosted @ bampfa.org
+c24dc5c HMP-130: revise link for pahma's twitter handle in blacklight footer
+845e565 CSW-285: update README.md for UCB Blacklight portals
+63dd159 (tag: 2.0.9-rc8) revise change log and VERSION file for version 2.0.9-rc8
+667f773 CSW-285: update Gemfile.lock for ucb blacklight deployments
 2fc3627 CSW-285: refactor ucb blacklight scripts deploy.sh, relink.sh and install_ucb.sh a bit
 310ce84 CSW-285: further updates blacklight ucb customization script
 07ef87e CSW-285: typo in cinefiles footer
 f2f73da CSW-285: juggle a few blacklight files that are tenant specific
-96f2e8d (tag: 2.0.9-rc7, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.9-rc7
+96f2e8d (tag: 2.0.9-rc7) revise change log and VERSION file for version 2.0.9-rc7
 d45728e CSW-293: make 'localhost' the default server for blacklight solr cores
 f287a4d CSW-297: minor refactoring of CineFiles Blacklight 'pdf restrictions checking code'
 dad9812 Merge pull request #15 from BAM-PFA/master
