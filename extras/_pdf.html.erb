@@ -1,0 +1,25 @@
+<%- if ((current_user && restricted == true) || (restricted == false)) -%>
+  <div id="pdf" class="col-sm-12">
+    <a href="https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/<%= csid %>/content" target="new">view full size in new window</a>
+    <object data="https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/<%= csid %>/content"
+            style="padding: 3px;" height="800px" width="600px" class="hrefclass">
+    </object>
+  </div>
+<%- else -%>
+  <div id="copyrightstatement" class="alert alert-info col-sm-12 collapse.show ">
+    <h3>A PDF of this document is available</h3>
+    <p><i>
+      In order to access these materials, you must create a free account
+      and indicate that you acknowledge and will comply with these terms.
+      Please click below to sign up;
+      once you have logged in, you will be able to access this document.
+    </i></p>
+    <!-- <p>
+      Thank you for your interest in #TENANT#. We would love to hear your comments! Use the feedback link below.
+    </p> -->
+    <p>
+      <a class="btn btn-primary" type="button" href="/users/sign_up">Sign me up!</a>
+      <a class="btn btn-primary" type="button" href="/users/sign_in" style="float: right;">Log in</a>
+    </p>
+  </div>
+<%- end -%>
