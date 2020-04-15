@@ -28,7 +28,8 @@ if [ -d ${RUN_DIR} ] ; then echo "$1 already exists... exiting" ; exit 1 ; fi
 git clone ${TAG} https://github.com/cspace-deployment/radiance.git ${RUN_DIR}
 cd ${RUN_DIR}/portal/
 gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
-bundle install --deployment
+bundle config set deployment 'true'
+bundle install
 
 # migrations and secrets are applied by relink.sh, or you can do them by hand
 echo "deployed tag ${TAG} to ${RUN_DIR}, environment is $2"
