@@ -83,6 +83,10 @@ cp ${extra_dir}/${tenant}_new.html.erb app/views/devise/registrations/new.html.e
 # custom cinefiles restricted PDF warning
 cp ${extra_dir}/${tenant}_pdfs.html.erb app/views/shared/_pdfs.html.erb
 
+# other customizations: social, tracking ids, etc.
+cp ${extra_dir}/${tenant}_social.html.erb app/views/shared/_social.html.erb
+cp ${extra_dir}/${tenant}_blacklight.html.erb app/views/layout/blacklight.html.erb
+
 # to make a new splash partial for a tenant.
 # e.g. pick out 15 images to include in 4 x 4 splash partial
 # python ${extra_dir}/etc/pick8.py 4

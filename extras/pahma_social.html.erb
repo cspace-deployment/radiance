@@ -1,0 +1,12 @@
+<%# = simple_format @document.to_yaml %>
+<% if @document %>
+  <% doc_presenter = index_presenter(@document) %>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@hearstmuseum">
+  <meta name="fb:app_id" content="foo">
+  <meta property="og:url"         content="https://portal.hearstmuseum.berkeley.edu/catalog/<%= doc_presenter.field_value 'id' %>" />
+  <meta property="og:type"        content="article" />
+  <meta property="og:title"       content="<%= doc_presenter.field_value 'doctitle_txt' %>" />
+  <meta property="og:description" content="<%= doc_presenter.field_value 'doctitle_txt' %>" />
+  <meta property="og:image"       content="https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/<%= doc_presenter.field_value 'blob_ss' %>/derivatives/Medium/content">
+<% end %>
