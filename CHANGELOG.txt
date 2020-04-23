@@ -3,28 +3,36 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.0.9
-Thu Apr  9 09:51:13 PDT 2020
+This is version 2.0.10-rc1
+Thu Apr 23 11:18:59 PDT 2020
 
-f9981c0 (HEAD -> master, tag: 2.0.9-rc9, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.9-rc9
+b487664 (HEAD -> master) HMP-143: CineFiles: images will now appear on splash page after signout
+5d43abd HMP-143: CineFiles: change value appearing in browser tab
+4fda72a (origin/master, origin/HEAD) HMP-129: initial implementation of 'social media' features for pahma
+79c998f HMP-133: use cinefiles ua tracking id
+7bb8779 CSW-299: update robots.txt, allow all bots, for now
+c1ea707 CSW-293: apparently bundler deployment options are changing. use the new ones
+b2d9641 CSW-293: use production server for pdfs by default
+211b1fc (tag: 2.0.9) revise change log and VERSION file for version 2.0.9
+f9981c0 revise change log and VERSION file for version 2.0.9-rc9
 2d9a69c HMP-130: remove incorrectly committed file
 84bb242 HMP-130: revise link for pahma's twitter handle in blacklight footer
 773b181 Merge pull request #16 from BAM-PFA/master
 df42096 CSW-274: update URLs to static pages hosted @ bampfa.org
 c24dc5c HMP-130: revise link for pahma's twitter handle in blacklight footer
 845e565 CSW-285: update README.md for UCB Blacklight portals
-63dd159 (tag: 2.0.9-rc8) revise change log and VERSION file for version 2.0.9-rc8
+63dd159 revise change log and VERSION file for version 2.0.9-rc8
 667f773 CSW-285: update Gemfile.lock for ucb blacklight deployments
 2fc3627 CSW-285: refactor ucb blacklight scripts deploy.sh, relink.sh and install_ucb.sh a bit
 310ce84 CSW-285: further updates blacklight ucb customization script
 07ef87e CSW-285: typo in cinefiles footer
 f2f73da CSW-285: juggle a few blacklight files that are tenant specific
-96f2e8d (tag: 2.0.9-rc7) revise change log and VERSION file for version 2.0.9-rc7
+96f2e8d revise change log and VERSION file for version 2.0.9-rc7
 d45728e CSW-293: make 'localhost' the default server for blacklight solr cores
 f287a4d CSW-297: minor refactoring of CineFiles Blacklight 'pdf restrictions checking code'
 dad9812 Merge pull request #15 from BAM-PFA/master
 f0bd79c CSW-274: redo logic for displaying PDFs and "open PDF in new window" functionality by reusing _pdf partial
-b9efd73 (tag: 2.0.9-rc6) revise change log and VERSION file for version 2.0.9-rc6
+b9efd73 revise change log and VERSION file for version 2.0.9-rc6
 10b246e CSW-285: quiet down the blacklight ucb customization script
 14afc75 CSW-285: tweak blacklight deploy relink script to leave migration out
 91ecc48 CSW-296: tiny followup to last pull request: capitalization
@@ -33,18 +41,18 @@ a256836 add `check_pdf` application_helper method to check PDFs access_code and 
 42c8a62 Merge pull request #13 from BAM-PFA/master
 4c5654b CSW-274: Add date range widgets to facet list
 de309c3 Merge pull request #11 from BAM-PFA/master
-93b89e8 (tag: 2.0.9-rc5) revise change log and VERSION file for version 2.0.9-rc5
+93b89e8 revise change log and VERSION file for version 2.0.9-rc5
 3188e35 CSW-285: revise release-making script to not try to commit unstaged changes
 38128c0 CSW-274: restore 'Film ID' to searchability, so film/doc cross-linking continues to work
 5b2b6aa CSW-274: remove media links from index view
-d0aedc2 (tag: 2.0.9-rc4) revise change log and VERSION file for version 2.0.9-rc4
+d0aedc2 revise change log and VERSION file for version 2.0.9-rc4
 092adf9 Merge pull request #10 from BAM-PFA/master
 8c65447 CSW-274: Edits to cinefiles catalog controller, copyright language, and facet/field labels last minor tweaks to splash page
 0950549 Merge pull request #9 from BAM-PFA/cinesplash
 a93b165 CSW-274 start work on customizing cinefiles splash page; draft text, one customized splash tile
-401e585 (tag: 2.0.9-rc3) revise change log and VERSION file for version 2.0.9-rc3
+401e585 revise change log and VERSION file for version 2.0.9-rc3
 9b70775 CSW-274: use refactored solr variable 'film_link_ss'; also recover code reformatting in helper
-5b4d808 (tag: 2.0.9-rc2) revise change log and VERSION file for version 2.0.9-rc2
+5b4d808 revise change log and VERSION file for version 2.0.9-rc2
 7305ca2 CSW-274: for now, use solr server on webapps-dev by default
 5a62dc0 CSW-274: tidy up ucb-specific partials a bit
 f4c8a31 Merge pull request #8 from BAM-PFA/master
@@ -65,7 +73,7 @@ b9908a9 CSW-274: add links to film titles in docs, docs in film records, for hel
 d1b9682 CSW-274: add links to film titles in docs, docs in film records
 f4d00e4 CSW-285: more minor refactoring of blacklight deployment scripts
 11679dc CSW-285: minor refactoring of blacklight deployment scripts
-008e415 (tag: 2.0.9-rc1) revise change log and VERSION file for version 2.0.9-rc1
+008e415 revise change log and VERSION file for version 2.0.9-rc1
 e6500f2 CSW-274: incremental improvements to cinefiles blacklight look-and-feel and functionality
 496df29 more work on cinefiles header; still a weird margin @ left of header logo
 1e23bd1 fix path in install_ucb.sh
