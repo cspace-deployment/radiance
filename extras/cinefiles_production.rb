@@ -95,7 +95,6 @@ Rails.application.configure do
 
   # set host for password resets
   config.action_mailer.default_url_options = { :host => 'cinefiles-site-dev.cspace.berkeley.edu' }
-  config.action_mailer.default_url_options = { :host => 'portal-dev.hearstmuseum.berkeley.edu' }
   config.action_mailer.delivery_method = :sendmail
 
 end
