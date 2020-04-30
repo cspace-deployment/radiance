@@ -43,13 +43,19 @@ fi
 # nb: the header logos for all ucb tenants are already in the public static directory
 #     we just need to copy the one for this tenant to the right place.
 cp public/header-logo-${tenant}.png public/header-logo.png
+
+# copy a favicon
+# right now we only have PNG favicons...
+#cp ${extra_dir}/${tenant}_favicon.ico app/assets/images/favicon.ico
 cp ${extra_dir}/cspace_fav.png app/assets/images/favicon.png
+cp ${extra_dir}/${tenant}_favicon.png app/assets/images/favicon.png
 
 # generic helpers and config, but they do need to be configured per-tenant
 cp ${extra_dir}/application_helper.rb app/helpers
 cp ${extra_dir}/catalog_helper_behavior.rb app/helpers/blacklight
 cp ${extra_dir}/blacklight.yml config
 cp ${extra_dir}/blacklight.en.yml config/locales
+cp ${extra_dir}/${tenant}_production.rb config/environments/production.rb
 
 cp ${extra_dir}/${tenant}_blacklight.en.yml config/locales/blacklight.en.yml
 
