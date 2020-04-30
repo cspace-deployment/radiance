@@ -3,11 +3,14 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.0.10-rc3
-Thu Apr 30 10:56:29 PDT 2020
+This is version 2.0.10-rc4
+Thu Apr 30 12:19:12 PDT 2020
 
-9233c2b (HEAD -> master) HMP-144: portals should use correct hostnames for sending email
-16e2cb6 (tag: 2.0.10-rc2, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.10-rc2
+d8d2b98 (HEAD -> master) HMP-144: portals should use correct production hostnames for sending email
+c901b7e CSW-285: a lil helper script for deploying both blacklight portals
+03074c2 (tag: 2.0.10-rc3, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.10-rc3
+9233c2b HMP-144: portals should use correct hostnames for sending email
+16e2cb6 (tag: 2.0.10-rc2) revise change log and VERSION file for version 2.0.10-rc2
 dd9147c HMP-143, HMP-144: fix password reset bug, use correct favicons
 f32b3f3 HMP-143: fix the 'missing images on signout' bug for pahma, too
 575ed00 (tag: 2.0.10-rc1) revise change log and VERSION file for version 2.0.10-rc1
