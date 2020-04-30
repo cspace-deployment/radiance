@@ -3,12 +3,15 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.0.10-rc1
-Thu Apr 23 11:18:59 PDT 2020
+This is version 2.0.10-rc2
+Thu Apr 30 10:21:21 PDT 2020
 
-b487664 (HEAD -> master) HMP-143: CineFiles: images will now appear on splash page after signout
+dd9147c (HEAD -> master) HMP-143, HMP-144: fix password reset bug, use correct favicons
+f32b3f3 HMP-143: fix the 'missing images on signout' bug for pahma, too
+575ed00 (tag: 2.0.10-rc1, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.10-rc1
+b487664 HMP-143: CineFiles: images will now appear on splash page after signout
 5d43abd HMP-143: CineFiles: change value appearing in browser tab
-4fda72a (origin/master, origin/HEAD) HMP-129: initial implementation of 'social media' features for pahma
+4fda72a HMP-129: initial implementation of 'social media' features for pahma
 79c998f HMP-133: use cinefiles ua tracking id
 7bb8779 CSW-299: update robots.txt, allow all bots, for now
 c1ea707 CSW-293: apparently bundler deployment options are changing. use the new ones
