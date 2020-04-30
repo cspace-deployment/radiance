@@ -3,12 +3,14 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.0.10-rc2
-Thu Apr 30 10:21:21 PDT 2020
+This is version 2.0.10-rc3
+Thu Apr 30 10:56:29 PDT 2020
 
-dd9147c (HEAD -> master) HMP-143, HMP-144: fix password reset bug, use correct favicons
+9233c2b (HEAD -> master) HMP-144: portals should use correct hostnames for sending email
+16e2cb6 (tag: 2.0.10-rc2, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.10-rc2
+dd9147c HMP-143, HMP-144: fix password reset bug, use correct favicons
 f32b3f3 HMP-143: fix the 'missing images on signout' bug for pahma, too
-575ed00 (tag: 2.0.10-rc1, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.10-rc1
+575ed00 (tag: 2.0.10-rc1) revise change log and VERSION file for version 2.0.10-rc1
 b487664 HMP-143: CineFiles: images will now appear on splash page after signout
 5d43abd HMP-143: CineFiles: change value appearing in browser tab
 4fda72a HMP-129: initial implementation of 'social media' features for pahma
