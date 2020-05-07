@@ -3,10 +3,12 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.0.10-rc5
-Thu May  7 08:50:49 PDT 2020
+This is version 2.0.10-rc6
+Thu May  7 13:39:11 PDT 2020
 
-0f1a7a5 (HEAD -> master, origin/master, origin/HEAD) Merge pull request #17 from BAM-PFA/master
+1bb8e47 (HEAD -> master) HMP-148: remove comment in robots.txt
+4e90b91 (tag: 2.0.10-rc5, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.10-rc5
+0f1a7a5 Merge pull request #17 from BAM-PFA/master
 f38aeed CSW-274: Incremental improvemetns to CineFiles CSS styling incorporating initial design feedback
 b733cff (tag: 2.0.10-rc4) revise change log and VERSION file for version 2.0.10-rc4
 d8d2b98 HMP-144: portals should use correct production hostnames for sending email
