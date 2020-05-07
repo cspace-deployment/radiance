@@ -3,12 +3,15 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.0.10-rc4
-Thu Apr 30 12:19:12 PDT 2020
+This is version 2.0.10-rc5
+Thu May  7 08:50:49 PDT 2020
 
-d8d2b98 (HEAD -> master) HMP-144: portals should use correct production hostnames for sending email
+0f1a7a5 (HEAD -> master, origin/master, origin/HEAD) Merge pull request #17 from BAM-PFA/master
+f38aeed CSW-274: Incremental improvemetns to CineFiles CSS styling incorporating initial design feedback
+b733cff (tag: 2.0.10-rc4) revise change log and VERSION file for version 2.0.10-rc4
+d8d2b98 HMP-144: portals should use correct production hostnames for sending email
 c901b7e CSW-285: a lil helper script for deploying both blacklight portals
-03074c2 (tag: 2.0.10-rc3, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.10-rc3
+03074c2 (tag: 2.0.10-rc3) revise change log and VERSION file for version 2.0.10-rc3
 9233c2b HMP-144: portals should use correct hostnames for sending email
 16e2cb6 (tag: 2.0.10-rc2) revise change log and VERSION file for version 2.0.10-rc2
 dd9147c HMP-143, HMP-144: fix password reset bug, use correct favicons
