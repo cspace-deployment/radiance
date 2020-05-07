@@ -61,7 +61,7 @@ cp ${extra_dir}/${tenant}_blacklight.en.yml config/locales/blacklight.en.yml
 
 # use our generic header, footer, etc. partials
 cp ${extra_dir}/_header_navbar.html.erb app/views/shared/
-cp ${extra_dir}/_pdf.html.erb app/views/shared/
+cp ${extra_dir}/_pdfs.html.erb app/views/shared/
 cp ${extra_dir}/_footer.html.erb app/views/shared/
 cp ${extra_dir}/_splash.html.erb app/views/shared/
 cp ${extra_dir}/_home_text.html.erb app/views/catalog/
@@ -91,7 +91,7 @@ cp ${extra_dir}/${tenant}_pdfs.html.erb app/views/shared/_pdfs.html.erb
 
 # other customizations: social, tracking ids, etc.
 cp ${extra_dir}/${tenant}_social.html.erb app/views/shared/_social.html.erb
-cp ${extra_dir}/${tenant}_blacklight.html.erb app/views/layout/blacklight.html.erb
+cp ${extra_dir}/${tenant}_blacklight.html.erb app/views/layouts/blacklight.html.erb
 
 # to make a new splash partial for a tenant.
 # e.g. pick out 15 images to include in 4 x 4 splash partial
