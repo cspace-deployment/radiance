@@ -3,12 +3,13 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.0.10-rc7
-Thu May  7 15:00:09 PDT 2020
+This is version 2.1.0
+Wed May 13 12:35:48 PDT 2020
 
-af1f36d (HEAD -> master) HMP-149: correct path in this blacklight ucb deployment script
+61f980e (HEAD -> master, tag: 2.0.10-rc7, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.10-rc7
+af1f36d HMP-149: correct path in this blacklight ucb deployment script
 56614d0 HMP-149: untangle two blacklight partials concerning pdfs
-4b5c8cf (origin/master, origin/HEAD) revise change log and VERSION file for version 2.1.0
+4b5c8cf revise change log and VERSION file for version 2.1.0
 7f6f2fa HMP-133: there does not need to be an actual default ua tracking id
 798e93e (tag: 2.0.10-rc6) revise change log and VERSION file for version 2.0.10-rc6
 1bb8e47 HMP-148: remove comment in robots.txt
