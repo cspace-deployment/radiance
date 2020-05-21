@@ -75,6 +75,7 @@ cp ${extra_dir}/${tenant}_header_navbar.html.erb app/views/shared/_header_navbar
 cp ${extra_dir}/${tenant}_footer.html.erb app/views/shared/_footer.html.erb
 #cp ${extra_dir}/${tenant}_home_text.html.erb app/views/catalog/_home_text.html.erb
 cp ${extra_dir}/${tenant}_search_form.html.erb app/views/catalog/_search_form.html.erb
+cp ${extra_dir}/${tenant}_show_sidebar.html.erb app/views/catalog/_show_sidebar.html.erb
 cp ${extra_dir}/${tenant}_splash.html.erb app/views/shared/_splash.html.erb
 cp ${extra_dir}/${tenant}_extras.scss app/assets/stylesheets/extras.scss
 cp ${extra_dir}/${tenant}_variables.scss app/assets/stylesheets/_variables.scss
