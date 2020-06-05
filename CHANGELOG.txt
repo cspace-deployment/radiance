@@ -3,10 +3,20 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.1.0
-Wed May 13 12:35:48 PDT 2020
+This is version 2.1.1-rc1
+Fri Jun  5 14:50:35 PDT 2020
 
-61f980e (HEAD -> master, tag: 2.0.10-rc7, origin/master, origin/HEAD) revise change log and VERSION file for version 2.0.10-rc7
+b128821 (HEAD -> master) HMP-152: update blacklight portal gems for security and other reasons
+b7d9f48 (origin/master, origin/HEAD) Merge pull request #21 from cspace-deployment/dependabot/bundler/portal/puma-3.12.6
+5c68500 Bump puma from 3.12.4 to 3.12.6 in /portal
+92ccea7 Merge pull request #19 from cspace-deployment/dependabot/bundler/portal/kaminari-1.2.1
+16d8248 Merge pull request #20 from cspace-deployment/dependabot/bundler/portal/websocket-extensions-0.1.5
+311359d (origin/dependabot/bundler/portal/websocket-extensions-0.1.5) Bump websocket-extensions from 0.1.4 to 0.1.5 in /portal
+3753ef9 (origin/dependabot/bundler/portal/kaminari-1.2.1) Bump kaminari from 1.2.0 to 1.2.1 in /portal
+57e8b41 Merge pull request #18 from BAM-PFA/master
+a85d545 CSW-274: add copyright section 108 warning language to document show display sidebar
+a3db76b (tag: 2.1.0) revise change log and VERSION file for version 2.1.0
+61f980e (tag: 2.0.10-rc7) revise change log and VERSION file for version 2.0.10-rc7
 af1f36d HMP-149: correct path in this blacklight ucb deployment script
 56614d0 HMP-149: untangle two blacklight partials concerning pdfs
 4b5c8cf revise change log and VERSION file for version 2.1.0
