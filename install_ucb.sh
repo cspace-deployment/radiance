@@ -56,6 +56,8 @@ cp ${extra_dir}/catalog_helper_behavior.rb app/helpers/blacklight
 cp ${extra_dir}/blacklight.yml config
 cp ${extra_dir}/blacklight.en.yml config/locales
 cp ${extra_dir}/${tenant}_production.rb config/environments/production.rb
+cp ${extra_dir}/${tenant}_application.rb config/application.rb
+cp ${extra_dir}/${tenant}_routes.rb config/routes.rb
 
 cp ${extra_dir}/${tenant}_blacklight.en.yml config/locales/blacklight.en.yml
 
@@ -90,9 +92,23 @@ cp ${extra_dir}/${tenant}_new.html.erb app/views/devise/registrations/new.html.e
 # custom cinefiles restricted PDF warning
 cp ${extra_dir}/${tenant}_pdfs.html.erb app/views/shared/_pdfs.html.erb
 
+# custom error pages
+cp ${extra_dir}/${tenant}_errors_controller.rb app/controllers/errors_controller.rb
+cp ${extra_dir}/${tenant}_errors_helper.rb app/helpers/errors_helper.rb
+cp ${extra_dir}/${tenant}_not_found.html.erb app/views/errors/not_found.html.erb
+cp ${extra_dir}/${tenant}_internal_server_error.html.erb app/views/errors/internal_server_error.html.erb
+cp ${extra_dir}/${tenant}_404.jpg public/404.jpg
+cp ${extra_dir}/${tenant}_500.jpg public/500.jpg
+# you have to remove the default error pages otherwise they supercede the custom ones
+rm public/404.html
+rm public/500.html
+
+
 # other customizations: social, tracking ids, etc.
 cp ${extra_dir}/${tenant}_social.html.erb app/views/shared/_social.html.erb
 cp ${extra_dir}/${tenant}_blacklight.html.erb app/views/layouts/blacklight.html.erb
+cp ${extra_dir}/${tenant}_site_image.jpg public/site_image.jpg
+
 
 # to make a new splash partial for a tenant.
 # e.g. pick out 15 images to include in 4 x 4 splash partial
