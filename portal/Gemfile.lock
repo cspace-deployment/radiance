@@ -99,7 +99,7 @@ GEM
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
-    codecov (0.1.16)
+    codecov (0.2.11)
       json
       simplecov
       url
