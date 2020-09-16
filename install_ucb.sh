@@ -56,8 +56,8 @@ cp ${extra_dir}/catalog_helper_behavior.rb app/helpers/blacklight
 cp ${extra_dir}/blacklight.yml config
 cp ${extra_dir}/blacklight.en.yml config/locales
 cp ${extra_dir}/${tenant}_production.rb config/environments/production.rb
-cp ${extra_dir}/${tenant}_application.rb config/application.rb
-cp ${extra_dir}/${tenant}_routes.rb config/routes.rb
+# cp ${extra_dir}/${tenant}_application.rb config/application.rb
+# cp ${extra_dir}/${tenant}_routes.rb config/routes.rb
 
 cp ${extra_dir}/${tenant}_blacklight.en.yml config/locales/blacklight.en.yml
 
