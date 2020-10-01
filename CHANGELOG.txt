@@ -3,11 +3,17 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.1.1-rc2
-Wed Sep 16 12:30:15 PDT 2020
+This is version 2.1.1-rc3
+Thu Oct  1 15:41:16 PDT 2020
 
-6a51279 (HEAD -> master) HMP-160: minor revision to blacklight deploy script
-6eca048 (origin/master, origin/HEAD) Merge pull request #25 from BAM-PFA/master
+9b0390f (HEAD -> master) HMP-162: update <meta> social media tags for PAHMA Blacklight
+ce6eb23 Merge branch 'master' of https://github.com/cspace-deployment/radiance
+97c92b4 CSW-367: use OriginalJpeg not Original for link in PAHMA Blacklight Portal
+b4e522d (origin/master, origin/HEAD) Merge pull request #26 from BAM-PFA/master
+447e0e4 HMP-160: update CineFiles social.html.erb with better <meta> tag contents
+6c86d6d (tag: 2.1.1-rc2) revise change log and VERSION file for version 2.1.1-rc2
+6a51279 HMP-160: minor revision to blacklight deploy script
+6eca048 Merge pull request #25 from BAM-PFA/master
 5684aaa HMP-160: make generic error pages (404/500) that rely on any UCB TENANT's existing default page layout, without presupposing any other customizations (like images, etc.); NOTE: this deletes the default Rails /public/404.html and /public/500.html
 7df7b65 Merge pull request #24 from BAM-PFA/master
 5fba146 update version of codecov in Gemfile.lock
