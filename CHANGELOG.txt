@@ -3,10 +3,11 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.1.1-rc4
-Wed Oct 21 12:12:39 PDT 2020
+This is version 2.1.1
+Wed Oct 21 12:12:52 PDT 2020
 
-a575819 (HEAD -> master, tag: 2.1.1-rc3, origin/master, origin/HEAD) revise change log and VERSION file for version 2.1.1-rc3
+2748407 (HEAD -> master, tag: 2.1.1-rc4, origin/master, origin/HEAD) revise change log and VERSION file for version 2.1.1-rc4
+a575819 (tag: 2.1.1-rc3) revise change log and VERSION file for version 2.1.1-rc3
 9b0390f HMP-162: update <meta> social media tags for PAHMA Blacklight
 ce6eb23 Merge branch 'master' of https://github.com/cspace-deployment/radiance
 97c92b4 CSW-367: use OriginalJpeg not Original for link in PAHMA Blacklight Portal
