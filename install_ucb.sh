@@ -110,6 +110,9 @@ cp ${extra_dir}/${tenant}_social.html.erb app/views/shared/_social.html.erb
 cp ${extra_dir}/${tenant}_blacklight.html.erb app/views/layouts/blacklight.html.erb
 cp ${extra_dir}/${tenant}_site_image.jpg public/site_image.jpg
 
+# custom global alerts (via global_alerts gem)
+cp ${extra_dir}/${tenant}_global_alerts.rb config/initializers/global_alerts.rb
+mkdir app/views/global_alerts && cp ${extra_dir}/${tenant}_global_alerts.html.erb app/views/global_alerts/_global_alerts.html.erb
 
 # to make a new splash partial for a tenant.
 # e.g. pick out 15 images to include in 4 x 4 splash partial

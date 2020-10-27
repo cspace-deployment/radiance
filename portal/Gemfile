@@ -93,3 +93,6 @@ gem 'nokogiri', '>= 1.10.4'
 gem 'devise-guests', '~> 0.6'
 gem 'blacklight-marc', '~> 6.1'
 gem 'codecov', :require => false, :group => :test
+
+# Stanford's alerts banner gem
+gem 'global_alerts'
