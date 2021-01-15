@@ -102,10 +102,10 @@ NB: the Solr resource by default is localhost. Unless you have a suitable Solr s
 set up on your local system, you'll need to edit `config/blacklight.yml` to use
 one of the existing public cores, e.g.
 
-https://webapps.cspace.berkeley.edu/solr/pahma-public
+[https://webapps.cspace.berkeley.edu/solr/pahma-public/select](https://webapps.cspace.berkeley.edu/solr/pahma-public/select?q=*:*&rows=10)
 
 _To access the Dev service, your application must be running within the UCB firewall,
-and in fact normally via the "Full" VPN. If you have Solr installed
+e.g. using the VPN. If you have Solr installed
 locally (and eventually, you should!) configure it in config/blacklight.yml._
 
 Then visit:
@@ -120,7 +120,7 @@ You should see the start page.
 
 A few important details, but do please read this whole section before you attempt to deploy on RTL servers:
 
-* The actual recipe for a quick and painless deploment may be found [further below](#deploying-new-versions-on-rtl-servers). But do read on for the gory details.
+* The actual recipe for a quick and painless deployment may be found [further below](#deploying-new-versions-on-rtl-servers). But do read on for the gory details.
 * It is expected that a "release document" has been prepared in advance for any particular release, and a "deployment JIRA" exists as well. Please do check for these before attempting to deploy a new version!
 * This Blacklight app expected to deployed as user `blacklight` under Passenger on RTL servers, and currently expects the deployed code to be in a particular subdirectory in `~blacklight/projects`.  The application also *runs* under user `blacklight`.
 * However, you should check to ensure that you have the latest versions of these scripts before deploying.
