@@ -39,7 +39,7 @@ class CatalogController < ApplicationController
     #
     # UCB customizations to support existing Solr cores
     config.default_solr_params = {
-      rows: 10,
+      'rows': 10,
       'facet.mincount': 1,
       'q.alt': '*:*',
       'defType': 'edismax',
