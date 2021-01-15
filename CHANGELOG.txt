@@ -3,13 +3,15 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.2.0-rc1
-Thu Jan 14 18:20:23 PST 2021
+This is version 2.2.0-rc2
+Thu Jan 14 20:04:54 PST 2021
 
-3dfc39c (HEAD -> master) CSW-389: update blacklight for ruby 2.6.6 and rbenv
+39699a1 (HEAD -> master) CSW-389: update .travis.yml for 2.6.6
+0e810e8 (tag: 2.2.0-rc1, origin/master, origin/HEAD) revise change log and VERSION file for version 2.2.0-rc1
+3dfc39c CSW-389: update blacklight for ruby 2.6.6 and rbenv
 46aa59c CSW-389: minor syntax change in catalog controllers
 cc5f14a CSW-389: minor improvements to Blacklight README
-596f612 (tag: 2.1.1, origin/master, origin/HEAD) revise change log and VERSION file for version 2.1.1
+596f612 (tag: 2.1.1) revise change log and VERSION file for version 2.1.1
 2748407 (tag: 2.1.1-rc4) revise change log and VERSION file for version 2.1.1-rc4
 a575819 (tag: 2.1.1-rc3) revise change log and VERSION file for version 2.1.1-rc3
 9b0390f HMP-162: update <meta> social media tags for PAHMA Blacklight
