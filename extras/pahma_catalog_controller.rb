@@ -253,7 +253,8 @@ class CatalogController < ApplicationController
       ['objfilecode_txt', 'Function'],
       ['objcontextuse_txt', 'Context of use'],
       ['objkeelingser_txt', 'Keeling series'],
-      ['objdept_txt', 'Department']
+      ['objdept_txt', 'Department'],
+      ['loan_info_ss', 'Loans']
       ].each do |search_field|
       config.add_search_field(search_field[0]) do |field|
         field.label = search_field[1]
@@ -354,6 +355,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'objdimensions_ss', label: 'Dimensions'
     config.add_show_field 'objtitle_s', label: 'Title'
     config.add_show_field 'objcomment_s', label: 'Comment'
+    config.add_show_field 'loan_info_ss', label: 'Loans'
     #config.add_show_field 'video_ss', helper_method: 'render_video_csid', label: 'Video'
     #config.add_show_field 'audio_ss', helper_method: 'render_audio_csid', label: 'Audio'
     config.add_show_field 'video_md5_ss', helper_method: 'render_video_directly', label: 'Video'
@@ -410,6 +412,7 @@ class CatalogController < ApplicationController
     ##config.add_facet_field 'objacqdate_ss', label: 'Acquisition date', limit: true, index_range: true
     ##config.add_facet_field 'objacqdate_begin_is', label: 'Acquisition year', range: true, index_range: true
     config.add_facet_field 'objfilecode_ss', label: 'Function', limit: true
+    config.add_facet_field 'loan_info_ss', label: 'Loans', limit: true
     #config.add_facet_field 'objkeelingser_s', label: 'Keeling series', limit: true, index_range: true
     #config.add_facet_field 'objdept_s', label: 'Department', limit: true
 
