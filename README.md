@@ -15,16 +15,16 @@ http://projectblacklight.org/
 
 #### Ruby and Rails versions
 
-Ruby 2.5.1
-Rails 5.2
+Ruby 2.6.6\
+Rails 5.2.4.4
 
 To check:
 
 ```bash
 blacklight@blacklight-dev:~/projects/20200226/portal$ ruby -v
-ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]
+ruby 2.6.6p146 (2020-03-31 revision 67876) [x86_64-linux]uby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]
 blacklight@blacklight-dev:~/projects/20200226/portal$ rails -v
-Rails 5.2.2.1
+Rails 5.2.4.4
 ```
 
 #### System dependencies and configuration
