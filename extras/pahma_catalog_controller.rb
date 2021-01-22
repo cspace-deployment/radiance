@@ -254,7 +254,7 @@ class CatalogController < ApplicationController
       ['objcontextuse_txt', 'Context of use'],
       ['objkeelingser_txt', 'Keeling series'],
       ['objdept_txt', 'Department'],
-      ['loan_info_ss', 'Loans']
+      ['loan_info_txt', 'Loans']
       ].each do |search_field|
       config.add_search_field(search_field[0]) do |field|
         field.label = search_field[1]
