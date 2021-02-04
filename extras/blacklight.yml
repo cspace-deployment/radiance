@@ -28,3 +28,4 @@ production:
   adapter: solr
   # url: <%= ENV['SOLR_URL'] || "https://webapps-dev.cspace.berkeley.edu/solr/#TENANT#-public" %>
   url: <%= ENV['SOLR_URL'] || "http://localhost:8983/solr/#TENANT#-public" %>
+  GLOBAL_ALERTS: <%= true %>

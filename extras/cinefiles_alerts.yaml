@@ -1,0 +1,2 @@
+alerts:
+   - html: A single <em>alert</em> across all apps. This will appear until manually removed from this YML file.
