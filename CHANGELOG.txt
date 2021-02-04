@@ -3,11 +3,13 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.2.0-rc6
-Wed Feb  3 20:25:13 PST 2021
+This is version 2.2.0-rc7
+Wed Feb  3 21:09:07 PST 2021
 
-55e1e93 (HEAD -> master) CSW-419: blacklight portal alerts for pahma
-15137dd (tag: 2.2.0-rc5, origin/master, origin/HEAD) revise change log and VERSION file for version 2.2.0-rc5
+d8e2981 (HEAD -> master) CSW-419: update config for blacklight portal alerts
+4aeb31e (tag: 2.2.0-rc6, origin/master, origin/HEAD) revise change log and VERSION file for version 2.2.0-rc6
+55e1e93 CSW-419: blacklight portal alerts for pahma
+15137dd (tag: 2.2.0-rc5) revise change log and VERSION file for version 2.2.0-rc5
 0f0881d CSW-419: further revise Gemfile.lock conflicts to allow alerts to be added
 7fa630b (BAM-PFA-alerts) CSW-419: revise Gemfile.lock conflicts to allow alerts to be added
 4b8924c (tag: 2.2.0-rc4) revise change log and VERSION file for version 2.2.0-rc4
