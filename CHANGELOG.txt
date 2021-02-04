@@ -3,10 +3,12 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.2.0-rc3
-Wed Feb  3 15:20:16 PST 2021
+This is version 2.2.0-rc4
+Wed Feb  3 17:01:12 PST 2021
 
-2b63596 (HEAD -> master, origin/master, origin/HEAD) CSW-386: now use correct variable name for advanced searching of loans
+02319db (HEAD -> master) HMP-169: fix pahma footer: kroeber hall is no more.
+1990af6 (tag: 2.2.0-rc3, origin/master, origin/HEAD) revise change log and VERSION file for version 2.2.0-rc3
+2b63596 CSW-386: now use correct variable name for advanced searching of loans
 a6087cc CSW-401: update pahma blacklight to render loans
 1ae8d71 CSW-401: update README.md for blacklight webapps
 aeda1d5 (tag: 2.2.0-rc2) revise change log and VERSION file for version 2.2.0-rc2
