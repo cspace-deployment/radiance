@@ -1,0 +1,5 @@
+<% alert = GlobalAlerts::Alert.active %>
+
+<% if alert.present? %>
+    <%= alert.as_html %>
+<% end %>
