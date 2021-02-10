@@ -3,11 +3,15 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.2.0-rc7
-Wed Feb  3 21:09:07 PST 2021
+This is version 2.2.0-rc8
+Wed Feb 10 10:02:28 PST 2021
 
-d8e2981 (HEAD -> master) CSW-419: update config for blacklight portal alerts
-4aeb31e (tag: 2.2.0-rc6, origin/master, origin/HEAD) revise change log and VERSION file for version 2.2.0-rc6
+077f4f0 (HEAD -> master) CSW-419: copy alert updates from cinefiles to pahma
+e31cfb7 (origin/master, origin/HEAD) Merge pull request #28 from BAM-PFA/master
+566eb4b CSW-419: Fix cinefiles global alerts display error (didn't include the alerts partial in the main blacklight.html.erb)
+5329350 (tag: 2.2.0-rc7) revise change log and VERSION file for version 2.2.0-rc7
+d8e2981 CSW-419: update config for blacklight portal alerts
+4aeb31e (tag: 2.2.0-rc6) revise change log and VERSION file for version 2.2.0-rc6
 55e1e93 CSW-419: blacklight portal alerts for pahma
 15137dd (tag: 2.2.0-rc5) revise change log and VERSION file for version 2.2.0-rc5
 0f0881d CSW-419: further revise Gemfile.lock conflicts to allow alerts to be added
