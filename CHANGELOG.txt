@@ -3,10 +3,13 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.2.0-rc9
-Fri Feb 19 11:43:03 PST 2021
+This is version 2.2.0
+Sat Feb 20 16:06:15 PST 2021
 
-6d8bd9b (HEAD -> master, origin/master, origin/HEAD) HMP-169: use full nine digit zip code in pahma footer
+863d6c6 (HEAD -> master, origin/master, origin/HEAD) HMP-171: turn off alerts for cinefiles
+a4e8be4 HMP-171: turn off alerts for pahma
+5e0b8db (tag: 2.2.0-rc9) revise change log and VERSION file for version 2.2.0-rc9
+6d8bd9b HMP-169: use full nine digit zip code in pahma footer
 48fefcc (tag: 2.2.0-rc8) revise change log and VERSION file for version 2.2.0-rc8
 077f4f0 CSW-419: copy alert updates from cinefiles to pahma
 e31cfb7 Merge pull request #28 from BAM-PFA/master
