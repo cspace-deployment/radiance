@@ -3,10 +3,13 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.2.0
-Thu Mar  4 17:19:05 PST 2021
+This is version 2.2.1-rc1
+Wed Mar 24 14:39:01 PDT 2021
 
-415aadd (HEAD -> master, tag: 2.2.0-rc1, origin/master, origin/HEAD) revise change log and VERSION file for version 2.2.0-rc1
+fbb8aa7 (HEAD -> master, origin/master, origin/HEAD) HMP-176: update blacklight gems
+0e060fa HMP-173: initial version of script to update blacklight splash pages
+ae952d8 (tag: 2.2.0) revise change log and VERSION file for version 2.2.0
+415aadd revise change log and VERSION file for version 2.2.0-rc1
 2f0fc9e Merge pull request #29 from BAM-PFA/master
 40f0141 HMP-168: update cinefiles splash page for Spring 2021
 9953eef revise change log and VERSION file for version 2.2.0
