@@ -58,9 +58,9 @@ else
   echo "nb: when asked to edit credentials, you can just :q, unless you want to edit them after all"
   cd ${INSTALL_DIR}
   # this seems to be necessary for rails 5.2
-  rm -f config/credentials.yml.enc
-  rm -f config/master.key
-  EDITOR=vi rails credentials:edit
+  # rm -f config/credentials.yml.enc
+  # rm -f config/master.key
+  # EDITOR=vi rails credentials:edit
   rails db:migrate RAILS_ENV=development
   echo "relinking and migrating done..."
 fi
