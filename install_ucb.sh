@@ -56,7 +56,7 @@ cp ${extra_dir}/cspace_fav.png app/assets/images/favicon.png
 cp ${extra_dir}/${tenant}_favicon.png app/assets/images/favicon.png
 
 # copy other static media
-cp -r ${extra_dir}/${tenant}/images/* app/public
+cp -r ${extra_dir}/${tenant}/images/* public
 
 # generic helpers and config, but they do need to be configured per-tenant
 cp ${extra_dir}/application_helper.rb app/helpers
