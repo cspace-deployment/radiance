@@ -26,14 +26,13 @@ if ! grep -q " $3 " <<< " production development "; then
 fi
 
 INSTALL_DIR=$1/portal
-LINK_DIR=search_$2
-if [ ! -d ${INSTALL_DIR} ] ; then echo "${INSTALL_DIR} does not exist... exiting" ; exit 1 ; fi
-if [ -d ${LINK_DIR} -a ! -L ${LINK_DIR} ] ; then echo "${LINK_DIR} exists and is not a symlink ... cowardly refusal to rm it and relink it" ; exit 1 ; fi
-
-rm ${LINK_DIR}
-ln -s ${INSTALL_DIR} ${LINK_DIR}
 
 if [ "$3" == "production" ]; then
+  LINK_DIR=search_$2
+  if [ ! -d ${INSTALL_DIR} ] ; then echo "${INSTALL_DIR} does not exist... exiting" ; exit 1 ; fi
+  if [ -d ${LINK_DIR} -a ! -L ${LINK_DIR} ] ; then echo "${LINK_DIR} exists and is not a symlink ... cowardly refusal to rm it and relink it" ; exit 1 ; fi
+  rm ${LINK_DIR}
+  ln -s ${INSTALL_DIR} ${LINK_DIR}
   echo "remaking links to db and log for production deployment"
   cd ${INSTALL_DIR}
   # link the log dir to the "permanent" log dir
