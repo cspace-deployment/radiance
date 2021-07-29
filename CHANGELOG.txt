@@ -3,10 +3,14 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.2.1-rc1
-Wed Mar 24 14:39:01 PDT 2021
+This is version 2.2.1-rc2
+Thu Jul 29 10:17:09 PDT 2021
 
-fbb8aa7 (HEAD -> master, origin/master, origin/HEAD) HMP-176: update blacklight gems
+46286d4 (HEAD -> master) NOJIRA: minor refactoring of blacklight relink script for dev deployments
+8c33b1e HMP-186: revise blacklight portal footers for accessibility, nondiscrimination & privacy
+1e2264e HMP-176: update blacklight gems, again
+3afb205 (tag: 2.2.1-rc1, origin/master, origin/HEAD) revise change log and VERSION file for version 2.2.1-rc1
+fbb8aa7 HMP-176: update blacklight gems
 0e060fa HMP-173: initial version of script to update blacklight splash pages
 ae952d8 (tag: 2.2.0) revise change log and VERSION file for version 2.2.0
 415aadd revise change log and VERSION file for version 2.2.0-rc1
