@@ -1,0 +1,10 @@
+<div class="warc-container">
+	<div class="warc">
+		<!-- Note: updating this script source also requires updating /public/replay/sw.js -->
+		<script src="https://cdn.jsdelivr.net/npm/replaywebpage@1.5.2/ui.js"></script>
+		<replay-web-page
+		source="<%= warc_url %>"
+		url="<%= canonical_url %>"
+		replayBase="/replay/"></replay-web-page>
+	</div>
+</div>
