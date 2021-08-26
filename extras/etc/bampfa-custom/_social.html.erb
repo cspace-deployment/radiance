@@ -1,0 +1,28 @@
+<%# = simple_format @document.to_yaml %>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@bampfa"/>
+<% if @document %>
+  <% doc_presenter = index_presenter(@document) %>
+  <% doc_title = doc_presenter.field_value 'doctitle_txt' %>
+  <% if not doc_title.empty?  %>
+    <meta property="og:title"       content="<%= doc_title %>" />
+    <meta property="og:description" content="<%= doc_presenter.field_value 'filmtitle_ss' %>" />
+    <meta property="og:image"       content="https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/<%= doc_presenter.field_value('blob_ss')[0...23] %>/derivatives/Medium/content"/>
+    <meta property="twitter:image:alt"       content="Image from <%= doc_title %>"/>
+  <% else %>
+    <!-- In case of film records... an edge case, but ~what an edge case~ -->
+    <meta property="og:title"       content="<%= doc_presenter.field_value 'common_title_ss' %>" />
+    <meta property="og:description" content="<%= doc_presenter.field_value 'film_director_ss' %>" />
+    <meta property="og:image"       content="https://cinefiles.bampfa.berkeley.edu/site_image.jpg" />
+    <meta property="twitter:image:alt"       content="Three frames of film from Bruce Baillie's All My Life"/>
+  <% end %>
+  <meta property="og:url"         content="https://cinefiles.bampfa.berkeley.edu/catalog/<%= doc_presenter.field_value 'id' %>" />
+  <meta property="og:type"        content="article" />
+<% else %>
+  <meta property="og:url"         content="https://cinefiles.bampfa.berkeley.edu/"/>
+  <meta property="og:title"       content="CineFiles" />
+  <meta property="og:creator" content="UC Berkeley Art Museum and Pacific Film Archive" />
+  <meta property="og:description"       content="CineFiles is a free online database of film documentation and ephemera" />
+  <meta property="og:image"       content="https://cinefiles.bampfa.berkeley.edu/site_image.jpg" />
+  <meta property="twitter:image:alt"       content="Three frames of film from Bruce Baillie's All My Life"/>
+<% end %>

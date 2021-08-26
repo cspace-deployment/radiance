@@ -1,0 +1,22 @@
+cp -r radiance rrr
+cd ~/rrr
+./make-bampfa.sh public_collection_info.csv
+
+cd ~/projects/search_cinefiles
+cp app/controllers/catalog_controller.rb ~/projects/bampfa-custom/
+cp app/views/shared/_header_navbar.html.erb ~/projects/bampfa-custom/
+cp vi app/views/shared/_header_navbar.html.erb ~/projects/bampfa-custom/
+cp app/views/shared/_header_navbar.html.erb ~/projects/bampfa-custom/
+cp app/views/shared/_footer.html.erb  ~/projects/bampfa-custom/
+cp ~/projects/search_cinefiles/app/views/shared/_splash.html.erb ~/projects/bampfa-custom/
+cp public/header-logo-bampfa.png ~/projects/bampfa-custom/
+cp /tmp/imls.png  ~/projects/bampfa-custom/
+cp app/assets/stylesheets/extras.scss ~/projects/bampfa-custom/
+cp app/helpers/blacklight/catalog_helper_behavior.rb ~/projects/bampfa-custom/
+cp app/helpers/application_helper.rb ~/projects/bampfa-custom/
+cp app/views/shared/_social.html.erb ~/projects/bampfa-custom/
+cp config/blacklight.yml ~/projects/bampfa-custom/
+cp config/initializers/global_alerts.rb ~/projects/bampfa-custom/
+cp config/environments/production.rb ~/projects/bampfa-custom/
+cp app/views/catalog/_show_sidebar.html.erb ~/projects/bampfa-custom/
+
