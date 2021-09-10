@@ -3,10 +3,12 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.2.1-rc3
-Fri Aug 20 09:53:56 PDT 2021
+This is version 2.2.1
+Fri Sep 10 11:49:25 PDT 2021
 
-14bde40 (HEAD -> master, origin/master, origin/HEAD) Merge pull request #35 from cspace-deployment/dependabot/bundler/portal/puma-4.3.8
+8107f7f (HEAD -> master, origin/master, origin/HEAD) HMP-200: early bampfa blacklight customizations
+1bb8f0d (tag: 2.2.1-rc3) revise change log and VERSION file for version 2.2.1-rc3
+14bde40 Merge pull request #35 from cspace-deployment/dependabot/bundler/portal/puma-4.3.8
 fc79532 (tag: 2.2.1-rc2) revise change log and VERSION file for version 2.2.1-rc2
 46286d4 NOJIRA: minor refactoring of blacklight relink script for dev deployments
 8c33b1e HMP-186: revise blacklight portal footers for accessibility, nondiscrimination & privacy
