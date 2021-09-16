@@ -8,7 +8,14 @@ extra_dir="../extras"
 
 WHOLE_LIST="bampfa botgarden cinefiles pahma ucjeps"
 
-cd portal
+if [ ! -d portal ]; then
+  echo "Can't find 'portal' directory. Please verify name and location"
+  echo "This script must be executed from the base dir of the ucb blacklight customization (i.e. radiance)"
+  echo "$0 tenant"
+  exit
+fi
+
+cd portal || exit
 
 # check the command line parameters
 
@@ -28,15 +35,6 @@ fi
 
 # 'customize' the code in the extras directory
 perl -i -pe "s/#TENANT#/${tenant}/g" ${extra_dir}/* 2>&1
-
-if [ ! -f "${portal_config_file}" ]; then
-  echo "Can't find portal config file '${portal_config_file}'. skipping autogeneration of catalog_controller"
-else
-  # configure generic tenant BL controller using existing Portal config file
-  python3 ${extra_dir}/ucb_bl.py ${portal_config_file} > bl_config_temp.txt
-  cat ${extra_dir}/catalog_controller.template bl_config_temp.txt > app/controllers/catalog_controller.rb
-  rm bl_config_temp.txt
-fi
 
 # now apply customizations, if any
 

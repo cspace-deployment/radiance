@@ -6,7 +6,7 @@
 
 set -e
 
-cd ~/projects
+cd ~/projects || exit 1
 
 function usage() {
     echo
@@ -14,7 +14,7 @@ function usage() {
     echo
     echo "    e.g.   $0 20200305.pahma pahma production"
     echo
-    exit
+    exit 1
 }
 
 if [ $# -ne 3 ]; then
@@ -27,10 +27,24 @@ fi
 
 INSTALL_DIR=$1/portal
 
+if [ ! -d ${INSTALL_DIR} ] ; then
+  echo "${INSTALL_DIR} does not exist... exiting"
+  exit 1
+fi
+
 if [ "$3" == "production" ]; then
+  if [ ! -d "$1" ]; then
+    echo "$HOME/projects/$1 does not exist. exiting."
+    exit 1
+  fi
+
+  if [[ ! -f /var/cspace/$2/blacklight/db/production.sqlite3 ]]; then
+    echo "$2 is not an existing deployment."
+    exit 1
+  fi
+
   LINK_DIR=search_$2
-  if [ ! -d ${INSTALL_DIR} ] ; then echo "${INSTALL_DIR} does not exist... exiting" ; exit 1 ; fi
-  if [ -d ${LINK_DIR} -a ! -L ${LINK_DIR} ] ; then echo "${LINK_DIR} exists and is not a symlink ... cowardly refusal to rm it and relink it" ; exit 1 ; fi
+  if [ -d ${LINK_DIR} ] && [ ! -L ${LINK_DIR} ] ; then echo "${LINK_DIR} exists and is not a symlink ... cowardly refusal to rm it and relink it" ; exit 1 ; fi
   rm ${LINK_DIR}
   ln -s ${INSTALL_DIR} ${LINK_DIR}
   echo "remaking links to db and log for production deployment"
@@ -55,7 +69,7 @@ if [ "$3" == "production" ]; then
 else
   echo "leaving db and log as is for dev deployment, regenerating credentials, and applying dev migrations"
   echo "nb: when asked to edit credentials, you can just :q, unless you want to edit them after all"
-  cd ${INSTALL_DIR}
+  cd ${INSTALL_DIR} || exit 1
   # this seems to be necessary for rails 5.2
   # rm -f config/credentials.yml.enc
   # rm -f config/master.key
