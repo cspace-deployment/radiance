@@ -49,7 +49,8 @@ cp ${extra_dir}/cspace_fav.png app/assets/images/favicon.png
 cp ${extra_dir}/${tenant}_favicon.png app/assets/images/favicon.png
 
 # generic helpers and config, but they do need to be configured per-tenant
-cp ${extra_dir}/application_helper.rb app/helpers
+cp ${extra_dir}/${tenant}_application_helper.rb app/helpers/application_helper.rb
+# cp ${extra_dir}/application_helper.rb app/helpers
 cp ${extra_dir}/catalog_helper_behavior.rb app/helpers/blacklight
 cp ${extra_dir}/blacklight.yml config
 cp ${extra_dir}/blacklight.en.yml config/locales
@@ -89,6 +90,9 @@ cp ${extra_dir}/${tenant}_new.html.erb app/views/devise/registrations/new.html.e
 
 # custom cinefiles restricted PDF warning
 cp ${extra_dir}/${tenant}_pdfs.html.erb app/views/shared/_pdfs.html.erb
+
+# custom cinefiles rendering WARC files
+cp ${extra_dir}/${tenant}_warcs.html.erb app/views/shared/_warcs.html.erb
 
 # custom error pages
 if [ -f "${extra_dir}/${tenant}_not_found.html.erb" ] && [ -f "${extra_dir}/${tenant}_not_found.html.erb" ]; then

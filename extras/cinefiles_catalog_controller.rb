@@ -207,7 +207,7 @@ class CatalogController < ApplicationController
     #
     # FACETS
     #
-    
+
     # Document record fields
     config.add_facet_field 'doctype_s', label: 'Document: type', limit: true
     config.add_facet_field 'doclanguage_ss', label: 'Document: language', limit: true
@@ -291,7 +291,7 @@ class CatalogController < ApplicationController
       end
     end
 
-    # 
+    #
     # "SHOW" DISPLAY FIELD
     #
 
@@ -302,8 +302,8 @@ class CatalogController < ApplicationController
     config.add_show_field 'pubdate_s', label: 'Publication date'
     config.add_show_field 'doclanguage_ss', label: 'Document language'
     config.add_show_field 'doctype_s', label: 'Document type'
-    config.add_show_field 'pages_s', label: 'Number of pages' 
-    config.add_show_field 'pg_info_s', label: 'Source pagination' 
+    config.add_show_field 'pages_s', label: 'Number of pages'
+    config.add_show_field 'pg_info_s', label: 'Source pagination'
     config.add_show_field 'docnamesubject_ss', label: 'Document name subject'
 
     config.add_show_field 'has_ss', label: 'Document contains'
@@ -330,7 +330,9 @@ class CatalogController < ApplicationController
     config.add_show_field 'blob_ss', helper_method: 'render_linkless_media', label: 'Images'
     # config.add_show_field 'blob_ss', helper_method: 'render_restricted_media', label: 'Images'
     # config.add_show_field 'card_ss', helper_method: 'render_media', label: 'Cards'
-    config.add_show_field 'pdf_ss', helper_method: 'check_and_render_pdf', label: 'PDFs'
+		config.add_show_field 'pdf_ss', helper_method: 'check_and_render_pdf', label: 'PDFs'
+		# using docurl as a placeholder until there are real WARC urls in the solr extract
+    config.add_show_field 'docurl_s', helper_method: 'render_warc', label: 'Web Archive'
     # config.add_show_field 'code_s', label: 'Access code'
 
     # FILM RECORDS
@@ -349,9 +351,9 @@ class CatalogController < ApplicationController
     # config.add_show_field 'code_s', label: 'Access code'
 
     # gallery
-    
+
     #
-    # "INDEX" DISPLAY FIELDS 
+    # "INDEX" DISPLAY FIELDS
     #
 
     # Document records
@@ -371,11 +373,11 @@ class CatalogController < ApplicationController
     config.add_index_field 'film_director_ss', label: 'Film director'
     config.add_index_field 'film_country_ss', label: 'Country(ies)'
     # config.add_index_field 'filmyear_s', label: 'Release year'
-    # config.add_index_field 'film_title_ss', label: 'Film title'. 
+    # config.add_index_field 'film_title_ss', label: 'Film title'.
     config.add_index_field 'film_language_ss', label: 'Language'
     config.add_index_field 'film_year_ss', label: 'Release year'
     config.add_index_field 'film_link_ss', helper_method: 'render_doc_link', label: 'Related documents'
-    
+
     # sort
     config.index.title_field = 'common_title_ss'
     config.show.title_field = 'common_title_ss'
