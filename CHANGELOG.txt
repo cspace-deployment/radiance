@@ -3,10 +3,21 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.2.1
-Fri Sep 10 11:49:25 PDT 2021
+This is version 2.3.0-rc1
+Fri Oct  8 10:27:30 PDT 2021
 
-8107f7f (HEAD -> master, origin/master, origin/HEAD) HMP-200: early bampfa blacklight customizations
+3333592 (HEAD -> master, origin/master, origin/HEAD) Merge branch 'master' of https://github.com/cspace-deployment/radiance
+1e822f2 HMP-200: temporary script to deploy bampfa blacklight demo
+9873293 Merge pull request #37 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.12.5
+4d68291 Bump nokogiri from 1.11.7 to 1.12.5 in /portal
+35907b9 HMP-193: refactor recent warc updates a bit
+b20b994 Merge pull request #36 from BAM-PFA/master
+f3efe8e add first elements of WARC rendering
+7a32c6a HMP-192: unset maintenance alerts on blacklight portals
+5fc0c80 HMP-178: bulletproof the blacklight deploy scripts a bit
+e1e8740 HMP-192: set maintenance alerts on blacklight portals
+ab4781b (tag: 2.2.1) revise change log and VERSION file for version 2.2.1
+8107f7f HMP-200: early bampfa blacklight customizations
 1bb8f0d (tag: 2.2.1-rc3) revise change log and VERSION file for version 2.2.1-rc3
 14bde40 Merge pull request #35 from cspace-deployment/dependabot/bundler/portal/puma-4.3.8
 fc79532 (tag: 2.2.1-rc2) revise change log and VERSION file for version 2.2.1-rc2
