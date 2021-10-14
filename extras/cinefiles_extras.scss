@@ -174,6 +174,19 @@ h3.index_title > a {
 
 // END FONT STUFF
 
+// GLOBAL ALERTS
+$global-alert-color: rgb(89, 184, 227);
+.global-alert {
+  border: 1px solid $global-alert-color;
+  margin: 10px 0;
+  padding: 10px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+// END GLOBAL ALERTS
+
 #startOverLink, .advanced-search-start-over {
   background-color: #c8c8c8;
   color: black;
