@@ -1,7 +1,1 @@
 alerts:
-  - html: >
-      <div class="alert alert-info text-center">
-        <b>ALERT!</b>
-        <p>This is a test alert.</p>
-      </div>
-  - html: >
