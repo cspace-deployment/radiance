@@ -4,7 +4,7 @@
 # instructions: 1) install the cinefiles app in the usual way. 2) run this script from within the 'radiance' repo
 #
 cd extras
-cp etc/bampfa_splash.html.erb ../portal/app/views/shared/_splash.html.erb
+cp etc/bampfa-custom/bampfa_splash.html.erb ../portal/app/views/shared/_splash.html.erb
 cp etc/bampfa-custom/catalog_controller.rb ../portal/app/controllers/catalog_controller.rb
 cp etc/bampfa-custom/_header_navbar.html.erb ../portal/app/views/shared/_header_navbar.html.erb
 cp etc/bampfa-custom/_footer.html.erb ../portal/app/views/shared/_footer.html.erb

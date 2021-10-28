@@ -157,7 +157,7 @@ deployments on RTL servers.
 
 For initial setup, you'll need to:
 
-* Have Ruby 2.5.1 or higher installed.
+* Have Ruby 2.6.6 or higher installed. Use `rbenv` or `rvm`.
 * Have Apache configured appropriately (e.g. Passenger, etc.)
 
 E.g.
@@ -295,8 +295,6 @@ Yes, it is a bit complicated to get UA working in a Rails 5 app!
 
 By default, `public/robots.txt` blocks _all_ crawlers. For deployments where you want to admit
 crawlers (e.g. production deployments) you may wish to change this. See, e.g.:
-
-https://issues.collectionspace.org/browse/DJAN-98
 
 You may wish to preserve the `robots.txt` that was being used already.
 
