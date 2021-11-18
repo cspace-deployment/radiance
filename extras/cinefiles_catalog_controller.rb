@@ -385,7 +385,7 @@ class CatalogController < ApplicationController
     # config.add_sort_field 'film_info_ss asc', label: 'first film title'
     config.add_sort_field 'common_title_ss asc', label: 'Title A-Z'
     config.add_sort_field 'common_title_ss desc', label: 'Title Z-A'
-    config.add_sort_field 'pubdate_s asc', label: 'Document publication date'
+    config.add_sort_field 'pubdatescalar_s asc', label: 'Document publication date'
     config.add_sort_field 'film_year_ss asc', label: 'Film release date'
 
   end
