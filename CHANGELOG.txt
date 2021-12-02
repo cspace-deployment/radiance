@@ -3,10 +3,26 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.3.0-rc1
-Fri Oct  8 10:27:30 PDT 2021
+This is version 2.3.0
+Thu Dec  2 15:54:12 PST 2021
 
-3333592 (HEAD -> master, origin/master, origin/HEAD) Merge branch 'master' of https://github.com/cspace-deployment/radiance
+6177363 (HEAD -> master, origin/master, origin/HEAD) Merge pull request #42 from BAM-PFA/master
+baa68bb HMP-203: correction to silent film stars splash page URL
+c211d81 Merge pull request #41 from BAM-PFA/master
+93f6453 HMP xxx: fix bampfa footer logo width on mobile display; change doc "publication date" sorting to pubdatescalar_s for more accurate sorting
+654f0f8 HMP 203: copy edits to Nov 2021 cinefiles splash page
+82af5d8 Merge pull request #40 from BAM-PFA/master
+7de17a4 HMP-173: November 2021 content update to cinefiles splash page
+71bd12b HMP-200: minor revisions to bampfa blacklight demo
+b70389e Merge pull request #39 from BAM-PFA/master
+030845b HMP-202: add back the stanford css for global alerts; add definition for global-alerts css class
+2a1b2d6 CSW-202: end of cinefiles alert test
+d3d81dc CSW-202: test alerts for cinefiles
+07a9db6 Merge pull request #38 from cspace-deployment/dependabot/bundler/portal/puma-4.3.9
+389d55a Bump puma from 4.3.8 to 4.3.9 in /portal
+e521aca HMP-193: code reformat of render_warc
+5a48210 (tag: 2.3.0-rc1) revise change log and VERSION file for version 2.3.0-rc1
+3333592 Merge branch 'master' of https://github.com/cspace-deployment/radiance
 1e822f2 HMP-200: temporary script to deploy bampfa blacklight demo
 9873293 Merge pull request #37 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.12.5
 4d68291 Bump nokogiri from 1.11.7 to 1.12.5 in /portal
@@ -18,14 +34,14 @@ f3efe8e add first elements of WARC rendering
 e1e8740 HMP-192: set maintenance alerts on blacklight portals
 ab4781b (tag: 2.2.1) revise change log and VERSION file for version 2.2.1
 8107f7f HMP-200: early bampfa blacklight customizations
-1bb8f0d (tag: 2.2.1-rc3) revise change log and VERSION file for version 2.2.1-rc3
+1bb8f0d revise change log and VERSION file for version 2.2.1-rc3
 14bde40 Merge pull request #35 from cspace-deployment/dependabot/bundler/portal/puma-4.3.8
-fc79532 (tag: 2.2.1-rc2) revise change log and VERSION file for version 2.2.1-rc2
+fc79532 revise change log and VERSION file for version 2.2.1-rc2
 46286d4 NOJIRA: minor refactoring of blacklight relink script for dev deployments
 8c33b1e HMP-186: revise blacklight portal footers for accessibility, nondiscrimination & privacy
 1e2264e HMP-176: update blacklight gems, again
-c1db0ff (origin/dependabot/bundler/portal/puma-4.3.8) Bump puma from 3.12.6 to 4.3.8 in /portal
-3afb205 (tag: 2.2.1-rc1) revise change log and VERSION file for version 2.2.1-rc1
+c1db0ff Bump puma from 3.12.6 to 4.3.8 in /portal
+3afb205 revise change log and VERSION file for version 2.2.1-rc1
 fbb8aa7 HMP-176: update blacklight gems
 0e060fa HMP-173: initial version of script to update blacklight splash pages
 ae952d8 (tag: 2.2.0) revise change log and VERSION file for version 2.2.0
@@ -47,7 +63,7 @@ d8e2981 CSW-419: update config for blacklight portal alerts
 55e1e93 CSW-419: blacklight portal alerts for pahma
 15137dd revise change log and VERSION file for version 2.2.0-rc5
 0f0881d CSW-419: further revise Gemfile.lock conflicts to allow alerts to be added
-7fa630b (BAM-PFA-alerts) CSW-419: revise Gemfile.lock conflicts to allow alerts to be added
+7fa630b CSW-419: revise Gemfile.lock conflicts to allow alerts to be added
 4b8924c revise change log and VERSION file for version 2.2.0-rc4
 02319db HMP-169: fix pahma footer: kroeber hall is no more.
 1990af6 revise change log and VERSION file for version 2.2.0-rc3
@@ -85,8 +101,8 @@ b7d9f48 Merge pull request #21 from cspace-deployment/dependabot/bundler/portal/
 5c68500 Bump puma from 3.12.4 to 3.12.6 in /portal
 92ccea7 Merge pull request #19 from cspace-deployment/dependabot/bundler/portal/kaminari-1.2.1
 16d8248 Merge pull request #20 from cspace-deployment/dependabot/bundler/portal/websocket-extensions-0.1.5
-311359d (origin/dependabot/bundler/portal/websocket-extensions-0.1.5) Bump websocket-extensions from 0.1.4 to 0.1.5 in /portal
-3753ef9 (origin/dependabot/bundler/portal/kaminari-1.2.1) Bump kaminari from 1.2.0 to 1.2.1 in /portal
+311359d Bump websocket-extensions from 0.1.4 to 0.1.5 in /portal
+3753ef9 Bump kaminari from 1.2.0 to 1.2.1 in /portal
 57e8b41 Merge pull request #18 from BAM-PFA/master
 a85d545 CSW-274: add copyright section 108 warning language to document show display sidebar
 a3db76b (tag: 2.1.0) revise change log and VERSION file for version 2.1.0
