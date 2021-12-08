@@ -3,10 +3,12 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.3.0
-Thu Dec  2 15:54:12 PST 2021
+This is version 2.3.0-rc2
+Wed Dec  8 09:50:39 PST 2021
 
-6177363 (HEAD -> master, origin/master, origin/HEAD) Merge pull request #42 from BAM-PFA/master
+b6ba092 (HEAD -> master) NOJIRA: make make-release.pl the same for both webapps and blacklight
+a8f8ca4 (origin/master, origin/HEAD) revise change log and VERSION file for version 2.3.0
+6177363 Merge pull request #42 from BAM-PFA/master
 baa68bb HMP-203: correction to silent film stars splash page URL
 c211d81 Merge pull request #41 from BAM-PFA/master
 93f6453 HMP xxx: fix bampfa footer logo width on mobile display; change doc "publication date" sorting to pubdatescalar_s for more accurate sorting
