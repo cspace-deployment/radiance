@@ -1,7 +1,9 @@
 alerts:
   - html: >
       <div class="alert alert-info text-center">
-        <b>Attention!</b>
-        <p>Upgrade @ noon-1pm Thursday 2021-12-16. This portal will be down briefly during that period.</p>
+        <p>
+          <b>Attention!</b>
+          Upgrade @ noon-1pm Thursday 2021-12-16. This portal will be down briefly during that period.
+        </p>
       </div>
   - html: >
