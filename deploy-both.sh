@@ -23,7 +23,7 @@ YYMMDD=`date +%y%m%d`
 
 # update radiance repo
 cd ~/projects/radiance
-git checkout master
+git checkout main
 git pull -v
 
 cd ~/projects

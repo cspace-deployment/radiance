@@ -1,6 +1,6 @@
 ### Customizations to Blacklight for UC Berkeley Museums
 
-[![build status](https://travis-ci.com/cspace-deployment/radiance.svg?branch=master)](https://travis-ci.com/cspace-deployment/radiance)[![Coverage Status](https://coveralls.io/repos/github/cspace-deployment/radiance/badge.svg?branch=master)](https://coveralls.io/github/cspace-deployment/radiance?branch=master)
+[![build status](https://travis-ci.com/cspace-deployment/radiance.svg?branch=main)](https://travis-ci.com/cspace-deployment/radiance)[![Coverage Status](https://coveralls.io/repos/github/cspace-deployment/radiance/badge.svg?branch=main)](https://coveralls.io/github/cspace-deployment/radiance?branch=main)
 
 This repo contains a customized Blacklight application.
 

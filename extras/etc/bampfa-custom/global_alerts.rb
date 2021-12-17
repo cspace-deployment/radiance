@@ -4,7 +4,7 @@ module GlobalAlerts
 
     config.cache = nil #defaults to Rails.cache
     config.application_name = nil
-    config_url = "https://raw.githubusercontent.com/cspace-deployment/radiance/master/extras/bampfa_alerts.yaml"
+    config_url = "https://raw.githubusercontent.com/cspace-deployment/radiance/main/extras/bampfa_alerts.yaml"
     config.url = config_url
 
     initializer('global_alerts_default') do |app|

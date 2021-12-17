@@ -59,7 +59,7 @@ if [ "$3" == "production" ]; then
   echo "copying existing credentials; they better be there!"
   # nb: yes we are overwriting any existing config/credentials.yml.enc
   cp ~/projects/credentials/credentials.yml.enc config/credentials.yml.enc
-  cp ~/projects/credentials/master.key config/master.key
+  cp ~/projects/credentials/main.key config/main.key
 
   # now we could apply migrations to the newly linked db
   # but we haven't figured out how to apply any new migrations so we skip this step and
@@ -72,7 +72,7 @@ else
   cd ${INSTALL_DIR} || exit 1
   # this seems to be necessary for rails 5.2
   # rm -f config/credentials.yml.enc
-  # rm -f config/master.key
+  # rm -f config/main.key
   # EDITOR=vi rails credentials:edit
   rails db:migrate RAILS_ENV=development
   echo "relinking and migrating done..."
