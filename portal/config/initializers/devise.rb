@@ -297,3 +297,12 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
 end
+
+# from https://github.com/heartcombo/devise/wiki/How-To:-Create-custom-layouts
+Rails.application.config.to_prepare do
+  Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "devise" }
+  Devise::SessionsController.layout "devise"
+	Devise::ConfirmationsController.layout "devise"
+	Devise::PasswordsController.layout "devise"
+	# And/or Sessions, Confirmations, Unlocks, Passwords
+end
