@@ -3,11 +3,12 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.4.0-rc1
-Fri Dec 17 14:46:11 PST 2021
+This is version 2.4.0-rc2
+Fri Dec 17 14:55:02 PST 2021
 
-f9026f3 (HEAD -> main) CSW-574: change 'master' to 'main' in this repo
-6dfba4c (origin/main) HMP-204: turn off pahma and cinfiles portal main alerts
+ba98614 (HEAD -> main, tag: 2.4.0-rc1, origin/main) revise CHANGELOG.txt and bump version to 2.4.0-rc1
+f9026f3 CSW-574: change 'master' to 'main' in this repo
+6dfba4c HMP-204: turn off pahma and cinfiles portal main alerts
 745f6b5 HMP-204: 2 better alerts blacklight portals for next weeks upgrade
 a63221a HMP-204: set alerts on 2 blacklight portals for next weeks upgrade
 60dfb48 (tag: 2.3.0) revise CHANGELOG.txt and bump version to 2.3.0

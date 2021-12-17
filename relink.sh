@@ -59,7 +59,8 @@ if [ "$3" == "production" ]; then
   echo "copying existing credentials; they better be there!"
   # nb: yes we are overwriting any existing config/credentials.yml.enc
   cp ~/projects/credentials/credentials.yml.enc config/credentials.yml.enc
-  cp ~/projects/credentials/main.key config/main.key
+  # TODO: once blacklight (or rails?) renames this file, we can do it too
+  cp ~/projects/credentials/main.key config/master.key
 
   # now we could apply migrations to the newly linked db
   # but we haven't figured out how to apply any new migrations so we skip this step and
