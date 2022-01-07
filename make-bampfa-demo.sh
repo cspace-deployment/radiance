@@ -1,6 +1,6 @@
 # these are the files that need to be copied over on top of an existing cinefiles
 # rails installation to "convert" it into a bampfa demo.
-# 
+#
 # instructions: 1) install the cinefiles app in the usual way. 2) run this script from within the 'radiance' repo
 #
 cd extras
@@ -10,7 +10,12 @@ cp etc/bampfa-custom/_header_navbar.html.erb ../portal/app/views/shared/_header_
 cp etc/bampfa-custom/_footer.html.erb ../portal/app/views/shared/_footer.html.erb
 #cp etc/bampfa-custom/_splash.html.erb ../portal/~/projects/search_cinefiles/app/views/shared/_splash.html.erb
 cp etc/bampfa-custom/header-logo-bampfa.png ../portal/public/header-logo-bampfa.png
+cp etc/bampfa-custom/footer-logo-bampfa.png ../portal/public/footer-logo-bampfa.png
 cp etc/bampfa-custom/imls.png ../portal/public/imls.png
+cp etc/bampfa-custom/bampfa_404.jpg ../portal/public/404.jpg
+cp etc/bampfa-custom/bampfa_not_found.html.erb ../portal/app/views/errors/not_found.html.erb
+cp etc/bampfa-custom/bampfa_500.jpg ../portal/public/500.jpg
+cp etc/bampfa-custom/bampfa_internal_server_error.html.erb ../portal/app/views/errors/internal_server_error.html.erb
 cp etc/bampfa-custom/extras.scss ../portal/app/assets/stylesheets/extras.scss
 cp etc/bampfa-custom/catalog_helper_behavior.rb ../portal/app/helpers/blacklight/catalog_helper_behavior.rb
 cp etc/bampfa-custom/application_helper.rb ../portal/app/helpers/application_helper.rb
