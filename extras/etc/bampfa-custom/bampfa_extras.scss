@@ -70,14 +70,15 @@
 // FOOTER
 
 .site_footer a {
-    color: gray;
+    color: black;
     padding: 5px;
+    font-weight: 600;
 }
 
 .site_footer {
-    background: transparent;
-    color: gray;
-    margin: auto;
+    background-color: #def2fc;
+    color: black;
+    padding: 1em 0 1em 1em;
 }
 
 // NAVBAR
