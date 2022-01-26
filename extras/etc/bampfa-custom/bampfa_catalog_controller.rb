@@ -217,7 +217,7 @@ class CatalogController < ApplicationController
 		}
 
     # SEARCH FIELDS
-    config.add_search_field 'idnumber_s', label: 'ID Number'
+    config.add_search_field 'idnumber_s', label: 'Accession Number'
     config.add_search_field 'itemclass_s', label: 'Classification'
     config.add_search_field 'artistcalc_s', label: 'Artist'
     config.add_search_field 'datemade_s', label: 'Date Made'
@@ -237,6 +237,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'datesactive_s', label: 'Dates Active'
     config.add_show_field 'measurement_s', label: 'Dimensions'
     config.add_show_field 'materials_s', label: 'Materials'
+		config.add_show_field 'idnumber_s', label: 'Accession Number'
     config.add_show_field 'fullbampfacreditline_s', label: 'Full BAMPFA credit line'
     config.add_show_field 'copyrightcredit_s', label: 'Copyright credit'
     config.add_show_field 'century_s', label: 'Century'
@@ -248,7 +249,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'itemclass_s', label: 'Classification'
     config.add_index_field 'materials_s', label: 'Materials'
     config.add_index_field 'measurement_s', label: 'Dimensions'
-    config.add_index_field 'idnumber_s', label: 'ID Number'
+    config.add_index_field 'idnumber_s', label: 'Accession Number'
     # sort
     config.index.title_field = 'title_s'
     config.show.title_field = 'title_s'
