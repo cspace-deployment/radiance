@@ -210,7 +210,11 @@ class CatalogController < ApplicationController
       field.index_range = true
     end
     # config.add_facet_field 'measurement_s', label: 'Dimensions', limit: true
-    config.add_facet_field 'status_s', label: 'Status', limit: true
+		config.add_facet_field 'status_s', label: 'Status', limit: true
+    config.add_facet_field 'Has image', query: {
+			has_image: { label: 'Yes', fq: 'blob_ss:[* TO *]' },
+			no_image: { label: 'No', fq: '-(blob_ss:[* TO *])' }
+		}
 
     # SEARCH FIELDS
     config.add_search_field 'idnumber_s', label: 'ID Number'
