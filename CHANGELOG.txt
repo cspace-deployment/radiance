@@ -3,10 +3,23 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.4.0
-Fri Feb  4 15:43:27 PST 2022
+This is version 2.5.0-rc1
+Thu Mar  3 13:28:24 PST 2022
 
-866410f (HEAD -> main, origin/main, origin/HEAD) Merge pull request #46 from BAM-PFA/master
+975265c (HEAD -> main, origin/main, origin/HEAD) NOJIRA: update rails in Gemfile per dependabot recommendation
+39d13bb Merge pull request #50 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.13.2
+2fe7629 HMP-214: render 3d images using imageserver, not apache hack
+86081cb (origin/dependabot/bundler/portal/nokogiri-1.13.2) Bump nokogiri from 1.12.5 to 1.13.2 in /portal
+6994a40 Merge pull request #49 from BAM-PFA/master
+b10af7b HMP-20x: resize (and delete unused) images for CineFiles
+66bcf22 NOJIRA: the VERSION file should not be in github
+a29d031 CSW-574: use correct rails credentials filename in relink.sh
+beb8f91 Merge pull request #48 from BAM-PFA/master
+2314164 HMP-203: February 2022 update to CineFiles splash page
+0977c72 Merge pull request #47 from cspace-deployment/dependabot/bundler/portal/puma-4.3.11
+23ac027 Bump puma from 4.3.9 to 4.3.11 in /portal
+8ff32e2 (tag: 2.4.0) revise CHANGELOG.txt and bump version to 2.4.0
+866410f Merge pull request #46 from BAM-PFA/master
 1a900f1 HMP-2xx: fix elements of bampfa demo installation (catalog controller, merge conflict artifacts
 9ee926f Merge pull request #45 from BAM-PFA/master
 0724fef Merge branch 'cspace-deployment:main' into master
@@ -15,14 +28,14 @@ Fri Feb  4 15:43:27 PST 2022
 ccaca63 HMP 2xx: flesh out demo BAMPFA site a bit; customize splash page following cinefiles example; add 404/500 details; rearrange field order
 10c6ff5 Merge pull request #43 from BAM-PFA/master
 f5e1d04 HMP-205: add nested layout partial for Devise (user login gem) actions; adds a layouts_helper and a new layout for Devise to wrap those actions in a single div within the main layout
-5289256 (tag: 2.4.0-rc2) revise CHANGELOG.txt and bump version to 2.4.0-rc2
-ba98614 (tag: 2.4.0-rc1) revise CHANGELOG.txt and bump version to 2.4.0-rc1
+5289256 revise CHANGELOG.txt and bump version to 2.4.0-rc2
+ba98614 revise CHANGELOG.txt and bump version to 2.4.0-rc1
 f9026f3 CSW-574: change 'master' to 'main' in this repo
 6dfba4c HMP-204: turn off pahma and cinfiles portal main alerts
 745f6b5 HMP-204: 2 better alerts blacklight portals for next weeks upgrade
 a63221a HMP-204: set alerts on 2 blacklight portals for next weeks upgrade
 60dfb48 (tag: 2.3.0) revise CHANGELOG.txt and bump version to 2.3.0
-585aa4e (tag: 2.3.0-rc2) revise CHANGELOG.txt and bump version to 2.3.0-rc2
+585aa4e revise CHANGELOG.txt and bump version to 2.3.0-rc2
 b6ba092 NOJIRA: make make-release.pl the same for both webapps and blacklight
 a8f8ca4 revise change log and VERSION file for version 2.3.0
 6177363 Merge pull request #42 from BAM-PFA/master
@@ -40,7 +53,7 @@ d3d81dc CSW-202: test alerts for cinefiles
 07a9db6 Merge pull request #38 from cspace-deployment/dependabot/bundler/portal/puma-4.3.9
 389d55a Bump puma from 4.3.8 to 4.3.9 in /portal
 e521aca HMP-193: code reformat of render_warc
-5a48210 (tag: 2.3.0-rc1) revise change log and VERSION file for version 2.3.0-rc1
+5a48210 revise change log and VERSION file for version 2.3.0-rc1
 3333592 Merge branch 'master' of https://github.com/cspace-deployment/radiance
 1e822f2 HMP-200: temporary script to deploy bampfa blacklight demo
 9873293 Merge pull request #37 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.12.5
