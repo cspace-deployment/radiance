@@ -362,8 +362,8 @@ class CatalogController < ApplicationController
     config.add_show_field 'audio_md5_ss', helper_method: 'render_audio_directly', label: 'Audio'
     config.add_show_field 'blob_ss', helper_method: 'render_media', label: 'Images'
     config.add_show_field 'card_ss', helper_method: 'render_media', label: 'Legacy documentation'
-    #config.add_show_field 'd3_csid_ss', helper_method: 'render_x3d_csid', label: '3D'
-    config.add_show_field 'd3_md5_ss', helper_method: 'render_x3d_directly', label: '3D'
+    config.add_show_field 'd3_csid_ss', helper_method: 'render_x3d_csid', label: '3D'
+    #config.add_show_field 'd3_md5_ss', helper_method: 'render_x3d_directly', label: '3D'
 
     # facets
     config.add_facet_field 'objname_s', label: 'Object name', limit: true, index_range: true
