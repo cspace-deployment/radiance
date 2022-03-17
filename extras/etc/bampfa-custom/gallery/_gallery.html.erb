@@ -1,0 +1,19 @@
+<!-- this partial is used to generate a group of 10 random
+		documents from the solr core
+-->
+
+<div class="row">
+	<div class="col-12">
+		<div class="imageGallery" id="image-gallery-container" style="position: relative;">
+			<%= generate_image_gallery %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-sm-12 col-md-6" align="center">
+			<%= link_to "Load more artworks", add_gallery_items_path, remote: true, id: 'add-more-button', class: 'btn btn-primary load-more-button' %>
+	</div>
+	<div class="col-md-3"></div>
+</div>

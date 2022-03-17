@@ -1,0 +1,35 @@
+<% doc_presenter = show_presenter(document) %>
+<%# default partial to display solr document fields in catalog show view -%>
+
+<div class="row">
+  <div class="col-sm-12 col-md-7">
+    <!-- images -->
+    <% unless document[:blob_ss].nil? %>
+        <div class="show-gallery">
+          <% document[:blob_ss].each do |image| %>
+            <div class="gallery-item">
+
+              <img src="<%= render_csid(image, 'Medium') %>" class="show-image">
+              </img>
+            </div>
+
+          <% end %>
+        </div>
+      <% else %>
+       <p>NO IMAGE</p>
+    <% end %>
+  </div>
+  <!-- metadata -->
+  <div class="col-sm-12 col-md-5 show-metadata-container">
+    <% document_show_fields(document).each do |field_name, field| -%>
+      <% unless field_name == "blob_ss" %>
+        <% if should_render_show_field? document, field %>
+          <div class="show-field-container">
+            <span class="field-label blacklight-<%= field_name.parameterize %>"><%= render_document_show_field_label document, field: field_name %></span>
+            <div class="field-value blacklight-<%= field_name.parameterize %>"><%= doc_presenter.field_value field %></div>
+          </div>
+        <% end -%>
+      <% end %>
+    <% end -%>
+  </div>
+</div>

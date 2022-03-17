@@ -14,71 +14,37 @@
   max-width: 240px;
 }
 
-.isotope-item {
-  overflow: hidden;
-  z-index:1;
-  text-align: justify;
-  font-size: 14px;
-}
-
-.flipper-text {
-  z-index: 4;
-  position: absolute;
-  top: 315px;
-  text-align: left;
-  margin-left: 20px;
-}
-
-.flipper-text-bg {
-  z-index: 3;
-  content: "";
-  position: absolute;
-  top: 300px;
-  height: 100px;
-  width: 300px;
-  opacity: .93;
-  background-color: whitesmoke;
-}
-
-.front {
-  z-index:1;
-  text-align: center;
-  //position: relative;
-}
-
-.front > img {
-  z-index: 2;
-}
-
-// WARC DISPLAY STUFF
-
-.warc-container {
-	display:flex;
-	width: 100%;
-	height: 50em;
-	border-style: solid;
-	border-width: 2px;
-	border-color: #bfbfbf;
-}
-
-.warc {
-	flex: 1 1 auto;
-	width: 100%;
-	height: 100%;
-}
-
 // FOOTER
 
 .site_footer a {
     color: black;
-    padding: 5px;
-    font-weight: 600;
+    // padding: 5px;
+    font-weight: bold;
+    font-size: 1em;
 }
 
 .site_footer {
-    background-color: #def2fc;
-    color: black;
-    padding: 1em 0 1em 1em;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size:1.25em;
+  background-color: #def2fc;
+  color: black;
+  padding: 1em 1em 1em;
+  font-weight: 100;
+}
+
+.site-footer-text {
+  font-family: RobotoLight, Helvetica, Arial, sans-serif;
+  font-size:1em;
+  color: black;
+  padding: 1em 0 1em 1em;
+  font-weight: normal;
+  word-wrap: break-word;
+}
+
+ul.footer {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 // NAVBAR
@@ -106,55 +72,77 @@
   }
 }
 
+// SPLASH DISPLAY
+
+.bampfa-splash {
+  margin-right: 30px;
+  margin-left: 15px;
+  margin-bottom: 40px;
+}
+
 // BEGIN FONT STUFF
 
 @font-face {
-  font-family: MontserratBlack;
-  src: url(/fonts/Montserrat/Montserrat-Black.ttf);
+  font-family: RobotoBlack;
+  src: url(/fonts/Roboto/Roboto-Black.ttf);
   font-weight: bold;
 }
 
 @font-face {
-  font-family: Montserrat;
-  src: url(/fonts/Montserrat/Montserrat-Regular.ttf);
+  font-family: Roboto;
+  src: url(/fonts/Roboto/Roboto-Regular.ttf);
   font-weight: normal;
 }
 
 @font-face {
-  font-family: MontserratMedium;
-  src: url(/fonts/Montserrat/Montserrat-Medium.ttf);
+  font-family: RobotoMedium;
+  src: url(/fonts/Roboto/Roboto-Medium.ttf);
   font-weight: normal;
 }
 
 @font-face {
-  font-family: Montserrat;
-  src: url(/fonts/Montserrat/Montserrat-Bold.ttf);
+  font-family: Roboto;
+  src: url(/fonts/Roboto/Roboto-Bold.ttf);
   font-weight: bold;
 }
 
 @font-face {
-  font-family: MontserratLight;
-  src: url(/fonts/Montserrat/Montserrat-Light.ttf);
+  font-family: RobotoLight;
+  src: url(/fonts/Roboto/Roboto-Light.ttf);
   font-weight: normal;
 }
 
 div {
-  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   font-weight: normal;
 }
 
 .minor-heading {
-  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
 
 .section-heading {
-  font-family: MontserratBlack, Helvetica, Arial, sans-serif;
+  font-family: RobotoBlack, Helvetica, Arial, sans-serif;
   font-weight: bold;
+  // font-style: italic;
+  font-size:5em;
+}
+
+.bampfa-front-panel {
+  font-family: RobotoLight, Helvetica, Arial, sans-serif;
+  font-size:1.5em;
+  // font-style: italic;
+}
+
+.bampfa-gallery-leader {
+  font-family: RobotoLight, Helvetica, Arial, sans-serif;
+  font-size:1.25em;
+  font-style: italic;
 }
 
 .panel-title {
-  font-family: MontserratLight, Helvetica, Arial, sans-serif;
+  font-family: RobotoLight, Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-size: 14px;
   padding-right: 12px;
@@ -165,17 +153,61 @@ div {
 }
 
 h4.facets-heading {
-  font-size: 14px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+
+.facet-field-heading {
+  font-size: 1rem;
 }
 
 .search_field {
-  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-size: 14px;
 }
 
 h3.index_title > a {
-    font-family: MontserratMedium, Helvetica, Arial, sans-serif;
+    font-family: RobotoMedium, Helvetica, Arial, sans-serif;
+}
+
+.show-metadata-container {
+  line-height: 25px;
+  padding-left: 30px;
+}
+
+.field-label {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  float: left;
+}
+
+.field-value {
+  font-family: RobotoLight, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  margin-left: 10rem;
+}
+
+.show-field-container {
+}
+
+.document h1[itemprop="name"] {
+  // this is document title on the show page
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 3em;
+}
+
+.index-metadata-container {
+  margin-bottom: 20px;
+  line-height: 22px;
+}
+
+.form-control {
+  font-size: 17px;
+  color: black;
 }
 
 // END FONT STUFF
@@ -189,4 +221,70 @@ h3.index_title > a {
   color: #212121;
   background-color: #fab946;
   border-color: #e6fdfe;
+}
+
+// IMAGE GALLERY STUFF
+.imageGallery {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+	box-sizing: border-box;
+  margin-bottom: 30px;
+	// font-size: 1rem;
+}
+
+.imageGallery .gallery-item {
+  position: relative;
+	display: block;
+  font-family: RobotoLight, Helvetica, Arial, sans-serif;
+
+}
+
+.imageGallery .gallery-item img {
+	min-width: 300px;
+	max-height: 100%;
+}
+
+.show-gallery {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(1, minmax(280px,1fr));
+	box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+.show-image {
+  max-width: 100%;
+  // display: block;
+}
+
+.gallery-caption-title {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.gallery-caption-date {
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 2;
+}
+
+.gallery-caption-artist {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.gallery-caption-artist::after, .gallery-caption-title::after, .gallery-caption-date::after {
+  content: "\a";
+  white-space: pre;
+}
+
+.load-more-button {
+  padding: 30px;
+  font-size: 18px;
+  margin-left:auto;
+  margin-right:auto;
+  // display: block;
 }

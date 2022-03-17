@@ -1,5 +1,60 @@
 module ApplicationHelper
 
+	include Blacklight::SearchHelper
+  def get_random_documents(limit=10,cursorMark='*')
+    require 'securerandom'
+    random_string = SecureRandom.uuid#[0,5]
+    params = {
+      :q => 'blob_ss:[* TO *]',
+			:cursorMark => cursorMark,
+			:rows => limit,
+      :sort => 'random_%s asc, id asc' % random_string
+    }
+    builder = search_builder.with(params)
+    response = repository.search(builder)
+		nextCursorMark = response[:nextCursorMark]
+		docs = response[:response][:docs].collect { |x| x.slice(:id,:title_txt,:artistcalc_txt,:datemade_s, :blob_ss)}
+		return nextCursorMark, docs
+	end
+
+	def generate_image_gallery(cursorMark='*')
+		result = get_random_documents(limit=10,cursorMark=cursorMark)
+		docs = result[1]
+		nextCursorMark = result[0]
+		return format_image_gallery_results(docs,nextCursorMark)
+	end
+
+	def format_image_gallery_results(docs,nextCursorMark)
+		docs.collect do |doc|
+			content_tag(:div, class: 'gallery-item',id: nextCursorMark) do
+				unless doc[:title_txt].nil?
+					title = doc[:title_txt][0]
+				else
+					title = "[No title given]"
+				end
+				unless doc[:artistcalc_txt].nil?
+					artist = doc[:artistcalc_txt][0]
+				else
+					artist = "[No artist given]"
+				end
+				unless doc[:datemade_s].nil?
+					datemade = doc[:datemade_s]
+				else
+					datemade = "[No date given]"
+				end
+				content_tag(:a, content_tag(:img, '',
+          src: render_csid(doc[:blob_ss][0], 'Medium'),
+          class: 'thumbclass'),
+					href: "/catalog/#{doc[:id]}") +
+				content_tag(:h4) do
+					content_tag(:span, title, class: "gallery-caption-title") +
+					content_tag(:span, "("+datemade+")", class: "gallery-caption-date") +
+					content_tag(:span, "by "+artist, class: "gallery-caption-artist")
+				end
+			end
+		end.join.html_safe
+	end
+
   def render_csid csid, derivative
     "https://webapps.cspace.berkeley.edu/bampfa/imageserver/blobs/#{csid}/derivatives/#{derivative}/content"
   end
