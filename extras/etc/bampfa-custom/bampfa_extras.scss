@@ -126,19 +126,12 @@ div {
   font-family: RobotoBlack, Helvetica, Arial, sans-serif;
   font-weight: bold;
   // font-style: italic;
-  font-size:5em;
+  font-size:4em;
 }
 
-.bampfa-front-panel {
+.bampfa-splash-text {
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
-  font-size:1.5em;
-  // font-style: italic;
-}
-
-.bampfa-gallery-leader {
-  font-family: RobotoLight, Helvetica, Arial, sans-serif;
-  font-size:1.25em;
-  font-style: italic;
+  font-size:1rem;
 }
 
 .panel-title {
@@ -227,7 +220,7 @@ h3.index_title > a {
 .imageGallery {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
 	box-sizing: border-box;
   margin-bottom: 30px;
 	// font-size: 1rem;
@@ -248,7 +241,7 @@ h3.index_title > a {
 .show-gallery {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(1, minmax(280px,1fr));
+  grid-template-columns: repeat(1, minmax(300px,1fr));
 	box-sizing: border-box;
   margin-bottom: 30px;
 }
@@ -260,7 +253,7 @@ h3.index_title > a {
 
 .gallery-caption-title {
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 1.2em;
+  font-size: 16px;
   font-weight: bold;
 }
 

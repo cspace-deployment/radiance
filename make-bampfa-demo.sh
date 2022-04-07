@@ -10,7 +10,7 @@ cp etc/bampfa-custom/catalog_helper_behavior.rb ../portal/app/helpers/blacklight
 cp etc/bampfa-custom/bampfa_catalog_controller.rb ../portal/app/controllers/catalog_controller.rb
 cp etc/bampfa-custom/bampfa_gallery_controller.rb ../portal/app/controllers/gallery_controller.rb
 cp etc/bampfa-custom/blacklight.yml ../portal/config/blacklight.yml
-cp etc/bampfa-custom/bampfa_blacklight.en.yml ../portal/config/blacklight.en.yml
+cp etc/bampfa-custom/bampfa_blacklight.en.yml ../portal/config/locales/blacklight.en.yml
 cp etc/bampfa-custom/bampfa_extras.scss ../portal/app/assets/stylesheets/extras.scss
 cp etc/bampfa-custom/global_alerts.rb ../portal/config/initializers/global_alerts.rb
 cp etc/bampfa-custom/production.rb ../portal/config/environments/production.rb
