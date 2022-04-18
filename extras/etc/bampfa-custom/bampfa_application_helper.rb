@@ -24,6 +24,17 @@ module ApplicationHelper
 		return format_image_gallery_results(docs,nextCursorMark)
 	end
 
+	def make_artist_search_link(artist)
+		searchable = artist.tr(",","") # first remove commas
+		matches = searchable.scan(/[^;]+(?=;?)/) # find the names in between optional semi-colons
+		if matches.length != 0
+			matches = matches.each{|m| m.lstrip!}
+			matches.map!{|m| m.tr(" ","+").insert(0,'"').insert(-1,'"')} # add quotes for the OR search
+			searchable = matches.join(" OR ")
+		end
+		return "/catalog?utf8=✓&op=OR&artistcalc_s=#{searchable}&sort=title_s+asc&search_field=advanced&commit=Search"
+	end
+
 	def format_image_gallery_results(docs,nextCursorMark)
 		docs.collect do |doc|
 			content_tag(:div, class: 'gallery-item',id: nextCursorMark) do
@@ -34,8 +45,14 @@ module ApplicationHelper
 				end
 				unless doc[:artistcalc_txt].nil?
 					artist = doc[:artistcalc_txt][0]
+					artist_link = make_artist_search_link(artist)
+					# puts artist
+					artist_tag = content_tag(:span, class: "gallery-caption-artist") do
+						"by ".html_safe +
+						content_tag(:a, artist, href: artist_link)
+					end
 				else
-					artist = "[No artist given]"
+					artist_tag = content_tag(:span, "[No artist given]", class: "gallery-caption-artist")
 				end
 				unless doc[:datemade_s].nil?
 					datemade = doc[:datemade_s]
@@ -49,7 +66,7 @@ module ApplicationHelper
 				content_tag(:h4) do
 					content_tag(:span, title, class: "gallery-caption-title") +
 					content_tag(:span, "("+datemade+")", class: "gallery-caption-date") +
-					content_tag(:span, "by "+artist, class: "gallery-caption-artist")
+					artist_tag
 				end
 			end
 		end.join.html_safe
