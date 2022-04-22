@@ -30,26 +30,23 @@ module ApplicationHelper
 		searchable = extract_artist_names(artist)
 		searchable = searchable.split(" OR ")
 		# puts searchable
+		random_string = SecureRandom.uuid
 		params = {
 			:q => "",
 			# :q => "{!q.op=OR}",
-			# :op => "OR",
-			:rows => limit
+			:rows => limit,
+			:sort => 'random_%s asc, id asc' % random_string
     }
 		searchable.each do |x|
 			params[:q] = params[:q]+"#{x}"
+			# the default solr operator is set to AND in config, rendering OR search
+			# inoperative; ideally something like the below should be used:
 			# params[:q] = params[:q]+"artistcalc_txt: #{x}"
 		end
-		# puts params
 		builder = search_builder.with(params)
     response = repository.search(builder)
-		# puts response
 		docs = response[:response][:docs].collect { |x| x.slice(:id,:title_txt,:artistcalc_txt,:datemade_s, :blob_ss)}
-		puts limit.class
-		# puts "HELLOOOOOOO"
 		docs.collect do |doc|
-			# puts "HELLOOOOOOO"
-			puts doc
 			content_tag(:a, href: "/catalog/#{doc[:id]}") do
 				content_tag(:div, class: 'show-preview-item') do
 					unless doc[:title_txt].nil?
@@ -118,7 +115,6 @@ module ApplicationHelper
 				unless doc[:artistcalc_txt].nil?
 					artist = doc[:artistcalc_txt][0]
 					artist_link = make_artist_search_link(artist)
-					# puts artist
 					artist_tag = content_tag(:span, class: "gallery-caption-artist") do
 						"by ".html_safe +
 						content_tag(:a, artist, href: artist_link)
