@@ -4,7 +4,7 @@ function usage() {
     echo
     echo "    Usage: $0 install_dir production|development <optional-tag>"
     echo
-    echo "    e.g.   $0 20200305.cinefiles production 2.0.3-rc2"
+    echo "    e.g.   $0 202204220955.cinefiles production 2.0.3-rc2"
     echo
     exit
 }
