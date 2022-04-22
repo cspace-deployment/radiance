@@ -19,7 +19,7 @@ if ! grep -q " $2 " <<< " production development "; then
     usage
 fi
 
-YYYYMMDDHHMM=`date +%y%m%d%H%M`
+YYYYMMDDHHMM=`date +%Y%m%d%H%M`
 
 # update radiance repo
 cd ${HOME}/projects/radiance
@@ -29,10 +29,9 @@ git pull -v
 cd ${HOME}/projects
 
 # redeploy both
-radiance/deploy.sh ${YYYYMMDDHHMM}.pahma $2 $1 &
-radiance/deploy.sh ${YYYYMMDDHHMM}.cinefiles $2 $1 &
-radiance/deploy.sh ${YYYYMMDDHHMM}.bampfa $2 $1 &
-wait
+radiance/deploy.sh ${YYYYMMDDHHMM}.pahma $2 $1
+radiance/deploy.sh ${YYYYMMDDHHMM}.cinefiles $2 $1
+radiance/deploy.sh ${YYYYMMDDHHMM}.bampfa $2 $1
 
 # relink both
 radiance/relink.sh ${YYYYMMDDHHMM}.pahma pahma $2
@@ -47,5 +46,6 @@ cd ${HOME}/projects/${YYYYMMDDHHMM}.cinefiles
 ./install_ucb.sh cinefiles
 
 cd ${HOME}/projects/${YYYYMMDDHHMM}.bampfa
-./install_ucb.sh bampfa
-./make-bampfa.sh
+# TODO: bampfa install should be its own thing, not piggyback on cinefiles
+./install_ucb.sh cinefiles
+./make-bampfa-demo.sh
