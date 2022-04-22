@@ -24,7 +24,70 @@ module ApplicationHelper
 		return format_image_gallery_results(docs,nextCursorMark)
 	end
 
-	def make_artist_search_link(artist)
+	def generate_artist_preview(artist,limit=4)
+		# artist should already include parsed artist names
+		# this should return format_artist_preview()
+		searchable = extract_artist_names(artist)
+		searchable = searchable.split(" OR ")
+		# puts searchable
+		params = {
+			:q => "",
+			# :q => "{!q.op=OR}",
+			# :op => "OR",
+			:rows => limit
+    }
+		searchable.each do |x|
+			params[:q] = params[:q]+"#{x}"
+			# params[:q] = params[:q]+"artistcalc_txt: #{x}"
+		end
+		# puts params
+		builder = search_builder.with(params)
+    response = repository.search(builder)
+		# puts response
+		docs = response[:response][:docs].collect { |x| x.slice(:id,:title_txt,:artistcalc_txt,:datemade_s, :blob_ss)}
+		puts limit.class
+		# puts "HELLOOOOOOO"
+		docs.collect do |doc|
+			# puts "HELLOOOOOOO"
+			puts doc
+			content_tag(:a, href: "/catalog/#{doc[:id]}") do
+				content_tag(:div, class: 'show-preview-item') do
+					unless doc[:title_txt].nil?
+						title = doc[:title_txt][0]
+					else
+						title = "[No title given]"
+					end
+					unless doc[:artistcalc_txt].nil?
+						artist = doc[:artistcalc_txt][0]
+						puts artist
+					else
+						artist = "[No artist given]"
+					end
+					artist_tag = content_tag(:span, artist, class: "gallery-caption-artist")
+					unless doc[:datemade_s].nil?
+						datemade = doc[:datemade_s]
+					else
+						datemade = "[No date given]"
+					end
+					unless doc[:blob_ss].nil?
+						image_tag = content_tag(:img, '',
+		          src: render_csid(doc[:blob_ss][0], 'Medium'),
+		          class: 'thumbclass')
+					else
+						image_tag = content_tag(:span,'Image not available',class: 'no-preview-image')
+					end
+					image_tag +
+					content_tag(:h4) do
+						artist_tag +
+						content_tag(:span, title, class: "gallery-caption-title") +
+						content_tag(:span, "("+datemade+")", class: "gallery-caption-date")
+					end
+				end
+			end
+		end.join.html_safe
+	end
+
+	def extract_artist_names(artist)
 		searchable = artist.tr(",","") # first remove commas
 		matches = searchable.scan(/[^;]+(?=;?)/) # find the names in between optional semi-colons
 		if matches.length != 0
@@ -32,7 +95,16 @@ module ApplicationHelper
 			matches.map!{|m| m.tr(" ","+").insert(0,'"').insert(-1,'"')} # add quotes for the OR search
 			searchable = matches.join(" OR ")
 		end
+		return searchable
+	end
+
+	def make_artist_search_link(artist)
+		searchable = extract_artist_names(artist)
 		return "/catalog?utf8=✓&op=OR&artistcalc_s=#{searchable}&sort=title_s+asc&search_field=advanced&commit=Search"
+	end
+
+	def make_artist_limited_search_link(artist_link,limit=4)
+		limited_link = artist_link+"&rows=#{limit}"
 	end
 
 	def format_image_gallery_results(docs,nextCursorMark)

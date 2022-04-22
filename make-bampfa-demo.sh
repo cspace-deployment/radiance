@@ -21,6 +21,7 @@ cp etc/bampfa-custom/bampfa_routes.rb ../portal/config/routes.rb
 cp etc/bampfa-custom/bampfa_blacklight.html.erb ../portal/app/views/layouts/blacklight.html.erb
 cp etc/bampfa-custom/bampfa_splash.html.erb ../portal/app/views/shared/_splash.html.erb
 cp etc/bampfa-custom/bampfa_show_default.html.erb ../portal/app/views/catalog/_show_default.html.erb
+cp etc/bampfa-custom/bampfa_show_preview.html.erb ../portal/app/views/catalog/_show_preview.html.erb
 cp etc/bampfa-custom/bampfa_index_default.html.erb ../portal/app/views/catalog/_index_default.html.erb
 cp etc/bampfa-custom/bampfa_user_util_links.html.erb ../portal/app/views/_user_util_links.html.erb
 cp etc/bampfa-custom/bampfa_header_navbar.html.erb ../portal/app/views/shared/_header_navbar.html.erb
