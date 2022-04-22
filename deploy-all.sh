@@ -29,10 +29,9 @@ git pull -v
 cd ${HOME}/projects
 
 # redeploy both
-radiance/deploy.sh ${YYYYMMDDHHMM}.pahma $2 $1 &
-radiance/deploy.sh ${YYYYMMDDHHMM}.cinefiles $2 $1 &
-radiance/deploy.sh ${YYYYMMDDHHMM}.bampfa $2 $1 &
-wait
+radiance/deploy.sh ${YYYYMMDDHHMM}.pahma $2 $1
+radiance/deploy.sh ${YYYYMMDDHHMM}.cinefiles $2 $1
+radiance/deploy.sh ${YYYYMMDDHHMM}.bampfa $2 $1
 
 # relink both
 radiance/relink.sh ${YYYYMMDDHHMM}.pahma pahma $2

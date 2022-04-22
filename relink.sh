@@ -40,7 +40,8 @@ if [ "$3" == "production" ]; then
   fi
 
   if [[ ! -f ${BLACKLIGHT_DIR}/$2/db/production.sqlite3 ]]; then
-    echo "$2 is not an existing deployment. please set up credentials, db dir (with migrations), and log dir"
+    echo "${BLACKLIGHT_DIR}/$2/db/production.sqlite3 not found."
+    echo "so '$2' is not an existing deployment. please set up credentials, db dir (with migrations), and log dir"
     exit 1
   fi
 
