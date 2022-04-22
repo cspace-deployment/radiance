@@ -12,7 +12,7 @@ function usage() {
     echo
     echo "    Usage: $0 install_dir museum production|development"
     echo
-    echo "    e.g.   $0 20200305.pahma pahma production"
+    echo "    e.g.   $0 202204221021.pahma pahma production"
     echo
     exit 1
 }
@@ -26,6 +26,7 @@ if ! grep -q " $3 " <<< " production development "; then
 fi
 
 INSTALL_DIR=$1/portal
+BLACKLIGHT_DIR=/cspace/blacklight
 
 if [ ! -d ${INSTALL_DIR} ] ; then
   echo "${INSTALL_DIR} does not exist... exiting"
@@ -34,12 +35,12 @@ fi
 
 if [ "$3" == "production" ]; then
   if [ ! -d "$1" ]; then
-    echo "$HOME/projects/$1 does not exist. exiting."
+    echo "$HOME/projects/$1 does not exist. can't make a symlink to it. exiting."
     exit 1
   fi
 
-  if [[ ! -f /var/cspace/$2/blacklight/db/production.sqlite3 ]]; then
-    echo "$2 is not an existing deployment."
+  if [[ ! -f ${BLACKLIGHT_DIR}/$2/db/production.sqlite3 ]]; then
+    echo "$2 is not an existing deployment. please set up credentials, db dir (with migrations), and log dir"
     exit 1
   fi
 
@@ -51,10 +52,10 @@ if [ "$3" == "production" ]; then
   cd ${INSTALL_DIR}
   # link the log dir to the "permanent" log dir
   rm -rf log/
-  ln -s /var/cspace/$2/blacklight/log log
+  ln -s ${BLACKLIGHT_DIR}/$2/log log
   # link the db directory to the "permanent" db directory
   rm -rf db/
-  ln -s /var/cspace/$2/blacklight/db db
+  ln -s ${BLACKLIGHT_DIR}/$2/db db
 
   echo "copying existing credentials; they better be there!"
   # nb: yes we are overwriting any existing config/credentials.yml.enc
@@ -68,13 +69,21 @@ if [ "$3" == "production" ]; then
   # rails db:migrate RAILS_ENV=production
   echo "relinking done and credentials set. now restart apache..."
 else
-  echo "leaving db and log as is for dev deployment, regenerating credentials, and applying dev migrations"
+  echo "leaving db and log as is for dev deployment, you'll need do the following by hand:"
+  echo "1. regenerate credentials:"
+  echo
+  echo "cd ${INSTALL_DIR}"
+  echo "rm -f config/credentials.yml.enc"
+  echo "rm -f config/main.key"
+  echo "EDITOR=vi rails credentials:edit"
   echo "nb: when asked to edit credentials, you can just :q, unless you want to edit them after all"
-  cd ${INSTALL_DIR} || exit 1
-  # this seems to be necessary for rails 5.2
-  # rm -f config/credentials.yml.enc
-  # rm -f config/main.key
-  # EDITOR=vi rails credentials:edit
-  rails db:migrate RAILS_ENV=development
-  echo "relinking and migrating done..."
+  echo
+  echo "2. apply dev migrations:"
+  echo
+  echo "bin/rails db:migrate RAILS_ENV=development"
+  echo "done with development install..."
+  echo
+  echo "ps: to start the development server, enter the following in the ${INSTALL_DIR} directory"
+  echo "bin/rails s"
+  echo
 fi
