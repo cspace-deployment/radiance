@@ -245,29 +245,32 @@ h3.index_title > a {
   margin-bottom: 30px;
 }
 
-.show-preview {
-	display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(1, minmax(300px,1fr));
-	box-sizing: border-box;
-  margin-bottom: 30px;
-}
-
-.show-preview .show-preview-item {
-  position: relative;
-	display: block;
-  font-family: RobotoLight, Helvetica, Arial, sans-serif;
-}
-
-.show-preview-item img {
-	min-width: 150px;
-	max-height: 100%;
-}
-
 .show-image {
   max-width: 100%;
   // display: block;
 }
+
+.show-preview {
+	display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+	box-sizing: border-box;
+  margin: 15px;
+  font-family: RobotoLight, Helvetica, Arial, sans-serif;
+}
+
+.show-preview-heading {
+  font-family: RobotoLight, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 30px;
+  margin: 15px;
+}
+
+.show-preview-item img {
+	min-width: 200px;
+	max-height: 100%;
+}
+
 
 .gallery-caption-title {
   font-family: Roboto, Helvetica, Arial, sans-serif;
