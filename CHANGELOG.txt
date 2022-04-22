@@ -3,11 +3,13 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.5.0-rc3
-Fri Apr 22 12:50:28 PDT 2022
+This is version 2.5.0-rc4
+Fri Apr 22 14:08:36 PDT 2022
 
-e071af0 (HEAD -> main) HMP-230: revise rails bundle options for blacklight deployment
-1c23bf0 (tag: 2.5.0-rc2, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.5.0-rc2
+7e32fe7 (HEAD -> main) HMP-230: deploy scripts cannot in fact run in parallel
+7575f1c (tag: 2.5.0-rc3, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.5.0-rc3
+e071af0 HMP-230: revise rails bundle options for blacklight deployment
+1c23bf0 (tag: 2.5.0-rc2) revise CHANGELOG.txt and bump version to 2.5.0-rc2
 d2d471a HMP-230: refactored blacklight deploy scripts to include bampfa portal
 4f96aa1 Merge pull request #56 from BAM-PFA/master
 c0e71b4 HMP 2xx: add "search by artist" links to artist names in bampfa splash image gallery
