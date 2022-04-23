@@ -1,0 +1,20 @@
+<%# = simple_format @document.to_yaml %>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@bampfa"/>
+<% if @document %>
+  <% doc_presenter = index_presenter(@document) %>
+  <% doc_title = doc_presenter.field_value 'title_s' %>
+  <meta property="og:title"       content="<%= doc_title %>" />
+  <meta property="og:description" content="<%= doc_presenter.field_value 'artistcalc_s' %> <%= doc_presenter.field_value 'datemade_s' %>" />
+  <meta property="og:image"       content="https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/<%= doc_presenter.field_value('blob_ss')[0...23] %>/derivatives/Medium/content"/>
+  <meta property="twitter:image:alt"       content="Image from <%= doc_title %>"/>
+  <meta property="og:url"         content="https://collection.bampfa.berkeley.edu/catalog/<%= doc_presenter.field_value 'id' %>" />
+  <meta property="og:type"        content="art" />
+<% else %>
+  <meta property="og:url"         content="https://collection.bampfa.berkeley.edu/"/>
+  <meta property="og:title"       content="BAMPFA Art Collection" />
+  <meta property="og:creator" content="UC Berkeley Art Museum and Pacific Film Archive" />
+  <meta property="og:description"       content="The UC Berkeley Art Museum and Pacific Film Archive brings the rich artistic resources of the UC Berkeley campus to the broader public" />
+  <meta property="og:image"       content="/site_image.jpg" />
+  <meta property="twitter:image:alt"       content="Exterior of BAMPFA museum building showing outdoor screen"/>
+<% end %>
