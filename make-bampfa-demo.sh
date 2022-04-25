@@ -26,7 +26,7 @@ cp etc/bampfa-custom/bampfa_index_default.html.erb ../portal/app/views/catalog/_
 cp etc/bampfa-custom/bampfa_user_util_links.html.erb ../portal/app/views/_user_util_links.html.erb
 cp etc/bampfa-custom/bampfa_header_navbar.html.erb ../portal/app/views/shared/_header_navbar.html.erb
 cp etc/bampfa-custom/bampfa_footer.html.erb ../portal/app/views/shared/_footer.html.erb
-cp etc/bampfa-custom/_social.html.erb ../portal/app/views/shared/_social.html.erb
+cp etc/bampfa-custom/bampfa_social.html.erb ../portal/app/views/shared/_social.html.erb
 cp etc/bampfa-custom/_show_sidebar.html.erb ../portal/app/views/catalog/_show_sidebar.html.erb
 #cp etc/bampfa-custom/_splash.html.erb ../portal/~/projects/search_cinefiles/app/views/shared/_splash.html.erb
 cp -r etc/bampfa-custom/gallery ../portal/app/views/
@@ -36,6 +36,7 @@ cp etc/bampfa-custom/header-logo-bampfa.png ../portal/public/header-logo-bampfa.
 cp etc/bampfa-custom/footer-logo-bampfa.png ../portal/public/footer-logo-bampfa.png
 cp etc/bampfa-custom/imls.png ../portal/public/imls.png
 cp etc/bampfa-custom/bampfa_favicon.png ../portal/public/favicon.png
+cp etc/bampfa-custom/bampfa_site_image.jpg ../portal/public/site_image.jpg
 
 # error pages
 cp etc/bampfa-custom/bampfa_404.jpg ../portal/public/404.jpg
