@@ -3,11 +3,13 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.5.0-rc6
-Thu Apr 28 08:28:22 PDT 2022
+This is version 2.5.0-rc7
+Thu Apr 28 10:51:24 PDT 2022
 
-0c2bf75 (HEAD -> main) CSW-634: change prod/dev parameters in blacklight deployment scripts
-e972683 (tag: 2.5.0-rc5, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.5.0-rc5
+3e1b95e (HEAD -> main) CSW-634: blacklight deployment script needs 'local' option, etc.
+34ae665 (tag: 2.5.0-rc6, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.5.0-rc6
+0c2bf75 CSW-634: change prod/dev parameters in blacklight deployment scripts
+e972683 (tag: 2.5.0-rc5) revise CHANGELOG.txt and bump version to 2.5.0-rc5
 8346dee CSW-634: blacklight deployment script 'relink.sh' is now platform-aware
 941c589 Merge pull request #59 from BAM-PFA/master
 657e690 HMP 2xx: add back some details left out of last bampfa commit (social partial and show screen detail)
