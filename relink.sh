@@ -6,7 +6,7 @@
 
 set -e
 
-cd ~/projects || exit 1
+cd ${HOME}/projects || exit 1
 
 function usage() {
     echo
@@ -96,6 +96,7 @@ else
   if [ "$3" == "dev" ]; then
     echo "3. make symlinks:"
     echo
+    cd ${HOME}/projects
     LINK_DIR=search_$2
     if [ -d ${LINK_DIR} ] && [ ! -L ${LINK_DIR} ] ; then echo "${LINK_DIR} exists and is not a symlink ... cowardly refusal to rm it and relink it" ; exit 1 ; fi
     rm ${LINK_DIR}
