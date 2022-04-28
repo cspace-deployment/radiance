@@ -2,9 +2,9 @@ set -e
 
 function usage() {
     echo
-    echo "    Usage: $0 install_dir production|development <optional-tag>"
+    echo "    Usage: $0 install_dir prod|dev <optional-tag>"
     echo
-    echo "    e.g.   $0 202204220955.cinefiles production 2.0.3-rc2"
+    echo "    e.g.   $0 202204220955.cinefiles prod 2.0.3-rc2"
     echo
     exit
 }
@@ -17,7 +17,7 @@ else
     usage
 fi
 
-if ! grep -q " $2 " <<< " production development "; then
+if ! grep -q " $2 " <<< " prod dev "; then
     usage
 fi
 

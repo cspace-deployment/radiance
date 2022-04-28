@@ -21,7 +21,7 @@ if [ $# -ne 3 ]; then
     usage
 fi
 
-if ! grep -q " $3 " <<< " production development "; then
+if ! grep -q " $3 " <<< " prod dev "; then
     usage
 fi
 
@@ -43,7 +43,7 @@ if [ ! -d ${INSTALL_DIR} ] ; then
   exit 1
 fi
 
-if [ "$3" == "production" ]; then
+if [ "$3" == "prod" ]; then
   if [ ! -d "$1" ]; then
     echo "$HOME/projects/$1 does not exist. can't make a symlink to it. exiting."
     exit 1
@@ -80,18 +80,17 @@ if [ "$3" == "production" ]; then
   # rails db:migrate RAILS_ENV=production
   echo "relinking done and credentials set. now restart apache..."
 else
-  echo "leaving db and log as is for dev deployment, you'll need do the following by hand:"
-  echo "1. regenerate credentials:"
+  echo "leaving db and log as is for dev deployment:"
+  echo "1. regenerationg credentials:"
   echo
-  echo "cd ${INSTALL_DIR}"
-  echo "rm -f config/credentials.yml.enc"
-  echo "rm -f config/main.key"
-  echo "EDITOR=vi rails credentials:edit"
-  echo "nb: when asked to edit credentials, you can just :q, unless you want to edit them after all"
+  cd ${INSTALL_DIR}
+  rm -f config/credentials.yml.enc
+  rm -f config/master.key
+  EDITOR=cat rails credentials:edit
   echo
-  echo "2. apply dev migrations:"
+  echo "2. applying dev migrations:"
   echo
-  echo "bin/rails db:migrate RAILS_ENV=development"
+  bin/rails db:migrate RAILS_ENV=development
   echo "done with development install..."
   echo
   echo "ps: to start the development server, enter the following in the ${INSTALL_DIR} directory"

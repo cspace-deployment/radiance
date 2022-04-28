@@ -4,9 +4,9 @@
 
 function usage() {
     echo
-    echo "    Usage: $0 version production|development"
+    echo "    Usage: $0 version prod|dev"
     echo
-    echo "    e.g.   $0 2.0.10-rc2 production"
+    echo "    e.g.   $0 2.0.10-rc2 prod"
     echo
     exit
 }
@@ -15,7 +15,7 @@ if [ $# -ne 2 ]; then
     usage
 fi
 
-if ! grep -q " $2 " <<< " production development "; then
+if ! grep -q " $2 " <<< " prod dev "; then
     usage
 fi
 
