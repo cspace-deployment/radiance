@@ -26,7 +26,17 @@ if ! grep -q " $3 " <<< " production development "; then
 fi
 
 INSTALL_DIR=$1/portal
-BLACKLIGHT_DIR=/cspace/blacklight
+
+if [[ ! -d /var/cspace/$2/db ]]; then
+  # running on rtl server
+  BLACKLIGHT_DIR=/var/cspace
+elif [[ ! -f /cspace/blacklight/$2/db ]]; then
+  # running on aws
+  BLACKLIGHT_DIR=/cspace/blacklight
+else
+  # local deployment
+  BLACKLIGHT_DIR=~
+fi
 
 if [ ! -d ${INSTALL_DIR} ] ; then
   echo "${INSTALL_DIR} does not exist... exiting"
