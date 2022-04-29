@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	include Blacklight::SearchHelper
-  def get_random_documents(limit=10,cursorMark='*')
+  def get_random_documents(limit=12,cursorMark='*')
     require 'securerandom'
     random_string = SecureRandom.uuid#[0,5]
     params = {
@@ -18,7 +18,7 @@ module ApplicationHelper
 	end
 
 	def generate_image_gallery(cursorMark='*')
-		result = get_random_documents(limit=10,cursorMark=cursorMark)
+		result = get_random_documents(limit=12,cursorMark=cursorMark)
 		docs = result[1]
 		nextCursorMark = result[0]
 		return format_image_gallery_results(docs,nextCursorMark)
