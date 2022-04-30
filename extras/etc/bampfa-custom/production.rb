@@ -94,7 +94,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # set host for password resets
-  config.action_mailer.default_url_options = { :host => 'bampfa.bampfa.berkeley.edu' }
+  config.action_mailer.default_url_options = { :host => 'bampfa.bampfa.berkeley.edu' from: 'cspace-support@lists.berkeley.edu' }
   config.action_mailer.delivery_method = :sendmail
 
 end
