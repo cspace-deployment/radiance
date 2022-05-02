@@ -4,13 +4,15 @@ NOTIFY="jblowe@berkeley.edu"
 
 echo "CLEANUP - $(/bin/date) - cleanup starting" 1>&2
 
-BL_ENVIRONMENT=`/usr/bin/curl -s -m 5 http://169.254.169.254/latest/meta-data/tags/instance/Name`
+BL_ENVIRONMENT=`/usr/bin/curl -s -m 5 http://169.254.169.254/latest/meta-data/tags/instance/BL_ENVIRONMENT`
 
-if [[ -z $BL_ENVIRONMENT || ( "$BL_ENVIRONMENT" != "blacklight-dev" && "$BL_ENVIRONMENT" != "blacklight-qa" && "$BL_ENVIRONMENT" != "blacklight-prod" ) ]]; then
-        echo "CLEANUP - $(/bin/date) - Cannot get host, are you sure you're on AWS? Aborting!" 1>&2
+if [[ -z $BL_ENVIRONMENT || ( "$BL_ENVIRONMENT" != "dev" && "$BL_ENVIRONMENT" != "qa" && "$BL_ENVIRONMENT" != "prod" ) ]]; then
+        echo "CLEANUP - $(/bin/date) - Cannot get environment, are you sure you're on AWS? Aborting!" 1>&2
         /usr/bin/mail -r "cspace-support@lists.berkeley.edu" -s "CLEANUP - $TENANT Blacklight DB clean up failed" ${NOTIFY} <<< 'See dbclean.log for details.'
         exit 1
 fi
+
+BL_ENVIRONMENT="blacklight-${BL_ENVIRONMENT}"
 
 for TENANT in pahma cinefiles bampfa
 do
