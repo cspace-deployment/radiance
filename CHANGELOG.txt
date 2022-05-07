@@ -3,11 +3,26 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.5.0-rc8
-Thu Apr 28 12:16:32 PDT 2022
+This is version 2.5.0-rc10
+Sat May  7 14:34:33 PDT 2022
 
-a798594 (HEAD -> main) CSW-634: blacklight relink.sh script needs to set symlinks for dev deployment
-c2e4211 (tag: 2.5.0-rc7, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.5.0-rc7
+8e7fedf (HEAD -> main) CSW-634: blacklight relink.sh script needs to check correct db locations
+57cba42 HMP-234: need to use blacklight_range_limit widget v6.3.3 still
+cef2985 NOJIRA: remove superfluous line in bampfa blacklight portal deployment script
+177d1d1 HMP-234: use datemadeyear_i in Date Made facet in BAMPFA portal
+5c179e2 CSW-652: correct 'from' address for emails from blacklight portals
+1aea425 CSW-634: correct inline documentation
+e10ec7c (origin/main, origin/HEAD) Merge pull request #61 from felder/felder_changetag
+9a3b8c6 Changing which tag is queried to get environment info.
+dbd81eb Merge remote-tracking branch 'refs/remotes/origin/main'
+b8d4ad8 CSW-652: set 'from' address for emails from blacklight portals
+68199de HMP-2xx: display 12 objects in bampfa gallery instead of 10
+f4c7888 Merge pull request #60 from felder/felder_dbcleanaws
+e6f4af5 Adding dbcleanup script for aws.
+41c3802 NOJIRA: update Gemfile.lock for CVE-2022-22577
+a388b5f (tag: 2.5.0-rc8) revise CHANGELOG.txt and bump version to 2.5.0-rc8
+a798594 CSW-634: blacklight relink.sh script needs to set symlinks for dev deployment
+c2e4211 (tag: 2.5.0-rc7) revise CHANGELOG.txt and bump version to 2.5.0-rc7
 3e1b95e CSW-634: blacklight deployment script needs 'local' option, etc.
 34ae665 (tag: 2.5.0-rc6) revise CHANGELOG.txt and bump version to 2.5.0-rc6
 0c2bf75 CSW-634: change prod/dev parameters in blacklight deployment scripts
@@ -45,7 +60,7 @@ a7385f6 Merge pull request #53 from BAM-PFA/master
 975265c NOJIRA: update rails in Gemfile per dependabot recommendation
 39d13bb Merge pull request #50 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.13.2
 2fe7629 HMP-214: render 3d images using imageserver, not apache hack
-86081cb (origin/dependabot/bundler/portal/nokogiri-1.13.2) Bump nokogiri from 1.12.5 to 1.13.2 in /portal
+86081cb Bump nokogiri from 1.12.5 to 1.13.2 in /portal
 6994a40 Merge pull request #49 from BAM-PFA/master
 b10af7b HMP-20x: resize (and delete unused) images for CineFiles
 66bcf22 NOJIRA: the VERSION file should not be in github
