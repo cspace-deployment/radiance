@@ -27,10 +27,10 @@ fi
 
 INSTALL_DIR=$1/portal
 
-if [[ ! -d /var/cspace/$2/db ]]; then
+if [[ -d /var/cspace/$2/db ]]; then
   # running on rtl server
   BLACKLIGHT_DIR=/var/cspace
-elif [[ ! -f /cspace/blacklight/$2/db ]]; then
+elif [[ -d /cspace/blacklight/$2/db ]]; then
   # running on aws
   BLACKLIGHT_DIR=/cspace/blacklight
 else
