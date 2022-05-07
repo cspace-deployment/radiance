@@ -28,7 +28,6 @@ cp etc/bampfa-custom/bampfa_header_navbar.html.erb ../portal/app/views/shared/_h
 cp etc/bampfa-custom/bampfa_footer.html.erb ../portal/app/views/shared/_footer.html.erb
 cp etc/bampfa-custom/bampfa_social.html.erb ../portal/app/views/shared/_social.html.erb
 cp etc/bampfa-custom/_show_sidebar.html.erb ../portal/app/views/catalog/_show_sidebar.html.erb
-#cp etc/bampfa-custom/_splash.html.erb ../portal/~/projects/search_cinefiles/app/views/shared/_splash.html.erb
 cp -r etc/bampfa-custom/gallery ../portal/app/views/
 
 # images
