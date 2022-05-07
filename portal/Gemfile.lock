@@ -47,7 +47,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (10.4.2.0)
+    autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
     bcrypt (3.1.17)
     bindex (0.8.1)
@@ -76,11 +76,10 @@ GEM
     blacklight_advanced_search (6.4.1)
       blacklight (~> 6.0, >= 6.0.1)
       parslet
-    blacklight_range_limit (7.0.0)
-      blacklight
+    blacklight_range_limit (6.3.3)
+      blacklight (>= 6.0.2)
       jquery-rails
       rails (>= 3.0)
-      tether-rails
     bootsnap (1.11.1)
       msgpack (~> 1.2)
     bootstrap-sass (3.4.1)
@@ -166,7 +165,7 @@ GEM
       activesupport (>= 3.0, < 8.0)
     erubi (1.10.0)
     execjs (2.8.1)
-    faraday (2.2.0)
+    faraday (2.3.0)
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.2)
@@ -230,7 +229,7 @@ GEM
       rexml
       scrub_rb (>= 1.0.1, < 2)
       unf
-    marc-fastxmlwriter (1.0.0)
+    marc-fastxmlwriter (1.1.0)
       marc (~> 1.0)
     marcel (1.0.2)
     matrix (0.4.2)
@@ -249,7 +248,7 @@ GEM
       view_component
     msgpack (1.5.1)
     nio4r (2.5.8)
-    nokogiri (1.13.4)
+    nokogiri (1.13.5)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     nom-xml (1.2.0)
@@ -351,8 +350,6 @@ GEM
     stanford-mods (3.0.0)
       activesupport
       mods (~> 3.0, >= 3.0.1)
-    tether-rails (1.4.0)
-      rails (>= 3.1)
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -406,7 +403,7 @@ DEPENDENCIES
   blacklight-gallery
   blacklight-marc
   blacklight_advanced_search
-  blacklight_range_limit
+  blacklight_range_limit (~> 6.3.3)
   bootsnap
   bootstrap-sass
   byebug
