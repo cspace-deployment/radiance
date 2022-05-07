@@ -203,7 +203,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'itemclass_s', label: 'Classification', limit: true
     config.add_facet_field 'materials_s', label: 'Materials', limit: true
     # config.add_facet_field 'datemade_s', label: 'Date Made', limit: true
-    config.add_facet_field("datemade_s") do |field|
+    config.add_facet_field("datemadeyear_i") do |field|
       field.include_in_advanced_search = false
       field.label = 'Date made'
       field.range = true
