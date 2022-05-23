@@ -3,10 +3,12 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.5.0-rc11
-Fri May 20 16:20:24 PDT 2022
+This is version 2.5.0-rc12
+Mon May 23 10:02:08 PDT 2022
 
-42213fe (HEAD -> main, origin/main, origin/HEAD) CSW-652: correct typo in email in blacklight portals
+37a10e6 (HEAD -> main, origin/main, origin/HEAD) CSW-652: correct typo in email config for bampfa blacklight portal
+3360b13 (tag: 2.5.0-rc11) revise CHANGELOG.txt and bump version to 2.5.0-rc11
+42213fe CSW-652: correct typo in email in blacklight portals
 6158b43 (tag: 2.5.0-rc10) revise CHANGELOG.txt and bump version to 2.5.0-rc10
 8e7fedf CSW-634: blacklight relink.sh script needs to check correct db locations
 57cba42 HMP-234: need to use blacklight_range_limit widget v6.3.3 still
