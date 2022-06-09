@@ -3,10 +3,11 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.5.0-rc13
-Thu Jun  2 15:42:48 PDT 2022
+This is version 2.5.0
+Wed Jun  8 17:20:42 PDT 2022
 
-f4ad040 (HEAD -> main, origin/main, origin/HEAD) Merge pull request #62 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.13.6
+cf81aea (HEAD -> main, tag: 2.5.0-rc13, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.5.0-rc13
+f4ad040 Merge pull request #62 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.13.6
 8d74569 Bump nokogiri from 1.13.5 to 1.13.6 in /portal
 42d74e5 (tag: 2.5.0-rc12) revise CHANGELOG.txt and bump version to 2.5.0-rc12
 37a10e6 CSW-652: correct typo in email config for bampfa blacklight portal
