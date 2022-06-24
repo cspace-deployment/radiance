@@ -3,17 +3,22 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.5.0
-Wed Jun  8 17:20:42 PDT 2022
+This is version 2.6.0-rc1
+Fri Jun 24 13:22:27 PDT 2022
 
-cf81aea (HEAD -> main, tag: 2.5.0-rc13, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.5.0-rc13
+9bd7608 (HEAD -> main) HMP-240: upgrade ruby to 2.7.6 in .ruby-version
+432736e (origin/main, origin/HEAD) Merge pull request #63 from cspace-deployment/dependabot/bundler/portal/rack-2.2.3.1
+b4faa7d NOJIRA: eliminate pesky deprecation messages for 'discard_flash_if_xhr'
+8f4b37c (tag: 2.5.0) revise CHANGELOG.txt and bump version to 2.5.0
+cf81aea revise CHANGELOG.txt and bump version to 2.5.0-rc13
+6a77bd8 (origin/dependabot/bundler/portal/rack-2.2.3.1) Bump rack from 2.2.3 to 2.2.3.1 in /portal
 f4ad040 Merge pull request #62 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.13.6
 8d74569 Bump nokogiri from 1.13.5 to 1.13.6 in /portal
-42d74e5 (tag: 2.5.0-rc12) revise CHANGELOG.txt and bump version to 2.5.0-rc12
+42d74e5 revise CHANGELOG.txt and bump version to 2.5.0-rc12
 37a10e6 CSW-652: correct typo in email config for bampfa blacklight portal
-3360b13 (tag: 2.5.0-rc11) revise CHANGELOG.txt and bump version to 2.5.0-rc11
+3360b13 revise CHANGELOG.txt and bump version to 2.5.0-rc11
 42213fe CSW-652: correct typo in email in blacklight portals
-6158b43 (tag: 2.5.0-rc10) revise CHANGELOG.txt and bump version to 2.5.0-rc10
+6158b43 revise CHANGELOG.txt and bump version to 2.5.0-rc10
 8e7fedf CSW-634: blacklight relink.sh script needs to check correct db locations
 57cba42 HMP-234: need to use blacklight_range_limit widget v6.3.3 still
 cef2985 NOJIRA: remove superfluous line in bampfa blacklight portal deployment script
