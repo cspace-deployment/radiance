@@ -3,16 +3,29 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.5.0-rc10
-Sat May  7 14:34:33 PDT 2022
+This is version 2.6.0-rc1
+Fri Jun 24 13:22:27 PDT 2022
 
-8e7fedf (HEAD -> main) CSW-634: blacklight relink.sh script needs to check correct db locations
+9bd7608 (HEAD -> main) HMP-240: upgrade ruby to 2.7.6 in .ruby-version
+432736e (origin/main, origin/HEAD) Merge pull request #63 from cspace-deployment/dependabot/bundler/portal/rack-2.2.3.1
+b4faa7d NOJIRA: eliminate pesky deprecation messages for 'discard_flash_if_xhr'
+8f4b37c (tag: 2.5.0) revise CHANGELOG.txt and bump version to 2.5.0
+cf81aea revise CHANGELOG.txt and bump version to 2.5.0-rc13
+6a77bd8 (origin/dependabot/bundler/portal/rack-2.2.3.1) Bump rack from 2.2.3 to 2.2.3.1 in /portal
+f4ad040 Merge pull request #62 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.13.6
+8d74569 Bump nokogiri from 1.13.5 to 1.13.6 in /portal
+42d74e5 revise CHANGELOG.txt and bump version to 2.5.0-rc12
+37a10e6 CSW-652: correct typo in email config for bampfa blacklight portal
+3360b13 revise CHANGELOG.txt and bump version to 2.5.0-rc11
+42213fe CSW-652: correct typo in email in blacklight portals
+6158b43 revise CHANGELOG.txt and bump version to 2.5.0-rc10
+8e7fedf CSW-634: blacklight relink.sh script needs to check correct db locations
 57cba42 HMP-234: need to use blacklight_range_limit widget v6.3.3 still
 cef2985 NOJIRA: remove superfluous line in bampfa blacklight portal deployment script
 177d1d1 HMP-234: use datemadeyear_i in Date Made facet in BAMPFA portal
 5c179e2 CSW-652: correct 'from' address for emails from blacklight portals
 1aea425 CSW-634: correct inline documentation
-e10ec7c (origin/main, origin/HEAD) Merge pull request #61 from felder/felder_changetag
+e10ec7c Merge pull request #61 from felder/felder_changetag
 9a3b8c6 Changing which tag is queried to get environment info.
 dbd81eb Merge remote-tracking branch 'refs/remotes/origin/main'
 b8d4ad8 CSW-652: set 'from' address for emails from blacklight portals
@@ -20,26 +33,26 @@ b8d4ad8 CSW-652: set 'from' address for emails from blacklight portals
 f4c7888 Merge pull request #60 from felder/felder_dbcleanaws
 e6f4af5 Adding dbcleanup script for aws.
 41c3802 NOJIRA: update Gemfile.lock for CVE-2022-22577
-a388b5f (tag: 2.5.0-rc8) revise CHANGELOG.txt and bump version to 2.5.0-rc8
+a388b5f revise CHANGELOG.txt and bump version to 2.5.0-rc8
 a798594 CSW-634: blacklight relink.sh script needs to set symlinks for dev deployment
-c2e4211 (tag: 2.5.0-rc7) revise CHANGELOG.txt and bump version to 2.5.0-rc7
+c2e4211 revise CHANGELOG.txt and bump version to 2.5.0-rc7
 3e1b95e CSW-634: blacklight deployment script needs 'local' option, etc.
-34ae665 (tag: 2.5.0-rc6) revise CHANGELOG.txt and bump version to 2.5.0-rc6
+34ae665 revise CHANGELOG.txt and bump version to 2.5.0-rc6
 0c2bf75 CSW-634: change prod/dev parameters in blacklight deployment scripts
-e972683 (tag: 2.5.0-rc5) revise CHANGELOG.txt and bump version to 2.5.0-rc5
+e972683 revise CHANGELOG.txt and bump version to 2.5.0-rc5
 8346dee CSW-634: blacklight deployment script 'relink.sh' is now platform-aware
 941c589 Merge pull request #59 from BAM-PFA/master
 657e690 HMP 2xx: add back some details left out of last bampfa commit (social partial and show screen detail)
 31b3d58 Merge pull request #58 from BAM-PFA/master
 de774d1 HMP 2xx: more work on "artist preview" box on BAMPFA show view
 5237f25 Merge remote-tracking branch 'upstream/main'
-4bf7e8b (tag: 2.5.0-rc4) revise CHANGELOG.txt and bump version to 2.5.0-rc4
+4bf7e8b revise CHANGELOG.txt and bump version to 2.5.0-rc4
 7e32fe7 HMP-230: deploy scripts cannot in fact run in parallel
-7575f1c (tag: 2.5.0-rc3) revise CHANGELOG.txt and bump version to 2.5.0-rc3
+7575f1c revise CHANGELOG.txt and bump version to 2.5.0-rc3
 e071af0 HMP-230: revise rails bundle options for blacklight deployment
 6340ccb Merge remote-tracking branch 'upstream/main'
 d676da1 HMP 2xx: work on bampfa artist "more works" preview grid on show screen
-1c23bf0 (tag: 2.5.0-rc2) revise CHANGELOG.txt and bump version to 2.5.0-rc2
+1c23bf0 revise CHANGELOG.txt and bump version to 2.5.0-rc2
 d2d471a HMP-230: refactored blacklight deploy scripts to include bampfa portal
 4f96aa1 Merge pull request #56 from BAM-PFA/master
 c0e71b4 HMP 2xx: add "search by artist" links to artist names in bampfa splash image gallery
@@ -56,7 +69,7 @@ a7385f6 Merge pull request #53 from BAM-PFA/master
 284139d Merge pull request #51 from BAM-PFA/bampfa-portal
 4672d41 HMP 2xx: first draft of BAMPFA image carousel options
 3202cb8 NOJIRA: update ucb blacklight for CVE-2022-21831
-3304e1d (tag: 2.5.0-rc1) revise CHANGELOG.txt and bump version to 2.5.0-rc1
+3304e1d revise CHANGELOG.txt and bump version to 2.5.0-rc1
 975265c NOJIRA: update rails in Gemfile per dependabot recommendation
 39d13bb Merge pull request #50 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.13.2
 2fe7629 HMP-214: render 3d images using imageserver, not apache hack
