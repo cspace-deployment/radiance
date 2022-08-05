@@ -1,3 +1,8 @@
+
+.facet-limit {
+    margin-bottom: 5px;
+}
+
 .thumbnail > img,
 .thumbnail a > img {
   max-height: 200px;
@@ -301,4 +306,16 @@ h3.index_title > a {
   margin-left:auto;
   margin-right:auto;
   // display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0px;
 }

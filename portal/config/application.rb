@@ -6,10 +6,12 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Portal
+module SearchApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+
+    #config.active_record.sqlite3_production_warning=false
 
     config.active_record.yaml_column_permitted_classes = [
       ActiveSupport::HashWithIndifferentAccess,
@@ -24,8 +26,5 @@ module Portal
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-
-    # this points app exceptions to the routes specified in config/routes.rb
-    config.exceptions_app = self.routes
   end
 end

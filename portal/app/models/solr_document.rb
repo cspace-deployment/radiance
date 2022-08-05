@@ -2,18 +2,18 @@
 class SolrDocument
   include Blacklight::Solr::Document
   include Blacklight::Gallery::OpenseadragonSolrDocument
-    
+
       # The following shows how to setup this blacklight document to display marc documents
-  extension_parameters[:marc_source_field] = :marc_display
+  extension_parameters[:marc_source_field] = :marc_ss
   extension_parameters[:marc_format_type] = :marcxml
-  use_extension( Blacklight::Solr::Document::Marc) do |document|
-    document.key?( :marc_display  )
+  use_extension(Blacklight::Marc::DocumentExtension) do |document|
+    document.key?(SolrDocument.extension_parameters[:marc_source_field])
   end
-  
-  field_semantics.merge!(    
-                         :title => "title_display",
-                         :author => "author_display",
-                         :language => "language_facet",
+
+  field_semantics.merge!(
+                         :title => "title_ssm",
+                         :author => "author_ssm",
+                         :language => "language_ssim",
                          :format => "format"
                          )
 

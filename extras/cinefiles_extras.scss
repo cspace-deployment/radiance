@@ -1,3 +1,21 @@
+h1, .h1 {
+    font-size: 2rem;
+}
+
+.bg-dark {
+    background-color: gray !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #08bae7;
+    border-color: #07a6ce;
+}
+
+.facet-limit {
+    margin-bottom: 5px;
+}
+
 .thumbnail > img,
 .thumbnail a > img {
   max-height: 200px;
@@ -80,15 +98,23 @@
     margin: auto;
 }
 
-// NAVBAR
+// NAVBAR and BG
 
-.navbar-inverse .navbar-nav > li > a {
-  color: white;
+//.navbar-inverse .navbar-nav > li > a {
+//  color: white;
+//}
+
+//.navbar-inverse {
+//  background: gray;
+//  margin-bottom: 0;
+//}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
 }
 
-.navbar-inverse {
-  background: gray;
-  margin-bottom: 0;
+.navbar-expand-md .navbar-nav {
+    margin-top: -40px;
 }
 
 @media print {

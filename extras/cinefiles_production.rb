@@ -9,8 +9,7 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
 
-  # this needs to be false, even for production right now... app fails to load otherwise
-  config.eager_load = false
+  config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
@@ -26,8 +25,8 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  # config.assets.js_compressor = :uglifier
+  config.assets.css_compressor = :sass
 
   ### Do not fallback to assets pipeline if a precompiled asset is missed.
   # Fallback to assets pipeline if a precompiled asset is missed.

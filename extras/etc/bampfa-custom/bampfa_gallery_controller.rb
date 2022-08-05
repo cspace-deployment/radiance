@@ -5,12 +5,10 @@ class GalleryController < ApplicationController
 
 	include ActionController::MimeResponds
 	# helper_method :add_gallery_items
-	def add_gallery_items(nextCursorMark="*")
-		result = get_random_documents(limit=12,cursorMark=nextCursorMark)
-		docs = result[1]
-		nextCursorMark = result[0]
-		@formatted = format_image_gallery_results(docs, nextCursorMark)
-		puts @formatted
+	def add_gallery_items
+		docs = get_random_documents(query: 'blob_ss:[* TO *]')
+		@formatted = format_image_gallery_results(docs)
+		# puts @formatted
 		respond_to do |format|
       format.html
 			# format.json

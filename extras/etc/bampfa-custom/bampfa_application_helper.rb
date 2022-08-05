@@ -1,51 +1,36 @@
 module ApplicationHelper
 
-	include Blacklight::SearchHelper
-  def get_random_documents(limit=12,cursorMark='*')
+  def get_random_documents(query: '*', limit: 12)
     require 'securerandom'
-    random_string = SecureRandom.uuid#[0,5]
+    random_string = SecureRandom.uuid
     params = {
-      :q => 'blob_ss:[* TO *]',
-			:cursorMark => cursorMark,
+      :q => query,
 			:rows => limit,
       :sort => 'random_%s asc, id asc' % random_string
     }
-    builder = search_builder.with(params)
-    response = repository.search(builder)
-		nextCursorMark = response[:nextCursorMark]
-		docs = response[:response][:docs].collect { |x| x.slice(:id,:title_txt,:artistcalc_txt,:datemade_s, :blob_ss)}
-		return nextCursorMark, docs
+    builder = Blacklight::SearchService.new(config: blacklight_config, user_params: params)
+    response = builder.search_results
+		docs = response[0][:response][:docs].collect { |x| x.slice(:id,:title_txt,:artistcalc_txt,:datemade_s, :blob_ss)}
+		return docs
 	end
 
-	def generate_image_gallery(cursorMark='*')
-		result = get_random_documents(limit=12,cursorMark=cursorMark)
-		docs = result[1]
-		nextCursorMark = result[0]
-		return format_image_gallery_results(docs,nextCursorMark)
+	def generate_image_gallery
+		docs = get_random_documents(query: 'blob_ss:[* TO *]')
+		return format_image_gallery_results(docs)
 	end
 
-	def generate_artist_preview(artist,limit=4)
+	def generate_artist_preview(artist)#,limit=4)
 		# artist should already include parsed artist names
 		# this should return format_artist_preview()
 		searchable = extract_artist_names(artist)
 		searchable = searchable.split(" OR ")
-		# puts searchable
 		random_string = SecureRandom.uuid
-		params = {
-			:q => "",
-			# :q => "{!q.op=OR}",
-			:rows => limit,
-			:sort => 'random_%s asc, id asc' % random_string
-    }
+		query = ""
 		searchable.each do |x|
-			params[:q] = params[:q]+"#{x}"
-			# the default solr operator is set to AND in config, rendering OR search
-			# inoperative; ideally something like the below should be used:
-			# params[:q] = params[:q]+"artistcalc_txt: #{x}"
+			query = query + "#{x}"
 		end
-		builder = search_builder.with(params)
-    response = repository.search(builder)
-		docs = response[:response][:docs].collect { |x| x.slice(:id,:title_txt,:artistcalc_txt,:datemade_s, :blob_ss)}
+
+		docs = get_random_documents(query: query, limit: 4)
 		docs.collect do |doc|
 			content_tag(:a, href: "/catalog/#{doc[:id]}") do
 				content_tag(:div, class: 'show-preview-item') do
@@ -97,16 +82,12 @@ module ApplicationHelper
 
 	def make_artist_search_link(artist)
 		searchable = extract_artist_names(artist)
-		return "/catalog?utf8=✓&op=OR&artistcalc_s=#{searchable}&sort=title_s+asc&search_field=advanced&commit=Search"
+		return "/catalog/?&op=OR&search_field=artistcalc_s&q=#{searchable}"
 	end
 
-	def make_artist_limited_search_link(artist_link,limit=4)
-		limited_link = artist_link+"&rows=#{limit}"
-	end
-
-	def format_image_gallery_results(docs,nextCursorMark)
+	def format_image_gallery_results(docs)
 		docs.collect do |doc|
-			content_tag(:div, class: 'gallery-item',id: nextCursorMark) do
+			content_tag(:div, class: 'gallery-item') do
 				unless doc[:title_txt].nil?
 					title = doc[:title_txt][0]
 				else

@@ -15,16 +15,16 @@ http://projectblacklight.org/
 
 #### Ruby and Rails versions
 
-Ruby 2.6.6\
-Rails 5.2.4.4
+Ruby 2.7.6\
+Rails > 6 (runs ok on 7 except for plugins)
 
 To check:
 
 ```bash
-blacklight@blacklight-dev:~/projects/20200226/portal$ ruby -v
-ruby 2.6.6p146 (2020-03-31 revision 67876) [x86_64-linux]uby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]
-blacklight@blacklight-dev:~/projects/20200226/portal$ rails -v
-Rails 5.2.4.4
+(venv) app_cspace@blacklight-qa:~/projects/20220722/search_app$ ruby -v
+ruby 2.7.6p219 (2022-04-12 revision c9c2245c0a) [x86_64-linux]
+(venv) app_cspace@blacklight-qa:~/projects/20220722/search_app$ rails -v
+Rails 7.0.3.1
 ```
 
 #### System dependencies and configuration
@@ -52,7 +52,7 @@ Dunno. Just like Blacklight, I think!
 Requires access to one of the UCB Museum Solr search
 engines, so one of the following much be true.
 
-You must:
+You must have one of the following working:
 
 * use the production Solr server at webapps.cspace.berkeley.edu
 * **be inside the UCB firewall to run the app using the Dev solr server**
@@ -90,7 +90,6 @@ cd radiance/portal/
 # optional: configure a non-localhost solr server
 vi config/blacklight.yml
 bundle update
-bundle install
 # just say ":q" when in vi, and the credentials will get saved...
 EDITOR=vi bin/rails credentials:edit
 bin/rails db:migrate RAILS_ENV=development

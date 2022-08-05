@@ -80,8 +80,8 @@ module ApplicationHelper
         content_tag(:a, content_tag(:img, '',
           src: render_csid(blob_csid, 'Medium'),
           class: 'thumbclass'),
-          href: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{blob_csid}/derivatives/OriginalJpeg/content",
-          # href: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{blob_csid}/content",
+          href: "https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{blob_csid}/derivatives/OriginalJpeg/content",
+          # href: "https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{blob_csid}/content",
           target: 'original',
           style: 'padding: 3px;',
           class: 'hrefclass')
@@ -104,7 +104,7 @@ module ApplicationHelper
   def render_restricted_media options = {}
     # return a list of cards or images
     content_tag(:div) do
-        if current_user 
+        if current_user
           options[:value].collect do |blob_csid|
             content_tag(:img, '',
                 src: render_csid(blob_csid, 'Medium'),

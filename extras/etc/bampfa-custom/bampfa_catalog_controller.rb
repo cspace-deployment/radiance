@@ -13,7 +13,6 @@ class CatalogController < ApplicationController
     config.advanced_search[:query_parser] ||= 'edismax'
     config.advanced_search[:form_solr_parameters] ||= {}
 
-
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
     config.show.partials.insert(1, :openseadragon)
     config.view.gallery.partials = [:index_header, :index]
@@ -26,6 +25,23 @@ class CatalogController < ApplicationController
     config.show.document_actions.delete(:citation)
     config.show.document_actions.delete(:sms)
     config.show.document_actions.delete(:email)
+
+    config.add_results_document_tool(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
+
+    config.add_results_collection_tool(:sort_widget)
+    config.add_results_collection_tool(:per_page_widget)
+    config.add_results_collection_tool(:view_type_group)
+
+    config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
+    config.add_nav_action(:bookmark, partial: 'blacklight/nav/bookmark', if: :render_bookmarks_control?)
+    config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
+
+    # solr path which will be added to solr base url before the other solr params.
+    config.solr_path = 'select'
+    config.document_solr_path = 'select'
+
+    # items to show per page, each number in the array represent another option to choose from.
+    #config.per_page = [10,20,50,100]
 
     ## Class for sending and receiving requests from a search index
     # config.repository_class = Blacklight::Solr::Repository
@@ -116,14 +132,6 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
 
-    #{index}
-
-    # solr fields to be displayed in the show (single result) view
-    #   The ordering of the field names is the order of the display
-
-    #{show}
-
-
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     #
@@ -182,13 +190,6 @@ class CatalogController < ApplicationController
     #   }
     # end
 
-    # "sort results by" select (pulldown)
-    # label in pulldown is followed by the name of the SOLR field to sort by and
-    # whether the sort is ascending or descending (it must be asc or desc
-    # except in the relevancy case).
-
-    #{sort}
-
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
     config.spell_max = 5
@@ -237,7 +238,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'datesactive_s', label: 'Dates Active'
     config.add_show_field 'measurement_s', label: 'Dimensions'
     config.add_show_field 'materials_s', label: 'Materials'
-		config.add_show_field 'idnumber_s', label: 'Accession Number'
+	config.add_show_field 'idnumber_s', label: 'Accession Number'
     config.add_show_field 'fullbampfacreditline_s', label: 'Full BAMPFA credit line'
     config.add_show_field 'copyrightcredit_s', label: 'Copyright credit'
     config.add_show_field 'century_s', label: 'Century'

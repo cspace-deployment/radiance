@@ -13,18 +13,40 @@ class CatalogController < ApplicationController
     config.advanced_search[:query_parser] ||= 'edismax'
     config.advanced_search[:form_solr_parameters] ||= {}
 
-
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
     config.show.partials.insert(1, :openseadragon)
     config.view.gallery.partials = [:index_header, :index]
-    config.view.masonry.partials = [:index]
+    # disable 'masonry' view
+    # config.view.masonry.partials = [:index]
     # no slideshow until thumbnail rendering is fixed
-    #config.view.slideshow.partials = [:index]
+    # config.view.slideshow.partials = [:index]
 
     # disable these three document action until we have resources to configure them to work
     config.show.document_actions.delete(:citation)
     config.show.document_actions.delete(:sms)
     config.show.document_actions.delete(:email)
+
+    config.add_results_document_tool(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
+
+    config.add_results_collection_tool(:sort_widget)
+    config.add_results_collection_tool(:per_page_widget)
+    config.add_results_collection_tool(:view_type_group)
+
+    config.add_show_tools_partial(:bookmark, partial: 'bookmark_control', if: :render_bookmarks_control?)
+    config.add_nav_action(:bookmark, partial: 'blacklight/nav/bookmark', if: :render_bookmarks_control?)
+    config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
+
+    # solr path which will be added to solr base url before the other solr params.
+    config.solr_path = 'select'
+    config.document_solr_path = 'select'
+
+    # items to show per page, each number in the array represent another option to choose from.
+    #config.per_page = [10,20,50,100]
+
+    # Have BL send all facet field names to Solr, which has been the default
+    # previously. Simply remove these lines if you'd rather use Solr request
+    # handler defaults, or have no facets.
+    config.add_facet_fields_to_solr_request!
 
     ## Class for sending and receiving requests from a search index
     # config.repository_class = Blacklight::Solr::Repository
@@ -68,11 +90,9 @@ class CatalogController < ApplicationController
 
     # solr field configuration for search results/index views
     # UCB customization: list of blobs is hardcoded for both index and show displays
-    #{index_title}
     config.index.thumbnail_field = 'blob_ss'
 
     # solr field configuration for document/show views
-    #{show_title}
     config.show.thumbnail_field = 'blob_ss'
     config.show.catalogcard_field = 'card_ss'
 
@@ -100,35 +120,16 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-
-    #{facet}
-
-
-    #{facet_dates}
-
-
     #config.add_facet_field 'example_query_facet_field', label: 'Publish Date', :query => {
     #   :years_5 => { label: 'within 5 Years', fq: "pub_date:[#{Time.zone.now.year - 5 } TO *]" },
     #   :years_10 => { label: 'within 10 Years', fq: "pub_date:[#{Time.zone.now.year - 10 } TO *]" },
     #   :years_25 => { label: 'within 25 Years', fq: "pub_date:[#{Time.zone.now.year - 25 } TO *]" }
     #}
 
-
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
     config.add_facet_fields_to_solr_request!
-
-    # solr fields to be displayed in the index (search results) view
-    #   The ordering of the field names is the order of the display
-
-    #{index}
-
-    # solr fields to be displayed in the show (single result) view
-    #   The ordering of the field names is the order of the display
-
-    #{show}
-
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -193,8 +194,6 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
 
-    #{sort}
-
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
     config.spell_max = 5
@@ -210,6 +209,7 @@ class CatalogController < ApplicationController
     config.add_sort_field 'objsortnum_s asc', label: 'Museum number'
     config.index.title_field =  'objname_s'
     config.show.title_field =  'objname_s'
+
     # index
     config.add_index_field 'deaccessioned_s', helper_method: 'render_status', label: 'Object status'
     config.add_index_field 'objmusno_s', label: 'Museum number'
@@ -415,25 +415,21 @@ class CatalogController < ApplicationController
     config.add_facet_field 'loan_info_ss', label: 'Loans', limit: true
     #config.add_facet_field 'objkeelingser_s', label: 'Keeling series', limit: true, index_range: true
     #config.add_facet_field 'objdept_s', label: 'Department', limit: true
-
-    # gallery
   end
 
   def decode_ark
     # decode ARK ID, e.g. hm21114461@2E1 -> 11-4461.1, hm210k3711a@2Df -> K-3711a-f
     museum_number = CGI.unescape(params[:ark].gsub('@','%')).sub('hm2','')
     museum_number = if museum_number[0] == 'x'
-        museum_number[1..-1]
+      museum_number[1..-1]
     else
-        left, right = museum_number[1..2], museum_number[3..-1]
-        left = left.gsub(/^0+/, '')
-        right = right.gsub(/^0+/, '')
-        left + '-' + right
+      left, right = museum_number[1..2], museum_number[3..-1]
+      left = left.gsub(/^0+/, '')
+      right = right.gsub(/^0+/, '')
+      left + '-' + right
     end
-
     redirect_to  :controller => 'catalog', action: 'index', search_field: 'objmusno_s_lower', q: '"' + museum_number + '"'
     #redirect_to  :controller => 'catalog', action: 'show', id: csid
-
   end
 
 end

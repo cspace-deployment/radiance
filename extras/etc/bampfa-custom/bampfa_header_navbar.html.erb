@@ -1,31 +1,20 @@
-<div id="header-navbar" class="navbar navbar-inverse navbar-static-top container-fluid" role="navigation">
-    <div class="row nopadding">
+<nav class="navbar navbar-expand-md navbar-light bg-light topbar" role="navigation">
+    <div class="justify-content-md-start">
+      <h4>
+        <a href="/" ><img wdith="80%" src="/header-logo-bampfa.png" alt="bampfa"></a>
+      </h4>
+    </div>
+    <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
+      <%= render 'shared/user_util_links' %>
+    </div>
+</nav>
 
-      <div class="col-xs-12 col-sm-6" style="padding: 10px">
-        <a href="/" ><img style="max-width: 80%" src="/header-logo-bampfa.png" alt="bampfa"></a>
-      </div>
-      <!-- <div class="col-xs-12 col-sm-4" style="padding: 10px">
-        <h1 class="section-heading">BAMPFA ART COLLECTION</h1>
-      </div> -->
-      <div class="col-xs-12 col-sm-6">
-          <button type="button" class="navbar-toggle btn collapsed" data-toggle="collapse" data-target="#user-util-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="user-util-collapse">
-            <%= render :partial=>'/user_util_links' %>
-          </div>
-      </div>
-    </div>
-    <div class="row" style="margin-bottom: 0">
-      <div class="col-sm">
-        <div id="search-navbar" class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; ">
-          <div class="<%= container_classes %>">
-            <%= render_search_bar  %>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
+<%= content_tag :div, class: 'navbar-search navbar navbar-light bg-light', role: 'navigation', aria: { label: t('blacklight.search.header') } do %>
+  <div class="<%= container_classes %>">
+    <%= render((blacklight_config&.view_config(document_index_view_type)&.search_bar_component ||Blacklight::SearchBarComponent).new(
+          url: search_action_url,
+          advanced_search_url: search_action_url(action: 'advanced_search'),
+          params: search_state.params_for_search.except(:qt),
+          autocomplete_path: search_action_path(action: :suggest))) %>
+  </div>
+<% end %>
