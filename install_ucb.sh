@@ -118,5 +118,6 @@ cp ${extra_dir}_tmp/${tenant}_site_image.jpg public/site_image.jpg
 cp ${extra_dir}_tmp/${tenant}_global_alerts.rb config/initializers/global_alerts.rb
 mkdir app/views/global_alerts && cp ${extra_dir}_tmp/${tenant}_global_alerts.html.erb app/views/global_alerts/_global_alerts.html.erb
 #
-# get rid of the working directory
+# get rid of the working directory, etc.
+rm -f app/assets/stylesheets/normalize.min.css
 rm -rf ${extra_dir}_tmp
