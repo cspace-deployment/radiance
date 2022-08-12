@@ -1,9 +1,0 @@
-en:
-  blacklight:
-    application_name: 'Hearst Museum Portal'
-    search:
-      form:
-        search:
-          label: 'search for'
-          placeholder: 'Enter a few keywords here to get started...'
-      start_over: 'Reset'
