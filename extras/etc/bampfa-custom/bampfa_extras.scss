@@ -215,7 +215,7 @@ h3.index_title > a {
   color: black;
 }
 
-.panel-success > .panel-heading, .facet_limit-active > .panel-heading {
+.facet_limit-active {
   color: #212121;
   background-color: #fab946;
   border-color: #e6fdfe;
@@ -306,16 +306,4 @@ h3.index_title > a {
   margin-left:auto;
   margin-right:auto;
   // display: block;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.2;
-    margin: 0px;
 }
