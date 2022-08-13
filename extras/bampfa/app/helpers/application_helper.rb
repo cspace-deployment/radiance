@@ -166,13 +166,15 @@ module ApplicationHelper
     end
   end
 
-	def render_warc options = {}
-    # doc_type = options[:document][:doctype_s]
-		warc_url = options[:document][:docurl_s]
-		unless warc_url.nil?
-			# if doc_type == 'website'
-      render partial: '/shared/warcs', locals: { warc_url: warc_url }
-		end
+  def render_warc options = {}
+    doc_type = options[:document][:doctype_s]
+    warc_url = options[:document][:docurl_s]
+    canonical_url = options[:document][:canonical_url_s]
+    unless warc_url.nil?
+      if doc_type == 'web archive'
+        render partial: '/shared/warcs', locals: { warc_url: warc_url, canonical_url: canonical_url }
+      end
+    end
   end
 
   def check_and_render_pdf options = {}
@@ -351,7 +353,6 @@ module ApplicationHelper
       else
         'x' + CGI.escape(musno).gsub('%', '@').gsub('.', '@2E').downcase
       end
-
       link_to "ark:/21549/" + ark, "https://n2t.net/ark:/21549/" + ark
     end.join.html_safe
   end
