@@ -1,0 +1,8 @@
+parser = new DOMParser();
+doc = parser.parseFromString("<%= j @formatted %>", "text/html");
+fullGallery = doc.querySelectorAll('.gallery-item');
+
+arr = Array.from(fullGallery);
+arr.forEach(function(item){
+	document.getElementById('image-gallery-container').appendChild(item);
+});

@@ -1,0 +1,160 @@
+article section {
+    margin-bottom: 4em
+}
+
+article header {
+    border-bottom: 1px solid #dbdde0;
+    margin-bottom: 1.5em;
+    overflow: auto
+}
+
+@media only screen and (min-width: 480px) {
+    .title {
+        margin: 0 0 5px 0
+    }
+
+    .container-figure {
+        text-align: center
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .title {
+        float: left;
+        margin: 0 0 5px 0;
+        width: 150px
+    }
+
+    article {
+        float: left;
+        min-height: 400px;
+        width: 100%
+    }
+}
+
+@media only screen and (min-width: 1140px) {
+    .wrapper {
+        width: 1026px;
+        margin: 0 auto
+    }
+
+    .footer-container .footer-column {
+        float: left;
+        width: 25%
+    }
+}
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important
+    }
+}
+
+section.showcase .isotope-item {
+    box-sizing: border-box;
+    float: left;
+    height: 360px;
+    margin: 0 15px 15px 0;
+    position: relative;
+    width: 300px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box
+}
+
+section.showcase .isotope-item p {
+    padding: 0 15px
+}
+
+section.showcase .isotope-item img {
+    width: 100%
+}
+
+section.showcase .isotope-item {
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    -ms-perspective: 1000px;
+    perspective: 1000px
+}
+
+.isotope-item:hover .flipper, .isotope-item.hover .flipper {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    filter: FlipH;
+    -ms-filter: "FlipH"
+}
+
+.isotope-item .flipper {
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    -ms-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative
+}
+
+.isotope-item .front, .isotope-item .back {
+    background-color: #eee;
+    border: 1px solid #e6e6e6;
+    height: 360px;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateY(0deg);
+    -moz-transition: 0.6s;
+    -moz-transform-style: preserve-3d;
+    -moz-transform: rotateY(0deg);
+    -o-transition: 0.6s;
+    -o-transform-style: preserve-3d;
+    -o-transform: rotateY(0deg);
+    -ms-transition: 0.6s;
+    -ms-transform-style: preserve-3d;
+    -ms-transform: rotateY(0deg);
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.isotope-item .front {
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    z-index: 2
+}
+
+.isotope-item .back {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    padding: 15px 15px
+}
+
+.isotope-item .back .desc {
+    font-size: 13px
+}
+
+.isotope-item .back p {
+    position: relative
+}
+
+section.showcase {
+    box-sizing: border-box;
+    padding-left: 0px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box
+}

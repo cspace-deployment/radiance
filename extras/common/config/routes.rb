@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   mount Blacklight::Engine => '/'
+  concern :marc_viewable, Blacklight::Marc::Routes::MarcViewable.new
   root to: "catalog#index"
   concern :searchable, Blacklight::Routes::Searchable.new
 
@@ -24,5 +25,6 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
+  get '/add_gallery_items' => "gallery#add_gallery_items"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

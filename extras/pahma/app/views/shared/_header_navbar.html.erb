@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light topbar" role="navigation">
+  <div class="<%= container_classes %>">
+    <div class="justify-content-md-start">
+      <h4>
+        <a href="/"><img style="height:90px;" src="/header-logo-pahma.png"></a>
+        <a style="white-space: nowrap; color: black; text-decoration: none;" href="/">Hearst Museum Portal</a>
+      </h4>
+    </div>
+    <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
+      <%= render 'shared/user_util_links' %>
+    </div>
+  </div>
+</nav>
+
+<%= content_tag :div, class: 'navbar navbar-search navbar-light bg-light', style:'background-image: url(/pahma_17-379a-c.png); width:100%', role: 'navigation', aria: { label: t('blacklight.search.header') } do %>
+  <div class="<%= container_classes %>">
+    <%= render((blacklight_config&.view_config(document_index_view_type)&.search_bar_component ||Blacklight::SearchBarComponent).new(
+          url: search_action_url,
+          advanced_search_url: search_action_url(action: 'advanced_search'),
+          params: search_state.params_for_search.except(:qt),
+          autocomplete_path: search_action_path(action: :suggest))) %>
+  </div>
+<% end %>

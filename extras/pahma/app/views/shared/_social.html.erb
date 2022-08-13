@@ -1,0 +1,21 @@
+<%# = simple_format @document.to_yaml %>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hearstmuseum">
+<% if @document %>
+  <% doc_presenter = index_presenter(@document) %>
+  <!-- <meta property="fb:app_id" content="foo"> -->
+  <meta property="og:url"         content="https://portal.hearstmuseum.berkeley.edu/catalog/<%= doc_presenter.field_value 'id' %>" />
+  <meta property="og:type"        content="article" />
+  <meta property="og:title"       content="<%= doc_presenter.field_value 'objname_s' %>" />
+  <meta property="og:description" content="<%= doc_presenter.field_value 'objdescr_s' %>" />
+  <meta property="og:creator"     content="<%= doc_presenter.field_value 'objmaker_ss' %>" />
+  <meta property="og:image"       content="https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/<%= doc_presenter.field_value('blob_ss')[0...23] %>/derivatives/Medium/content"/>
+  <meta property="twitter:image:alt" content="Image for museum number <%= doc_presenter.field_value 'objmusno_s' %>"/>
+<% else %>
+  <meta property="og:url"         content="https://hearstmuseum.berkeley.edu/"/>
+  <meta property="og:title"       content="Hearst Museum of Anthropology" />
+  <!-- meta property="og:creator"     content="Phoebe A. Hearst Museum of Anthropology" / -->
+  <meta property="og:description" content="Online collection" />
+  <meta property="og:image"       content="https://hearstmuseum.berkeley.edu/wp-content/themes/phoebe/images/logo.svg" />
+  <meta property="twitter:image:alt" content="PAHMA"/>
+<% end %>
