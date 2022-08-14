@@ -73,7 +73,6 @@ gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.8'
-gem 'blacklight-marc', '>= 7.0.0.rc1', '< 8'
 
 gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
 

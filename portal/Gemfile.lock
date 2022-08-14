@@ -68,7 +68,7 @@ GEM
       execjs (~> 2)
     bcrypt (3.1.18)
     bindex (0.8.1)
-    blacklight (7.28.0)
+    blacklight (7.29.0)
       deprecation
       globalid
       hashdiff
@@ -81,19 +81,12 @@ GEM
     blacklight-gallery (4.0.1)
       blacklight (~> 7.17)
       rails (>= 5.1, < 8)
-    blacklight-marc (7.2.0)
-      blacklight (~> 7.0)
-      library_stdnums
-      marc (>= 0.4.3, < 2.0)
-      marc-fastxmlwriter
-      rails
-      traject (~> 3.0)
     blacklight_advanced_search (7.0.0)
       blacklight (~> 7.0)
       parslet
-    blacklight_range_limit (8.2.2)
-      blacklight (>= 7.22.2, < 9)
-    bootsnap (1.12.0)
+    blacklight_range_limit (8.2.3)
+      blacklight (>= 7.25.2, < 9)
+    bootsnap (1.13.0)
       msgpack (~> 1.2)
     bootstrap (4.6.1)
       autoprefixer-rails (>= 9.1.0)
@@ -135,14 +128,12 @@ GEM
       devise
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    dot-properties (0.1.4)
-      bundler (>= 2.2.33)
-    erubi (1.10.0)
+    erubi (1.11.0)
     execjs (2.8.1)
-    faraday (2.3.0)
-      faraday-net_http (~> 2.0)
+    faraday (2.5.2)
+      faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
-    faraday-net_http (2.0.3)
+    faraday-net_http (3.0.0)
     ffi (1.15.5)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
@@ -153,7 +144,6 @@ GEM
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashdiff (1.0.1)
-    hashie (5.0.0)
     http (5.1.0)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
@@ -162,7 +152,6 @@ GEM
     http-cookie (1.0.5)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
-    httpclient (2.8.3)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.1)
@@ -185,7 +174,6 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    library_stdnums (1.6.0)
     libv8-node (16.10.0.0-x86_64-linux)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -199,12 +187,6 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
-    marc (1.1.1)
-      rexml
-      scrub_rb (>= 1.0.1, < 2)
-      unf
-    marc-fastxmlwriter (1.1.0)
-      marc (~> 1.0)
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
@@ -213,9 +195,9 @@ GEM
       libv8-node (~> 16.10.0.0)
     minitar (0.9)
     minitest (5.16.2)
-    msgpack (1.5.3)
+    msgpack (1.5.4)
     nio4r (2.5.8)
-    nokogiri (1.13.7-x86_64-linux)
+    nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     openseadragon (0.6.0)
       rails (> 3.2.0)
@@ -295,13 +277,11 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    scrub_rb (1.0.1)
-    selenium-webdriver (4.3.0)
+    selenium-webdriver (4.4.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    slop (4.9.2)
     solr_wrapper (4.0.2)
       http
       minitar
@@ -321,17 +301,6 @@ GEM
     sqlite3 (1.4.4)
     thor (1.2.1)
     tilt (2.0.11)
-    traject (3.7.0)
-      concurrent-ruby (>= 0.8.0)
-      dot-properties (>= 0.1.1)
-      hashie (>= 3.1, < 6)
-      http (>= 3.0, < 6)
-      httpclient (~> 2.5)
-      marc (~> 1.0)
-      marc-fastxmlwriter (~> 1.0)
-      nokogiri (~> 1.9)
-      slop (~> 4.0)
-      yell
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -346,8 +315,9 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
-    view_component (2.61.1)
+    view_component (2.66.0)
       activesupport (>= 5.0.0, < 8.0)
+      concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -362,7 +332,6 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yell (2.2.2)
     zeitwerk (2.6.0)
 
 PLATFORMS
@@ -371,7 +340,6 @@ PLATFORMS
 DEPENDENCIES
   blacklight (>= 7.0)
   blacklight-gallery
-  blacklight-marc (>= 7.0.0.rc1, < 8)
   blacklight_advanced_search
   blacklight_range_limit
   bootsnap (>= 1.1.0)
