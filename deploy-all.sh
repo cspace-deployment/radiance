@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# lil helper script to deploy both cinefiles and pahma blacklight apps
+# lil helper script to deploy all 3 blacklight apps
 
 function usage() {
     echo
@@ -28,24 +28,7 @@ git pull -v
 
 cd ${HOME}/projects
 
-# redeploy all
-radiance/deploy.sh ${YYYYMMDDHHMM}.pahma $2 $1
-radiance/deploy.sh ${YYYYMMDDHHMM}.cinefiles $2 $1
-radiance/deploy.sh ${YYYYMMDDHHMM}.bampfa $2 $1
-
-# relink all
-radiance/relink.sh ${YYYYMMDDHHMM}.pahma pahma $2
-radiance/relink.sh ${YYYYMMDDHHMM}.cinefiles cinefiles $2
-radiance/relink.sh ${YYYYMMDDHHMM}.bampfa bampfa $2
-
-cd ${HOME}/projects/${YYYYMMDDHHMM}.pahma
-./install_ucb.sh pahma
-
-# apply customizations
-cd ${HOME}/projects/${YYYYMMDDHHMM}.cinefiles
-./install_ucb.sh cinefiles
-
-cd ${HOME}/projects/${YYYYMMDDHHMM}.bampfa
-# TODO: bampfa install should be its own thing, not piggyback on cinefiles
-./install_ucb.sh cinefiles
-./make-bampfa-demo.sh
+# redeploy all 3
+radiance/deploy.sh ${YYYYMMDDHHMM}.pahma pahma $2 $1
+radiance/deploy.sh ${YYYYMMDDHHMM}.cinefiles cinefiles $2 $1
+radiance/deploy.sh ${YYYYMMDDHHMM}.bampfa bampfa $2 $1
