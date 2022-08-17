@@ -3,15 +3,45 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.6.0-rc1
-Fri Jun 24 13:22:27 PDT 2022
+This is version 2.6.0-rc3
+Wed Aug 17 15:19:04 PDT 2022
 
-9bd7608 (HEAD -> main) HMP-240: upgrade ruby to 2.7.6 in .ruby-version
-432736e (origin/main, origin/HEAD) Merge pull request #63 from cspace-deployment/dependabot/bundler/portal/rack-2.2.3.1
+6f15e4b (HEAD -> main, origin/main, origin/HEAD) HMP-243: revise top-level deployment script for blacklight v7
+07c8d82 HMP-243: revise blacklight deployment scripts for bl v7 and refactored customizations
+da51df4 HMP-243: get rid of unneeded code pertaining to MARC (library) records
+2c7ee09 HMP-243: use the best version of render_warc for bampfa
+e94252b HMP-243: refactor blacklight customization dir structure for simplicity
+91cea25 HMP-243: clean out extras/ directory
+858b9db HMP-243: save various blacklight legacy files for posterity
+0c46db1 HMP-243: both application.css and application.css.scss are needed
+4be542f HMP-243: more .scss refactoring for blacklight v7
+3a28f82 Merge pull request #70 from cspace-deployment/dependabot/bundler/portal/puma-4.3.12
+567dd32 Bump puma from 3.12.6 to 4.3.12 in /portal
+7c9f728 HMP-243: 2nd revisions for blacklight v7
+169ab5b HMP-243: get rid of superfluous 'sample solr doc'
+d777414 Merge pull request #69 from cspace-deployment/dependabot/bundler/portal/puma-4.3.12
+fd684d2 HMP-243: initial version of blacklight v7 upgrade
+eff7869 Bump puma from 3.12.6 to 4.3.12 in /portal
+2f14528 HMP-428: add 'permitted classes' to YAML parsing in ActiveRecord
+63ee865 Merge pull request #68 from cspace-deployment/dependabot/bundler/portal/tzinfo-1.2.10
+4bb4efc Bump tzinfo from 1.2.9 to 1.2.10 in /portal
+44c57dd Merge pull request #67 from BAM-PFA/master
+274b7f0 HMP xxx: another cinefiles splash typo :'(
+3f51c71 HMP-244: set config.autocomplete_enabled to false in controllers
+9fce2b9 Merge pull request #66 from BAM-PFA/master
+356b29b HMP xxx: correct error in cinefiles splash page link
+8a544a9 Merge pull request #65 from BAM-PFA/master
+bf83fb8 Merge remote-tracking branch 'upstream/main'
+9ed4e8a HMP xxx: July 2022 cinefiles splash update
+cdcb4e9 Merge pull request #64 from cspace-deployment/dependabot/bundler/portal/rails-html-sanitizer-1.4.3
+43b0ffb Bump rails-html-sanitizer from 1.4.2 to 1.4.3 in /portal
+413e26f (tag: 2.6.0-rc1) revise CHANGELOG.txt and bump version to 2.6.0-rc1
+9bd7608 HMP-240: upgrade ruby to 2.7.6 in .ruby-version
+432736e Merge pull request #63 from cspace-deployment/dependabot/bundler/portal/rack-2.2.3.1
 b4faa7d NOJIRA: eliminate pesky deprecation messages for 'discard_flash_if_xhr'
 8f4b37c (tag: 2.5.0) revise CHANGELOG.txt and bump version to 2.5.0
 cf81aea revise CHANGELOG.txt and bump version to 2.5.0-rc13
-6a77bd8 (origin/dependabot/bundler/portal/rack-2.2.3.1) Bump rack from 2.2.3 to 2.2.3.1 in /portal
+6a77bd8 Bump rack from 2.2.3 to 2.2.3.1 in /portal
 f4ad040 Merge pull request #62 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.13.6
 8d74569 Bump nokogiri from 1.13.5 to 1.13.6 in /portal
 42d74e5 revise CHANGELOG.txt and bump version to 2.5.0-rc12
