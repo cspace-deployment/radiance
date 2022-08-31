@@ -289,7 +289,7 @@ module ApplicationHelper
     end
   end
 
-  # serve audio directy via apache (apache needs to be configured to serve nuxeo repo)
+  # serve audio directly via apache (apache needs to be configured to serve nuxeo repo)
   def render_video_directly options = {}
     # render video player
     content_tag(:div) do
@@ -323,7 +323,7 @@ module ApplicationHelper
     end
   end
 
-  # serve X3D directy via apache (apache needs to be configured to serve nuxeo repo)
+  # serve X3D directly via apache (apache needs to be configured to serve nuxeo repo)
   def render_x3d_directly options = {}
     # render x3d player
     content_tag(:div) do
