@@ -1,0 +1,66 @@
+a {
+  color: #22348D;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #22348D;
+  border-color: #1d2c78;
+}
+
+.facet-limit {
+    margin-bottom: 5px;
+}
+
+.thumbnail > img,
+.thumbnail a > img {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.thumbclass {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.document-thumbnail img {
+  max-height: 240px;
+  max-width: 240px;
+}
+
+// NAVBAR
+
+.navbar-inverse .navbar-nav > li > a {
+  color: black;
+}
+
+.navbar-inverse {
+  background: white;
+  margin-bottom: 0;
+}
+
+.navbar-default {
+  background-color: lightgray;
+}
+
+
+@media print {
+  a[href]:after {
+    content: none;
+  }
+  .site_footer {
+    display: none;
+  }
+}
+
+#startOverLink, .advanced-search-start-over {
+  background-color: #c8c8c8;
+  color: black;
+}
+
+.facet_limit-active {
+  color: #212121;
+  background-color: #fab946;
+  border-color: #e6fdfe;
+}
+
