@@ -3,10 +3,20 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.6.0-rc3
-Wed Aug 17 15:19:04 PDT 2022
+This is version 2.6.0-rc4
+Wed Sep 14 08:28:33 PDT 2022
 
-6f15e4b (HEAD -> main, origin/main, origin/HEAD) HMP-243: revise top-level deployment script for blacklight v7
+a707253 (HEAD -> main) HMP-243: revise 'theme' colors and CSS for PAHMA BL v7
+032fb8e HMP-243: initial attempt to revise contraints (breadcrumbs) layout; make main layout 'fluid'
+b033b97 HMP-243: add advanced search link in correct partial
+16bea66 (origin/main, origin/HEAD) HMP-243: comment out 'social' partial until it works again
+bcd38b8 HMP-243: "recustomize" blacklight base template (and some others)
+ff762a9 HMP-243: bulk revisions to support advanced search and other bl v7 updates
+fc65602 HMP-243: minor refactoring of application_helpers.rb for a 3 portals
+c5775f0 Merge pull request #71 from BAM-PFA/master
+c74f14d HMP-243: add simplified python3 tenant installer; add SASS import line to application.css to get scss file importing correctly
+b64b890 (tag: 2.6.0-rc3) revise CHANGELOG.txt and bump version to 2.6.0-rc3
+6f15e4b HMP-243: revise top-level deployment script for blacklight v7
 07c8d82 HMP-243: revise blacklight deployment scripts for bl v7 and refactored customizations
 da51df4 HMP-243: get rid of unneeded code pertaining to MARC (library) records
 2c7ee09 HMP-243: use the best version of render_warc for bampfa
