@@ -46,16 +46,6 @@ ul.footer {
   background-color: lightgray;
 }
 
-
-@media print {
-  a[href]:after {
-    content: none;
-  }
-  .site_footer {
-    display: none;
-  }
-}
-
 // SPLASH DISPLAY
 
 .bampfa-splash {
