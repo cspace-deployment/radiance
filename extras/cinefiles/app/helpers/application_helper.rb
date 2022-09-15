@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def render_csid csid, derivative
-    "https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{csid}/derivatives/#{derivative}/content"
+    "https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/#{csid}/derivatives/#{derivative}/content"
   end
 
   def render_status options = {}
@@ -80,8 +80,8 @@ module ApplicationHelper
         content_tag(:a, content_tag(:img, '',
           src: render_csid(blob_csid, 'Medium'),
           class: 'thumbclass'),
-          href: "https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{blob_csid}/derivatives/OriginalJpeg/content",
-          # href: "https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{blob_csid}/content",
+          href: "https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/#{blob_csid}/derivatives/OriginalJpeg/content",
+          # href: "https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/#{blob_csid}/content",
           target: 'original',
           style: 'padding: 3px;',
           class: 'hrefclass')
@@ -125,7 +125,7 @@ module ApplicationHelper
       options[:value].collect do |audio_csid|
         content_tag(:audio,
           content_tag(:source, "I'm sorry; your browser doesn't support HTML5 audio in MPEG format.",
-            src: "https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{audio_csid}/content",
+            src: "https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/#{audio_csid}/content",
             id: 'audio_csid',
             type: 'audio/mpeg'),
           controls: 'controls',
@@ -141,7 +141,7 @@ module ApplicationHelper
       options[:value].collect do |video_csid|
         content_tag(:video,
           content_tag(:source, "I'm sorry; your browser doesn't support HTML5 video in MP4 with H.264.",
-            src: "https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{video_csid}/content",
+            src: "https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/#{video_csid}/content",
             id: 'video_csid',
             type: 'video/mp4'),
           controls: 'controls',
@@ -159,7 +159,7 @@ module ApplicationHelper
         l2 = audio_md5[2..3]
         content_tag(:audio,
           content_tag(:source, "I'm sorry; your browser doesn't support HTML5 audio in MPEG format.",
-            src: "https://cspace-prod-02.ist.berkeley.edu/#TENANT#_nuxeo/data/#{l1}/#{l2}/#{audio_md5}",
+            src: "https://cspace-prod-02.ist.berkeley.edu/cinefiles_nuxeo/data/#{l1}/#{l2}/#{audio_md5}",
             id: 'audio_md5',
             type: 'audio/mpeg'),
           controls: 'controls',
@@ -177,7 +177,7 @@ module ApplicationHelper
         l2 = video_md5[2..3]
         content_tag(:video,
           content_tag(:source, "I'm sorry; your browser doesn't support HTML5 video in MP4 with H.264.",
-            src: "https://cspace-prod-02.ist.berkeley.edu/#TENANT#_nuxeo/data/#{l1}/#{l2}/#{video_md5}",
+            src: "https://cspace-prod-02.ist.berkeley.edu/cinefiles_nuxeo/data/#{l1}/#{l2}/#{video_md5}",
             id: 'video_md5',
             type: 'video/mp4'),
           controls: 'controls',
@@ -194,7 +194,7 @@ module ApplicationHelper
         content_tag(:x3d,
           content_tag(:scene,
             content_tag(:inline, '',
-            url: "https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{x3d_csid}/content",
+            url: "https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/#{x3d_csid}/content",
             id: 'x3d',
             type: 'model/x3d+xml')),
         style: 'margin-bottom: 6px; height: 660px; width: 660px;')
@@ -212,7 +212,7 @@ module ApplicationHelper
         content_tag(:x3d,
           content_tag(:scene,
             content_tag(:inline, '',
-            url: "https://cspace-prod-02.ist.berkeley.edu/#TENANT#_nuxeo/data/#{l1}/#{l2}/#{x3d_md5}",
+            url: "https://cspace-prod-02.ist.berkeley.edu/cinefiles_nuxeo/data/#{l1}/#{l2}/#{x3d_md5}",
             class: 'x3d',
             type: 'model/x3d+xml')),
           style: 'margin-bottom: 6px; height: 660px; width: 660px;')
