@@ -1,6 +1,6 @@
 $primary: #22348D;
 $secondary: #6c757d;
-$success: #1d2c78;
+$success: lighten($primary, 60%);
 $info: #7854e4;
 $warning: #b8c924;
 $danger: #d62518;

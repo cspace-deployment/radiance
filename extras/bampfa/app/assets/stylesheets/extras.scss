@@ -1,36 +1,15 @@
-
-.facet-limit {
-    margin-bottom: 5px;
-}
-
-.thumbnail > img,
-.thumbnail a > img {
-  max-height: 200px;
-  max-width: 200px;
-}
-
-.thumbclass {
-  max-height: 200px;
-  max-width: 200px;
-}
-
-.document-thumbnail img {
-  max-height: 240px;
-  max-width: 240px;
-}
-
 // FOOTER
 
 .site_footer a {
-    color: black;
-    // padding: 5px;
-    font-weight: bold;
-    font-size: 1em;
+  color: black;
+  // padding: 5px;
+  font-weight: bold;
+  font-size: 1em;
 }
 
 .site_footer {
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size:1.25em;
+  font-size: 1.25em;
   background-color: #def2fc;
   color: black;
   padding: 1em 1em 1em;
@@ -39,7 +18,7 @@
 
 .site-footer-text {
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
-  font-size:1em;
+  font-size: 1em;
   color: black;
   padding: 1em 0 1em 1em;
   font-weight: normal;
@@ -131,12 +110,12 @@ div {
   font-family: RobotoBlack, Helvetica, Arial, sans-serif;
   font-weight: bold;
   // font-style: italic;
-  font-size:4em;
+  font-size: 4em;
 }
 
 .bampfa-splash-text {
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
-  font-size:1rem;
+  font-size: 1rem;
 }
 
 .panel-title {
@@ -167,7 +146,7 @@ h4.facets-heading {
 }
 
 h3.index_title > a {
-    font-family: RobotoMedium, Helvetica, Arial, sans-serif;
+  font-family: RobotoMedium, Helvetica, Arial, sans-serif;
 }
 
 .show-metadata-container {
@@ -225,28 +204,28 @@ h3.index_title > a {
 .imageGallery {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-	box-sizing: border-box;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  box-sizing: border-box;
   margin-bottom: 30px;
-	// font-size: 1rem;
+  // font-size: 1rem;
 }
 
 .imageGallery .gallery-item {
   position: relative;
-	display: block;
+  display: block;
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
 }
 
 .imageGallery .gallery-item img {
-	min-width: 300px;
-	max-height: 100%;
+  min-width: 300px;
+  max-height: 100%;
 }
 
 .show-gallery {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(1, minmax(300px,1fr));
-	box-sizing: border-box;
+  grid-template-columns: repeat(1, minmax(300px, 1fr));
+  box-sizing: border-box;
   margin-bottom: 30px;
 }
 
@@ -256,10 +235,10 @@ h3.index_title > a {
 }
 
 .show-preview {
-	display: grid;
+  display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-	box-sizing: border-box;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  box-sizing: border-box;
   margin: 15px;
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
 }
@@ -272,8 +251,8 @@ h3.index_title > a {
 }
 
 .show-preview-item img {
-	min-width: 200px;
-	max-height: 100%;
+  min-width: 200px;
+  max-height: 100%;
 }
 
 
@@ -303,7 +282,7 @@ h3.index_title > a {
 .load-more-button {
   padding: 30px;
   font-size: 18px;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   // display: block;
 }
