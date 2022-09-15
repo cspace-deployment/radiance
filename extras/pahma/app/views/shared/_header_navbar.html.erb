@@ -19,10 +19,7 @@
           advanced_search_url: search_action_url(action: 'advanced_search'),
           params: search_state.params_for_search.except(:qt),
           autocomplete_path: search_action_path(action: :suggest))) %>
-    <div class="navbar-form" style="float:left;">
-      <%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path(search_state.to_h), class: 'advanced_search btn btn-default'%>
-    </div>
-    <div class="navbar-form" style="float:right;">
+      <%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path(search_state.to_h), class: 'btn btn-light'%>
       <%= link_to 'Give', 'https://hearstmuseum.berkeley.edu/give/', class: 'btn btn-primary'%>
     </div>
   </div>
