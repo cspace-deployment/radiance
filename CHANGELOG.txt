@@ -3,13 +3,28 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.6.0-rc4
-Wed Sep 14 08:28:33 PDT 2022
+This is version 2.6.0-rc5
+Fri Sep 16 14:19:25 PDT 2022
 
-a707253 (HEAD -> main) HMP-243: revise 'theme' colors and CSS for PAHMA BL v7
+370750f (HEAD -> main, origin/main, origin/HEAD) HMP-243: need to add the new shared.css.scss to the manifest
+147ba7d HMP-243: juggle a few shared css elements
+6a9c5aa HMP-243: oops. reversed 'light' theme color in bampfa and cinefiles
+728ae6f HMP-243: cinefiles theme is in fact a bit different than bampfa
+888248b HMP-243: correct imageserver URL in cinefiles application_helper.rb
+0f04763 HMP-243: make space between search bar and constraints
+a8bb10e HMP-243: correct Advanced Search appearance for bampfa and cinefiles
+39ab267 HMP-243: bampfa and cinefiles now use identical default themes
+a2934e8 HMP-243: correct position of Advanced Search links and colors
+5451341 HMP-243: back out and use default 'constraints' (breadcrumbs) layout
+8c5f0a3 HMP-243: label for start_over button for PAHMA is now "Start Over"
+5360df0 CSW-243: further revisions to (and standardization of) BL v7 CSS and SCSS
+71da104 HMP-243: _search_form.html.erb seems to be no longer used in blacklight v7
+65c79ba HMP-243: use correct favicon for BAMPFA
+f3557a5 (tag: 2.6.0-rc4) revise CHANGELOG.txt and bump version to 2.6.0-rc4
+a707253 HMP-243: revise 'theme' colors and CSS for PAHMA BL v7
 032fb8e HMP-243: initial attempt to revise contraints (breadcrumbs) layout; make main layout 'fluid'
 b033b97 HMP-243: add advanced search link in correct partial
-16bea66 (origin/main, origin/HEAD) HMP-243: comment out 'social' partial until it works again
+16bea66 HMP-243: comment out 'social' partial until it works again
 bcd38b8 HMP-243: "recustomize" blacklight base template (and some others)
 ff762a9 HMP-243: bulk revisions to support advanced search and other bl v7 updates
 fc65602 HMP-243: minor refactoring of application_helpers.rb for a 3 portals
