@@ -12,7 +12,7 @@
  *
  *= require_tree .
  *= require_self
- 
+
  *
  * Used by blacklight_range_limit
  *= require  'blacklight_range_limit'
@@ -21,3 +21,13 @@
  *= require 'blacklight_advanced_search'
 
 */
+
+@import "variables";
+
+@import "bootstrap";
+
+@import 'blacklight/blacklight';
+
+@import "extras";
+@import "shared";
+

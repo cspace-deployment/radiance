@@ -6,4 +6,3 @@ en:
         search:
           label: 'search for'
           placeholder: 'Enter a few keywords here to get started...'
-      start_over: 'Reset'

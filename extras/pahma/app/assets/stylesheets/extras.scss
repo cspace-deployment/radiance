@@ -1,0 +1,33 @@
+//
+
+.btn-primary {
+  color: #fff;
+  background-color: #22348D;
+  border-color: #1d2c78;
+}
+
+// NAVBAR
+
+.navbar-inverse .navbar-nav > li > a {
+  color: black;
+}
+
+.navbar-inverse {
+  background: white;
+  margin-bottom: 0;
+}
+
+.navbar-default {
+  background-color: lightgray;
+}
+
+#startOverLink, .advanced-search-start-over {
+  background-color: #c8c8c8;
+  color: black;
+}
+
+.facet_limit-active {
+  color: #212121;
+  background-color: #fab946;
+  border-color: #e6fdfe;
+}
