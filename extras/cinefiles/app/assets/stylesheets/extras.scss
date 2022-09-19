@@ -91,6 +91,14 @@ h1, .h1 {
   margin-bottom: 30px;
 }
 
+article .documentHeader {
+	overflow: inherit;
+}
+
+.blacklight-blob_ss {
+	// firgure out a grid display option
+}
+
 // WARC DISPLAY STUFF
 
 .warc-container {

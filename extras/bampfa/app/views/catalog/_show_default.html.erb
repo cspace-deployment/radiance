@@ -41,8 +41,8 @@
   </div>
 </div>
 
-<div class="row">
-
-	<%= render :partial => '/catalog/show_preview', :locals => {:artist => _artist} %>
-
-</div>
+<% unless _artist.nil? %>
+	<div class="row show-preview-container">
+		<%= render :partial => '/catalog/show_preview', :locals => {:artist => _artist} %>
+	</div>
+<% end %>
