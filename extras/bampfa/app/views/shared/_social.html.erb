@@ -3,17 +3,17 @@
 <meta name="twitter:site" content="@bampfa"/>
 <% if @document %>
   <% doc_presenter = index_presenter(@document) %>
-  <% doc_title = doc_presenter.field_value 'title_s' %>
+  <% doc_title = doc_presenter.document['title_s'] %>
   <meta property="og:title"       content="<%= doc_title %>" />
-  <meta property="og:description" content="<%= doc_presenter.field_value 'artistcalc_s' %> <%= doc_presenter.field_value 'datemade_s' %>" />
-	<% unless doc_presenter.field_value('blob_ss').nil? %>
-		<meta property="og:image"       content="https://webapps.cspace.berkeley.edu/bampfa/imageserver/blobs/<%= doc_presenter.field_value('blob_ss')[0...23] %>/derivatives/Medium/content"/>
+  <meta property="og:description" content="<%= doc_presenter.document['artistcalc_s'] %> <%= doc_presenter.document['datemade_s'] %>" />
+	<% unless doc_presenter.document['blob_ss'].nil? %>
+		<meta property="og:image"       content="https://webapps.cspace.berkeley.edu/bampfa/imageserver/blobs/<%= doc_presenter.document['blob_ss'][0...23] %>/derivatives/Medium/content"/>
 	  <meta property="twitter:image:alt"       content="Image from <%= doc_title %>"/>
 	<% else %>
 		<meta property="og:image"       content="/site_image.jpg" />
 		<meta property="twitter:image:alt"       content="Exterior of BAMPFA museum building showing outdoor screen"/>
 	<% end %>
-	<meta property="og:url"         content="https://collection.bampfa.berkeley.edu/catalog/<%= doc_presenter.field_value 'id' %>" />
+	<meta property="og:url"         content="https://collection.bampfa.berkeley.edu/catalog/<%= doc_presenter.document['id'] %>" />
   <meta property="og:type"        content="art" />
 <% else %>
   <meta property="og:url"         content="https://collection.bampfa.berkeley.edu/"/>
