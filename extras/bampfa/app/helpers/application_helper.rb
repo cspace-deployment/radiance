@@ -1,12 +1,10 @@
 module ApplicationHelper
 
   def get_random_documents(query: '*', limit: 12)
-    require 'securerandom'
-    random_string = SecureRandom.uuid
     params = {
       :q => query,
 			:rows => limit,
-      :sort => 'random_%s asc, id asc' % random_string
+      :sort => 'random'
     }
     builder = Blacklight::SearchService.new(config: blacklight_config, user_params: params)
     response = builder.search_results
