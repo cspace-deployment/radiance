@@ -3,10 +3,32 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.6.0-rc5
-Fri Sep 16 14:19:25 PDT 2022
+This is version 2.6.0-rc6
+Fri Sep 23 15:00:43 PDT 2022
 
-370750f (HEAD -> main, origin/main, origin/HEAD) HMP-243: need to add the new shared.css.scss to the manifest
+f9b2279 (HEAD -> main, origin/main, origin/HEAD) HMP-243: restore gallery, masonry, and add slideshow views to all 3 portals
+52cbc5c HMP-243: use correct mail_sender in config/initializers/devise.rb
+f525a98 HMP-243: thumbnail images need maintain aspect when displayed
+3ba2ceb HMP-243: add pahma nav bar items back in
+22d5292 HMP-243: make header in top left cell of pahma splash page smaller
+b6dcd8c HMP-243: fix css on pahma splash page; override facet default font color
+a295ef3 Merge pull request #76 from BAM-PFA/master
+1b4cce1 Merge branch 'cspace-deployment:main' into master
+b7738ac HMP-243: fix bampfa social.html.erb
+8ba28e6 Merge pull request #75 from BAM-PFA/master
+585e91f Merge remote-tracking branch 'upstream/main'
+ab0a900 HMP-243: reinstate bampfa gallery_controller.rb
+d676f64 Merge pull request #74 from BAM-PFA/master
+783706d HMP-243: add a more reliable random sort to the SearchBuilder model to be used by the BAMPFA gallery display
+87faf70 Merge pull request #73 from BAM-PFA/master
+fb96649 HMP-243: minor cinefiles css tweaks
+5c0d08b Merge remote-tracking branch 'upstream/main'
+3e77856 HMP-243: Gemfile: add back mini_racer js runtime; application.scss.css: switch order of importing @shared and @extras so tenant customizations are written last; various CineFiles CSS updates
+479800b HMP-243: pahma top navbar should be completely white, not blacklight default gray
+23c90e7 Merge branch 'cspace-deployment:main' into master
+838baa6 (tag: 2.6.0-rc5) revise CHANGELOG.txt and bump version to 2.6.0-rc5
+f67ab62 Merge branch 'cspace-deployment:main' into master
+370750f HMP-243: need to add the new shared.css.scss to the manifest
 147ba7d HMP-243: juggle a few shared css elements
 6a9c5aa HMP-243: oops. reversed 'light' theme color in bampfa and cinefiles
 728ae6f HMP-243: cinefiles theme is in fact a bit different than bampfa
@@ -24,6 +46,7 @@ f3557a5 (tag: 2.6.0-rc4) revise CHANGELOG.txt and bump version to 2.6.0-rc4
 a707253 HMP-243: revise 'theme' colors and CSS for PAHMA BL v7
 032fb8e HMP-243: initial attempt to revise contraints (breadcrumbs) layout; make main layout 'fluid'
 b033b97 HMP-243: add advanced search link in correct partial
+f1183b4 HMP-243: updates to tenant_installer.py to be more agnostic about extras/common/ dir contents
 16bea66 HMP-243: comment out 'social' partial until it works again
 bcd38b8 HMP-243: "recustomize" blacklight base template (and some others)
 ff762a9 HMP-243: bulk revisions to support advanced search and other bl v7 updates
