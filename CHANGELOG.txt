@@ -3,10 +3,12 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.6.0-rc6
-Fri Sep 23 15:00:43 PDT 2022
+This is version 2.6.0-rc7
+Sun Sep 25 10:56:05 PDT 2022
 
-f9b2279 (HEAD -> main, origin/main, origin/HEAD) HMP-243: restore gallery, masonry, and add slideshow views to all 3 portals
+e2da50c (HEAD -> main) HMP-243: minor refactoring of social.html.erb to handle some corner cases
+ce50d42 (tag: 2.6.0-rc6, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.6.0-rc6
+f9b2279 HMP-243: restore gallery, masonry, and add slideshow views to all 3 portals
 52cbc5c HMP-243: use correct mail_sender in config/initializers/devise.rb
 f525a98 HMP-243: thumbnail images need maintain aspect when displayed
 3ba2ceb HMP-243: add pahma nav bar items back in
