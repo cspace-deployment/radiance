@@ -8,9 +8,16 @@
   <meta property="og:type"        content="article" />
   <meta property="og:title"       content="<%= doc_presenter.document['objname_s'] %>" />
   <meta property="og:description" content="<%= doc_presenter.document['objdescr_s'] %>" />
-  <meta property="og:creator"     content="<%= doc_presenter.document['objmaker_ss'] %>" />
-  <meta property="og:image"       content="https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/<%= doc_presenter.field_value('blob_ss')[0...23] %>/derivatives/Medium/content"/>
-  <meta property="twitter:image:alt" content="Image for museum number <%= doc_presenter.document['objmusno_s'] %>"/>
+  <% unless doc_presenter.document['objmaker_ss'].nil? %>
+    <meta property="og:creator"   content="<%= doc_presenter.document['objmaker_ss'].join(', ') %>" />
+  <% end %>
+  <% unless doc_presenter.document['blob_ss'].nil? %>
+    <meta property="og:image"     content="https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/<%= doc_presenter.document['blob_ss'].join('')[0...23] %>/derivatives/Medium/content"/>
+	<meta property="twitter:image:alt" content="Image for museum number <%= doc_presenter.document['objmusno_s'] %>"/>
+  <% else %>
+	<meta property="og:image"     content="/stockton_curve_sm.jpg" />
+	<meta property="twitter:image:alt" content="'Stockton Curve', by Ishi"/>
+  <% end %>
 <% else %>
   <meta property="og:url"         content="https://hearstmuseum.berkeley.edu/"/>
   <meta property="og:title"       content="Hearst Museum of Anthropology" />
