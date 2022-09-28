@@ -13,9 +13,10 @@ class CatalogController < ApplicationController
     config.advanced_search[:query_parser] ||= 'edismax'
     config.advanced_search[:form_solr_parameters] ||= {}
 
-    config.view.gallery(document_component: Blacklight::Gallery::DocumentComponent)
-    config.view.masonry(document_component: Blacklight::Gallery::DocumentComponent)
-    config.view.slideshow(document_component: Blacklight::Gallery::SlideshowComponent)
+    # only Show and Index displays for Cinefiles. The other 3 are disabled
+    # config.view.gallery(document_component: Blacklight::Gallery::DocumentComponent)
+    # config.view.masonry(document_component: Blacklight::Gallery::DocumentComponent)
+    # config.view.slideshow(document_component: Blacklight::Gallery::SlideshowComponent)
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
     config.show.partials.insert(1, :openseadragon)
 
