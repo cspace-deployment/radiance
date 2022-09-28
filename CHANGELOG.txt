@@ -3,11 +3,13 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.6.0-rc8
-Wed Sep 28 16:31:07 PDT 2022
+This is version 2.6.0-rc9
+Wed Sep 28 16:58:33 PDT 2022
 
-cb0a5d5 (HEAD -> main) HMP-243: disable Masonry, Gallery, and Slideshow views for CineFiles
-f8e477e (origin/main, origin/HEAD) Merge pull request #77 from BAM-PFA/master
+7445509 (HEAD -> main) HMP-243: need to tweak lib/blacklight/component.rb for some reason
+5c9466b (tag: 2.6.0-rc8, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.6.0-rc8
+cb0a5d5 HMP-243: disable Masonry, Gallery, and Slideshow views for CineFiles
+f8e477e Merge pull request #77 from BAM-PFA/master
 ef906a7 HMP-243: add libv8-node (mini_racer js runtime dependency) to gemfile; fix rendering of cinefiles _social title field in Twitter card
 1b8585c (tag: 2.6.0-rc7) revise CHANGELOG.txt and bump version to 2.6.0-rc7
 e2da50c HMP-243: minor refactoring of social.html.erb to handle some corner cases
