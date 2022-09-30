@@ -1,0 +1,176 @@
+.thumbnail > img,
+.thumbnail a > img {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.thumbclass {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.document-thumbnail img {
+  max-height: 240px;
+  max-width: 240px;
+}
+
+@media print {
+  a[href]:after {
+    content: none;
+  }
+  .site_footer {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+    .site_footer .container {
+        max-width: 1140px
+    }
+}
+@media (min-width: 768px) {
+    .site_footer .col-md-3:nth-child(3),
+    .site_footer .col-md-3:nth-child(4) {
+        margin-top: 0
+    }
+}
+@media (min-width: 576px) {
+    .site_footer {
+        padding: 7% 0
+    }
+    .site_footer .container {
+        max-width: 100%
+    }
+    .site_footer .col-md-3+.col-md-3 {
+        margin-top: 0
+    }
+    .site_footer h3 {
+        margin-top: 10px
+    }
+    .site_footer .col-md-3:nth-child(3),
+    .site_footer .col-md-3:nth-child(4) {
+        //margin-top: 50px
+    }
+    .site_footer .col-md-3:nth-child(3) a {
+        margin-top: 40px
+    }
+}
+
+.button:hover {
+    background: #25399E;
+    text-decoration: none;
+    color: white
+}
+.load-more .button:hover {
+    background: #25399E
+}
+a:hover .color_overlay {
+    opacity: 0;
+    -webkit-transition: opacity 300ms;
+    transition: opacity 300ms
+}
+
+.header-top ul li:last-child a:hover {
+    background: #1bdba6;
+    color: #25399E
+}
+form .file-label:hover .choose {
+    color: #2ADBA7
+}
+
+p a:hover {
+    text-decoration: none
+}
+
+.site_footer a:hover {
+    color: #1BDBA6
+}
+.site_footer {
+    color: white;
+    background: #231F20;
+    padding: 15% 10%;
+    margin-top: 0;
+}
+.site_footer .col-md-3+.col-md-3 {
+    //margin-top: 15%
+}
+.site_footer h3 {
+    margin-bottom: 25px;
+    font-weight: bold
+}
+.site_footer a {
+    color: white
+}
+.site_footer a:hover {
+    color: #1BDBA6;
+    text-decoration: underline
+}
+.site_footer ul {
+    margin-top: 10px;
+    list-style: none
+}
+.site_footer ul li+li {
+    margin-top: 20px
+}
+.site_footer ul li a {
+    text-decoration: none;
+    font-weight: bold
+}
+.site_footer .col-md-3:nth-child(1) .footer-logo {
+    margin-bottom: 40px
+}
+.site_footer .col-md-3:nth-child(1) .berkeley-logo {
+    margin-top: 27px;
+    max-width: 180px
+}
+.site_footer .col-md-3:nth-child(1) .property-of {
+    font-size: 0.875rem
+}
+.site_footer .col-md-3:nth-child(1) img {
+    margin-top: 0
+}
+.site_footer .col-md-3:nth-child(3) address {
+    line-height: 1.56
+}
+.site_footer .col-md-3:nth-child(3) a {
+    display: inline-block;
+    margin-top: 10px;
+    color: white
+}
+.site_footer .col-md-3:nth-child(3) a i {
+    font-size: 2rem;
+    vertical-align: middle;
+    margin-right: 20px
+}
+.site_footer .col-md-3:nth-child(4) .social {
+    margin-bottom: 50px
+}
+.site_footer .col-md-3:nth-child(4) .social li {
+    display: inline-block
+}
+.site_footer .col-md-3:nth-child(4) .social li+li {
+    margin-left: 10px;
+    margin-bottom: 5px
+}
+.site_footer .col-md-3:nth-child(4) .social a {
+    font-size: 1.5rem
+}
+.site_footer .col-md-3:nth-child(4) .copyright {
+    font-size: 0.75rem;
+    max-width: 200px
+}
+.site_footer .col-md-3:nth-child(4) .copyright a {
+    font-weight: bold;
+    text-decoration: underline
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2
+}
