@@ -3,10 +3,11 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.6.1-rc1
-Fri Sep 30 14:52:55 PDT 2022
+This is version 2.6.1
+Fri Sep 30 14:53:05 PDT 2022
 
-3842769 (HEAD -> main, origin/main, origin/HEAD) HMP-243: cinefiles WARCs do not all have blobs; social.html.erb needs to handle
+4ef6c90 (HEAD -> main, tag: 2.6.1-rc1, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.6.1-rc1
+3842769 HMP-243: cinefiles WARCs do not all have blobs; social.html.erb needs to handle
 6dc9aab HMP-175: set rails log level to :warn in production
 dd21ef3 HMP-256: remove superfluous application.css file
 b3d3cb6 HMP-256: refactor assets for pahma 3d image rendering
