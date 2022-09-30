@@ -9,8 +9,10 @@
     <% unless doc_presenter.document['filmtitle_ss'].nil? %>
       <meta property="og:description"   content="<%= doc_presenter.document['filmtitle_ss'].join(', ') %>" />
     <% end %>
-    <meta property="og:image"       content="https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/<%= doc_presenter.document['blob_ss'].join('')[0...23] %>/derivatives/Medium/content"/>
-    <meta property="twitter:image:alt" content="Image from <%= doc_title %>"/>
+    <% unless doc_presenter.document['blob_ss'].nil? %>
+      <meta property="og:image"       content="https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/<%= doc_presenter.document['blob_ss'].join('')[0...23] %>/derivatives/Medium/content"/>
+      <meta property="twitter:image:alt" content="Image from <%= doc_title %>"/>
+    <% end %>
   <% else %>
     <!-- In case of film records... an edge case, but ~what an edge case~ -->
     <% unless doc_presenter.document['common_title_ss'].nil? %>
