@@ -118,14 +118,15 @@ module ApplicationHelper
     end
   end
 
-  # use imageserver and blob csid to serve audio
+  # use authenticating proxy and blob csid to serve audio
+  # TODO: hostname will need to change if a museum besides pahma wants to use this feature
   def render_audio_csid options = {}
     # render audio player
     content_tag(:div) do
       options[:value].collect do |audio_csid|
         content_tag(:audio,
           content_tag(:source, "I'm sorry; your browser doesn't support HTML5 audio in MPEG format.",
-            src: "https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{audio_csid}/content",
+            src: "https://portal-qa.hearstmuseum.berkeley.edu/cspace-services/blobs/#{audio_csid}/content"
             id: 'audio_csid',
             type: 'audio/mpeg'),
           controls: 'controls',
@@ -134,14 +135,15 @@ module ApplicationHelper
     end
   end
 
-  # use imageserver and blob csid to serve video
+  # use authenticating proxy and blob csid to serve video
+  # TODO: hostname will need to change if a museum besides pahma wants to use this feature
   def render_video_csid options = {}
     # render video player
     content_tag(:div) do
       options[:value].collect do |video_csid|
         content_tag(:video,
           content_tag(:source, "I'm sorry; your browser doesn't support HTML5 video in MP4 with H.264.",
-            src: "https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{video_csid}/content",
+            src: "https://portal-qa.hearstmuseum.berkeley.edu/cspace-services/blobs/#{video_csid}/content"
             id: 'video_csid',
             type: 'video/mp4'),
           controls: 'controls',
