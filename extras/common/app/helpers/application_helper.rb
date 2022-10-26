@@ -126,7 +126,7 @@ module ApplicationHelper
       options[:value].collect do |audio_csid|
         content_tag(:audio,
           content_tag(:source, "I'm sorry; your browser doesn't support HTML5 audio in MPEG format.",
-            src: "https://portal-qa.hearstmuseum.berkeley.edu/cspace-services/blobs/#{audio_csid}/content"
+            src: "https://portal.hearstmuseum.berkeley.edu/cspace-services/blobs/#{audio_csid}/content"
             id: 'audio_csid',
             type: 'audio/mpeg'),
           controls: 'controls',
@@ -143,7 +143,7 @@ module ApplicationHelper
       options[:value].collect do |video_csid|
         content_tag(:video,
           content_tag(:source, "I'm sorry; your browser doesn't support HTML5 video in MP4 with H.264.",
-            src: "https://portal-qa.hearstmuseum.berkeley.edu/cspace-services/blobs/#{video_csid}/content"
+            src: "https://portal.hearstmuseum.berkeley.edu/cspace-services/blobs/#{video_csid}/content"
             id: 'video_csid',
             type: 'video/mp4'),
           controls: 'controls',
