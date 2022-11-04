@@ -3,10 +3,17 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.6.1
-Fri Sep 30 14:53:05 PDT 2022
+This is version 2.6.2
+Fri Nov  4 09:24:23 PDT 2022
 
-4ef6c90 (HEAD -> main, tag: 2.6.1-rc1, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.6.1-rc1
+2aaf900 (HEAD -> main) HMP-261: lock blacklight-gallery at v4.0.1 for now
+3923c23 (origin/main, origin/HEAD) HMP-238: and now with commas where they belong
+0124003 HMP-238: use production hostname for  authenticating proxy
+77b7cbf HMP-238: use authenticating proxy and csids to render streaming media
+d9dacda Merge pull request #78 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.13.9
+f6d6b73 (origin/dependabot/bundler/portal/nokogiri-1.13.9) Bump nokogiri from 1.13.8 to 1.13.9 in /portal
+3af6789 (tag: 2.6.1) revise CHANGELOG.txt and bump version to 2.6.1
+4ef6c90 revise CHANGELOG.txt and bump version to 2.6.1-rc1
 3842769 HMP-243: cinefiles WARCs do not all have blobs; social.html.erb needs to handle
 6dc9aab HMP-175: set rails log level to :warn in production
 dd21ef3 HMP-256: remove superfluous application.css file
