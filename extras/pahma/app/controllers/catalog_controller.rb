@@ -212,6 +212,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'deaccessioned_s', helper_method: 'render_status', label: 'Object status'
     config.add_index_field 'objmusno_s', label: 'Museum number'
     config.add_index_field 'objassoccult_ss', label: 'Culture or time period'
+    config.add_index_field 'objobjectclass_ss', label: 'Object class'
     config.add_index_field 'objmaker_ss', label: 'Maker or artist'
     config.add_index_field 'objfilecode_ss', label: 'Function'
     config.add_index_field 'objproddate_s', label: 'Production date'
@@ -231,6 +232,7 @@ class CatalogController < ApplicationController
       ['objaltnum_ss', 'Alternate number'],
       ['objaccno_ss', 'Accession number'],
       ['objname_txt', 'Object name'],
+      ['objobjectclass_txt', 'Object class'],
       ['objdescr_txt', 'Description'],
       ['anonymousdonor_txt', 'Donor'],
       ['objfcp_txt', 'Collection place'],
@@ -330,6 +332,7 @@ class CatalogController < ApplicationController
 
     config.add_show_field 'objinscrtext_ss', label: 'Inscription'
     config.add_show_field 'objtype_s', label: 'Object type'
+    config.add_show_field 'objobjectclass_ss', label: 'Object class'
     config.add_show_field 'objfilecode_ss', label: 'Function'
 
     config.add_show_field 'objproddate_s', label: 'Production date'
@@ -365,6 +368,7 @@ class CatalogController < ApplicationController
 
     # facets
     config.add_facet_field 'objname_s', label: 'Object name', limit: true, index_range: true
+    config.add_facet_field 'objobjectclasstree_ss', label: 'Object class', limit: true, index_range: true
     config.add_facet_field 'objtype_s', label: 'Object type', limit: true, index_range: true
     config.add_facet_field 'media_available_ss', label: 'Media available'
     config.add_facet_field 'objfcptree_ss', label: 'Collection place', limit: true, index_range: true
