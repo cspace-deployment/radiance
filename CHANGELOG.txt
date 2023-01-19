@@ -3,11 +3,26 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.6.2
-Fri Nov  4 09:24:23 PDT 2022
+This is version 2.6.3-rc1
+Thu Jan 19 08:58:05 PST 2023
 
-2aaf900 (HEAD -> main) HMP-261: lock blacklight-gallery at v4.0.1 for now
-3923c23 (origin/main, origin/HEAD) HMP-238: and now with commas where they belong
+394f7d4 (HEAD -> main) HMP-266: add object class to pahma blacklight portal
+f876aff NOJIRA: minor change to names in global_alerts
+59adb7b NOJIRA: update blacklight to 7.33.0, rails to 7.0.4.1, etc.
+3f772a4 NOJIRA: correct typo in comment
+9fff9c8 (origin/main, origin/HEAD) Merge pull request #83 from cspace-deployment/dependabot/bundler/portal/globalid-1.0.1
+56b768f Bump globalid from 1.0.0 to 1.0.1 in /portal
+6569e6e Merge pull request #82 from cspace-deployment/dependabot/bundler/portal/rack-2.2.6.2
+1e79b21 Bump rack from 2.2.4 to 2.2.6.2 in /portal
+cf534df Merge pull request #81 from cspace-deployment/dependabot/bundler/portal/rails-html-sanitizer-1.4.4
+ebf91e2 Merge pull request #80 from cspace-deployment/dependabot/bundler/portal/loofah-2.19.1
+ba41711 Merge pull request #79 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.13.10
+3a8b85a (origin/dependabot/bundler/portal/rails-html-sanitizer-1.4.4) Bump rails-html-sanitizer from 1.4.3 to 1.4.4 in /portal
+8f73cc7 Bump loofah from 2.18.0 to 2.19.1 in /portal
+0b9e037 Bump nokogiri from 1.13.9 to 1.13.10 in /portal
+e912b32 (tag: 2.6.2) revise CHANGELOG.txt and bump version to 2.6.2
+2aaf900 HMP-261: lock blacklight-gallery at v4.0.1 for now
+3923c23 HMP-238: and now with commas where they belong
 0124003 HMP-238: use production hostname for  authenticating proxy
 77b7cbf HMP-238: use authenticating proxy and csids to render streaming media
 d9dacda Merge pull request #78 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.13.9
