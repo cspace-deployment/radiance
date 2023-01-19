@@ -55,7 +55,7 @@ rsync -av extras/${museum}/ ~/projects/${RUN_DIR}/portal/
 ./relink.sh ${RUN_DIR} ${museum} "$3"
 
 # migrations and secrets are applied by relink.sh, or you can do them by hand
-echo "deployed tag ${TAG} to ${RUN_DIR}, environment is $2"
+echo "deployed tag ${TAG} to ${RUN_DIR}, environment is $3"
 echo "Restarting portal, you can too! enter: cd ~/projects/${runtime}/portal/ ; rake restart."
 echo "Or just restart Apache"
 
