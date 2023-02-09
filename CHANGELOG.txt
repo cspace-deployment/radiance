@@ -3,14 +3,15 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.6.3-rc1
-Thu Jan 19 08:58:05 PST 2023
+This is version 2.6.3
+Thu Feb  9 13:19:16 PST 2023
 
-394f7d4 (HEAD -> main) HMP-266: add object class to pahma blacklight portal
+91ce7c7 (HEAD -> main, tag: 2.6.3-rc1, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.6.3-rc1
+394f7d4 HMP-266: add object class to pahma blacklight portal
 f876aff NOJIRA: minor change to names in global_alerts
 59adb7b NOJIRA: update blacklight to 7.33.0, rails to 7.0.4.1, etc.
 3f772a4 NOJIRA: correct typo in comment
-9fff9c8 (origin/main, origin/HEAD) Merge pull request #83 from cspace-deployment/dependabot/bundler/portal/globalid-1.0.1
+9fff9c8 Merge pull request #83 from cspace-deployment/dependabot/bundler/portal/globalid-1.0.1
 56b768f Bump globalid from 1.0.0 to 1.0.1 in /portal
 6569e6e Merge pull request #82 from cspace-deployment/dependabot/bundler/portal/rack-2.2.6.2
 1e79b21 Bump rack from 2.2.4 to 2.2.6.2 in /portal
