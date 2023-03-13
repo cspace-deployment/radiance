@@ -3,10 +3,13 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.6.3
-Thu Feb  9 13:19:16 PST 2023
+This is version 2.7.0-rc1
+Mon Mar 13 09:56:32 PDT 2023
 
-91ce7c7 (HEAD -> main, tag: 2.6.3-rc1, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.6.3-rc1
+cedbb9b (HEAD -> main) NOJIRA: improve some Rails parameters for production
+acd2f51 CSW-808: update blacklight footers for copyright marks, etc.
+88cf636 (tag: 2.6.3) revise CHANGELOG.txt and bump version to 2.6.3
+91ce7c7 revise CHANGELOG.txt and bump version to 2.6.3-rc1
 394f7d4 HMP-266: add object class to pahma blacklight portal
 f876aff NOJIRA: minor change to names in global_alerts
 59adb7b NOJIRA: update blacklight to 7.33.0, rails to 7.0.4.1, etc.
