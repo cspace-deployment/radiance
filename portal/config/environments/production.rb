@@ -3,10 +3,8 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # In the development environment your application's code is reloaded any time
-  # it changes. This slows down response time but is perfect for development
-  # since you don't have to restart the web server when you make code changes.
-  config.cache_classes = false
+  # In the production environment we can cache classes
+  config.cache_classes = true
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -41,8 +39,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  # Print deprecation notices to the Rails logger.
-  config.active_support.deprecation = :log
+  # Don't send deprecation notices to the Rails logger.
+  config.active_support.deprecation = :silence
 
   # Raise exceptions for disallowed deprecations.
   config.active_support.disallowed_deprecation = :raise
@@ -55,6 +53,9 @@ Rails.application.configure do
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
+
+  # don't complain about the fact that we are using sqlite3
+  config.active_record.sqlite3_production_warning = false
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
