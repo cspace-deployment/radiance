@@ -3,11 +3,17 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.7.0-rc1
-Mon Mar 13 09:56:32 PDT 2023
+This is version 2.7.0-rc2
+Fri May  5 08:18:53 PDT 2023
 
-cedbb9b (HEAD -> main) NOJIRA: improve some Rails parameters for production
-acd2f51 CSW-808: update blacklight footers for copyright marks, etc.
+f940822 (HEAD -> main) HMP-281: another attempt to silence deprecation msgs in blacklight; and suppress sqlite3 complaints too
+a140abe (origin/main, origin/HEAD) Merge pull request #85 from cspace-deployment/dependabot/bundler/portal/rack-2.2.6.4
+73373f0 Bump rack from 2.2.6.3 to 2.2.6.4 in /portal
+5335d4b revise CHANGELOG.txt and bump version to 2.7.0-rc1
+64785c7 NOJIRA: improve some Rails parameters for production
+7845a3e CSW-808: update blacklight footers for copyright marks, etc.
+5273fd5 Merge pull request #84 from cspace-deployment/dependabot/bundler/portal/rack-2.2.6.3
+524409c Bump rack from 2.2.6.2 to 2.2.6.3 in /portal
 88cf636 (tag: 2.6.3) revise CHANGELOG.txt and bump version to 2.6.3
 91ce7c7 revise CHANGELOG.txt and bump version to 2.6.3-rc1
 394f7d4 HMP-266: add object class to pahma blacklight portal
