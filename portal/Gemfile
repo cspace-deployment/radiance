@@ -104,3 +104,6 @@ gem 'blacklight_advanced_search'
 gem 'global_alerts'
 
 gem "openseadragon", ">= 0.2.0"
+
+# needed to prevent spurious errors in passenger log
+gem "net-http"
