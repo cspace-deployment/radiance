@@ -7,7 +7,6 @@ class GalleryController < ApplicationController
 	def add_gallery_items()
 		docs = get_random_documents(query: 'blob_ss:[* TO *]')
 		@formatted = format_image_gallery_results(docs)
-		puts @formatted
 		respond_to do |format|
       format.html
 			# format.json

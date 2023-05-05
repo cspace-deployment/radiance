@@ -39,7 +39,6 @@ module ApplicationHelper
 					end
 					unless doc[:artistcalc_txt].nil?
 						artist = doc[:artistcalc_txt][0]
-						puts artist
 					else
 						artist = "[No artist given]"
 					end
