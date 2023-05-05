@@ -73,7 +73,10 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   # Don't log any deprecations.
-  config.active_support.deprecation = false
+  Deprecation.default_deprecation_behavior = :silence
+
+  # don't complain about the fact that we are using sqlite3
+  config.active_record.sqlite3_production_warning = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
