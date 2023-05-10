@@ -16,15 +16,15 @@ http://projectblacklight.org/
 #### Ruby and Rails versions
 
 Ruby 2.7.6\
-Rails > 6 (runs ok on 7 except for plugins)
+Rails > 6
 
 To check:
 
 ```bash
-(venv) app_cspace@blacklight-qa:~/projects/20220722/search_app$ ruby -v
+(venv) app_cspace@blacklight-prod:~/projects/search_pahma$ ruby -v
 ruby 2.7.6p219 (2022-04-12 revision c9c2245c0a) [x86_64-linux]
-(venv) app_cspace@blacklight-qa:~/projects/20220722/search_app$ rails -v
-Rails 7.0.3.1
+(venv) app_cspace@blacklight-prod:~/projects/search_pahma$ rails -v
+Rails 7.0.4.3
 ```
 
 #### System dependencies and configuration
@@ -41,7 +41,7 @@ https://github.com/projectblacklight/blacklight/wiki/Quickstart
 
 Uses sqlite3.
 
-The usual "`rake db:migrate`" options work.
+The usual "`rake db:migrate`" options work. But read the caveats at the bottom of this document.
 
 #### How to run the test suite
 
@@ -56,7 +56,7 @@ You must have one of the following working:
 
 * use the production Solr server at webapps.cspace.berkeley.edu
 * **be inside the UCB firewall to run the app using the Dev solr server**
-* have your own Solr server configured and running.
+* have your own Solr server configured and running (i.e. as `localhost:8983`)
 
 See `portal/config/blacklight.yml` for details on pointing to Solr servers, and
 read up further below.
@@ -94,24 +94,28 @@ bundle update
 EDITOR=vi bin/rails credentials:edit
 bin/rails db:migrate RAILS_ENV=development
 
+# start the development server
 rails s
 ```
 
-NB: the Solr resource by default is localhost. Unless you have a suitable Solr server
+_NB: the following does not currently work: there is no access to production or QA solr cores except on the
+host on which the Solr servers are running._
+
+~~NB: the Solr resource by default is localhost. Unless you have a suitable Solr server
 set up on your local system, you'll need to edit `config/blacklight.yml` to use
-one of the existing public cores, e.g.
+one of the existing public cores, e.g.~~ 
 
 [https://webapps.cspace.berkeley.edu/solr/pahma-public/select](https://webapps.cspace.berkeley.edu/solr/pahma-public/select?q=*:*&rows=10)
 
-_To access the Dev service, your application must be running within the UCB firewall,
+~~_To access the Dev service, your application must be running within the UCB firewall,
 e.g. using the VPN. If you have Solr installed
-locally (and eventually, you should!) configure it in config/blacklight.yml._
+locally (and eventually, you should!) configure it in config/blacklight.yml._~~
 
-Then visit:
+~~Then visit:~~
 
 http://localhost:3000
 
-You should see the start page.
+~~You should see the start page.~~
 
 ##### Deploying on RTL servers
 
@@ -298,3 +302,14 @@ crawlers (e.g. production deployments) you may wish to change this. See, e.g.:
 You may wish to preserve the `robots.txt` that was being used already.
 
 To allow all comers, simply remove the file.
+
+##### Initial deployment consideration: db migration, etc.
+
+There is one first time preparation neeeded for the UCB Blacklight in AWS to work:
+
+Ops needs to make three sets of db/ and log/ directories in /var/cspace/blacklight/<tenant>
+
+Once those are there, the deployment script with link the corresponding Rails app directories there. See relink.sh (https://github.com/cspace-deployment/radiance/blob/main/relink.sh#L64-L69)
+For re-deploys, the only thing that needs to be done is to erase the directories created by the deployment script and make new symlinks; the db and logs persist across upgrades.
+HOWEVER, for the first time a BL deployment is made, the db must be populated via rails db:migrate (and the resulting directory contents copied to the new persistent db directory), or better by
+copying the existing sqlite3 databases to the persistent directories.
