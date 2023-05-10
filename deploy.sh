@@ -38,7 +38,8 @@ if [ -d ${RUN_DIR} ] ; then echo "$1 already exists... exiting" ; exit 1 ; fi
 git -c advice.detachedHead=false clone ${TAG} https://github.com/cspace-deployment/radiance.git ${RUN_DIR}
 cd ${RUN_DIR}/portal/
 echo ; echo "deploying `git describe --always`" ; echo
-gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
+# old way: gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
+gem install bundler --conservative
 # bundle config set deployment 'false'
 bundle update
 
