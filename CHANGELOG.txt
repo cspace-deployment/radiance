@@ -3,11 +3,19 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.7.0-rc2
-Fri May  5 08:18:53 PDT 2023
+This is version 2.7.0-rc3
+Wed May 10 17:21:50 PDT 2023
 
-f940822 (HEAD -> main) HMP-281: another attempt to silence deprecation msgs in blacklight; and suppress sqlite3 complaints too
-a140abe (origin/main, origin/HEAD) Merge pull request #85 from cspace-deployment/dependabot/bundler/portal/rack-2.2.6.4
+b88c624 (HEAD -> main, origin/main, origin/HEAD) NOJIRA: modernize bundler updating approach for blacklight portals
+85205e3 HMP-132: deal with dg:migrate issues via README.md documentation
+4e4fd9f HMP-283: add gem net-http to quiet passenger log
+50a9c58 Merge pull request #86 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.14.3
+4ffc6ca HMP-282: remove debugging output from bampfa blacklight porta
+f464405 NOJIRA: correct typo in radiance / blacklight deploy script
+f464d8d (tag: 2.7.0-rc2) revise CHANGELOG.txt and bump version to 2.7.0-rc2
+f940822 HMP-281: another attempt to silence deprecation msgs in blacklight; and suppress sqlite3 complaints too
+de3bd32 (origin/dependabot/bundler/portal/nokogiri-1.14.3) Bump nokogiri from 1.14.0 to 1.14.3 in /portal
+a140abe Merge pull request #85 from cspace-deployment/dependabot/bundler/portal/rack-2.2.6.4
 73373f0 Bump rack from 2.2.6.3 to 2.2.6.4 in /portal
 5335d4b revise CHANGELOG.txt and bump version to 2.7.0-rc1
 64785c7 NOJIRA: improve some Rails parameters for production
