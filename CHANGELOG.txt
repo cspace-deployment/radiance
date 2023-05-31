@@ -3,10 +3,11 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.7.0-rc3
-Wed May 10 17:21:50 PDT 2023
+This is version 2.7.0
+Wed May 31 14:21:44 PDT 2023
 
-b88c624 (HEAD -> main, origin/main, origin/HEAD) NOJIRA: modernize bundler updating approach for blacklight portals
+284281f (HEAD -> main, tag: 2.7.0-rc3, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.7.0-rc3
+b88c624 NOJIRA: modernize bundler updating approach for blacklight portals
 85205e3 HMP-132: deal with dg:migrate issues via README.md documentation
 4e4fd9f HMP-283: add gem net-http to quiet passenger log
 50a9c58 Merge pull request #86 from cspace-deployment/dependabot/bundler/portal/nokogiri-1.14.3
