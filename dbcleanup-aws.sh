@@ -4,26 +4,18 @@ NOTIFY="jblowe@berkeley.edu"
 
 echo "CLEANUP - $(/bin/date) - cleanup starting" 1>&2
 
-BL_ENVIRONMENT=`/usr/bin/curl -s -m 5 http://169.254.169.254/latest/meta-data/tags/instance/BL_ENVIRONMENT`
-
-if [[ -z $BL_ENVIRONMENT || ( "$BL_ENVIRONMENT" != "dev" && "$BL_ENVIRONMENT" != "qa" && "$BL_ENVIRONMENT" != "prod" ) ]]; then
-        echo "CLEANUP - $(/bin/date) - Cannot get environment, are you sure you're on AWS? Aborting!" 1>&2
-        /usr/bin/mail -r "cspace-support@lists.berkeley.edu" -s "CLEANUP - $TENANT Blacklight DB clean up failed" ${NOTIFY} <<< 'See dbclean.log for details.'
-        exit 1
-fi
-
-BL_ENVIRONMENT="blacklight-${BL_ENVIRONMENT}"
+source /home/app_cspace/bin/set_environment.sh  || { echo 'could not set environment vars. set_environment.sh failed'; exit 1; }
 
 for TENANT in pahma cinefiles bampfa
 do
    DBDIR="/cspace/blacklight/${TENANT}/db"
    DBNAME="production.sqlite3.${TENANT}.$(/bin/date +%Y%m%d)"
-   SQLERRORS=0
+   ERRORS=0
 
    echo "CLEANUP - $TENANT - $(/bin/date) - dumping current db" 1>&2
    if ! /usr/bin/sqlite3 ${DBDIR}/production.sqlite3 ".dump" > ${DBDIR}/${DBNAME}
    then
-      ((SQLERRORS++))
+      ((ERRORS++))
    fi
 
    echo "CLEANUP - $TENANT - $(/bin/date) - gzipping dump" 1>&2
@@ -33,45 +25,47 @@ do
       /usr/bin/mail -r "cspace-support@lists.berkeley.edu" -s "CLEANUP - $BL_ENVIRONMENT $TENANT Blacklight DB clean up failed" ${NOTIFY} <<< 'Unable to gzip, see dbclean.log'
    else
       echo "CLEANUP - $TENANT - $(/bin/date) - copying to s3" 1>&2
-      if ! /usr/bin/aws s3 cp ${DBDIR}/${DBNAME}.gz s3://${BL_ENVIRONMENT}/dbbackups/${TENANT}/${DBNAME}.gz
+      if ! /usr/bin/aws s3 cp --quiet ${DBDIR}/${DBNAME}.gz s3://${BL_ENVIRONMENT}/dbbackups/${TENANT}/${DBNAME}.gz
       then
          echo "CLEANUP - $TENANT - $(/bin/date) - copy to s3 failed, aborting" 1>&2
          /usr/bin/mail -r "cspace-support@lists.berkeley.edu" -s "CLEANUP - $BL_ENVIRONMENT $TENANT Blacklight DB clean up failed" ${NOTIFY} <<< 'Unable to copy to S3, see dbclean.log for details.'
       else
-         SQLERRORS=0
+         ERRORS=0
 
+         cd /home/app_cspace/projects/search_$TENANT
          echo "CLEANUP - $TENANT - $(/bin/date) - deleting searches" 1>&2
-         if ! /usr/bin/sqlite3 ${DBDIR}/production.sqlite3 "delete from searches;"
+         if ! rake blacklight:delete_old_searches
          then
-            ((SQLERRORS++))
+            ((ERRORS++))
          fi
 
-         echo "CLEANUP - $TENANT - $(/bin/date) - deleting users" 1>&2
-         if ! /usr/bin/sqlite3 ${DBDIR}/production.sqlite3 "delete from users where email like 'guest_%';"
+         echo "CLEANUP - $TENANT - $(/bin/date) - deleting guests" 1>&2
+         if ! rake devise_guests:delete_old_guest_users
          then
-            ((SQLERRORS++))
+            ((ERRORS++))
          fi
 
-         echo "CLEANUP - $TENANT - $(/bin/date) - deleting bookmarks" 1>&2
-         if ! /usr/bin/sqlite3 ${DBDIR}/production.sqlite3 "delete from bookmarks where user_id not in (select id from users);"
-         then
-            ((SQLERRORS++))
-         fi
+         # for now, let's skip cleaning up bookmarks: there are so few of them
+         # echo "CLEANUP - $TENANT - $(/bin/date) - deleting bookmarks" 1>&2
+         # if ! /usr/bin/sqlite3 ${DBDIR}/production.sqlite3 "delete from bookmarks where user_id not in (select id from users);"
+         # then
+         #    ((ERRORS++))
+         # fi
 
          echo "CLEANUP - $TENANT - $(/bin/date) - vacuuming" 1>&2
          if ! /usr/bin/sqlite3 ${DBDIR}/production.sqlite3 "vacuum;"
          then
-            ((SQLERRORS++))
+            ((ERRORS++))
          fi
 
-         if [ "$SQLERRORS" -gt "0" ]
+         if [ "$ERRORS" -gt "0" ]
          then
             /usr/bin/mail -r "cspace-support@lists.berkeley.edu" -s "CLEANUP - $BL_ENVIRONMENT $TENANT Blacklight DB clean up completed with errors" ${NOTIFY} <<< 'See dbclean.log for details.'
          fi
       fi
    fi
 
-   if [ "$SQLERRORS" -eq "0" ]
+   if [ "$ERRORS" -eq "0" ]
    then
       echo "CLEANUP - $TENANT - $(/bin/date) - removing 4 week old backup" 1>&2
       /bin/rm -f ${DBDIR}/production.sqlite3.${TENANT}."$(/bin/date +%Y%m%d --date='4 weeks ago')".gz
