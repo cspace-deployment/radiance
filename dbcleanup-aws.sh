@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NOTIFY="jblowe@berkeley.edu"
+NOTIFY="cspace-support@lists.berkeley.edu"
 
 echo "CLEANUP - $(/bin/date) - cleanup starting" 1>&2
 
