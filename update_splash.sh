@@ -22,7 +22,7 @@ git checkout main
 git pull -v
 
 # copy the needed files
-cp extras/${TENANT}_splash.html.erb ~/projects/search_${TENANT}/app/views/shared/_splash.html.erb 
+cp extras/${TENANT}/app/views/catalog/_home_text.html.erb ~/projects/search_${TENANT}/app/views/catalog/_home_text.html.erb
 cp portal/public/*.jpg ~/projects/search_${TENANT}/public/
 cp portal/public/*.png ~/projects/search_${TENANT}/public/
 
