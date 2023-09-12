@@ -3,10 +3,11 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.8.1-rc1
-Fri Sep  8 10:00:57 PDT 2023
+This is version 2.8.1
+Tue Sep 12 15:54:47 PDT 2023
 
-43276f3 (HEAD -> main, origin/main, origin/HEAD) Merge pull request #91 from lkvoong/HMP-286
+b3599ce (HEAD -> main, tag: 2.8.1-rc1, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.8.1-rc1
+43276f3 Merge pull request #91 from lkvoong/HMP-286
 550b43f Merge pull request #92 from BAM-PFA/master
 f365b4e HMP-286: fix cinefiles splash page content error
 4342d4e HMP-286: update update_splash.sh with new location/filename for splash page html.erb file
