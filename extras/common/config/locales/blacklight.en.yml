@@ -1,5 +1,12 @@
 en:
   blacklight:
+    # this is required to provide screen readers with a label for the Advanced Search boolean operators AND/ANY
+    advanced_search:
+      op:
+        label: 'search operator'
+    advanced_search:
+      op:
+        label: 'search operator'
     application_name: '#TENANT#'
     search:
       form:
@@ -7,3 +14,5 @@ en:
           label: 'search for'
           placeholder: 'Enter a few keywords here to get started...'
       start_over: 'Reset'
+      facets:
+            title: 'Filter your search'
