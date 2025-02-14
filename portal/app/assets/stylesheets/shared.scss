@@ -14,6 +14,9 @@
   margin: revert-layer;
   width: revert-layer;
 }
+.documents-slideshow .slideshow-presenter .item .frame>a {
+  display: inline-block;
+}
 .facet-values li .selected {
   color: #1d2c78 !important;
 }
