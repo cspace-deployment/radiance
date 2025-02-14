@@ -1,5 +1,9 @@
 // css that is shared by all portals
 
+.documents-gallery .document .caption-area .index-document-functions,
+.documents-masonry .document .caption-area .index-document-functions {
+  min-width: 6.8rem;
+}
 .documents-masonry .document .caption-area {
   clip: rect(0, 0, 0, 0);
   display: block;
