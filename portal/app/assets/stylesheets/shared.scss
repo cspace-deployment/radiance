@@ -1,13 +1,25 @@
 // css that is shared by all portals
 
+.documents-masonry .document .caption-area {
+  clip: rect(0, 0, 0, 0);
+  display: block;
+  height: 1px;
+  margin: -1px;
+  width: 1px;
+}
+.documents-masonry .document:hover .caption-area,
+.documents-masonry .document:focus-within .caption-area {
+  clip: revert-layer;
+  height: revert-layer;
+  margin: revert-layer;
+  width: revert-layer;
+}
 .facet-values li .selected {
   color: #1d2c78 !important;
 }
-
 .facet-limit {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
-
 .navbar-light .navbar-nav .nav-link {
   color: rgba(0,0,0,0.6);
 }
