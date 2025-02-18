@@ -141,12 +141,17 @@ article .documentHeader {
 //  margin-bottom: 0;
 //}
 
-.navbar-dark .navbar-nav .nav-link {
-    color: white;
+.navbar.topbar {
+  min-width: 600px;
 }
-
-.navbar-expand-md .navbar-nav {
-    margin-top: -40px;
+.navbar-brand img {
+  width: 600px;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+.navbar-nav {
+  flex-wrap: wrap;
 }
 
 @media print {
