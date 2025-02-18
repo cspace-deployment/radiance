@@ -55,3 +55,26 @@ a:not(.btn):focus {
   background-color: #fab946;
   border-color: #e6fdfe;
 }
+.splash.container .cell {
+  background-color: light-gray;
+  max-width: 230px;
+  min-width: 230px;
+  padding: 12px;
+  vertical-align: top;
+}
+.splash.container .cell .thumb {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 2px;
+  background-position: center center;
+  background-size: cover;
+}
+.splash.container .cell .title {
+  float: right;
+  font-size: 85%;
+  font-weight: 700;
+  margin: 0 2px 0 0;
+  white-space: nowrap;
+  width: auto;
+}
