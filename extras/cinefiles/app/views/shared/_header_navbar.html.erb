@@ -1,14 +1,15 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark topbar" style="padding: 0;" role="navigation">
-     <a class="mb-0 navbar-brand" style="background-color: gray; padding: 0;" href="/">
-      <img width="600px" src="/header-cinefiles.png">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark topbar p-0 pr-3" role="navigation">
+  <div class="container-fluid p-0">
+    <a class="navbar-brand m-0 p-0" href="/">
+      <img src="/header-cinefiles.png">
     </a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#user-util-collapse" data-bs-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#user-util-collapse" data-bs-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
-      <%= render 'shared/user_util_links' %>
+    <div class="collapse navbar-collapse justify-content-md-end pl-2 pl-md-0" id="user-util-collapse">
+      <%= render 'shared/user_util_links', class: 'flex-wrap' %>
     </div>
+  </div>
 </nav>
 
 <%= content_tag :div, class: 'navbar navbar-search bg-light mb-1', role: 'navigation', aria: { label: t('blacklight.search.header') } do %>
