@@ -27,6 +27,21 @@ a:not(.btn):focus {
 
 // NAVBAR
 
+.navbar.topbar .home-link {
+  display: inline-block;
+  text-decoration: none;
+}
+.navbar.topbar .home-link .header-logo {
+  height: 90px;
+}
+.navbar.topbar .home-link span {
+  color: black;
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+.navbar.topbar .home-link span:hover {
+  color: var(--primary);
+}
 .navbar-inverse .navbar-nav > li > a {
   color: black;
 }
@@ -54,6 +69,9 @@ a:not(.btn):focus {
   color: #212121;
   background-color: #fab946;
   border-color: #e6fdfe;
+}
+.section-heading {
+  font-size: 1.25rem;
 }
 .splash.container .cell {
   background-color: light-gray;
