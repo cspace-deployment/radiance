@@ -46,6 +46,10 @@ ul.footer {
   background-color: lightgray;
 }
 
+.navbar-search .search-btn {
+  height: calc(1.5em + 0.75rem + 2px);
+}
+
 // SPLASH DISPLAY
 
 .bampfa-splash {
@@ -116,7 +120,7 @@ div {
 .panel-title {
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 0.875rem;
   padding-right: 12px;
 }
 
@@ -131,7 +135,7 @@ div {
 .search_field {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 h3.index_title > a {
@@ -139,7 +143,7 @@ h3.index_title > a {
 }
 
 .show-metadata-container {
-  line-height: 25px;
+  line-height: 1.563rem;
   padding-left: 30px;
 }
 
@@ -152,7 +156,7 @@ h3.index_title > a {
 .field-value {
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-left: 10rem;
 }
 
@@ -165,11 +169,11 @@ h3.index_title > a {
 
 .index-metadata-container {
   margin-bottom: 20px;
-  line-height: 22px;
+  line-height: 1.375rem;
 }
 
 .form-control {
-  font-size: 17px;
+  font-size: 1rem;
   color: black;
 }
 
@@ -232,7 +236,7 @@ h3.index_title > a {
 .show-preview-heading {
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 30px;
+  font-size: 1.875rem;
   margin: 15px;
 }
 
@@ -248,19 +252,19 @@ h3.index_title > a {
 
 .gallery-caption-title {
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
 }
 
 .gallery-caption-date {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 100;
   line-height: 2;
 }
 
 .gallery-caption-artist {
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 100;
 }
 
@@ -271,7 +275,7 @@ h3.index_title > a {
 
 .load-more-button {
   padding: 30px;
-  font-size: 18px;
+  font-size: 1.125rem;
   margin-left: auto;
   margin-right: auto;
   // display: block;
