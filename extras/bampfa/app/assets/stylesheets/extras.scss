@@ -96,10 +96,15 @@ div {
   font-weight: bold;
 }
 
+.page-title {
+  font-family: RobotoBlack, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
 .section-heading {
   font-family: RobotoBlack, Helvetica, Arial, sans-serif;
   font-weight: bold;
-  // font-style: italic;
   font-size: 4em;
 }
 
@@ -117,12 +122,6 @@ div {
 
 .panel-heading {
   padding-right: 1px;
-}
-
-h4.facets-heading {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 1.75rem;
 }
 
 .facet-field-heading {
@@ -155,9 +154,6 @@ h3.index_title > a {
   font-weight: normal;
   font-size: 14px;
   margin-left: 10rem;
-}
-
-.show-field-container {
 }
 
 .document h1[itemprop="name"] {

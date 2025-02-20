@@ -56,7 +56,7 @@ module ApplicationHelper
 						image_tag = content_tag(:span,'Image not available',class: 'no-preview-image')
 					end
 					image_tag +
-					content_tag(:h4) do
+					content_tag(:div) do
 						artist_tag +
 						content_tag(:span, title, class: "gallery-caption-title") +
 						content_tag(:span, "("+datemade+")", class: "gallery-caption-date")
@@ -109,7 +109,7 @@ module ApplicationHelper
           src: render_csid(doc[:blob_ss][0], 'Medium'),
           class: 'thumbclass'),
 					href: "/catalog/#{doc[:id]}") +
-				content_tag(:h4) do
+				content_tag(:div) do
 					content_tag(:span, title, class: "gallery-caption-title") +
 					content_tag(:span, "("+datemade+")", class: "gallery-caption-date") +
 					artist_tag
