@@ -142,8 +142,13 @@ h3.index_title > a {
   font-family: RobotoMedium, Helvetica, Arial, sans-serif;
 }
 
+.show-field-container {
+  padding: 0.25em 0;
+}
+
 .show-metadata-container {
-  line-height: 1.563rem;
+  line-height: 1.5em;
+  min-width: 14em;
   padding-left: 30px;
 }
 
@@ -151,13 +156,15 @@ h3.index_title > a {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-weight: bold;
   float: left;
+  max-width: 10em;
 }
 
 .field-value {
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-size: 0.875rem;
-  margin-left: 10rem;
+  margin-left: 11em;
+  padding-left: 4px;
 }
 
 .document h1[itemprop="name"] {
@@ -194,7 +201,7 @@ h3.index_title > a {
 .imageGallery {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(18.75em, 1fr));
   box-sizing: border-box;
   margin-bottom: 30px;
   // font-size: 1rem;
@@ -207,27 +214,26 @@ h3.index_title > a {
 }
 
 .imageGallery .gallery-item img {
-  min-width: 300px;
+  min-width: 18.75em;
   max-height: 100%;
 }
 
 .show-gallery {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(1, minmax(300px, 1fr));
+  grid-template-columns: repeat(1, minmax(18.75em, 1fr));
   box-sizing: border-box;
   margin-bottom: 30px;
 }
 
 .show-image {
   max-width: 100%;
-  // display: block;
 }
 
 .show-preview {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12.5em, 1fr));
   box-sizing: border-box;
   margin: 15px;
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
@@ -241,7 +247,7 @@ h3.index_title > a {
 }
 
 .show-preview-item img {
-  min-width: 200px;
+  min-width: 12.5em;
   max-height: 100%;
 }
 
@@ -249,6 +255,10 @@ h3.index_title > a {
 	display:inherit;
 }
 
+.show-tools {
+  margin-bottom: 20px;
+  min-width: 9em;
+}
 
 .gallery-caption-title {
   font-family: Roboto, Helvetica, Arial, sans-serif;
