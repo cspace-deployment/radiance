@@ -1,15 +1,15 @@
 h1, .h1 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .bg-dark {
-    background-color: gray !important;
+  background-color: gray !important;
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #08bae7;
-    border-color: #07a6ce;
+  color: #fff;
+  background-color: #08bae7;
+  border-color: #07a6ce;
 }
 
 .thumbnail > img,
@@ -92,42 +92,54 @@ h1, .h1 {
 }
 
 article .documentHeader {
-	overflow: inherit;
+  overflow: inherit;
 }
 
 .blacklight-blob_ss {
-	// firgure out a grid display option
+  // firgure out a grid display option
 }
 
 // WARC DISPLAY STUFF
 
 .warc-container {
-	display:flex;
-	width: 100%;
-	height: 50em;
-	border-style: solid;
-	border-width: 2px;
-	border-color: #bfbfbf;
+  display:flex;
+  width: 100%;
+  height: 50em;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #bfbfbf;
 }
 
 .warc {
-	flex: 1 1 auto;
-	width: 100%;
-	height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
 }
 
 // FOOTER
 
-.site_footer a {
-    color: gray;
-    padding: 5px;
+.site-footer {
+  background: transparent;
+  color: gray;
+  margin: auto;
+  padding: 100px 10% 40px;
 }
-
-.site_footer {
-    background: transparent;
-    color: gray;
-    margin: auto;
-    padding: 5% 10% 15% 10%;
+.site-footer p {
+  line-height: 1.2;
+}
+.site-footer ul li {
+  max-width: 12em;
+  padding: 4px 20px 16px;
+}
+.site-footer ul li a {
+  color: gray;
+}
+.site-footer .footer-logo {
+  object-fit: cover;
+  width: 150px;
+}
+.site-footer .social a i {
+  font-size: 1rem;
 }
 
 // NAVBAR and BG
@@ -158,7 +170,7 @@ article .documentHeader {
   a[href]:after {
     content: none;
   }
-  .site_footer {
+  .site-footer {
     display: none;
   }
 }
@@ -236,7 +248,7 @@ h4.facets-heading {
 }
 
 h3.index_title > a {
-    font-family: MontserratMedium, Helvetica, Arial, sans-serif;
+  font-family: MontserratMedium, Helvetica, Arial, sans-serif;
 }
 
 // END FONT STUFF
