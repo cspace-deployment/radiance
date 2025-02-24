@@ -32,7 +32,7 @@ topbits = '''
 <tr class="grid">
 <td class="splash_td">
 <h4 class='section-heading'>Explore the TENANT's collections</h4>
-<p style="text-align: justify;">
+<p>
 The TENANT cares for a vast and diverse collection. Enter a few interesting words for places, dates, people, or things in the search box above;
 select one of the facets on the left to refine your search; or choose a featured collection on the right.
 </p>
