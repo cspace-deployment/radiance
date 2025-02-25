@@ -3,27 +3,6 @@
 .btn-primary {
   border-color: #1d2c78;
 }
-.btn:focus, .btn.focus,
-a:focus,
-button:focus,
-input:focus,
-select:focus {
-  box-shadow: 0 0 0 0.063rem white;
-  outline: 0.125rem solid var(--secondary) !important;
-  outline-offset: 0.063rem;
-}
-.btn-primary:focus, .btn-primary.focus,
-.navbar.navbar-search select:focus,
-.navbar.navbar-search input:focus,
-.navbar.navbar-search .btn:focus,
-a:not(.btn):focus {
-  outline-color: var(--primary) !important;
-}
-a:not(.btn):focus {
-  border-radius: 2px;
-  box-shadow: 0 0 0 0.125rem white;
-  outline-offset: 0.125rem;
-}
 
 // NAVBAR
 
