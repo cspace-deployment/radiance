@@ -81,16 +81,28 @@ article .documentHeader {
 
 // FOOTER
 
-.site_footer a {
-  color: gray;
-  padding: 5px;
-}
-
-.site_footer {
+.site-footer {
   background: transparent;
   color: gray;
   margin: auto;
-  padding: 5% 10% 15% 10%;
+  padding: 100px 10% 40px;
+}
+.site-footer p {
+  line-height: 1.2;
+}
+.site-footer ul li {
+  max-width: 12em;
+  padding: 4px 20px 16px;
+}
+.site-footer ul li a {
+  color: gray;
+}
+.site-footer .footer-logo {
+  object-fit: cover;
+  width: 150px;
+}
+.site-footer .social a i {
+  font-size: 1rem;
 }
 
 // NAVBAR and BG
@@ -121,7 +133,7 @@ article .documentHeader {
   a[href]:after {
     content: none;
   }
-  .site_footer {
+  .site-footer {
     display: none;
   }
 }

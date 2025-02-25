@@ -1,21 +1,30 @@
 // FOOTER
 
-.site_footer a {
+.site-footer {
+  background-color: #def2fc;
   color: black;
-  // padding: 5px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.25em;
+  font-weight: 100;
+  padding: 1em 1em 1em;
+}
+.site-footer a {
+  color: black;
   font-weight: bold;
   font-size: 1em;
 }
-
-.site_footer {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 1.25em;
-  background-color: #def2fc;
-  color: black;
-  padding: 1em 1em 1em;
-  font-weight: 100;
+.site-footer p {
+  line-height: 1.2;
 }
-
+.site-footer ul li {
+  max-width: 12em;
+  padding: 4px 20px 16px;
+}
+.site-footer .footer-logo {
+  max-width: 150px;
+  object-fit: cover;
+  width: 100%;
+}
 .site-footer-text {
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
   font-size: 1em;
@@ -23,12 +32,6 @@
   padding: 1em 0 1em 1em;
   font-weight: normal;
   word-wrap: break-word;
-}
-
-ul.footer {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
 // NAVBAR
