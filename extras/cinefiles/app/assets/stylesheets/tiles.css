@@ -1,160 +1,190 @@
 article section {
-    margin-bottom: 4em
+  margin-bottom: 4em;
 }
 
 article header {
-    border-bottom: 1px solid #dbdde0;
-    margin-bottom: 1.5em;
-    overflow: auto
+  border-bottom: 1px solid #dbdde0;
+  margin-bottom: 1.5em;
+  overflow: auto;
 }
 
 @media only screen and (min-width: 480px) {
-    .title {
-        margin: 0 0 5px 0
-    }
+  .title {
+    margin: 0 0 5px 0;
+  }
 
-    .container-figure {
-        text-align: center
-    }
+  .container-figure {
+    text-align: center;
+  }
 }
 
 @media only screen and (min-width: 768px) {
-    .title {
-        float: left;
-        margin: 0 0 5px 0;
-        width: 150px
-    }
+  .title {
+    float: left;
+    margin: 0 0 5px 0;
+    width: 150px;
+  }
 
-    article {
-        float: left;
-        min-height: 400px;
-        width: 100%
-    }
+  article {
+    float: left;
+    min-height: 400px;
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 1140px) {
-    .wrapper {
-        width: 1026px;
-        margin: 0 auto
-    }
+  .wrapper {
+    margin: 0 auto;
+    width: 1026px;
+  }
 
-    .footer-container .footer-column {
-        float: left;
-        width: 25%
-    }
+  .footer-container .footer-column {
+    float: left;
+    width: 25%;
+  }
 }
 
 @media print {
-    * {
-        background: transparent !important;
-        color: #000 !important;
-        box-shadow: none !important;
-        text-shadow: none !important
-    }
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    text-shadow: none !important;
+  }
 }
 
 section.showcase .isotope-item {
-    box-sizing: border-box;
-    float: left;
-    height: 360px;
-    margin: 0 15px 15px 0;
-    position: relative;
-    width: 300px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-perspective: 1000px;
+  -ms-perspective: 1000px;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  box-sizing: border-box;
+  float: left;
+  font-size: 0.875rem;
+  height: 22.5rem;
+  margin: 0 15px 15px 0;
+  overflow: hidden;
+  position: relative;
+  width: 18.75rem;
+  z-index: 1;
 }
 
 section.showcase .isotope-item p {
-    padding: 0 15px
+  padding: 0 15px;
 }
 
 section.showcase .isotope-item img {
-    width: 100%
-}
-
-section.showcase .isotope-item {
-    -webkit-perspective: 1000px;
-    -moz-perspective: 1000px;
-    -ms-perspective: 1000px;
-    perspective: 1000px
+  width: 100%;
 }
 
 .isotope-item:hover .flipper, .isotope-item.hover .flipper {
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-    filter: FlipH;
-    -ms-filter: "FlipH"
+  -moz-filter: "FlipH";
+  -moz-transform: rotateY(180deg);
+  -ms-filter: "FlipH";
+  -ms-transform: rotateY(180deg);
+  -webkit-filter: "FlipH";
+  -webkit-transform: rotateY(180deg);
+  filter: FlipH;
+  transform: rotateY(180deg);
 }
 
 .isotope-item .flipper {
-    -webkit-transition: 0.6s;
-    -webkit-transform-style: preserve-3d;
-    -ms-transition: 0.6s;
-    -moz-transition: 0.6s;
-    -moz-transform: perspective(1000px);
-    -moz-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    position: relative
+  -moz-transform: perspective(1000px);
+  -moz-transform-style: preserve-3d;
+  -moz-transition: 0.6s;
+  -ms-transform: perspective(1000px);
+  -ms-transform-style: preserve-3d;
+  -ms-transition: 0.6s;
+  -webkit-transform: perspective(1000px);
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.6s;
+  position: relative;
+  transform: perspective(1000px);
+  transition: 0.6s;
+  transform-style: preserve-3d;
 }
 
-.isotope-item .front, .isotope-item .back {
-    background-color: #eee;
-    border: 1px solid #e6e6e6;
-    height: 360px;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transition: 0.6s;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform: rotateY(0deg);
-    -moz-transition: 0.6s;
-    -moz-transform-style: preserve-3d;
-    -moz-transform: rotateY(0deg);
-    -o-transition: 0.6s;
-    -o-transform-style: preserve-3d;
-    -o-transform: rotateY(0deg);
-    -ms-transition: 0.6s;
-    -ms-transform-style: preserve-3d;
-    -ms-transform: rotateY(0deg);
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    transform: rotateY(0deg);
-    position: absolute;
-    top: 0;
-    left: 0
+.isotope-item .flipper .flipper-text {
+  margin-left: 20px;
+  position: absolute;
+  text-align: left;
+  top: 20.4rem;
+  z-index: 4;
+}
+
+.isotope-item .flipper .flipper-text-bg {
+  background-color: whitesmoke;
+  content: "";
+  height: 100px;
+  opacity: .93;
+  position: absolute;
+  top: 19.4rem;
+  width: 18.75rem;
+  z-index: 3;
 }
 
 .isotope-item .front {
-    -webkit-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    z-index: 2
+  -ms-transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  text-align: center;
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.isotope-item .front > img {
+  z-index: 2;
+}
+
+.isotope-item .front, .isotope-item .back {
+  -moz-backface-visibility: hidden;
+  -moz-transform: rotateY(0deg);
+  -moz-transform-style: preserve-3d;
+  -moz-transition: 0.6s;
+  -ms-backface-visibility: hidden;
+  -ms-transform: rotateY(0deg);
+  -ms-transform-style: preserve-3d;
+  -ms-transition: 0.6s;
+  -o-transform: rotateY(0deg);
+  -o-transform-style: preserve-3d;
+  -o-transition: 0.6s;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.6s;
+  backface-visibility: hidden;
+  background-color: #eee;
+  border: 1px solid #e6e6e6;
+  height: 22.5rem;
+  left: 0;
+  position: absolute;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  transition: 0.6s;
+  top: 0;
 }
 
 .isotope-item .back {
-    -webkit-transform: rotateY(-180deg);
-    -moz-transform: rotateY(-180deg);
-    -o-transform: rotateY(-180deg);
-    -ms-transform: rotateY(-180deg);
-    transform: rotateY(-180deg);
-    padding: 15px 15px
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  padding: 15px 15px;
+  transform: rotateY(-180deg);
 }
 
 .isotope-item .back .desc {
-    font-size: 13px
+  font-size: 0.813rem;
 }
 
 .isotope-item .back p {
-    position: relative
+  position: relative;
 }
 
 section.showcase {
-    box-sizing: border-box;
-    padding-left: 0px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 6px;
 }
