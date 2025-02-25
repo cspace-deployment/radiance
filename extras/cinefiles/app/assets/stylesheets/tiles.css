@@ -71,12 +71,17 @@ section.showcase .isotope-item {
   z-index: 1;
 }
 
-section.showcase .isotope-item p {
-  padding: 0 15px;
+section.showcase .isotope-item .font-italic cite {
+  font-style: normal;
+  font-weight: bold;
 }
 
 section.showcase .isotope-item img {
   width: 100%;
+}
+
+section.showcase .isotope-item p {
+  padding: 0 15px;
 }
 
 .isotope-item:hover .flipper, .isotope-item.hover .flipper {
