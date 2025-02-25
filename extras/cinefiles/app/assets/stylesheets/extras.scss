@@ -28,42 +28,6 @@ h1, .h1 {
   max-width: 240px;
 }
 
-.isotope-item {
-  overflow: hidden;
-  z-index:1;
-  text-align: justify;
-  font-size: 14px;
-}
-
-.flipper-text {
-  z-index: 4;
-  position: absolute;
-  top: 315px;
-  text-align: left;
-  margin-left: 20px;
-}
-
-.flipper-text-bg {
-  z-index: 3;
-  content: "";
-  position: absolute;
-  top: 300px;
-  height: 100px;
-  width: 300px;
-  opacity: .93;
-  background-color: whitesmoke;
-}
-
-.front {
-  z-index:1;
-  text-align: center;
-  //position: relative;
-}
-
-.front > img {
-  z-index: 2;
-}
-
 .login-container {
   max-width: 400px;
   margin-left: auto;
@@ -79,7 +43,6 @@ h1, .h1 {
 .signup-container {
   margin-left: 40px;
   margin-right: 40px;
-  text-align: justify;
 }
 
 .signup-form {
@@ -229,7 +192,7 @@ div {
 .panel-title {
   font-family: MontserratLight, Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 0.875rem;
   padding-right: 12px;
 }
 
@@ -238,13 +201,13 @@ div {
 }
 
 h4.facets-heading {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .search_field {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 h3.index_title > a {
@@ -271,7 +234,7 @@ $global-alert-color: rgb(89, 184, 227);
   color: black;
 }
 
-.facet_limit-active{
+.facet_limit-active {
   color: #212121;
   background-color: #fab946;
   border-color: #e6fdfe;
