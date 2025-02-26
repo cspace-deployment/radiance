@@ -130,6 +130,9 @@ a:not(.btn):focus {
 .navbar-search .search-query-form .input-group-append {
   height: calc(1.5em + 0.75rem + 2px);
 }
+.page-sidebar {
+  min-width: 14em;
+}
 .pagination {
   min-width: 12em;
   padding-bottom: 0.25em;
