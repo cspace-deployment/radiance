@@ -21,53 +21,92 @@ a:not(.btn):focus {
   box-shadow: 0 0 0 0.125rem white;
   outline-offset: 0.125rem;
 }
-.document .index-document-functions {
+.btn svg {
+  height: 1.5em;
+  width: 1.5em;
+}
+.document .index-document-functions,
+.page-sidebar .show-tools {
   min-width: 9em;
 }
-.documents-list .document .document-thumbnail {
-  margin-bottom: 48px;
-  padding-left: 48px;
-}
-.documents-list .index-metadata-container {
-  clear: right;
-}
-.documents-masonry .document .caption-area {
-  clip: rect(0, 0, 0, 0);
-  display: block;
-  height: 1px;
-  margin: -1px;
-  width: 1px;
-}
-.documents-masonry .document:hover .caption-area,
-.documents-masonry .document:focus-within .caption-area {
-  clip: revert-layer;
-  height: revert-layer;
-  margin: revert-layer;
-  width: revert-layer;
-}
-.documents-slideshow .grid .document .thumbnail {
-  min-height: 6.25em;
-  min-width: 6.25em;
-  width: 6.25em;
-}
-.documents-slideshow .grid .document .thumbnail img {
-  height: 6.25em;
-  width: 6.25em;
-}
-.documents-slideshow .slideshow-modal .btn,
-.documents-slideshow .slideshow-modal .close {
-  color: #FFFFFF;
-  opacity: 0.7;
-  svg {
-    fill: #FFFFFF;
-  }
-  &:hover:not(:disabled):not(.disabled),
-  &:focus:not(:disabled):not(.disabled) {
-    opacity: 1;
+.documents-gallery .document {
+  min-width: 16em;
+  .document-metadata {
+    margin-left: revert;
   }
 }
-.documents-slideshow .slideshow-modal .slideshow-presenter .item .frame>a {
-  display: inline-block;
+.documents-gallery .document .documentHeader,
+.documents-list .document .documentHeader {
+  align-items: baseline;
+}
+.documents-gallery .document .index-document-functions,
+.documents-list .document .index-document-functions {
+  margin-bottom: 0.5rem;
+}
+.documents-list .document {
+  .document-thumbnail {
+    float: unset;
+    margin-bottom: 48px;
+    padding-left: 0;
+  }
+  .document-metadata {
+    clear: right;
+    min-width: 24em;
+    width: 100%;
+  }
+  .document-title-heading {
+    align-content: center;
+  }
+}
+.documents-list, .show-document {
+  .document .document-metadata dt {
+    min-width: 6em;
+  }
+}
+.documents-masonry .document {
+  .caption-area {
+    clip: rect(0, 0, 0, 0);
+    display: block;
+    height: 1px;
+    margin: -1px;
+    width: 1px;
+    z-index: 1;
+  }
+  &:hover .caption-area, &:focus-within .caption-area {
+    clip: revert-layer;
+    height: revert-layer;
+    margin: revert-layer;
+    width: revert-layer;
+  }
+}
+.documents-slideshow {
+  .grid {
+    .document .thumbnail {
+      min-height: 6.25em;
+      min-width: 6.25em;
+      width: 6.25em;
+      img {
+        height: 6.25em;
+        width: 6.25em;
+      }
+    }
+  }
+  .slideshow-modal {
+    .btn, .close {
+      color: #FFFFFF;
+      opacity: 0.7;
+      svg {
+        fill: #FFFFFF;
+      }
+      &:hover:not(:disabled):not(.disabled),
+      &:focus:not(:disabled):not(.disabled) {
+        opacity: 1;
+      }
+    }
+    .slideshow-presenter .item .frame>  a {
+      display: inline-block;
+    }
+  }
 }
 .facet-values li .selected {
   color: #1d2c78 !important;
@@ -84,6 +123,13 @@ a:not(.btn):focus {
 .navbar-light .navbar-nav .nav-link.disabled {
   color: rgba(0,0,0,0.6);
 }
+.navbar-search .search-query-form {
+  margin: 0.25rem 0;
+  padding-right: 0;
+}
+.navbar-search .search-query-form .input-group-append {
+  height: calc(1.5em + 0.75rem + 2px);
+}
 .pagination {
   min-width: 12em;
   padding-bottom: 0.25em;
@@ -96,8 +142,6 @@ a:not(.btn):focus {
 }
 .search-widgets .view-type .blacklight-icons svg {
   display: inline-block;
-  height: 1.5em;
-  width: 1.5em;
 }
 .site-footer a:hover {
   text-decoration: underline;
@@ -138,23 +182,27 @@ a:not(.btn):focus {
     display: none;
   }
 }
-
-@media (min-width: 1200px) {
-  .site-footer .container {
-    max-width: 1140px
-  }
-}
-@media (min-width: 768px) {
-  .documents-list .index-metadata-container {
-    clear: unset;
-  }
-}
 @media (min-width: 576px) {
   .site-footer {
     padding: 7% 0
   }
   .site-footer .container {
     max-width: 100%
+  }
+}
+@media (min-width: 768px) {
+  .documents-list .document .document-thumbnail {
+    float: right;
+    padding-left: 48px;
+  }
+  .documents-list .document-metadata {
+    clear: unset;
+    width: revert;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 71.25em;
   }
 }
 
@@ -179,6 +227,15 @@ a:hover .color_overlay {
 
 form .file-label:hover .choose {
   color: #2ADBA7
+}
+
+label.toggle-bookmark {
+  align-items: center;
+  display: flex;
+  margin: 0.25rem 0;
+  input {
+    margin-right: 0.5rem;
+  }
 }
 
 p a:hover {
