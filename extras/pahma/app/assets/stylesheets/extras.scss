@@ -1,13 +1,26 @@
 //
 
 .btn-primary {
-  color: #fff;
-  background-color: #22348D;
   border-color: #1d2c78;
 }
 
 // NAVBAR
 
+.navbar.topbar .home-link {
+  display: inline-block;
+  text-decoration: none;
+}
+.navbar.topbar .home-link .header-logo {
+  height: 90px;
+}
+.navbar.topbar .home-link span {
+  color: black;
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+.navbar.topbar .home-link span:hover {
+  color: var(--primary);
+}
 .navbar-inverse .navbar-nav > li > a {
   color: black;
 }
@@ -30,4 +43,89 @@
   color: #212121;
   background-color: #fab946;
   border-color: #e6fdfe;
+}
+.section-heading {
+  font-size: 1.25rem;
+}
+.site-footer {
+  color: white;
+  background: #231F20;
+  min-width: 12.5rem;
+  padding: 24px;
+}
+.site-footer a {
+  color: white;
+}
+.site-footer a:hover {
+  color: #1BDBA6;
+  text-decoration: underline;
+}
+.site-footer address {
+  line-height: 1.56;
+}
+.site-footer h3 {
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+.site-footer .berkeley-logo {
+  margin-top: 10px;
+  max-width: 180px;
+}
+.site-footer .copyright a {
+  text-decoration: underline;
+}
+.site-footer .footer-logo {
+  margin-bottom: 40px;
+}
+.site-footer .menu-item {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 2px 0 18px 0;
+}
+.site-footer .property-of {
+  font-size: 0.875rem;
+}
+.site-footer .telephone i {
+  font-size: 2rem;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+.site-footer .row > div {
+  min-width: 12.5rem;
+  padding-top: 60px;
+}
+.site-footer .social {
+  padding-bottom: 50px;
+}
+.site-footer .social li {
+  display: inline-block;
+}
+.site-footer .social li+li {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+.site-footer .social a {
+  font-size: 1.5rem;
+}
+.splash.container .cell {
+  max-width: 14.375em;
+  min-width: 14.375em;
+  padding: 12px;
+  vertical-align: top;
+}
+.splash.container .cell .thumb {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 2px;
+  background-position: center center;
+  background-size: cover;
+}
+.splash.container .cell .title {
+  float: right;
+  font-size: 85%;
+  font-weight: 700;
+  margin: 0 2px 0 0;
+  white-space: nowrap;
+  width: 100%;
 }

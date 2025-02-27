@@ -1,12 +1,13 @@
 <nav class="navbar navbar-expand-md navbar-light topbar" role="navigation">
-    <div class="justify-content-md-start">
-      <h4>
-        <a href="/" alt="bampfa collection portal homepage" ><img wdith="80%" src="/header-logo-bampfa.png" alt="bampfa wordmark logo"></a>
-      </h4>
-    </div>
+  <div class="container-fluid">
+    <a href="/" alt="bampfa collection portal homepage"><img wdith="80%" src="/header-logo-bampfa.png" alt="bampfa wordmark logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#user-util-collapse" data-bs-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
       <%= render 'shared/user_util_links' %>
     </div>
+  </div>
 </nav>
 
 <%= content_tag :div, class: 'navbar navbar-search bg-light mb-1', role: 'navigation', aria: { label: t('blacklight.search.header') } do %>

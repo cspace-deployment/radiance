@@ -1,12 +1,13 @@
 <nav class="navbar navbar-expand-md navbar-light topbar" role="navigation">
-  <div class="<%= container_classes %>">
-    <div class="justify-content-md-start">
-      <h4>
-        <a href="/" alt="Hearst Museum collection portal homepage"><img style="height:90px;" src="/header-logo-pahma.png" alt="Hearst Museum logo"></a>
-        <a style="white-space: nowrap; color: black; text-decoration: none;" href="/">Hearst Museum Portal</a>
-      </h4>
-    </div>
-    <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
+  <div class="<%= container_classes %> pl-0">
+    <a class="home-link" href="/" alt="Hearst Museum collection portal homepage">
+      <img class="header-logo" src="/header-logo-pahma.png" alt="Hearst Museum logo">
+      <span href="/">Hearst Museum Portal</span>
+    </a>
+    <button class="navbar-toggler ml-3" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#user-util-collapse" data-bs-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end pl-3 pl-md-0" id="user-util-collapse">
       <%= render 'shared/user_util_links' %>
     </div>
   </div>
@@ -19,8 +20,8 @@
           advanced_search_url: search_action_url(action: 'advanced_search'),
           params: search_state.params_for_search.except(:qt),
           autocomplete_path: search_action_path(action: :suggest))) %>
-      <%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path(search_state.to_h), class: 'btn btn-light'%>
-      <%= link_to 'Give', 'https://hearstmuseum.berkeley.edu/give/', class: 'btn btn-primary'%>
+      <%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path(search_state.to_h), class: 'btn btn-light my-1'%>
+      <%= link_to 'Give', 'https://hearstmuseum.berkeley.edu/give/', class: 'btn btn-primary my-1'%>
     </div>
   </div>
 <% end %>

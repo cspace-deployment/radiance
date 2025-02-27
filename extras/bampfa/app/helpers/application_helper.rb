@@ -56,7 +56,7 @@ module ApplicationHelper
 						image_tag = content_tag(:span,'Image not available',class: 'no-preview-image')
 					end
 					image_tag +
-					content_tag(:h4) do
+					content_tag(:div) do
 						artist_tag +
 						content_tag(:span, title, class: "gallery-caption-title") +
 						content_tag(:span, "("+datemade+")", class: "gallery-caption-date")
@@ -109,7 +109,7 @@ module ApplicationHelper
           src: render_csid(doc[:blob_ss][0], 'Medium'),
           class: 'thumbclass'),
 					href: "/catalog/#{doc[:id]}") +
-				content_tag(:h4) do
+				content_tag(:div) do
 					content_tag(:span, title, class: "gallery-caption-title") +
 					content_tag(:span, "("+datemade+")", class: "gallery-caption-date") +
 					artist_tag
@@ -154,11 +154,14 @@ module ApplicationHelper
   def render_doc_link options = {}
     # return a link to a search for documents for a film
     content_tag(:div) do
+      film_title = options[:document][:film_title_ss].first
+      film_year = if options[:document][:film_year_ss] then options[:document][:film_year_ss].first else '' end
       options[:value].collect do |film_id|
-        content_tag(:a, 'Click for documents related to this film',
+        content_tag(:a, 'Documents related to this film',
           href: "/?q=#{film_id}&search_field=film_id_ss",
           style: 'padding: 3px;',
-          class: 'hrefclass')
+          class: 'hrefclass',
+          'aria-label': "Documents related to the film \"#{film_title}\", #{film_year}")
       end.join.html_safe
     end
   end

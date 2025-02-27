@@ -1,64 +1,65 @@
 <script src="https://use.fontawesome.com/4c5d5212e2.js"></script>
-<footer class="site_footer container-fluid">
-  <!-- <div class="container-fluid"> -->
-    <div class="row" >
-
-      <div class="col-sm-2 col-xs-4">
+<footer class="site-footer container-fluid">
+  <div class="row" >
+    <ul class="w-100 d-md-flex flex-wrap justify-content-between" role="navigation">
+      <li>
         <a href="https://bampfa.org/cinefiles/">Home</a>
-      </div>
-
-      <div class="col-sm-2 col-xs-4" >
+      </li>
+      <li>
         <a href="https://bampfa.org/cinefiles/about/">About Us</a>
-      </div>
-
-      <div class="col-sm-2 col-xs-4">
+      </li>
+      <li>
         <a href="https://bampfa.org/about/film-library-study-center/">Contact Us</a>
-      </div>
-
-      <div class="col-sm-2 col-xs-4">
+      </li>
+      <li>
         <a href="https://bampfa.org/cinefiles/about/comments/">Comments</a>
-      </div>
-
-      <div class="col-sm-2 col-xs-4">
+      </li>
+      <li>
         <a href="https://bampfa.org/cinefiles/about/help/">Help</a>
-       </div>
-
-      <div class="col-sm-2 col-xs-4">
-        <a href="https://www.facebook.com/bampfa/" alt="BAMPFA facebook profile"><i class="fa fa-facebook" aria-hidden="false" role="img" aria-label="Facebook Icon"></i></a>
-      <!-- </div> -->
-      <!-- <div class="col-sm-1"> -->
-        <a href="https://twitter.com/bampfa/" alt="BAMPFA twitter profile"><i class="fa fa-twitter" aria-hidden="false" role="img" aria-label="Twitter Icon"></i></a>
-      <!-- </div> -->
-      <!-- <div class="col-xs-1"> -->
-        <a href="https://www.instagram.com/bampfa_filmlibrary/" alt="BAMPFA Film Library instagram profile"><i class="fa fa-instagram" aria-hidden="false" role="img" aria-label="Instagram Icon"></i></a>
-      </div>
+       </li>
+      <li class="social">
+        <ul aria-label="social media links" class="d-flex flex-nowrap justify-content-between">
+          <li class="pl-0">
+            <a href="https://www.facebook.com/bampfa/" alt="BAMPFA facebook profile"><i class="fa fa-facebook" aria-hidden="false" role="img" aria-label="Facebook Icon"></i></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/bampfa/" alt="BAMPFA twitter profile"><i class="fa fa-twitter" aria-hidden="false" role="img" aria-label="Twitter Icon"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/bampfa_filmlibrary/" alt="BAMPFA Film Library instagram profile"><i class="fa fa-instagram" aria-hidden="false" role="img" aria-label="Instagram Icon"></i></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 pb-4">
+      <a href="https://bampfa.org"><img class="footer-logo" src="/header-logo-bampfa.png" alt="bampfa"></a>
     </div>
-    <div class="row">
-      <hr>
+    <div class="col-sm-8">
+      <p>
+        Committed to
+        <a href="https://dac.berkeley.edu/web-accessibility">accessibility,</a>
+        <a href="https://ophd.berkeley.edu/policies-and-procedures/nondiscrimination-policy-statement">nondiscrimination</a>
+        <span aria-hidden="true">&amp;</span><span class="sr-only">and</span>
+        <a href="https://security.berkeley.edu/policy/privacy-statement-uc-berkeley-websites">privacy.</a>
+      </p>
+      <p>CineFiles is made possible with generous support from the Louis B. Mayer Foundation.</p>
+      <p>Past support for this project has been provided by the National Endowment for the Humanities,
+        the Institute of Museum and Library Services, the Packard Humanities Institute,
+        the Library Services and Technology Act, and individual donors.</p>
+      <p>UC Berkeley's
+        <a href="https://rtl.berkeley.edu">Research, Teaching and Learning (RTL)</a>
+        provides technical infrastructure and support for
+        <a href="https://research-it.berkeley.edu/projects/collectionspace">CollectionSpace</a>,
+        and for this website, using <a href="https://projectblacklight.org/">
+          <img src="/blacklight-logo-vectorized.svg" alt="blacklight" class="blacklight-logo">
+        </a>
+      </p>
+      <p>&copy; <%= Time.current.year %> The Regents of the University of California, all rights reserved.</p>
     </div>
-    <div class="row">
-        <div class="col-xs-5 col-sm-4">
-            <a href="https://bampfa.org"><img class="img-responsive" src="/header-logo-bampfa.png" alt="bampfa" style="max-width:150px; object-fit:cover; width:100% "></a>
-        </div>
-        <div class="col-xs-7 col-sm-8">
-            <p style="line-height: 1.2">
-              Committed to
-              <a href="https://dac.berkeley.edu/web-accessibility">accessibility,</a>
-              <a href="https://ophd.berkeley.edu/policies-and-procedures/nondiscrimination-policy-statement">nondiscrimination</a> &amp;
-              <a href="https://security.berkeley.edu/policy/privacy-statement-uc-berkeley-websites">privacy.</a>
-            </p>
-            <p style="line-height: 1.2">CineFiles is made possible with generous support from the Louis B. Mayer Foundation.</p>
-            <p style="line-height: 1.2">Past support for this project has been provided by the National Endowment for the Humanities,
-              the Institute of Museum and Library Services, the Packard Humanities Institute,
-              the Library Services and Technology Act, and individual donors.</p>
-            <p style="line-height: 1.2">UC Berkeley's
-              <a href="https://rtl.berkeley.edu">Research, Teaching and Learning (RTL)</a>
-              provides technical infrastructure and support for
-              <a href="https://research-it.berkeley.edu/projects/collectionspace">CollectionSpace</a>,
-              and for this website, using <a href="https://projectblacklight.org/"><img src="/blacklight-logo-vectorized.svg" alt="bampfa" style="max-width: 100px;"></a>
-            </p>
-            <p>&copy; <%= Time.current.year %> The Regents of the University of California, all rights reserved.</p>
-        </div>
-    </div>
-  <!-- </div> -->
+  </div>
 </footer>
