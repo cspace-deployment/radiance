@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def render_csid csid, derivative
-    "https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/#{csid}/derivatives/#{derivative}/content"
+    "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{csid}/derivatives/#{derivative}/content"
   end
 
   def render_status options = {}
@@ -73,16 +73,44 @@ module ApplicationHelper
     render partial: '/shared/pdfs', locals: { csid: pdf_csid, restricted: restricted }
   end
 
-  def render_media options = {}
+  def render_alt_text(blob_csid, options)
+    prefix  = "Image of Hearst Museum object"
+    if options[:field] == "card_ss"
+      prefix = "Image of documentation associated with Hearst Museum object"
+    end
+    unless options[:document][:objdescr_txt].nil?
+      brief_description = options[:document][:objdescr_txt][0]
+    else
+      brief_description = 'no description available'
+    end
+    
+    unless options[:document][:objname_txt].nil?
+      object_name = options[:document][:objname_txt][0]
+    else
+      object_name = 'no object name available'
+    end
+    
+    unless options[:document][:objmusno_txt].nil?
+      object_number = options[:document][:objmusno_txt][0]
+    else
+      object_number = 'no object accession number available'
+    end
+    
+    alt = "#{prefix} #{object_number}, #{object_name}, described as #{brief_description}."
+ 
+  end 
+
+  def render_media(options)
     # return a list of cards or images
     content_tag(:div) do
       options[:value].collect do |blob_csid|
         content_tag(:a, content_tag(:img, '',
           src: render_csid(blob_csid, 'Medium'),
-          alt: '',
+          # alt: "#{options}",
+          alt: render_alt_text(blob_csid,options),
           class: 'thumbclass'),
-          href: "https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/#{blob_csid}/derivatives/OriginalJpeg/content",
-          # href: "https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/#{blob_csid}/content",
+          href: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{blob_csid}/derivatives/OriginalJpeg/content",
+          # href: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{blob_csid}/content",
           target: 'original',
           style: 'padding: 3px;',
           class: 'hrefclass')
@@ -90,35 +118,12 @@ module ApplicationHelper
     end
   end
 
-  def render_alt_text(blob_csid, options)
-    alt = ""
-    total_pages = options[:document][:blob_ss].length
-    page_number = "#{options[:document][:blob_ss].find_index(blob_csid)}".to_i
-    if page_number.to_s.instance_of?(String)
-      page_number = page_number + 1
-    else
-      page_number = 'unkown'
-    end
-    unless total_pages.nil? || total_pages == 0
-      nil
-    else
-      total_pages = "unkown"
-    end
-    unless options[:document][:doctitle_ss].nil?
-      document_title = options[:document][:doctitle_ss][0]
-    else
-      document_title = 'unknown document title'
-    end
-    alt = "Page #{page_number} of #{total_pages} from the document titled, #{document_title}"
-  end  
-
   def render_linkless_media options = {}
     # return a list of cards or images
     content_tag(:div) do
       options[:value].collect do |blob_csid|
         content_tag(:a, content_tag(:img, '',
             src: render_csid(blob_csid, 'Medium'),
-            alt: render_alt_text(blob_csid,options),
             class: 'thumbclass'),
           style: 'padding: 3px;')
       end.join.html_safe
@@ -142,14 +147,15 @@ module ApplicationHelper
     end
   end
 
-  # use imageserver and blob csid to serve audio
+  # use authenticating proxy and blob csid to serve audio
+  # TODO: hostname will need to change if a museum besides pahma wants to use this feature
   def render_audio_csid options = {}
     # render audio player
     content_tag(:div) do
       options[:value].collect do |audio_csid|
         content_tag(:audio,
           content_tag(:source, "I'm sorry; your browser doesn't support HTML5 audio in MPEG format.",
-            src: "https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/#{audio_csid}/content",
+            src: "https://portal.hearstmuseum.berkeley.edu/cspace-services/blobs/#{audio_csid}/content",
             id: 'audio_csid',
             type: 'audio/mpeg'),
           controls: 'controls',
@@ -158,14 +164,15 @@ module ApplicationHelper
     end
   end
 
-  # use imageserver and blob csid to serve video
+  # use authenticating proxy and blob csid to serve video
+  # TODO: hostname will need to change if a museum besides pahma wants to use this feature
   def render_video_csid options = {}
     # render video player
     content_tag(:div) do
       options[:value].collect do |video_csid|
         content_tag(:video,
           content_tag(:source, "I'm sorry; your browser doesn't support HTML5 video in MP4 with H.264.",
-            src: "https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/#{video_csid}/content",
+            src: "https://portal.hearstmuseum.berkeley.edu/cspace-services/blobs/#{video_csid}/content",
             id: 'video_csid',
             type: 'video/mp4'),
           controls: 'controls',
@@ -183,7 +190,7 @@ module ApplicationHelper
         l2 = audio_md5[2..3]
         content_tag(:audio,
           content_tag(:source, "I'm sorry; your browser doesn't support HTML5 audio in MPEG format.",
-            src: "https://cspace-prod-02.ist.berkeley.edu/cinefiles_nuxeo/data/#{l1}/#{l2}/#{audio_md5}",
+            src: "https://cspace-prod-02.ist.berkeley.edu/pahma_nuxeo/data/#{l1}/#{l2}/#{audio_md5}",
             id: 'audio_md5',
             type: 'audio/mpeg'),
           controls: 'controls',
@@ -201,7 +208,7 @@ module ApplicationHelper
         l2 = video_md5[2..3]
         content_tag(:video,
           content_tag(:source, "I'm sorry; your browser doesn't support HTML5 video in MP4 with H.264.",
-            src: "https://cspace-prod-02.ist.berkeley.edu/cinefiles_nuxeo/data/#{l1}/#{l2}/#{video_md5}",
+            src: "https://cspace-prod-02.ist.berkeley.edu/pahma_nuxeo/data/#{l1}/#{l2}/#{video_md5}",
             id: 'video_md5',
             type: 'video/mp4'),
           controls: 'controls',
@@ -210,7 +217,6 @@ module ApplicationHelper
     end
   end
 
-
   def render_x3d_csid options = {}
     # render x3d object
     content_tag(:div) do
@@ -218,7 +224,7 @@ module ApplicationHelper
         content_tag(:x3d,
           content_tag(:scene,
             content_tag(:inline, '',
-            url: "https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/#{x3d_csid}/content",
+            url: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{x3d_csid}/content",
             id: 'x3d',
             type: 'model/x3d+xml')),
         style: 'margin-bottom: 6px; height: 660px; width: 660px;')
@@ -236,7 +242,7 @@ module ApplicationHelper
         content_tag(:x3d,
           content_tag(:scene,
             content_tag(:inline, '',
-            url: "https://cspace-prod-02.ist.berkeley.edu/cinefiles_nuxeo/data/#{l1}/#{l2}/#{x3d_md5}",
+            url: "https://cspace-prod-02.ist.berkeley.edu/pahma_nuxeo/data/#{l1}/#{l2}/#{x3d_md5}",
             class: 'x3d',
             type: 'model/x3d+xml')),
           style: 'margin-bottom: 6px; height: 660px; width: 660px;')
