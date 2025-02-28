@@ -4,9 +4,6 @@ en:
     advanced_search:
       op:
         label: 'search operator'
-    advanced_search:
-      op:
-        label: 'search operator'
     application_name: '#TENANT#'
     search:
       form:
