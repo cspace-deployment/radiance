@@ -19,6 +19,11 @@ en:
           other: '<strong>%{start_num}</strong> <span aria-hidden="true">-</span><span class="sr-only">to</span> <strong>%{end_num}</strong> of <strong>%{total_num}</strong>'
         single_item_found: "<strong>1</strong> %{entry_name} found"
       start_over: 'Reset'
+      view:
+        gallery: "Gallery view"
+        list: "List view"
+        slideshow: "Slideshow view"
+        masonry: "Masonry view"
   views:
     pagination_compact:
       next: 'Next <span class="sr-only">page</span><span aria-hidden="true">&raquo;</span>'
