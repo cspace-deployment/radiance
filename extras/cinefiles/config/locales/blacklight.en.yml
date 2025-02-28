@@ -6,10 +6,20 @@ en:
         label: 'search operator'
     application_name: 'CineFiles'
     search:
+      facets:
+        title: 'Filter your search'
       form:
         search:
           label: 'search for'
           placeholder: 'Enter a few keywords here to get started...'
       start_over: 'Reset'
-      facets:
-          title: 'Filter your search'
+      pagination_info:
+        no_items_found: No %{entry_name} found
+        pages:
+          one: '<strong>%{start_num}</strong> <span aria-hidden="true">-</span><span class="sr-only">to</span> <strong>%{end_num}</strong> of <strong>%{total_num}</strong>'
+          other: '<strong>%{start_num}</strong> <span aria-hidden="true">-</span><span class="sr-only">to</span> <strong>%{end_num}</strong> of <strong>%{total_num}</strong>'
+        single_item_found: "<strong>1</strong> %{entry_name} found"
+  views:
+    pagination_compact:
+      next: 'Next <span class="sr-only">page</span><span aria-hidden="true">&raquo;</span>'
+      previous: '<span aria-hidden="true">&laquo;</span> Previous <span class="sr-only">page</span>'
