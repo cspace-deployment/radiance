@@ -112,20 +112,24 @@
   min-width: 14.375em;
   padding: 12px;
   vertical-align: top;
-}
-.splash.container .cell .thumb {
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-  margin: 2px;
-  background-position: center center;
-  background-size: cover;
-}
-.splash.container .cell .title {
-  float: right;
-  font-size: 85%;
-  font-weight: 700;
-  margin: 0 2px 0 0;
-  white-space: nowrap;
-  width: 100%;
+  .thumb {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin: 2px;
+    background-position: center center;
+    background-size: cover;
+  }
+  .title {
+    float: right;
+    font-size: 85%;
+    font-weight: 700;
+    margin: 0;
+    padding: 0 2px;
+    white-space: nowrap;
+    width: 100%;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
