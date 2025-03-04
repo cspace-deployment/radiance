@@ -41,7 +41,7 @@ echo ; echo "deploying `git describe --always`" ; echo
 # old way: gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
 gem install bundler --conservative
 # bundle config set deployment 'false'
-bundle update
+bundle install
 
 # install ucb customizations
 cd ..
