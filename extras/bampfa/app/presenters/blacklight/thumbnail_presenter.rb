@@ -2,7 +2,6 @@
 
 module Blacklight
   class ThumbnailPresenter
-    include ApplicationHelper
     attr_reader :document, :view_context, :view_config
 
     # @param [SolrDocument] document
@@ -47,30 +46,12 @@ module Blacklight
 
     delegate :thumbnail_field, :thumbnail_method, :default_thumbnail, to: :view_config
 
-    def render_thumbnail_alt_text(thumbnail_value_from_document,document)
-      prefix  = "Image of Hearst Museum object"
-      if document["card_ss"].include?(thumbnail_value_from_document)
-        prefix = "Image of documentation associated with Hearst Museum object"
-      end
-      unless document["objdescr_txt"].nil?
-        brief_description = "described as #{document["objdescr_txt"][0]}"
-      else
-        brief_description = 'no description available'
-      end
-
-      unless document["objname_txt"].nil?
-        object_name = document["objname_txt"][0]
-      else
-        object_name = 'no object name available'
-      end
-
-      unless document["objmusno_txt"].nil?
-        object_number = document["objmusno_txt"][0]
-      else
-        object_number = 'no object accession number available'
-      end
-
-      "#{prefix}, #{object_number}, #{object_name}, #{brief_description}.".html_safe
+    def render_thumbnail_alt_text()
+      prefix = "Image of #{document['itemclass_s'] || 'BAMPFA object'}"
+      title = if document['title_s'] then " titled #{document['title_s']}" else ', no title available' end
+      materials = document['materials_s'] || 'of unknown materials'
+      object_number = document['idnumber_s'] || 'no object accession number available'
+      "#{prefix}#{title}, #{materials}, #{object_number}.".html_safe
     end
 
     # @param [Hash] image_options to pass to the image tag
@@ -78,9 +59,8 @@ module Blacklight
       value = if thumbnail_method
                 view_context.send(thumbnail_method, document, image_options)
               elsif thumbnail_field
-                alt = render_thumbnail_alt_text(thumbnail_value_from_document,document)
-                image_options["alt"] = "#{alt}"
-                image_url = 'https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/' + thumbnail_value_from_document + '/derivatives/Medium/content'
+                image_options['alt'] = render_thumbnail_alt_text
+                image_url = 'https://webapps.cspace.berkeley.edu/bampfa/imageserver/blobs/' + thumbnail_value_from_document + '/derivatives/Medium/content'
                 # image_options[:width] = '200px'
                 view_context.image_tag image_url, image_options if image_url.present?
               end
