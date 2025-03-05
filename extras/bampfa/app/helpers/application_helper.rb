@@ -106,11 +106,15 @@ module ApplicationHelper
         else
           datemade = "[No date given]"
         end
-        content_tag(:a, content_tag(:img, '',
-          src: render_csid(doc[:blob_ss][0], 'Medium'),
-          alt: render_alt_text(doc[:blob_ss][0], doc),
-          class: 'thumbclass'),
-          href: "/catalog/#{doc[:id]}") +
+        content_tag(:a,
+          content_tag(:img, '',
+            src: render_csid(doc[:blob_ss][0], 'Medium'),
+            alt: render_alt_text(doc[:blob_ss][0], doc),
+            class: 'thumbclass'
+          ),
+          href: "/catalog/#{doc[:id]}",
+          class: 'd-inline-block'
+        ) +
         content_tag(:div) do
           content_tag(:span, title, class: "gallery-caption-title") +
           content_tag(:span, "("+datemade+")", class: "gallery-caption-date") +
@@ -200,22 +204,24 @@ module ApplicationHelper
     # return a list of cards or images
     content_tag(:div) do
       options[:value].collect do |blob_csid|
-        content_tag(:a, content_tag(:img, '',
-          src: render_csid(blob_csid, 'Medium'),
-          alt: render_alt_text(blob_csid, options),
-          class: 'thumbclass'),
+        content_tag(:a,
+          content_tag(:img, '',
+            src: render_csid(blob_csid, 'Medium'),
+            alt: render_alt_text(blob_csid, options),
+            class: 'thumbclass'
+          ),
           href: "https://webapps.cspace.berkeley.edu/bampfa/imageserver/blobs/#{blob_csid}/derivatives/OriginalJpeg/content",
           # href: "https://webapps.cspace.berkeley.edu/bampfa/imageserver/blobs/#{blob_csid}/content",
           target: 'original',
           style: 'padding: 3px;',
-          class: 'hrefclass')
+          class: 'hrefclass d-inline-block')
       end.join.html_safe
     end
   end
 
   def render_alt_text blob_csid, document
     prefix = "Image of #{document[:itemclass_s] || 'BAMPFA object'}"
-    total_pages = document[:blob_ss].length
+    total_pages = document[:blob_ss] ? document[:blob_ss].length : 1
     if total_pages > 1
       page_number = "#{document[:blob_ss].find_index(blob_csid)}".to_i
       if page_number.to_s.instance_of?(String)
@@ -235,11 +241,14 @@ module ApplicationHelper
     # return a list of cards or images
     content_tag(:div) do
       options[:value].collect do |blob_csid|
-        content_tag(:a, content_tag(:img, '',
+        content_tag(:div,
+          content_tag(:img, '',
             src: render_csid(blob_csid, 'Medium'),
             alt: render_alt_text(blob_csid, options),
-            class: 'thumbclass'),
-          style: 'padding: 3px;')
+            class: 'thumbclass'
+          ),
+        class: 'd-inline-block',
+        style: 'padding: 3px;')
       end.join.html_safe
     end
   end
@@ -247,18 +256,18 @@ module ApplicationHelper
   def render_restricted_media options = {}
     # return a list of cards or images
     content_tag(:div) do
-        if current_user
-          options[:value].collect do |blob_csid|
-            content_tag(:img, '',
-                src: render_csid(blob_csid, 'Medium'),
-                alt: render_alt_text(blob_csid, options),
-                class: 'thumbclass')
-          end.join.html_safe
-        else content_tag(:img, '',
-                src: '../kuchar.jpg',
-                class: 'thumbclass',
-                alt: 'log in to view images')
-        end
+      if current_user
+        options[:value].collect do |blob_csid|
+          content_tag(:img, '',
+              src: render_csid(blob_csid, 'Medium'),
+              alt: render_alt_text(blob_csid, options),
+              class: 'thumbclass')
+        end.join.html_safe
+      else content_tag(:img, '',
+              src: '../kuchar.jpg',
+              class: 'thumbclass',
+              alt: 'log in to view images')
+      end
     end
   end
 

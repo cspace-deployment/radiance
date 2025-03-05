@@ -59,8 +59,14 @@ a:not(.btn):focus {
   }
 }
 .documents-list, .show-document {
-  .document .document-metadata dt {
-    min-width: 6em;
+  .document .document-metadata {
+    dd .thumbclass {
+      max-height: 12.5rem;
+      max-width: 12.5rem;
+    }
+    dt {
+      min-width: 6em;
+    }
   }
 }
 .documents-masonry .document {
