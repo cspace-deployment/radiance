@@ -138,6 +138,9 @@ a:not(.btn):focus {
 }
 .page-sidebar {
   min-width: 14em;
+  .show-tools {
+    margin-bottom: 20px;
+  }
 }
 .pagination {
   min-width: 12em;

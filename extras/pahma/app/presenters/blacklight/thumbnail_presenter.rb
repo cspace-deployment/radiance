@@ -47,30 +47,32 @@ module Blacklight
 
     delegate :thumbnail_field, :thumbnail_method, :default_thumbnail, to: :view_config
 
-    def render_thumbnail_alt_text(thumbnail_value_from_document,document)
-      prefix  = "Image of Hearst Museum object"
-      if document["card_ss"].include?(thumbnail_value_from_document)
-        prefix = "Image of documentation associated with Hearst Museum object"
+    def render_thumbnail_alt_text(thumbnail_value_from_document, document)
+      prefix  = 'Image of Hearst Museum object'
+      if document[:card_ss] && document[:card_ss].include?(thumbnail_value_from_document)
+        prefix = 'Image of documentation associated with Hearst Museum object'
       end
-      unless document["objdescr_txt"].nil?
-        brief_description = "described as #{document["objdescr_txt"][0]}"
+      if document[:restrictions_ss] && document[:restrictions_ss].include?('notpublic')
+        brief_description = 'image restricted due to its potentially sensitive nature. Contact Museum to request access.'
+      elsif document[:objdescr_txt]
+        brief_description = "described as #{document[:objdescr_txt][0]}"
       else
-        brief_description = 'no description available'
+        brief_description = 'no description available.'
       end
 
-      unless document["objname_txt"].nil?
-        object_name = document["objname_txt"][0]
+      unless document[:objname_txt].nil?
+        object_name = document[:objname_txt][0]
       else
         object_name = 'no object name available'
       end
 
-      unless document["objmusno_txt"].nil?
-        object_number = document["objmusno_txt"][0]
+      unless document[:objmusno_txt].nil?
+        object_number = document[:objmusno_txt][0]
       else
         object_number = 'no object accession number available'
       end
 
-      "#{prefix}, #{object_number}, #{object_name}, #{brief_description}.".html_safe
+      "#{prefix}, #{object_number}, #{object_name}, #{brief_description}".html_safe
     end
 
     # @param [Hash] image_options to pass to the image tag
@@ -78,8 +80,8 @@ module Blacklight
       value = if thumbnail_method
                 view_context.send(thumbnail_method, document, image_options)
               elsif thumbnail_field
-                alt = render_thumbnail_alt_text(thumbnail_value_from_document,document)
-                image_options["alt"] = "#{alt}"
+                alt = render_thumbnail_alt_text(thumbnail_value_from_document, document)
+                image_options['alt'] = alt
                 image_url = 'https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/' + thumbnail_value_from_document + '/derivatives/Medium/content'
                 # image_options[:width] = '200px'
                 view_context.image_tag image_url, image_options if image_url.present?
