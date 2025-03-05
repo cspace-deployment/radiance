@@ -8,7 +8,7 @@ en:
     search:
       form:
         search:
-          label: 'search for'
+          label: 'search for keywords'
           placeholder: 'Enter a few keywords here to get started...'
       pagination_info:
         no_items_found: No %{entry_name} found
