@@ -74,46 +74,58 @@ module ApplicationHelper
   end
 
   def render_alt_text(blob_csid, options)
-    prefix  = "Image of Hearst Museum object"
-    if options[:field] == "card_ss"
-      prefix = "Image of documentation associated with Hearst Museum object"
-    end
-    unless options[:document][:objdescr_txt].nil?
-      brief_description = options[:document][:objdescr_txt][0]
+    document = options[:document]
+    prefix = 'Image of Hearst Museum object'
+    if options[:field] == 'card_ss'
+      prefix = 'Image of documentation associated with Hearst Museum object'
     else
-      brief_description = 'no description available'
+      total_pages = document[:blob_ss] ? document[:blob_ss].length : 1
+      if total_pages > 1
+        page_number = "#{document[:blob_ss].find_index(blob_csid)}".to_i
+        if page_number.to_s.instance_of?(String)
+          prefix = "Image #{page_number + 1} of #{total_pages}, Hearst Museum object"
+        end
+      end
     end
-    
-    unless options[:document][:objname_txt].nil?
-      object_name = options[:document][:objname_txt][0]
+
+    if document[:restrictions_ss] && document[:restrictions_ss].include?('notpublic')
+      brief_description = 'image restricted due to its potentially sensitive nature. Contact Museum to request access.'
+    elsif document[:objdescr_txt]
+      brief_description = "described as #{document[:objdescr_txt][0]}"
+    else
+      brief_description = 'no description available.'
+    end
+
+    unless document[:objname_txt].nil?
+      object_name = document[:objname_txt][0]
     else
       object_name = 'no object name available'
     end
-    
-    unless options[:document][:objmusno_txt].nil?
-      object_number = options[:document][:objmusno_txt][0]
+
+    unless document[:objmusno_txt].nil?
+      object_number = document[:objmusno_txt][0]
     else
       object_number = 'no object accession number available'
     end
-    
-    alt = "#{prefix} #{object_number}, #{object_name}, described as #{brief_description}."
- 
-  end 
+
+    "#{prefix} #{object_number}, #{object_name}, #{brief_description}"
+  end
 
   def render_media(options)
     # return a list of cards or images
     content_tag(:div) do
       options[:value].collect do |blob_csid|
-        content_tag(:a, content_tag(:img, '',
-          src: render_csid(blob_csid, 'Medium'),
-          # alt: "#{options}",
-          alt: render_alt_text(blob_csid,options),
-          class: 'thumbclass'),
+        content_tag(:a,
+          content_tag(:img, '',
+            src: render_csid(blob_csid, 'Medium'),
+            alt: render_alt_text(blob_csid, options),
+            class: 'thumbclass'
+          ),
           href: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{blob_csid}/derivatives/OriginalJpeg/content",
           # href: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{blob_csid}/content",
           target: 'original',
           style: 'padding: 3px;',
-          class: 'hrefclass')
+          class: 'hrefclass d-inline-block')
       end.join.html_safe
     end
   end
@@ -122,9 +134,13 @@ module ApplicationHelper
     # return a list of cards or images
     content_tag(:div) do
       options[:value].collect do |blob_csid|
-        content_tag(:a, content_tag(:img, '',
+        content_tag(:div,
+          content_tag(:img, '',
             src: render_csid(blob_csid, 'Medium'),
-            class: 'thumbclass'),
+            alt: render_alt_text(blob_csid, options),
+            class: 'thumbclass'
+          ),
+          class: 'd-inline-block',
           style: 'padding: 3px;')
       end.join.html_safe
     end
@@ -137,6 +153,7 @@ module ApplicationHelper
           options[:value].collect do |blob_csid|
             content_tag(:img, '',
                 src: render_csid(blob_csid, 'Medium'),
+                alt: render_alt_text(blob_csid, options),
                 class: 'thumbclass')
           end.join.html_safe
         else content_tag(:img, '',
