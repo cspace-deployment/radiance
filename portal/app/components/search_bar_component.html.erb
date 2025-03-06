@@ -14,6 +14,7 @@
                      options_for_select(search_fields, h(@search_field)),
                      id: "#{@prefix}search_field",
                      class: "custom-select form-select search-field",
+                     autocomplete: "off"
       ) %>
     <% elsif search_fields.length == 1 %>
       <%= hidden_field_tag :search_field, search_fields.first.last %>
@@ -25,7 +26,7 @@
         placeholder: scoped_t('search.placeholder'),
         class: "search-q q form-control rounded-#{search_fields.length > 1 ? '0' : 'left'}",
         id: "#{@prefix}q",
-        autocomplete: autocomplete_path.present? ? "off" : "",
+        autocomplete: autocomplete_path.present? ? "off" : "on",
         autofocus: @autofocus,
         aria: { label: scoped_t('search.label') },
         data: { autocomplete_enabled: autocomplete_path.present?, autocomplete_path: autocomplete_path }
@@ -33,7 +34,7 @@
 
     <span class="input-group-append">
       <%= append %>
-      <%= search_button || render(Blacklight::SearchButtonComponent.new(id: "#{@prefix}search", text: scoped_t('submit'))) %>
+      <%= search_button || render(SearchButtonComponent.new(id: "#{@prefix}search", text: scoped_t('submit'))) %>
     </span>
   </div>
 <% end %>
