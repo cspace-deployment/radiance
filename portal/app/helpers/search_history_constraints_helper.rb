@@ -27,8 +27,6 @@ module SearchHistoryConstraintsHelper
   # Render the search query constraint
   def render_search_to_s_q(params)
     Deprecation.warn(Blacklight::SearchHistoryConstraintsHelperBehavior, '#render_search_to_s_q is deprecated without replacement')
-    print '****'
-    print params
     return "".html_safe if params['q'].blank? && (params[:f] || params[:text] || params[:f_inclusive])
 
     label = label_for_search_field(params[:search_field]) unless default_search_field?(params[:search_field])
