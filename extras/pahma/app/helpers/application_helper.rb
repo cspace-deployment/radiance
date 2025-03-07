@@ -75,40 +75,25 @@ module ApplicationHelper
 
   def render_alt_text(blob_csid, options)
     document = options[:document]
-    prefix = 'Image of Hearst Museum object'
-    if options[:field] == 'card_ss'
-      prefix = 'Image of documentation associated with Hearst Museum object'
-    else
+    unless options[:field] == 'card_ss'
+      prefix = 'Hearst Museum object'
       total_pages = document[:blob_ss] ? document[:blob_ss].length : 1
       if total_pages > 1
         page_number = "#{document[:blob_ss].find_index(blob_csid)}".to_i
         if page_number.to_s.instance_of?(String)
-          prefix = "Image #{page_number + 1} of #{total_pages}, Hearst Museum object"
+          prefix += " #{page_number + 1} of #{total_pages}"
         end
       end
+    else
+      prefix = 'Documentation associated with Hearst Museum object'
     end
-
+    brief_description = unless document[:objdescr_txt].nil? then "described as #{document[:objdescr_txt][0]}" else 'no description available.' end
     if document[:restrictions_ss] && document[:restrictions_ss].include?('notpublic')
-      brief_description = 'image restricted due to its potentially sensitive nature. Contact Museum to request access.'
-    elsif document[:objdescr_txt]
-      brief_description = "described as #{document[:objdescr_txt][0]}"
-    else
-      brief_description = 'no description available.'
+      brief_description += ' Notice: Image restricted due to its potentially sensitive nature. Contact Museum to request access.'
     end
-
-    unless document[:objname_txt].nil?
-      object_name = document[:objname_txt][0]
-    else
-      object_name = 'no object name available'
-    end
-
-    unless document[:objmusno_txt].nil?
-      object_number = document[:objmusno_txt][0]
-    else
-      object_number = 'no object accession number available'
-    end
-
-    "#{prefix} #{object_number}, #{object_name}, #{brief_description}"
+    object_name = unless document[:objname_txt].nil? then "titled #{document[:objname_txt][0]}" else 'no title available' end
+    object_number = unless document[:objmusno_txt].nil? then "accession number #{document[:objmusno_txt][0]}" else 'no object accession number available' end
+    "#{prefix} #{object_name}, #{object_number}, #{brief_description}".html_safe
   end
 
   def render_media(options)
