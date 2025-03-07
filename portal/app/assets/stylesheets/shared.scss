@@ -21,6 +21,25 @@ a:not(.btn):focus {
   box-shadow: 0 0 0 0.125rem white;
   outline-offset: 0.125rem;
 }
+.advanced-search-form {
+  .advanced.page-header {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .advanced-search-start-over {
+      margin-left: auto;
+    }
+  }
+  .row {
+    clear: both;
+    min-width: 14em;
+    .card {
+      margin: 20px 0;
+      min-width: 9em;
+    }
+  }
+}
 .btn svg {
   height: 1.5em;
   width: 1.5em;
@@ -150,6 +169,7 @@ a:not(.btn):focus {
   list-style: none;
   .filter-name {
     color: #4A5155 !important;
+    min-width: 7rem;
   }
   > li {
     padding: 0.75rem;
