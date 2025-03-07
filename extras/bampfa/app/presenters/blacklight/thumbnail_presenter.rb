@@ -47,11 +47,11 @@ module Blacklight
     delegate :thumbnail_field, :thumbnail_method, :default_thumbnail, to: :view_config
 
     def render_thumbnail_alt_text()
-      prefix = "Image of #{document['itemclass_s'] || 'BAMPFA object'}"
-      title = if document['title_s'] then " titled #{document['title_s']}" else ', no title available' end
-      materials = document['materials_s'] || 'of unknown materials'
-      object_number = document['idnumber_s'] || 'no object accession number available'
-      "#{prefix}#{title}, #{materials}, #{object_number}.".html_safe
+      prefix = document[:itemclass_s] || 'BAMPFA object'
+      title = unless document[:title_s].nil? then "titled #{document[:title_s]}" else 'no title available' end
+      materials = document[:materials_s] || 'of unknown materials'
+      object_number = unless document[:idnumber_s].nil? then "accession number #{document[:idnumber_s]}" else 'no accession number available' end
+      "#{prefix} #{title}, #{materials}, #{object_number}.".html_safe
     end
 
     # @param [Hash] image_options to pass to the image tag

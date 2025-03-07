@@ -220,21 +220,18 @@ module ApplicationHelper
   end
 
   def render_alt_text blob_csid, document
-    prefix = "Image of #{document[:itemclass_s] || 'BAMPFA object'}"
+    prefix = document[:itemclass_s] || 'BAMPFA object'
     total_pages = document[:blob_ss] ? document[:blob_ss].length : 1
     if total_pages > 1
       page_number = "#{document[:blob_ss].find_index(blob_csid)}".to_i
       if page_number.to_s.instance_of?(String)
-        page_number = page_number + 1
-      else
-        page_number = 'unknown'
+        prefix += " #{page_number + 1} of #{total_pages}"
       end
-      prefix = "Page #{page_number} of #{total_pages} from the document"
     end
-    title = if document[:title_txt] then " titled #{document[:title_txt][0]}" else ', no title available' end
+    title = unless document[:title_txt].nil? then "titled #{document[:title_txt][0]}" else 'no title available' end
     materials = document[:materials_s] || 'of unknown materials'
-    object_number = document[:idnumber_s] || 'no object accession number available'
-    h("#{prefix}#{title}, #{materials}, #{object_number}.")
+    object_number = unless document[:idnumber_s].nil? then "accession number #{document[:idnumber_s]}" else 'no accession number available' end
+    h("#{prefix} #{title}, #{materials}, #{object_number}.")
   end
 
   def render_linkless_media options = {}

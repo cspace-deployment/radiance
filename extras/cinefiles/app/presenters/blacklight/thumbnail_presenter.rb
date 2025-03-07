@@ -2,7 +2,6 @@
 
 module Blacklight
   class ThumbnailPresenter
-    include ApplicationHelper
     attr_reader :document, :view_context, :view_config
 
     # @param [SolrDocument] document
@@ -47,18 +46,21 @@ module Blacklight
 
     delegate :thumbnail_field, :thumbnail_method, :default_thumbnail, to: :view_config
 
-    def render_thumbnail_alt_text(thumbnail_value_from_document, document)
-      prefix  = 'Hearst Museum object'
-      if document[:card_ss] && document[:card_ss].include?(thumbnail_value_from_document)
-        prefix = 'Documentation associated with Hearst Museum object'
+    def render_thumbnail_alt_text()
+      prefix = document[:doctype_s] || 'Document'
+      total_pages = document[:blob_ss] ? document[:blob_ss].length : 1
+      if total_pages > 1
+        page_number = "#{document[:blob_ss].find_index(thumbnail_value_from_document)}".to_i
+        if page_number.to_s.instance_of?(String)
+          if document[:common_doctype_s] == 'document'
+            prefix += ' page '
+          end
+          prefix += "#{page_number + 1} of #{total_pages}"
+        end
       end
-      brief_description = unless document[:objdescr_txt].nil? then "described as #{document[:objdescr_txt][0]}" else 'no description available.' end
-      if document[:restrictions_ss] && document[:restrictions_ss].include?('notpublic')
-        brief_description += ' Notice: Image restricted due to its potentially sensitive nature. Contact Museum to request access.'
-      end
-      object_name = unless document[:objname_txt].nil? then "titled #{document[:objname_txt][0]}" else 'no title available' end
-      object_number = unless document[:objmusno_txt].nil? then "accession number #{document[:objmusno_txt][0]}" else 'no object accession number available' end
-      "#{prefix} #{object_name}, #{object_number}, #{brief_description}".html_safe
+      document_title = unless document[:doctitle_ss].nil? then "titled #{document[:doctitle_ss][0]}" else 'no title available' end
+      source = unless document[:source_s].nil? then ", source: #{document[:source_s]}" else '' end
+      "#{prefix} #{document_title}#{source}".html_safe
     end
 
     # @param [Hash] image_options to pass to the image tag
@@ -66,10 +68,8 @@ module Blacklight
       value = if thumbnail_method
                 view_context.send(thumbnail_method, document, image_options)
               elsif thumbnail_field
-                alt = render_thumbnail_alt_text(thumbnail_value_from_document, document)
-                image_options['alt'] = alt
-                image_url = 'https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/' + thumbnail_value_from_document + '/derivatives/Medium/content'
-                # image_options[:width] = '200px'
+                image_options['alt'] = render_thumbnail_alt_text
+                image_url = 'https://webapps.cspace.berkeley.edu/cinefiles/imageserver/blobs/' + thumbnail_value_from_document + '/derivatives/Medium/content'
                 view_context.image_tag image_url, image_options if image_url.present?
               end
 
@@ -104,4 +104,3 @@ module Blacklight
     end
   end
 end
-

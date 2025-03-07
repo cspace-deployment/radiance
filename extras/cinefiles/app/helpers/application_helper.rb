@@ -97,24 +97,21 @@ module ApplicationHelper
   end
 
   def render_alt_text(blob_csid, options)
-    total_pages = options[:document][:blob_ss].length
-    page_number = "#{options[:document][:blob_ss].find_index(blob_csid)}".to_i
-    if page_number.to_s.instance_of?(String)
-      page_number = page_number + 1
-    else
-      page_number = 'unknown'
+    document = options[:document]
+    prefix = document[:doctype_s] || 'Document'
+    total_pages = document[:blob_ss] ? document[:blob_ss].length : 1
+    if total_pages > 1
+      page_number = "#{document[:blob_ss].find_index(blob_csid)}".to_i
+      if page_number.to_s.instance_of?(String)
+        if document[:common_doctype_s] == 'document'
+          prefix += ' page '
+        end
+        prefix += "#{page_number + 1} of #{total_pages}"
+      end
     end
-    unless total_pages.nil? || total_pages == 0
-      nil
-    else
-      total_pages = "unknown"
-    end
-    unless options[:document][:doctitle_ss].nil?
-      document_title = options[:document][:doctitle_ss][0]
-    else
-      document_title = 'unknown document title'
-    end
-    h("Page #{page_number} of #{total_pages} from the document titled, #{document_title}")
+    document_title = unless document[:doctitle_ss].nil? then "titled #{document[:doctitle_ss][0]}" else 'no title available' end
+    source = unless document[:source_s].nil? then ", source: #{document[:source_s]}" else '' end
+    h("#{prefix} #{document_title}#{source}")
   end
 
   def render_linkless_media options = {}
