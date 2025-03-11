@@ -34,7 +34,7 @@ a:not(.btn):focus {
   .row {
     clear: both;
     min-width: 14em;
-    .card {
+    .card.card-default {
       margin: 20px 0;
       min-width: 9em;
     }
@@ -89,7 +89,7 @@ a:not(.btn):focus {
   }
 }
 .documents-masonry .document {
-  .caption-area {
+  .caption-area:not(:first-child) {
     clip: rect(0, 0, 0, 0);
     display: block;
     height: 1px;
@@ -102,6 +102,9 @@ a:not(.btn):focus {
     height: revert-layer;
     margin: revert-layer;
     width: revert-layer;
+  }
+  .thumbnail-container {
+    min-width: 200px;
   }
 }
 .documents-slideshow {
@@ -273,13 +276,15 @@ a:not(.btn):focus {
   }
 }
 @media (min-width: 768px) {
-  .documents-list .document .document-thumbnail {
-    float: right;
-    padding-left: 48px;
-  }
-  .documents-list .document-metadata {
-    clear: unset;
-    width: revert;
+  .documents-list .document {
+    .document-thumbnail {
+      float: right;
+      padding-left: 48px;
+    }
+    .document-metadata {
+      clear: unset;
+      width: revert;
+    }
   }
 }
 @media (min-width: 1200px) {

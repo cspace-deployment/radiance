@@ -26,6 +26,10 @@ en:
         list: "List view"
         slideshow: "Slideshow view"
         masonry: "Masonry view"
+  blacklight_gallery:
+    catalog:
+      grid_slideshow:
+        missing_image: '<span class="sr-only">Image </span>Missing<span class="sr-only">: %{alt_text}</span>'
   views:
     pagination:
       first: '<span aria-hidden="true">&laquo;</span> First <span class="sr-only">page</span>'
