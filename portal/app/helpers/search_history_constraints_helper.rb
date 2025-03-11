@@ -58,7 +58,7 @@ module SearchHistoryConstraintsHelper
       display_value = facet_display_value(key, value) if key
     end
     if value.blank?
-      return tag.span('empty search', class: 'filter-value sr-only')
+      return tag.span('blank', class: 'filter-value sr-only')
     end
     tag.span(h(display_value), class: 'filter-value')
   end
