@@ -7,7 +7,7 @@ en:
     application_name: 'BAMPFA'
     search:
       facets:
-          title: 'Filter your search'
+        title: 'Filter your search'
       form:
         search:
           label: 'search for keywords'
@@ -18,6 +18,8 @@ en:
           one: '<strong>%{start_num}</strong> <span aria-hidden="true">-</span><span class="sr-only">to</span> <strong>%{end_num}</strong> of <strong>%{total_num}</strong>'
           other: '<strong>%{start_num}</strong> <span aria-hidden="true">-</span><span class="sr-only">to</span> <strong>%{end_num}</strong> of <strong>%{total_num}</strong>'
         single_item_found: "<strong>1</strong> %{entry_name} found"
+      per_page:
+        aria_label: 'Results'
       start_over: 'Reset'
       view:
         gallery: "Gallery view"
@@ -25,6 +27,11 @@ en:
         slideshow: "Slideshow view"
         masonry: "Masonry view"
   views:
+    pagination:
+      first: '<span aria-hidden="true">&laquo;</span> First <span class="sr-only">page</span>'
+      last: 'Last <span class="sr-only">page</span> <span aria-hidden="true">&raquo;</span>'
+      previous: '<span aria-hidden="true">&laquo;</span> Previous <span class="sr-only">page</span>'
+      next: 'Next <span class="sr-only">page</span> <span aria-hidden="true">&raquo;</span>'
     pagination_compact:
       next: 'Next <span class="sr-only">page</span><span aria-hidden="true">&raquo;</span>'
       previous: '<span aria-hidden="true">&laquo;</span> Previous <span class="sr-only">page</span>'

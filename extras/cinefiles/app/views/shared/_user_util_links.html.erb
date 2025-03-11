@@ -1,10 +1,7 @@
-<div class="navbar-right">
-  <ul aria-label="main navigation links" class="nav navbar-nav">
-    <li class="nav-item"><a class="nav-link" target="_blank" href="https://hearstmuseum.berkeley.edu/about-portal/">About</a></li>
-    <%= render_nav_actions do |config, action|%>
-      <li><%= action %></li>
-    <% end %>
-    <li class="nav-item"><a class="nav-link" target="_blank" href="https://hearstmuseum.berkeley.edu/portal-feedback/">Feedback</a></li>
+<ul aria-label="main navigation links" class="navbar-nav">
+  <%= render_nav_actions do |config, action|%>
+    <li class="nav-item"><%= action %></li>
+  <% end %>
 
   <% if has_user_authentication_provider? %>
     <% if current_user %>
@@ -22,5 +19,4 @@
     </li>
     <% end %>
   <% end %>
-  </ul>
-</div>
+</ul>

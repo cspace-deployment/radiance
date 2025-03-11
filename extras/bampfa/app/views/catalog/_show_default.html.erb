@@ -43,7 +43,7 @@
 </div>
 
 <% unless _artist.nil? %>
-  <div class="row show-preview-container">
+  <section aria-labelledby="show-preview-title" class="row show-preview-container">
     <%= render :partial => '/catalog/show_preview', :locals => {:artist => _artist} %>
-  </div>
+  </section>
 <% end %>
