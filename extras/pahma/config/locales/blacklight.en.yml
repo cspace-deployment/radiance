@@ -6,6 +6,10 @@ en:
         label: 'search operator'
     application_name: 'Hearst Museum Portal'
     search:
+      facets:
+        count: '%{number}<span class="sr-only"> objects</span>'
+        selected:
+          remove: 'Remove constraint %{label}: %{value}'
       form:
         search:
           label: 'search for keywords'
