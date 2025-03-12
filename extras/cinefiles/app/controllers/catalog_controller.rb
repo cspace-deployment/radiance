@@ -200,19 +200,19 @@ class CatalogController < ApplicationController
     #
 
     # Document record fields
-    config.add_facet_field 'doctype_s', label: 'Document: type', limit: true
-    config.add_facet_field 'doclanguage_ss', label: 'Document: language', limit: true
-    # config.add_facet_field 'pubdatescalar_s', label: 'Document: publication date', limit: true
+    config.add_facet_field 'doctype_s', label: 'Document type', limit: true
+    config.add_facet_field 'doclanguage_ss', label: 'Document language', limit: true
+    # config.add_facet_field 'pubdatescalar_s', label: 'Document publication date', limit: true
     config.add_facet_field("pubdate_i") do |field|
       field.include_in_advanced_search = false
-      field.label = 'Document: publication year'
+      field.label = 'Document publication year'
       field.range = true
       field.index_range = true
     end
-    config.add_facet_field 'author_ss', label: 'Document: author', limit: true
+    config.add_facet_field 'author_ss', label: 'Document author', limit: true
     config.add_facet_field 'director_ss', label: 'Document: director as subject', limit: true
     config.add_facet_field 'filmtitle_ss', label: 'Document: film title', limit: true
-    # config.add_facet_field 'has_ss', label: 'Document: content details', limit: true
+    # config.add_facet_field 'has_ss', label: 'Document content details', limit: true
     config.add_facet_field 'country_ss', label: 'Document: film country of production', limit: true
     config.add_facet_field 'filmyear_ss', label: 'Document: film production year', limit: true
     config.add_facet_field 'filmlanguage_ss', label: 'Document: film language', limit: true
@@ -245,11 +245,11 @@ class CatalogController < ApplicationController
     #
 
     [
-        ['doctype_txt', 'Document: type'],
-        ['source_txt', 'Document: source'],
-        ['author_txt', 'Document: author'],
-        ['doclanguage_txt', 'Document: language'],
-        ['pubdate_txt', 'Document: publication year'],
+        ['doctype_txt', 'Document type'],
+        ['source_txt', 'Document source'],
+        ['author_txt', 'Document author'],
+        ['doclanguage_txt', 'Document language'],
+        ['pubdate_txt', 'Document publication year'],
         # ['biblio_txt', 'Has bibliography'],
         # ['bx_info_txt', 'Has box info'],
         # ['cast_cr_txt', 'Has cast credits'],
@@ -265,7 +265,7 @@ class CatalogController < ApplicationController
         ['country_txt', 'Document: film country'],
         ['filmyear_txt', 'Document: film year'],
         ['filmlanguage_txt', 'Document: film language'],
-        ['docnamesubject_txt', 'Document: name subject'],
+        ['docnamesubject_txt', 'Document name subject'],
         # ['prodco_txt', 'Film production company']
         # ['genre_txt', 'Film genre(s)'],
         # the following field needs to stay 'active' for the film/document linking to work properly
