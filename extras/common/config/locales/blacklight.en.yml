@@ -7,6 +7,9 @@ en:
     application_name: '#TENANT#'
     search:
       facets:
+        count: '%{number}<span class="sr-only"> objects</span>'
+        selected:
+          remove: 'Remove constraint %{label}: %{value}'
         title: 'Filter your search'
       form:
         search:
