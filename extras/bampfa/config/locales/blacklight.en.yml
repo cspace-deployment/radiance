@@ -11,6 +11,8 @@ en:
         selected:
           remove: 'Remove constraint %{label}: %{value}'
         title: 'Filter your search'
+      filters:
+        label: '%{label}'
       form:
         search:
           label: 'search for keywords'

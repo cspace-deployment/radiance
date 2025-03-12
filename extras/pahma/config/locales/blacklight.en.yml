@@ -10,6 +10,8 @@ en:
         count: '%{number}<span class="sr-only"> objects</span>'
         selected:
           remove: 'Remove constraint %{label}: %{value}'
+      filters:
+        label: '%{label}'
       form:
         search:
           label: 'search for keywords'

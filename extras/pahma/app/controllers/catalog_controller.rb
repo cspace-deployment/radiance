@@ -152,7 +152,7 @@ class CatalogController < ApplicationController
     # since we aren't specifying it otherwise.
 
     # UCB Customizations to use existing "catchall" field called text
-    config.add_search_field 'text', label: 'Any Fields'
+    config.add_search_field 'text', label: 'Any Field'
     # Now we see how to over-ride Solr request handler defaults, in this
     # case for a BL "search field", which is really a dismax aggregate
     # of Solr search fields.
