@@ -1,25 +1,21 @@
 // css that is shared by all portals
 .btn:focus, .btn.focus,
-.btn-light:focus, .btn-light.focus,
-.btn-secondary:focus, .btn-secondary.focus,
 a:focus,
 button:focus,
 input:focus,
 select:focus {
-  box-shadow: 0 0 0 0.063rem white;
-  outline: 0.125rem solid var(--secondary) !important;
-  outline-offset: 0.063rem;
+  box-shadow: 0 0 0 0.1rem white !important;
+  outline-color: var(--secondary) !important;
+  outline-offset: 0.2rem;
+  outline-style: auto !important;
+  outline-width: 0.1rem !important;
 }
 .btn-primary:focus, .btn-primary.focus,
 .navbar.navbar-search select:focus,
 .navbar.navbar-search input:focus,
-a:not(.btn):focus {
+.toggle-bookmark input:focus,
+a:not(.btn):not(.nav-link):focus {
   outline-color: var(--primary) !important;
-}
-a:not(.btn):focus {
-  border-radius: 2px;
-  box-shadow: 0 0 0 0.125rem white;
-  outline-offset: 0.125rem;
 }
 .advanced-search-form {
   .advanced.page-header {
@@ -89,6 +85,10 @@ a:not(.btn):focus {
   }
 }
 .documents-masonry .document {
+  .caption-area {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    max-height: 100%;
+  }
   .caption-area:not(:first-child) {
     clip: rect(0, 0, 0, 0);
     display: block;
@@ -143,7 +143,7 @@ a:not(.btn):focus {
         justify-content: flex-end;
         min-height: 65vh;
         > a {
-          display: inline-block;
+          margin-top: 0.5em;
         }
       }
     }
@@ -169,8 +169,17 @@ a:not(.btn):focus {
     }
   }
 }
-.facet-values li .selected {
-  color: #1d2c78 !important;
+.facet-values li {
+  .facet-count {
+    width: 4rem !important;
+  }
+  .facet-label {
+    padding-left: 0 !important;
+    text-indent: 0 !important;
+  }
+  .selected {
+    color: #1d2c78 !important;
+  }
 }
 .facet-limit {
   margin-bottom: 5px;
@@ -301,17 +310,18 @@ a:not(.btn):focus {
 .load-more .button:hover {
   background: #25399E
 }
-a:hover .color_overlay {
-  opacity: 0;
-  -webkit-transition: opacity 300ms;
-  transition: opacity 300ms
-}
-
 .header-top ul li:last-child a:hover {
   background: #1bdba6;
   color: #25399E
 }
-
+a {
+  display: inline-block;
+  &:hover .color_overlay {
+    opacity: 0;
+    -webkit-transition: opacity 300ms;
+    transition: opacity 300ms
+  }
+}
 form .file-label:hover .choose {
   color: #2ADBA7
 }

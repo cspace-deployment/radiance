@@ -16,7 +16,7 @@
 .site-footer p {
   line-height: 1.2;
 }
-.site-footer ul li {
+.site-footer ul li:not(.social) {
   max-width: 12em;
   padding: 4px 20px 16px;
 }
