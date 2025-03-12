@@ -1,7 +1,7 @@
 <%= form_tag @url, method: @method, class: @classes.join(' '), **@form_options do %>
   <%= render_hash_as_hidden_fields(@params) %>
   <% if search_fields.length > 1 %>
-    <label for="search_field" class="sr-only visually-hidden"><%= scoped_t('search_field.label') %></label>
+    <label for="<%= "#{@prefix}search_field" %>" class="sr-only visually-hidden"><%= scoped_t('search_field.label') %></label>
   <% end %>
   <% before_input_groups.each do |input_group| %>
     <%= input_group %>
@@ -17,7 +17,7 @@
                      autocomplete: "off"
       ) %>
     <% elsif search_fields.length == 1 %>
-      <%= hidden_field_tag :search_field, search_fields.first.last %>
+      <%= hidden_field_tag :search_field, search_fields.first.last, id: "#{@prefix}search_field" %>
     <% end %>
 
     <%= text_field_tag(
