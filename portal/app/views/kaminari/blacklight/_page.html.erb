@@ -1,0 +1,25 @@
+<%# Link showing page number
+  - available local variables
+    page:          a page object for "this" page
+    url:           url to this page
+    current_page:  a page object for the currently displayed page
+    num_pages:     total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+-%>
+<% page_display = number_with_delimiter(page.to_s) %>
+
+<li class="page-item <%= 'active' if page.current? %>">
+  <%= link_to page_display,
+        url,
+        :remote => remote,
+        :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil,
+        class: 'page-link',
+        disabled: page.current?,
+        aria: {
+          current: if page.current? then 'page' else false end,
+          label: t(if page.current? then 'views.pagination.aria.current_page' else 'views.pagination.aria.go_to_page' end, page: page_display)
+        }
+  %>
+</li>
+

@@ -35,6 +35,8 @@ en:
         missing_image: '<span class="sr-only">Image </span>Missing<span class="sr-only">: %{alt_text}</span>'
   views:
     pagination:
+      aria:
+        current_page: 'Page %{page}'
       first: '<span aria-hidden="true">&laquo;</span> First <span class="sr-only">page</span>'
       last: 'Last <span class="sr-only">page</span> <span aria-hidden="true">&raquo;</span>'
       previous: '<span aria-hidden="true">&laquo;</span> Previous <span class="sr-only">page</span>'

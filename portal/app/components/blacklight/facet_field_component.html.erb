@@ -13,7 +13,12 @@
       <span aria-hidden="true">❯</span>
     </button>
   </h3>
-  <div id="<%= @facet_field.html_id %>" aria-labelledby="<%= @facet_field.html_id %>-header" class="panel-collapse facet-content collapse <%= "show" unless @facet_field.collapsed? %>">
+  <div
+    id="<%= @facet_field.html_id %>"
+    aria-labelledby="<%= @facet_field.html_id %>-header"
+    class="panel-collapse facet-content collapse <%= "show" unless @facet_field.collapsed? %>"
+    role="region"
+  >
     <div class="card-body">
       <%= body %>
 
