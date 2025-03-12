@@ -5,9 +5,9 @@ module Gallery
 
     # populate the thumbnail slot with a value if one wasn't explicitly provided
     def populate_thumbnail_slot
-      alt_text = presenter.thumbnail.render_thumbnail_alt_text
       thumbnail_content = presenter.thumbnail.render({ alt: presenter.heading }) if presenter.thumbnail.exists?
       unless thumbnail_content.present?
+        alt_text = presenter.thumbnail.render_thumbnail_alt_text
         thumbnail_content = content_tag(
           :div,
           t(:missing_image, scope: %i[blacklight_gallery catalog grid_slideshow], alt_text: alt_text).html_safe,
