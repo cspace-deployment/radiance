@@ -40,13 +40,13 @@ module SearchHistoryConstraintsHelper
     if value.blank?
       value = tag.span('blank', class: 'filter-value sr-only')
     end
-    render_filter_name(key) + tag.dd(value, class: 'filter-values col-9 col-lg-10 mb-0')
+    render_filter_name(key) + tag.dd(value, class: 'filter-values col-6 col-md-7 col-lg-8 mb-0')
   end
 
   # Render the name of the facet
   def render_filter_name name
     Deprecation.warn(Blacklight::SearchHistoryConstraintsHelperBehavior, '#render_filter_name is deprecated without replacement')
-    tag.dt(t('blacklight.search.filters.label', label: name || 'Any Field'), class: 'filter-name col-3 col-lg-2')
+    tag.dt(t('blacklight.search.filters.label', label: name || 'Any Field'), class: 'filter-name col-6 col-md-5 col-lg-4')
   end
 
   ##

@@ -7,8 +7,7 @@ module UrlHelper
       link_to(
         render_search_to_s(params),
         search_action_path(params),
-        class: 'd-block',
-        aria: { description: "recent search #{index + 1} of #{count}" }
+        class: 'd-block'
       )
     end
   end
