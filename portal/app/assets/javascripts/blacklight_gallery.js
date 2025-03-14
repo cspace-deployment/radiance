@@ -28,6 +28,7 @@ const makeSlideshowAccessible = () => {
 
     if (slideshowInner) {
       const pagination = document.querySelector('#sortAndPerPage .pagination .page-entries')
+      slideshowInner.setAttribute('id', 'slideshow-inner')
       slideshowInner.setAttribute('role', 'region')
       slideshowInner.setAttribute('aria-roledescription', 'slideshow')
       if (pagination) {
@@ -35,6 +36,8 @@ const makeSlideshowAccessible = () => {
         slideshowInner.setAttribute('aria-label', paginationText.replace('-', 'to'))
       }
       Array.from(slideshowInner.children).forEach(el => {
+        el.setAttribute('aria-roledescription', 'slide')
+        el.setAttribute('role', 'group')
         const count = el.querySelector('.counter')
         if (count) {
           el.setAttribute('aria-label', count.outerText)
@@ -57,11 +60,15 @@ const makeSlideshowAccessible = () => {
       onSlideshowPaused()
       pauseBtn.addEventListener('click', onSlideshowPaused)
       startBtn.addEventListener('click', onSlideshowStarted)
+      pauseBtn.addAttribute('aria-controls', 'slideshow-inner')
+      startBtn.addAttribute('aria-controls', 'slideshow-inner')
       if (nextLink) {
         nextLink.addEventListener('click', onSlideshowPaused)
+        nextLink.addAttribute('aria-controls', 'slideshow-inner')
       }
       if (prevLink) {
         prevLink.addEventListener('click', onSlideshowPaused)
+        prevLink.addAttribute('aria-controls', 'slideshow-inner')
       }
     }
   }
