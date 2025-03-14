@@ -79,8 +79,8 @@ module ApplicationHelper
       prefix = 'Hearst Museum object'
       total_pages = document[:blob_ss] ? document[:blob_ss].length : 1
       if total_pages > 1
-        page_number = "#{document[:blob_ss].find_index(blob_csid)}".to_i
-        if page_number.to_s.instance_of?(String)
+        page_number = document[:blob_ss].find_index(blob_csid)
+        if page_number.is_a? Integer
           prefix += " #{page_number + 1} of #{total_pages}"
         end
       end
@@ -88,7 +88,7 @@ module ApplicationHelper
       prefix = 'Documentation associated with Hearst Museum object'
     end
     brief_description = unless document[:objdescr_txt].nil? then "described as #{document[:objdescr_txt][0]}" else 'no description available.' end
-    if document[:restrictions_ss] && document[:restrictions_ss].include?('notpublic')
+    if document[:restrictions_ss] && document[:restrictions_ss].include?('notpublic') && !document[:restrictions_ss].include?('public')
       brief_description += ' Notice: Image restricted due to its potentially sensitive nature. Contact Museum to request access.'
     end
     object_name = unless document[:objname_txt].nil? then "titled #{document[:objname_txt][0]}" else 'no title available' end
@@ -226,10 +226,12 @@ module ApplicationHelper
         content_tag(:x3d,
           content_tag(:scene,
             content_tag(:inline, '',
-            url: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{x3d_csid}/content",
-            id: 'x3d',
-            type: 'model/x3d+xml')),
-        style: 'margin-bottom: 6px; height: 660px; width: 660px;')
+              url: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{x3d_csid}/content",
+              id: 'x3d',
+              type: 'model/x3d+xml')),
+          aria: {label: render_alt_text(x3d_csid, options)},
+          role: 'img',
+          style: 'margin-bottom: 6px; height: 660px; width: 660px;')
       end.join.html_safe
     end
   end
@@ -244,9 +246,11 @@ module ApplicationHelper
         content_tag(:x3d,
           content_tag(:scene,
             content_tag(:inline, '',
-            url: "https://cspace-prod-02.ist.berkeley.edu/pahma_nuxeo/data/#{l1}/#{l2}/#{x3d_md5}",
-            class: 'x3d',
-            type: 'model/x3d+xml')),
+              url: "https://cspace-prod-02.ist.berkeley.edu/pahma_nuxeo/data/#{l1}/#{l2}/#{x3d_md5}",
+              class: 'x3d',
+              type: 'model/x3d+xml')),
+          aria: {label: render_alt_text(x3d_md5, options)},
+          role: 'img',
           style: 'margin-bottom: 6px; height: 660px; width: 660px;')
       end.join.html_safe
     end
