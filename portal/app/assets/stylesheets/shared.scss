@@ -1,5 +1,6 @@
 // css that is shared by all portals
 .btn:focus, .btn.focus,
+.modal:focus .modal-content,
 a:focus,
 button:focus,
 input:focus,
@@ -131,6 +132,12 @@ a:not(.btn):not(.nav-link):focus {
         opacity: 1;
       }
     }
+    &:focus .modal-header {
+      overflow: hidden;
+    }
+    .modal-body {
+      padding: 8px;
+    }
     .slideshow-presenter {
       .controls .btn[aria-disabled="true"] {
         cursor: default;
@@ -143,7 +150,19 @@ a:not(.btn):not(.nav-link):focus {
         justify-content: flex-end;
         min-height: 65vh;
         > a {
-          margin-top: 0.5em;
+          margin: 0.5em;
+        }
+      }
+      .carousel-control {
+        > span {
+          background-color: rgba(0,0,0,0.6);
+          border-radius: 50%;
+        }
+        &.left {
+          left: 6px;
+        }
+        &.right {
+          right: 6px;
         }
       }
     }
@@ -183,6 +202,9 @@ a:not(.btn):not(.nav-link):focus {
 }
 .facet-limit {
   margin-bottom: 5px;
+}
+.modal-open .modal {
+  scrollbar-gutter: stable;
 }
 .navbar-light .navbar-nav .nav-link {
   color: rgba(0,0,0,0.6);
