@@ -44,10 +44,31 @@ a:not(.btn):not(.nav-link):focus {
 .page-sidebar .show-tools {
   min-width: 9em;
 }
+.document-thumbnail img {
+  max-height: 240px;
+  max-width: 240px;
+  width: 100%;
+}
+.documents-gallery, .documents-masonry {
+  .document .document-counter {
+    clip: rect(0, 0, 0, 0);
+    display: block;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+}
 .documents-gallery .document {
   min-width: 16em;
   .document-metadata {
     margin-left: revert;
+  }
+  .document-thumbnail img {
+    max-height: 15em;
+    max-width: 15em;
   }
 }
 .documents-gallery .document .documentHeader,
@@ -63,6 +84,10 @@ a:not(.btn):not(.nav-link):focus {
     float: unset;
     margin-bottom: 48px;
     padding-left: 0;
+    img {
+      max-height: 15em;
+      max-width: 15em;
+    }
   }
   .document-metadata {
     clear: right;
@@ -85,26 +110,37 @@ a:not(.btn):not(.nav-link):focus {
   }
 }
 .documents-masonry .document {
-  .caption-area {
-    background-color: rgba(0, 0, 0, 0.8) !important;
-    max-height: 100%;
-  }
-  .caption-area:not(:first-child) {
-    clip: rect(0, 0, 0, 0);
-    display: block;
-    height: 1px;
-    margin: -1px;
-    width: 1px;
-    z-index: 1;
-  }
-  &:hover .caption-area, &:focus-within .caption-area {
-    clip: revert-layer;
-    height: revert-layer;
-    margin: revert-layer;
-    width: revert-layer;
-  }
+  max-width: fit-content;
+  width: 25%;
   .thumbnail-container {
-    min-width: 200px;
+    min-width: 240px;
+    width: fit-content;
+    .caption-area {
+      background-color: rgba(0, 0, 0, 0.8) !important;
+      scrollbar-width: none;
+      width: 100%;
+    }
+    .caption-area:first-child {
+      height: 100%;
+      top: 0;
+    }
+    .caption-area:not(:first-child) {
+      clip: rect(0, 0, 0, 0);
+      display: block;
+      height: 1px;
+      margin: -1px;
+      top: 25%;
+      width: 1px;
+      z-index: 1;
+    }
+    &:hover .caption-area, &:focus-within .caption-area {
+      clip: revert-layer;
+      height: revert-layer;
+      margin: revert-layer;
+      min-height: 6.25em;
+      width: 100%;
+      z-index: 1;
+    }
   }
 }
 .documents-slideshow {
@@ -257,15 +293,9 @@ a:not(.btn):not(.nav-link):focus {
   max-height: 200px;
   max-width: 200px;
 }
-
 .thumbclass {
   max-height: 200px;
   max-width: 200px;
-}
-
-.document-thumbnail img {
-  max-height: 240px;
-  max-width: 240px;
 }
 
 @media print {
