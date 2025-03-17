@@ -320,6 +320,12 @@ a:not(.btn):not(.nav-link):focus {
   max-height: 200px;
   max-width: 200px;
 }
+.x3d-object {
+  height: 660px;
+  margin-bottom: 6px;
+  max-width: 90vw;
+  width: 660px;
+}
 
 @media print {
   a[href]:after {

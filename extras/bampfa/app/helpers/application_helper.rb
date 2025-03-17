@@ -1,5 +1,16 @@
 module ApplicationHelper
 
+  def bookmark_control_label document, counter, total
+    label = "#{document['objname_s']}"
+    if counter && counter.to_i > 0
+      label += ". Search result #{counter}"
+      if total && total.to_i > 0
+        label += " of #{total}"
+      end
+    end
+    label.html_safe
+  end
+
   def get_random_documents(query: '*', limit: 12)
     params = {
       :q => query,
@@ -349,7 +360,7 @@ module ApplicationHelper
               type: 'model/x3d+xml')),
           aria: {label: render_alt_text(x3d_csid, options)},
           role: 'img',
-          style: 'margin-bottom: 6px; height: 660px; width: 660px;')
+          class: 'x3d-object')
       end.join.html_safe
     end
   end
@@ -369,7 +380,7 @@ module ApplicationHelper
               type: 'model/x3d+xml')),
           aria: {label: render_alt_text(x3d_md5, options)},
           role: 'img',
-          style: 'margin-bottom: 6px; height: 660px; width: 660px;')
+          class: 'x3d-object')
       end.join.html_safe
     end
   end

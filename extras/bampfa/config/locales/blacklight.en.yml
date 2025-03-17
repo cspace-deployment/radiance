@@ -6,6 +6,9 @@ en:
         label: 'search operator'
     application_name: 'BAMPFA'
     search:
+      bookmarks:
+        absent: 'Bookmark <span class="sr-only">%{label}</span>'
+        present: 'In Bookmarks<span class="sr-only">: %{label}</span>'
       facets:
         count: '%{number}<span class="sr-only"> objects</span>'
         selected:

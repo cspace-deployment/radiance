@@ -1,5 +1,16 @@
 module ApplicationHelper
 
+  def bookmark_control_label document, counter, total
+    label = "#{document['objname_s']}"
+    if counter && counter.to_i > 0
+      label += ". Search result #{counter}"
+      if total && total.to_i > 0
+        label += " of #{total}"
+      end
+    end
+    label.html_safe
+  end
+
   def render_csid csid, derivative
     "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{csid}/derivatives/#{derivative}/content"
   end
@@ -226,12 +237,12 @@ module ApplicationHelper
         content_tag(:x3d,
           content_tag(:scene,
             content_tag(:inline, '',
-              url: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{x3d_csid}/content",
-              id: 'x3d',
-              type: 'model/x3d+xml')),
+            url: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{x3d_csid}/content",
+            id: 'x3d',
+            type: 'model/x3d+xml')),
           aria: {label: render_alt_text(x3d_csid, options)},
           role: 'img',
-          style: 'margin-bottom: 6px; height: 660px; width: 660px;')
+          class: 'x3d-object')
       end.join.html_safe
     end
   end
@@ -246,12 +257,12 @@ module ApplicationHelper
         content_tag(:x3d,
           content_tag(:scene,
             content_tag(:inline, '',
-              url: "https://cspace-prod-02.ist.berkeley.edu/pahma_nuxeo/data/#{l1}/#{l2}/#{x3d_md5}",
-              class: 'x3d',
-              type: 'model/x3d+xml')),
+            url: "https://cspace-prod-02.ist.berkeley.edu/pahma_nuxeo/data/#{l1}/#{l2}/#{x3d_md5}",
+            class: 'x3d',
+            type: 'model/x3d+xml')),
           aria: {label: render_alt_text(x3d_md5, options)},
           role: 'img',
-          style: 'margin-bottom: 6px; height: 660px; width: 660px;')
+          class: 'x3d-object')
       end.join.html_safe
     end
   end

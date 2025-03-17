@@ -46,7 +46,7 @@ class ThumbnailPresenter < Blacklight::ThumbnailPresenter
       prefix = 'Documentation associated with Hearst Museum object'
     end
     brief_description = unless document[:objdescr_txt].nil? then "described as #{document[:objdescr_txt][0]}" else 'no description available.' end
-    if document[:restrictions_ss] && document[:restrictions_ss].include?('notpublic')
+    if document[:restrictions_ss] && document[:restrictions_ss].include?('notpublic') && !document[:restrictions_ss].include?('public')
       brief_description += ' Notice: Image restricted due to its potentially sensitive nature. Contact Museum to request access.'
     end
     object_name = unless document[:objname_txt].nil? then "titled #{document[:objname_txt][0]}" else 'no title available' end

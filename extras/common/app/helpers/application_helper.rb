@@ -1,5 +1,16 @@
 module ApplicationHelper
 
+  def bookmark_control_label document, counter, total
+    label = "#{document[blacklight_config['index']['title_field']]}"
+    if counter && counter.to_i > 0
+      label += ". Search result #{counter}"
+      if total && total.to_i > 0
+        label += " of #{total}"
+      end
+    end
+    label.html_safe
+  end
+
   def render_csid csid, derivative
     "https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{csid}/derivatives/#{derivative}/content"
   end
@@ -201,7 +212,7 @@ module ApplicationHelper
             url: "https://webapps.cspace.berkeley.edu/#TENANT#/imageserver/blobs/#{x3d_csid}/content",
             id: 'x3d',
             type: 'model/x3d+xml')),
-        style: 'margin-bottom: 6px; height: 660px; width: 660px;')
+        class: 'x3d-object')
       end.join.html_safe
     end
   end
@@ -219,7 +230,7 @@ module ApplicationHelper
             url: "https://cspace-prod-02.ist.berkeley.edu/#TENANT#_nuxeo/data/#{l1}/#{l2}/#{x3d_md5}",
             class: 'x3d',
             type: 'model/x3d+xml')),
-          style: 'margin-bottom: 6px; height: 660px; width: 660px;')
+          class: 'x3d-object')
       end.join.html_safe
     end
   end
