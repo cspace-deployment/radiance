@@ -2,7 +2,7 @@
 
 module Document
   # Render a bookmark widget to bookmark / unbookmark a document
-  class BookmarkComponent < Blacklight::Component
+  class BookmarkComponent < Blacklight::Document::BookmarkComponent
     # @param [Blacklight::Document] document
     # @param [Boolean] checked
     # @param [Object] bookmark_path the rails route to use for bookmarks
@@ -12,16 +12,6 @@ module Document
       @bookmark_path = bookmark_path
       @counter = counter
       @total = total
-    end
-
-    def bookmarked?
-      return @checked unless @checked.nil?
-
-      helpers.bookmarked? @document
-    end
-
-    def bookmark_path
-      @bookmark_path || helpers.bookmark_path(@document)
     end
 
     def label

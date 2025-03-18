@@ -52,15 +52,18 @@ a:not(.btn):not(.nav-link):focus {
   width: 100%;
 }
 .documents-gallery, .documents-masonry {
-  .document .document-counter {
-    clip: rect(0, 0, 0, 0);
-    display: block;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  .document .documentHeader .document-title-heading {
+    flex: 0 0 100%;
+    .document-counter {
+      clip: rect(0, 0, 0, 0);
+      display: block;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
   }
 }
 .documents-gallery .document {
@@ -76,10 +79,9 @@ a:not(.btn):not(.nav-link):focus {
 .documents-gallery .document .documentHeader,
 .documents-list .document .documentHeader {
   align-items: baseline;
-}
-.documents-gallery .document .index-document-functions,
-.documents-list .document .index-document-functions {
-  margin-bottom: 0.5rem;
+  .index-document-functions {
+    margin-bottom: 0.5rem;
+  }
 }
 .documents-list .document {
   .document-thumbnail {
@@ -98,6 +100,10 @@ a:not(.btn):not(.nav-link):focus {
   }
   .document-title-heading {
     align-content: center;
+    display: flex;
+    .document-counter {
+      margin-right: 0.5rem;
+    }
   }
 }
 .documents-list, .show-document {

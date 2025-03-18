@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def bookmark_control_label document, counter, total
-    label = "#{document['objname_s']}"
+    label = "#{document['title_s']}, accession number #{document['idnumber_s']}"
     if counter && counter.to_i > 0
       label += ". Search result #{counter}"
       if total && total.to_i > 0
