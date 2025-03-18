@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def bookmark_control_label document, counter, total
-    label = document['common_doctype_s'] || 'object'
+    label = "#{document['common_doctype_s'] || 'object'}"
     if document['common_title_ss']
       label += " titled #{document['common_title_ss'].join(', ')}"
     end
