@@ -8,10 +8,13 @@
   font-weight: 100;
   padding: 1em 1em 1em;
 }
-.site-footer a {
+.site-footer a.nav-link {
   color: black;
   font-weight: bold;
-  font-size: 1em;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 .site-footer p {
   line-height: 1.2;
