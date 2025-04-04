@@ -390,20 +390,6 @@ a {
 form .file-label:hover .choose {
   color: #2ADBA7
 }
-
-label.toggle-bookmark {
-  align-items: center;
-  display: flex;
-  margin: 0.25rem 0;
-  input {
-    margin-right: 0.5rem;
-  }
-}
-
-p a:hover {
-  text-decoration: none
-}
-
 h1,
 h2,
 h3,
@@ -417,4 +403,19 @@ h6 {
 input[type="checkbox"] {
   width: 1rem;
   height: 1rem;
+}
+label.toggle-bookmark {
+  align-items: center;
+  display: flex;
+  margin: 0.25rem 0;
+  input {
+    margin-right: 0.5rem;
+  }
+}
+p a:not(.btn) {
+  font-weight: bold;
+  text-decoration: underline dotted;
+  &:hover {
+    text-decoration: underline;
+  }
 }
