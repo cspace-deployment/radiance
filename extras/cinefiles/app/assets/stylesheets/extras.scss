@@ -72,7 +72,7 @@ article .documentHeader {
 
 .site-footer {
   background: transparent;
-  color: gray;
+  color: #757575;
   margin: auto;
   padding: 100px 10% 40px;
 }
@@ -84,7 +84,7 @@ article .documentHeader {
   padding: 4px 20px 16px;
 }
 .site-footer ul li a {
-  color: gray;
+  color: #757575;
 }
 .site-footer .blacklight-logo {
   width: 6.25em;
@@ -114,11 +114,20 @@ article .documentHeader {
 .navbar-brand img {
   width: 600px;
 }
-.navbar-dark .navbar-nav .nav-link {
-  color: white;
-}
-.navbar-nav {
+.navbar-dark .navbar-nav {
   flex-wrap: wrap;
+  .nav-link {
+    background-color: #757575;
+    border-radius: 4px;
+    box-shadow: inset 0px 0px 10px 0px gray;
+    color: white;
+    margin: 3px;
+    padding: 0.5rem;
+    &:hover, &:focus {
+      background-color: #707070;
+      color: white;
+    }
+  }
 }
 
 @media print {
