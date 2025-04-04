@@ -141,7 +141,7 @@ module ApplicationHelper
 
   def render_status options = {}
     options[:value].collect do |status|
-      content_tag(:span, status, style: 'color: red;')
+      content_tag(:span, status, class: 'text-danger')
     end.join(', ').html_safe
   end
 
