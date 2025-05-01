@@ -5,6 +5,8 @@ en:
       op:
         label: 'search operator'
     application_name: 'BAMPFA'
+    range_limit:
+      view_larger: 'View larger <span aria-hidden="true">&raquo;</span><span class="sr-only">%{field_name}</span>'
     search:
       bookmarks:
         absent: 'Bookmark <span class="sr-only">%{label}</span>'

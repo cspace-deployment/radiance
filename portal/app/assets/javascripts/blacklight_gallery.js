@@ -1,30 +1,34 @@
 //= require blacklight_gallery/default
 //= require blacklight_gallery/osd_viewer
 
-const observer = new MutationObserver((mutationList) => {
-  for (const mutation of mutationList) {
-    if (mutation.type === 'attributes' && mutation.attributeName === 'aria-hidden' && mutation.oldValue === 'true') {
-      const closeBtn = mutation.target.querySelector('[data-dismiss="modal"]')
-      if (closeBtn) {
-        setTimeout(() => {
-          closeBtn.focus()
-        }, 400)
-      }
-    }
+const onSlideshowModalShown = (modalEl) => {
+  const closeBtn = modalEl.querySelector('[data-dismiss="modal"]')
+  toggleBackgroundElementsDisabled(true, 'slideshow-modal')
+  if (closeBtn) {
+    setTimeout(() => {
+      closeBtn.focus()
+    }, 400)
   }
-})
+}
+
+const onSlideshowModalWillHide = () => {
+  toggleBackgroundElementsDisabled(false, 'slideshow-modal')
+}
 
 const makeSlideshowAccessible = () => {
   const slideshowModal = document.getElementById('slideshow-modal')
-
   if (slideshowModal) {
     const slideshowInner = slideshowModal.querySelector('.slideshow-inner')
     const pauseBtn = slideshowModal.querySelector('[data-behavior="pause-slideshow"]')
     const startBtn = slideshowModal.querySelector('[data-behavior="start-slideshow"]')
+    const bodyEl = $('body')[0]
+    // Transport the modal within the DOM to facilitate disabling the background elements
+    bodyEl.appendChild(slideshowModal)
 
     slideshowModal.removeAttribute('aria-labelledby')
     slideshowModal.setAttribute('aria-label', 'Search results image carousel')
-    observer.observe(slideshowModal, {attributes: true, attributeFilter: ['aria-hidden'], attributeOldValue: true})
+    $(slideshowModal).on('shown.bs.modal', () => onSlideshowModalShown(slideshowModal))
+    $(slideshowModal).on('hide.bs.modal', onSlideshowModalWillHide)
 
     if (slideshowInner) {
       const pagination = document.querySelector('#sortAndPerPage .pagination .page-entries')
@@ -60,15 +64,15 @@ const makeSlideshowAccessible = () => {
       onSlideshowPaused()
       pauseBtn.addEventListener('click', onSlideshowPaused)
       startBtn.addEventListener('click', onSlideshowStarted)
-      pauseBtn.addAttribute('aria-controls', 'slideshow-inner')
-      startBtn.addAttribute('aria-controls', 'slideshow-inner')
+      pauseBtn.setAttribute('aria-controls', 'slideshow-inner')
+      startBtn.setAttribute('aria-controls', 'slideshow-inner')
       if (nextLink) {
         nextLink.addEventListener('click', onSlideshowPaused)
-        nextLink.addAttribute('aria-controls', 'slideshow-inner')
+        nextLink.setAttribute('aria-controls', 'slideshow-inner')
       }
       if (prevLink) {
         prevLink.addEventListener('click', onSlideshowPaused)
-        prevLink.addAttribute('aria-controls', 'slideshow-inner')
+        prevLink.setAttribute('aria-controls', 'slideshow-inner')
       }
     }
   }
