@@ -179,6 +179,11 @@ section.showcase .isotope-item p {
   transform: rotateY(-180deg);
 }
 
+.isotope-item .back .citation {
+  color: #5C686A;
+  font-size: 0.875em;
+}
+
 .isotope-item .back .desc {
   font-size: 0.813rem;
 }
