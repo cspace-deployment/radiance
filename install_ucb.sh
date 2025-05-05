@@ -85,16 +85,20 @@ fi
 # splash page goes into _home_text_html.erb for now
 # mkdir app/views/catalog
 rm -f app/views/catalog/_document_gallery.html.erb
+rm -f app/views/catalog/_document_slideshow.html.erb
 rm -f app/views/catalog/_show_sidebar.html.erb
 rm -f app/views/catalog/_index_default.html.erb
 rm -f app/views/catalog/_show_default.html.erb
 rm -f app/views/catalog/_show_preview.html.erb
+rm -f app/views/catalog/_slideshow_modal.html.erb
 cp ${extra_dir}_tmp/${tenant}/app/views/catalog/_document_gallery.html.erb app/views/catalog/
+cp ${extra_dir}_tmp/${tenant}/app/views/catalog/_document_slideshow.html.erb app/views/catalog/
 cp ${extra_dir}_tmp/${tenant}/app/views/catalog/_home_text.html.erb app/views/catalog/
 cp ${extra_dir}_tmp/${tenant}/app/views/catalog/_show_sidebar.html.erb app/views/catalog/
 cp ${extra_dir}_tmp/${tenant}/app/views/catalog/_index_default.html.erb app/views/catalog/
 cp ${extra_dir}_tmp/${tenant}/app/views/catalog/_show_default.html.erb app/views/catalog/
 cp ${extra_dir}_tmp/${tenant}/app/views/catalog/_show_preview.html.erb app/views/catalog/
+cp ${extra_dir}_tmp/${tenant}/app/views/catalog/_slideshow_modal.html.erb app/views/catalog/
 
 cp ${extra_dir}_tmp/${tenant}/app/assets/stylesheets/extras.scss app/assets/stylesheets/extras.scss
 cp ${extra_dir}_tmp/${tenant}/app/assets/stylesheets/_variables.scss app/assets/stylesheets/_variables.scss
@@ -104,12 +108,14 @@ rm -f app/assets/stylesheets/tiles.css
 cp ${extra_dir}_tmp/${tenant}/app/assets/stylesheets/tiles.css app/assets/stylesheets/tiles.css
 # cp ${extra_dir}_tmp/${tenant}_normalize.min.css app/assets/stylesheets/normalize.min.css
 #
-## custom signup for cinefiles
+## custom signup for cinefiles and pahma
 rm -rf app/views/devise
 if [ -f "${extra_dir}_tmp/${tenant}/app/views/devise/registrations/new.html.erb" ]; then
   mkdir app/views/devise
+  mkdir app/views/devise/passwords
   mkdir app/views/devise/registrations
   mkdir app/views/devise/sessions
+  cp ${extra_dir}_tmp/${tenant}/app/views/devise/passwords/new.html.erb app/views/devise/passwords/new.html.erb
   cp ${extra_dir}_tmp/${tenant}/app/views/devise/registrations/new.html.erb app/views/devise/registrations/new.html.erb
   cp ${extra_dir}_tmp/${tenant}/app/views/devise/sessions/new.html.erb app/views/devise/sessions/new.html.erb
 fi
@@ -151,7 +157,18 @@ fi
 # custom gallery
 rm -f app/controllers/gallery_controller.rb
 cp ${extra_dir}_tmp/${tenant}/app/controllers/gallery_controller.rb app/controllers/gallery_controller.rb
-rm -rf app/views/gallery
+rm -rf app/components/blacklight/gallery
+if [ -f "${extra_dir}_tmp/${tenant}/app/components/blacklight/gallery/slideshow_component.html.erb" ]; then
+  mkdir app/components/blacklight/gallery
+  cp ${extra_dir}_tmp/${tenant}/app/components/blacklight/gallery/slideshow_component.html.erb app/components/blacklight/gallery
+fi
+cp ${extra_dir}_tmp/${tenant}/app/components/gallery/slideshow_preview_component.rb app/components/blacklight/gallery
+rm -f extras/pahma/app/views/catalog/_document_gallery.html.erb
+rm -f extras/pahma/app/views/catalog/_document_slideshow.html.erb
+rm -f extras/pahma/app/views/catalog/_slideshow_modal.html.erb
+cp ${extra_dir}_tmp/${tenant}/app/views/catalog/_document_gallery.html.erb app/views/catalog
+cp ${extra_dir}_tmp/${tenant}/app/views/catalog/_document_slideshow.js.erb app/views/catalog
+cp ${extra_dir}_tmp/${tenant}/app/views/catalog/_slideshow_modal.js.erb app/views/catalog
 if [ -f "${extra_dir}_tmp/${tenant}/app/views/gallery/_gallery.html.erb" ]; then
   mkdir app/views/gallery
   cp ${extra_dir}_tmp/${tenant}/app/views/gallery/_gallery.html.erb app/views/gallery/_gallery.html.erb
