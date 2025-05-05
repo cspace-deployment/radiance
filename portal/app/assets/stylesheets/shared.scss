@@ -19,6 +19,9 @@ select:focus {
 a:not(.btn):not(.nav-link):focus {
   outline-color: var(--primary) !important;
 }
+.btn.clear-bookmarks {
+  height: 2.423rem;
+}
 .advanced-search-form {
   .advanced.page-header {
     align-items: center;
