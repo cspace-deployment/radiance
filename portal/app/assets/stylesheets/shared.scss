@@ -246,6 +246,9 @@ a:not(.btn):not(.nav-link):focus {
 .facet-limit {
   margin-bottom: 5px;
 }
+.input-group-sm > .input-group-append > .btn {
+  height: calc(1.5em + 0.5rem + 2px);
+}
 .modal-open .modal {
   scrollbar-gutter: stable;
 }

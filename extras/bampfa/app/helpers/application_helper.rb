@@ -1,3 +1,5 @@
+require 'cgi/util'
+
 module ApplicationHelper
 
   def bookmark_control_label document, counter, total
@@ -31,7 +33,7 @@ module ApplicationHelper
   def generate_artist_preview(artist)#,limit=4)
     # artist should already include parsed artist names
     # this should return format_artist_preview()
-    searchable = extract_artist_names(artist)
+    searchable = extract_artist_names(h(artist))
     searchable = searchable.split(" OR ")
     random_string = SecureRandom.uuid
     query = ""
@@ -40,45 +42,50 @@ module ApplicationHelper
     end
 
     docs = get_random_documents(query: query, limit: 4)
-    docs.collect do |doc|
-      content_tag(:a, href: "/catalog/#{doc[:id]}") do
-        content_tag(:div, class: 'show-preview-item') do
-          unless doc[:title_txt].nil?
-            title = doc[:title_txt][0]
-          else
-            title = "[No title given]"
-          end
-          unless doc[:artistcalc_txt].nil?
-            artist = doc[:artistcalc_txt][0]
-          else
-            artist = "[No artist given]"
-          end
-          artist_tag = content_tag(:span, artist, class: "gallery-caption-artist")
-          unless doc[:datemade_s].nil?
-            datemade = doc[:datemade_s]
-          else
-            datemade = "[No date given]"
-          end
-          unless doc[:blob_ss].nil?
-            image_tag = content_tag(:img, '',
-              src: render_csid(doc[:blob_ss][0], 'Medium'),
-              alt: render_alt_text(doc[:blob_ss][0], doc),
-              class: 'thumbclass')
-          else
-            image_tag = content_tag(:span,'Image not available',class: 'no-preview-image')
-          end
-          image_tag +
-          content_tag(:div) do
-            artist_tag +
-            content_tag(:span, title, class: "gallery-caption-title") +
-            content_tag(:span, "("+datemade+")", class: "gallery-caption-date")
+    if docs.blank?
+      return content_tag(:div, 'No related works found.').html_safe
+    else
+      return docs.collect do |doc|
+        content_tag(:a, href: "/catalog/#{doc[:id]}") do
+          content_tag(:div, class: 'show-preview-item') do
+            unless doc[:title_txt].nil?
+              title = doc[:title_txt][0]
+            else
+              title = "[No title given]"
+            end
+            unless doc[:artistcalc_txt].nil?
+              artist = doc[:artistcalc_txt][0]
+            else
+              artist = "[No artist given]"
+            end
+            artist_tag = content_tag(:span, artist, class: "gallery-caption-artist")
+            unless doc[:datemade_s].nil?
+              datemade = doc[:datemade_s]
+            else
+              datemade = "[No date given]"
+            end
+            unless doc[:blob_ss].nil?
+              image_tag = content_tag(:img, '',
+                src: render_csid(doc[:blob_ss][0], 'Medium'),
+                alt: render_alt_text(doc[:blob_ss][0], doc),
+                class: 'thumbclass')
+            else
+              image_tag = content_tag(:span,'Image not available',class: 'no-preview-image')
+            end
+            image_tag +
+            content_tag(:div) do
+              artist_tag +
+              content_tag(:span, title, class: "gallery-caption-title") +
+              content_tag(:span, "("+datemade+")", class: "gallery-caption-date")
+            end
           end
         end
-      end
-    end.join.html_safe
+      end.join.html_safe
+    end
   end
 
-  def extract_artist_names(artist)
+  def extract_artist_names(artist_html)
+    artist = CGI.unescapeHTML(artist_html)
     searchable = artist.tr(",","") # first remove commas
     matches = searchable.scan(/[^;]+(?=;?)/) # find the names in between optional semi-colons
     if matches.length != 0
