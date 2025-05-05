@@ -3,7 +3,11 @@
 
   <div class="modal-header">
     <%= header || (capture do %>
-      <h2 id="modal-title" class="modal-title"><%= title %></h2>
+      <% if request.xhr? %>
+        <h2 id="modal-title" class="modal-title"><%= title %></h2>
+      <% else %>
+        <h1 id="modal-title" class="modal-title"><%= title %></h1>
+      <% end %>
     <% end) %>
 
     <button id="blacklight-modal-close" type="button" class="blacklight-modal-close btn-close close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
