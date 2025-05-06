@@ -87,6 +87,8 @@ a:not(.btn):not(.nav-link):focus {
   }
 }
 .documents-list .document {
+  margin-top: 0;
+  padding: 1rem 0;
   .document-thumbnail {
     float: unset;
     margin-bottom: 48px;
@@ -98,8 +100,13 @@ a:not(.btn):not(.nav-link):focus {
   }
   .document-metadata {
     clear: right;
+    margin-bottom: 0;
     min-width: 24em;
     width: 100%;
+  }
+  .document-metadata, .documentHeader {
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .document-title-heading {
     align-content: center;
