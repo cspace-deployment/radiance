@@ -12,7 +12,7 @@
   color: black;
   font-weight: bold;
   text-decoration: none;
-  &:hover {
+  &:hover:not([aria-disabled]) {
     text-decoration: underline;
   }
 }
