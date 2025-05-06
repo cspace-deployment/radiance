@@ -308,7 +308,7 @@ a:not(.btn):not(.nav-link):focus {
 .search-widgets .view-type .blacklight-icons svg {
   display: inline-block;
 }
-.site-footer a:hover {
+.site-footer a:hover:not([aria-disabled]) {
   text-decoration: underline;
 }
 .site-footer ul {
@@ -418,7 +418,7 @@ label.toggle-bookmark {
     margin-right: 0.5rem;
   }
 }
-p a:not(.btn) {
+p a:not(.btn):not([aria-disabled]) {
   font-weight: bold;
   text-decoration: underline dotted;
   &:hover {
