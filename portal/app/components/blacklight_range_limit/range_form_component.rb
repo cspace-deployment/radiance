@@ -33,9 +33,9 @@ module BlacklightRangeLimit
                 end
       element_name = "range[#{@facet_field.key}][#{type}]"
       element_id = if @facet_field.in_modal?
-                     "#{element_name}-modal"
+                     "range-#{@facet_field.key}-#{type}-modal"
                    else
-                    element_name
+                     "range-#{@facet_field.key}-#{type}"
                    end
       html = number_field_tag(
         element_name,
@@ -44,7 +44,12 @@ module BlacklightRangeLimit
         maxlength: maxlength_override || maxlength,
         class: "form-control text-center range_#{type}"
       )
-      html += label_tag(element_id, input_label, class: 'sr-only visually-hidden') if input_label.present?
+      html += label_tag(
+        element_id,
+        input_label,
+        class: 'sr-only visually-hidden',
+        'for': element_id
+      ) if input_label.present?
       html
     end
 
