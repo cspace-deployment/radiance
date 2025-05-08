@@ -173,53 +173,6 @@ a:not(.btn):not(.nav-link):focus {
       }
     }
   }
-  .slideshow-modal {
-    .btn, .close {
-      color: #FFFFFF;
-      opacity: 0.8;
-      svg {
-        fill: #FFFFFF;
-      }
-      &:hover:not(:disabled):not(.disabled),
-      &:focus:not(:disabled):not(.disabled) {
-        opacity: 1;
-      }
-    }
-    &:focus .modal-header {
-      overflow: hidden;
-    }
-    .modal-body {
-      padding: 8px;
-    }
-    .slideshow-presenter {
-      .controls .btn[aria-disabled="true"] {
-        cursor: default;
-        opacity: 0.6;
-      }
-      .item .frame {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        min-height: 65vh;
-        > a {
-          margin: 0.5em;
-        }
-      }
-      .carousel-control {
-        > span {
-          background-color: rgba(0,0,0,0.6);
-          border-radius: 50%;
-        }
-        &.left {
-          left: 6px;
-        }
-        &.right {
-          right: 6px;
-        }
-      }
-    }
-  }
 }
 // Facet field headings and buttons
 .facet-field-heading button {
@@ -323,12 +276,59 @@ a:not(.btn):not(.nav-link):focus {
   margin-bottom: 0px;
   padding-left: 0px;
 }
-.slideshow-presenter .carousel-control {
-  width: 3.125em;
-}
-.slideshow-presenter .controls .blacklight-icons svg {
-  height: 2em;
-  width: 2em;
+.slideshow-modal {
+  .btn, .close {
+    color: #FFFFFF;
+    opacity: 0.8;
+    svg {
+      fill: #FFFFFF;
+    }
+    &:hover:not(:disabled):not(.disabled),
+    &:focus:not(:disabled):not(.disabled) {
+      opacity: 1;
+    }
+  }
+  &:focus .modal-header {
+    overflow: hidden;
+  }
+  .modal-body {
+    padding: 8px;
+    .slideshow-presenter {
+      .carousel-control {
+        width: 3.125em;
+        > span {
+          background-color: rgba(0,0,0,0.6);
+          border-radius: 50%;
+        }
+        &.left {
+          left: 6px;
+        }
+        &.right {
+          right: 6px;
+        }
+      }
+      .controls .btn {
+        &[aria-disabled="true"] {
+          cursor: default;
+          opacity: 0.6;
+        }
+        .blacklight-icons svg {
+          height: 2em;
+          width: 2em;
+        }
+      }
+      .slideshow-inner .item .frame {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-height: 65vh;
+        > a {
+          margin: 0.5em;
+        }
+      }
+    }
+  }
 }
 .thumbnail > img,
 .thumbnail a > img {
