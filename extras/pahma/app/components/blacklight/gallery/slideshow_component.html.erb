@@ -5,13 +5,13 @@
   role="group"
 >
   <div class="frame">
-      <%= slideshow_tag %>
-      <div class="caption">
-        <%= helpers.link_to_document(presenter.document, presenter.heading, counter: @counter) %>
-      </div>
+    <%= slideshow_tag %>
+    <div class="caption">
+      <%= helpers.link_to_document(presenter.document, presenter.heading, counter: @counter) %>
+    </div>
 
-      <span class="counter">
-        <%= t :'blacklight_gallery.catalog.modal_slideshow.counter', counter: @counter, count: count %>
-      </span>
+    <span class="counter">
+      <%= t :'blacklight_gallery.catalog.modal_slideshow.counter', counter: @counter, count: count %>
+    </span>
   </div>
 </div>
