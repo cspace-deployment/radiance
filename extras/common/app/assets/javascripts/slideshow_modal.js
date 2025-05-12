@@ -16,7 +16,7 @@ class Slideshow {
     this.#transport()
     this.#setLabel()
     if (this.pauseBtn && this.startBtn) {
-      this.pauseBtn.addEventListener('click', this.onSlideshowPaused)
+      this.pauseBtn.addEventListener('click', this.onClickPause)
       this.startBtn.addEventListener('click', this.onSlideshowStarted)
     }
     if (this.nextLink) {
@@ -26,12 +26,13 @@ class Slideshow {
       this.prevLink.addEventListener('click', this.onSlideshowPaused)
     }
   }
-  onSlideshowPaused = e => {
+  onClickPause = e => {
+    this.onSlideshowPaused()
+    putFocus(this.startBtn)
+  }
+  onSlideshowPaused = () => {
     this.slideshowInner.setAttribute('aria-live', 'polite')
     this.startBtn.removeAttribute('disabled')
-    if (e && e.type === 'click') {
-      putFocus(this.startBtn)
-    }
     setTimeout(() => this.pauseBtn.setAttribute('disabled', true), 100)
   }
   onSlideshowStarted = () => {
@@ -45,7 +46,7 @@ class Slideshow {
     const pagination = document.querySelector('#sortAndPerPage .pagination .page-entries')
     if (pagination) {
       const paginationText = pagination.outerText
-      this.slideshowInner.setAttribute('aria-label', paginationText.replace('-', 'to'))
+      this.slideshowInner.setAttribute('aria-label', `Items ${paginationText.replace('-', '')} search results`)
     }
   }
   #transport = () => {
