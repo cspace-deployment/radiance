@@ -1,6 +1,7 @@
 require 'cgi/util'
 
 module ApplicationHelper
+  include ERB::Util
 
   def bookmark_control_label document, counter, total
     label = "#{document['title_s']}, accession number #{document['idnumber_s']}"
@@ -33,7 +34,7 @@ module ApplicationHelper
   def generate_artist_preview(artist)#,limit=4)
     # artist should already include parsed artist names
     # this should return format_artist_preview()
-    searchable = extract_artist_names(h(artist))
+    searchable = extract_artist_names(html_escape(artist))
     searchable = searchable.split(" OR ")
     random_string = SecureRandom.uuid
     query = ""
@@ -249,7 +250,7 @@ module ApplicationHelper
     title = unless document[:title_txt].nil? then "titled #{document[:title_txt][0]}" else 'no title available' end
     materials = document[:materials_s] || 'of unknown materials'
     object_number = unless document[:idnumber_s].nil? then "accession number #{document[:idnumber_s]}" else 'no accession number available' end
-    h("#{prefix} #{title}, #{materials}, #{object_number}.")
+    html_escape("#{prefix} #{title}, #{materials}, #{object_number}.")
   end
 
   def render_linkless_media options = {}
