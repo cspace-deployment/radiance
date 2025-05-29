@@ -3,10 +3,11 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 3.0.0-rc1
-Thu May 29 10:25:29 PDT 2025
+This is version 3.0.0
+Thu May 29 12:20:43 PDT 2025
 
-4648538 (HEAD -> main, origin/main, origin/HEAD) Merge pull request #171 from lyttam/HMP-392
+f810e22 (HEAD -> main, tag: 3.0.0-rc1, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 3.0.0-rc1
+4648538 Merge pull request #171 from lyttam/HMP-392
 03c12cf HMP-392: fixes error on bampfa 'load more'; updates pahma splash text
 3a954e3 Merge pull request #170 from lyttam/HMP-390
 800bb34 HMP-390: fixes slideshow paused focus mgmt; disables unavailable page link
