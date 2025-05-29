@@ -3,10 +3,180 @@ CHANGELOG for radiance
 OK, it is not a *real* change log, but a list of changes resulting from git log
 sometimes with some human annotation after the fact.
 
-This is version 2.8.1
-Tue Sep 12 15:54:47 PDT 2023
+This is version 3.0.0-rc1
+Thu May 29 10:25:29 PDT 2025
 
-b3599ce (HEAD -> main, tag: 2.8.1-rc1, origin/main, origin/HEAD) revise CHANGELOG.txt and bump version to 2.8.1-rc1
+4648538 (HEAD -> main, origin/main, origin/HEAD) Merge pull request #171 from lyttam/HMP-392
+03c12cf HMP-392: fixes error on bampfa 'load more'; updates pahma splash text
+3a954e3 Merge pull request #170 from lyttam/HMP-390
+800bb34 HMP-390: fixes slideshow paused focus mgmt; disables unavailable page link
+7d0aaee Merge pull request #169 from lyttam/HMP-390
+dd6e29a HMP-390: traps focus in modal dialogs
+4a7abeb Merge pull request #168 from lyttam/HMP-389
+3519187 Merge pull request #167 from lyttam/HMP-387
+9263f2a HMP-389: Updates accessibility link URL
+f7ae454 HMP-387: replaces space in font directory name
+b90ef16 Merge pull request #166 from lyttam/HMP-388
+8bf3c76 HMP-388: straightens focus ring on documents list
+f565c9a Merge pull request #165 from lyttam/HMP-387
+262351f HMP-387: moves shared files from /portal to /extras/common
+fe5cd54 Merge pull request #164 from lyttam/HMP-383
+2fcbf6e HMP-383: makes link targets focusable; removes multiple header landmarks
+a14ab23 Merge pull request #163 from lyttam/HMP-383
+2a3964d HMP-383: makes link targets focusable
+011c9d4 Merge pull request #162 from lyttam/HMP-382
+7287b42 HMP-382: strips html from page title
+e2eabd1 Merge pull request #161 from lyttam/HMP-381
+37aba52 HMP-381: fixes a11y best practice issues in bampfa
+32bb617 Merge pull request #160 from lyttam/HMP-381
+9a7f074 HMP-381: fixes a11y best practice issues; disables modal background
+eb39e54 Update bampfa_base_CS-9131.html.erb
+0c95265 Merge pull request #159 from felder/felder_HMP-380
+01ca1fc [HMP-380] replace double quote with single quote
+76bfbf6 Merge pull request #158 from felder/felder_HMP-380
+1d5fb2b [HMP-380] probably want it here too
+73b07f9 [HMP-380] add siteimprove scripts
+5006243 Merge pull request #157 from lyttam/HMP-374
+8d74d52 Merge pull request #156 from lyttam/HMP-378
+8db5c26 HMP-374: updates install_ucb script w a11y customizations
+d7405c7 HMP-378: increases color contrast for red 'deaccessioned'
+356f8bf Merge pull request #155 from lyttam/HMP-377
+d0d3334 HMP-377: fixes link color contrast in Cinefiles header, footer
+726c5c0 Merge pull request #154 from lyttam/HMP-376
+fb16760 HMP-376: distinguishes links from surrounding text
+599d4cb Merge pull request #153 from lyttam/HMP-375
+e6480f0 HMP-375: corrects label ref on advanced search operator
+6b9e907 Merge pull request #152 from lyttam/HMP-322
+35cb22e HMP-322: adds museum ID to bookmark labels for pahma, bampfa
+fa79d46 Merge pull request #151 from lyttam/HMP-322
+89d66cd HMP-322: adds context to bookmark labels for screen reader
+69db400 Merge pull request #150 from lyttam/HMP-367
+56a0b21 HMP-367: adds alt text, visible focus to 3D renderings
+854fc26 Merge pull request #149 from lyttam/HMP-359
+4a2af3e HMP-359: improves aria, color contrast in slideshow modal
+6d78a93 Merge pull request #148 from lyttam/HMP-355
+8c41081 Merge pull request #147 from lyttam/HMP-368
+89d0608 HMP-355: adds missing lang attr in static html
+5fd8567 HMP-368: restores gap above masonry image captions
+0030bd1 Merge pull request #146 from lyttam/HMP-350
+30a9008 HMP-350: removes search history aria-desc, adjusts cols
+6cae72c Merge pull request #145 from lyttam/HMP-350
+23673ae HMP-350: fixes search history empty rows, missing constraints
+a85596f Merge pull request #144 from lyttam/HMP-372
+fb2844c HMP-372: fixes operator label, duplicate IDs
+95b108e Merge pull request #143 from lyttam/HMP-371
+a63bebb HMP-371: darkens masonry caption background; improves focus outlines
+8afc927 Merge pull request #142 from lyttam/HMP-370
+9cb8c28 HMP-370: fixes invalid aria attributes
+8d9499c Merge pull request #141 from lyttam/HMP-365
+9740a08 HMP-365: fixes app error in pahma thumbnails
+37e7f16 Merge pull request #140 from lyttam/HMP-349
+1415625 HMP-349: removes invalid title, adds context to constraint filter links
+b31426c Merge pull request #139 from lyttam/HMP-368
+3d803b6 HMP-368: includes alt text in thumbnail link when image missing
+da6a48d Merge pull request #138 from lyttam/HMP-358
+16a2ff3 HMP-358: dedupes advanced search constraint elements in facet panels
+7889584 Merge pull request #137 from lyttam/HMP-365
+35f77b0 HMP-365: adds/improves accessible names + misc SR fixes
+884af75 Merge pull request #135 from lyttam/HMP-364
+d04ad3f Merge pull request #136 from lyttam/HMP-361
+7bc3e9b HMP-361, HMP-363: adjusts catalog image alt text, adds thumbnail alt text for Cinefiles
+39a7320 HMP-364: fixes spacing and alignment in advanced search
+c894ad4 Merge pull request #134 from lyttam/HMP-358
+d5f7e82 HMP-358: dedupes advanced search constraint elements
+2018f88 Merge pull request #133 from lyttam/HMP-346
+d86175b HMP-346: removes duplicate label from search button
+3d1e062 Merge pull request #132 from lyttam/HMP-347
+40f7929 HMP-347: removes redundant labels from search form
+19efd22 Merge pull request #131 from lyttam/HMP-342
+3cde00a HMP-342: suppresses description in restricted image alt text
+f96f402 Merge pull request #130 from lyttam/HMP-342
+8034fb2 HMP-342: makes non-preview thumbnails resize with text
+77c2792 Merge pull request #129 from lyttam/HMP-333
+904a8fe HMP-333: removes invalid nav role from footer links list
+be13765 Merge pull request #128 from lyttam/HMP-313
+3de4eee HMP-313: adds alt text for thumbnails and catalog images
+8d199d5 Merge pull request #127 from lyttam/HMP-305
+f5ea28f HMP-305: provides alt text for pahma splash links
+eb612d1 Merge pull request #126 from lyttam/HMP-310
+3ebece5 HMP-310: increases primary color and search history label contrast
+0cc0207 Merge pull request #125 from lyttam/HMP-360
+f9fabb9 Merge pull request #124 from lyttam/HMP-351
+adad26b HMP-360: updates deploy script to install, not update bundle
+3983c21 HMP-350, HMP-351: makes search history a list with no blank rows
+9d52a1a Merge pull request #123 from lyttam/HMP-326
+3d3e247 HMP-326: adds context to view-type links
+92c93c0 Merge pull request #122 from lyttam/HMP-321
+0ad349c HMP-321: adjusts compact pagination text for screen readers
+4954e0e Merge pull request #121 from lyttam/BAM-PFA-merge
+b692e99 Update blacklight.en.yml
+405534b Merge branch 'main' into BAM-PFA-merge
+17aee72 Merge branch 'BAM-PFA-dev' into BAM-PFA-merge
+ba3b096 Merge pull request #119 from lyttam/HMP-344
+290dccf HMP-344: limits sidebar shrinkage
+7dff685 Merge pull request #118 from lyttam/HMP-341
+8dc76ce Merge pull request #114 from lyttam/HMP-327
+0f60799 HMP-341: prevents caption overlap when text resized
+210dc94 Merge pull request #117 from lyttam/HMP-354
+b3de076 HMP-354: increases contrast of slideshow buttons
+621468c Merge pull request #116 from lyttam/HMP-352
+1be33d0 HMP-352: replaces <b> and <i> tags
+1bffa88 Merge pull request #115 from lyttam/HMP-348
+26cfb41 HMP-348: adds context to cinefiles Learn More links
+e2c6b9f HMP-327, HMP-339: makes blacklight logo accessible
+c52a75d Merge pull request #112 from lyttam/HMP-333
+c2b0820 Merge branch 'main' into HMP-333
+c7f36ae Merge pull request #113 from lyttam/HMP-357
+68e1e8b Merge pull request #111 from lyttam/HMP-337
+2185fd6 HMP-357: adds context to related docs links
+2dd7a31 HMP-337: text resize isotope items; HMP-345: left-justifies text
+45d96f4 HMP-333, HMP-338: prevents footer col overlap when text resized
+dcb78c6 Merge pull request #110 from lyttam/HMP-336
+b08699e HMP-336: prevents captions overlap when text resized
+7fe5494 HMP-356: PAHMA Portal Siteimprove issue: Image missing a text alternative
+f2bfd37 Merge pull request #109 from lyttam/HMP-335
+37fc673 Merge pull request #108 from lyttam/HMP-330
+779a7b1 Merge pull request #107 from lyttam/HMP-331
+38486e5 HMP-335, HMP-340, HMP-343: fixes bampfa text resizing
+fc6c5cd HMP-330: fixes cinefiles heading structure
+4093299 HMP-331: fixes bampfa heading structure part 2
+5acccbb Merge pull request #105 from lyttam/HMP-329
+9974b25 Merge pull request #106 from lyttam/HMP-328
+7e9f53c HMP-329: fixes pahma heading structure
+3e89062 HMP-328: fixes bampfa heading structure
+95bf73d Merge pull request #104 from lyttam/HMP-320
+4e88d5d HMP-320: replaces pahma splash page layout table
+20e2eee Merge pull request #103 from lyttam/HMP-334
+cd69c00 HMP-334: improves nav bar responsiveness
+70d8e09 Merge pull request #102 from lyttam/HMP-319
+22aa697 Merge pull request #101 from lyttam/HMP-325
+e3ec704 HMP-319: prevents bookmark toggle overflow in gallery, masonry views
+1a52bd8 HMP-325: adds accessible labels in slideshow modal
+cebe93a Merge pull request #100 from lyttam/HMP-316
+c866625 Merge pull request #99 from lyttam/a11y
+f14721b HMP-316: improves access to accessibility statement
+5eed577 HMP-318: makes masonry captions keyboard accessible
+fac2e41 HMP-317: overrides bootstrap focus ring for better visibility
+e43c16a Merge pull request #98 from lyttam/a11y
+a1985c2 HMP-307: increases top nav link color contrast
+a8bc37e HMP 300: CineFiles Siteimprove issue: Image missing a text alternative; add logic in application_helper.rb to add alt text to document page images
+75631a7 HMP-301: Blacklight Siteimprove issue: Form field missing a label; add aria-label attribute to advanced_helper_behavior.rb method that produces a select field on the shared advanced search page
+6e21066 HMP-302: modify cinefiles splash page to allow for introductory text to be readible when text is enlarged for accessibility
+dbcf855 HMP-299: add link tag alt attributes in header and footer partials for each tenant portal
+fe3838a (origin/dev) Merge pull request #96 from BAM-PFA/main
+708805f HMP-293: fix cinefiles splash page errors
+1d1fb58 Merge pull request #95 from BAM-PFA/main
+4e93d98 HMP-286: update cinefiles splash page & images for Oct 2024
+8f1fee0 Merge pull request #94 from lkvoong/HMP-291
+58ef0ae Update pahma_base_CS-9131.html.erb
+c7646f1 Update cinefiles_base_CS-9131.html.erb
+1e1713c Update bampfa_base_CS-9131.html.erb
+23f22a4 HMP-291/CS-9131: add files for collection-specific gtag codes
+e1524d7 HMP-291/CS-9131: add revised base_CS-9131.html.erb file for PROD analytics
+e0d7583 Merge pull request #93 from lkvoong/HMP-289
+2204ee8 HMP-289: Update Gemfile.lock for stringio version
+188d9f7 (tag: 2.8.1) revise CHANGELOG.txt and bump version to 2.8.1
+b3599ce (tag: 2.8.1-rc1) revise CHANGELOG.txt and bump version to 2.8.1-rc1
 43276f3 Merge pull request #91 from lkvoong/HMP-286
 550b43f Merge pull request #92 from BAM-PFA/master
 f365b4e HMP-286: fix cinefiles splash page content error
