@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light topbar" role="navigation">
   <div class="container-fluid">
-    <a href="/" title="BAMPFA collection portal homepage">
-      <img wdith="80%" src="/header-logo-bampfa.png" alt="bampfa wordmark logo">
+    <a aria-current="<%= current_page?('/', check_parameters: true) ? 'page' : false %>" href="/">
+      <img wdith="80%" src="/header-logo-bampfa.png" alt="bampfa">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#user-util-collapse" data-bs-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,6 @@
     </div>
   </div>
 </nav>
-
 <%= content_tag :div, class: 'navbar navbar-search bg-light', role: 'search' do %>
   <div class="<%= container_classes %>">
     <%= render((blacklight_config&.view_config(document_index_view_type)&.search_bar_component || SearchBarComponent).new(
