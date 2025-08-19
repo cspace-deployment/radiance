@@ -1,0 +1,6 @@
+<div class="inclusive_or card card-body bg-light mb-3">
+  <div id="<%= @facet_field.html_id %>-desc" class="h5"><%= t('blacklight.advanced_search.any_of') %></div>
+  <ul aria-labelledby="<%= @facet_field.html_id %>-desc <%= @facet_field.html_id %>-header" class="list-unstyled facet-values">
+    <%= helpers.render(Blacklight::FacetItemComponent.with_collection(presenters.to_a)) %>
+  </ul>
+</div>

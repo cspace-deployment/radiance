@@ -200,7 +200,7 @@ class CatalogController < ApplicationController
     #
 
     # Document record fields
-    config.add_facet_field 'doctype_s', label: 'Document type', limit: true
+    config.add_facet_field 'doctype_s', label: 'Document type', limit: true, single: true
     config.add_facet_field 'doclanguage_ss', label: 'Document language', limit: true
     # config.add_facet_field 'pubdatescalar_s', label: 'Document publication date', limit: true
     config.add_facet_field("pubdate_i") do |field|
@@ -238,7 +238,7 @@ class CatalogController < ApplicationController
     # config.add_facet_field 'code_s', label: 'Access code', limit: true
 
     # Common fields
-    config.add_facet_field 'common_doctype_s', label: 'Record type', limit: true
+    config.add_facet_field 'common_doctype_s', label: 'Record type', limit: true, single: true
 
     #
     # SEARCH DROPDOWN & ADVANCED SEARCH
