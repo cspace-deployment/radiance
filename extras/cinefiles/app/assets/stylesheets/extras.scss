@@ -75,26 +75,27 @@ article .documentHeader {
   color: #757575;
   margin: auto;
   padding: 100px 10% 40px;
-}
-.site-footer p {
-  line-height: 1.5;
-}
-.site-footer ul li:not(.social) {
-  max-width: 12em;
-  padding: 4px 20px 16px;
-}
-.site-footer ul li a {
-  color: #757575;
-}
-.site-footer .blacklight-logo {
-  width: 6.25em;
-}
-.site-footer .footer-logo {
-  object-fit: cover;
-  width: 150px;
-}
-.site-footer .social a i {
-  font-size: 1rem;
+  p {
+    line-height: 1.5;
+  }
+  ul li:not(.social) {
+    max-width: 12em;
+    padding: 4px 20px 16px;
+  }
+  ul li a {
+    color: #757575;
+    font-size: 1.2rem;
+  }
+  .blacklight-logo {
+    width: 7.25em;
+  }
+  .footer-logo {
+    object-fit: cover;
+    width: 150px;
+  }
+  .social {
+    padding: 0px 20px;
+  }
 }
 
 // NAVBAR and BG
