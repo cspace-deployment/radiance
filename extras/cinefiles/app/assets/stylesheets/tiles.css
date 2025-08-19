@@ -84,7 +84,10 @@ section.showcase .isotope-item p {
   padding: 0 15px;
 }
 
-.isotope-item:hover .flipper, .isotope-item.hover .flipper {
+.isotope-item:focus .flipper,
+.isotope-item:focus-within .flipper,
+.isotope-item:hover .flipper,
+.isotope-item.hover .flipper {
   -moz-filter: "FlipH";
   -moz-transform: rotateY(180deg);
   -ms-filter: "FlipH";
@@ -123,6 +126,7 @@ section.showcase .isotope-item p {
   background-color: whitesmoke;
   content: "";
   height: 100px;
+  left: -1px;
   opacity: .93;
   position: absolute;
   top: 19.4rem;
@@ -161,7 +165,7 @@ section.showcase .isotope-item p {
   backface-visibility: hidden;
   background-color: #eee;
   border: 1px solid #e6e6e6;
-  height: 22.5rem;
+  height: 25.5rem;
   left: 0;
   position: absolute;
   transform: rotateY(0deg);
@@ -181,11 +185,11 @@ section.showcase .isotope-item p {
 
 .isotope-item .back .citation {
   color: #5C686A;
-  font-size: 0.875em;
+  font-size: 0.8125rem;
 }
 
 .isotope-item .back .desc {
-  font-size: 0.813rem;
+  font-size: 0.875rem;
 }
 
 .isotope-item .back p {
