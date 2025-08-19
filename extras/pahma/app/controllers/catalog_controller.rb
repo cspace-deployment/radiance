@@ -371,9 +371,9 @@ class CatalogController < ApplicationController
     #config.add_show_field 'd3_md5_ss', helper_method: 'render_x3d_directly', label: '3D'
 
     # facets
-    config.add_facet_field 'objname_s', label: 'Object name', limit: true, index_range: true
+    config.add_facet_field 'objname_s', label: 'Object name', limit: true, index_range: true, single: true
     config.add_facet_field 'objobjectclasstree_ss', label: 'Object class', limit: true, index_range: true
-    config.add_facet_field 'objtype_s', label: 'Object type', limit: true, index_range: true
+    config.add_facet_field 'objtype_s', label: 'Object type', limit: true, index_range: true, single: true
     config.add_facet_field 'media_available_ss', label: 'Media available'
     config.add_facet_field 'objfcptree_ss', label: 'Collection place', limit: true, index_range: true
 
@@ -389,13 +389,13 @@ class CatalogController < ApplicationController
     config.add_facet_field 'objcollector_ss', label: 'Collector', limit: true, index_range: true
     config.add_facet_field 'anonymousdonor_ss', label: 'Donor', limit: true, index_range: true
     config.add_facet_field 'objculturetree_ss', label: 'Culture or time period', limit: true, index_range: true
-    config.add_facet_field 'objmaker_ss', label: 'Maker or artist', limit: true, index_range: true
+    config.add_facet_field 'objmaker_ss', label: 'Maker or artist', limit: true, index_range: true, single: true
     config.add_facet_field 'objmaterials_ss', label: 'Materials', limit: true, index_range: true
 
     config.add_facet_field 'taxon_ss', label: 'Taxon', limit: true, index_range: true
     config.add_facet_field 'objpersondepicted_ss', label: 'Person depicted', limit: true, index_range: true
     config.add_facet_field 'objplacedepicted_ss', label: 'Place depicted', limit: true, index_range: true
-    config.add_facet_field 'objculturedepicted_ss', label: 'Culture depicted', limit: true, index_range: true
+    config.add_facet_field 'objculturedepicted_ss', label: 'Culture depicted', limit: true, index_range: true, single: true
 
     #config.add_facet_field 'hasimages_s', label: 'Photographed'
     #config.add_facet_field 'imagetype_ss', label: 'Image type'
@@ -403,7 +403,7 @@ class CatalogController < ApplicationController
 
     # subject to further review (and in some cases, implementation)
     config.add_facet_field 'objaccno_ss', label: 'Accession number', limit: true, index_range: true
-    config.add_facet_field 'objpp_ss', label: 'Production place', limit: true, index_range: true
+    config.add_facet_field 'objpp_ss', label: 'Production place', limit: true, index_range: true, single: true
     ##config.add_facet_field 'objproddate_begin_i', label: 'Production year', range: true, index_range: true
 
     config.add_facet_field("objaccdate_begin_is") do |field|

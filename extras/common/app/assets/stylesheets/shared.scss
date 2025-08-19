@@ -198,16 +198,22 @@ main:focus-visible {
     }
   }
 }
-.facet-values li {
-  .facet-count {
-    width: 4rem !important;
+.facet-values{
+  li {
+    .facet-count {
+      width: 4rem !important;
+    }
+    .facet-label {
+      padding-left: 0 !important;
+      text-indent: 0 !important;
+    }
+    .selected {
+      color: #1d2c78 !important;
+    }
   }
-  .facet-label {
+  .remove {
     padding-left: 0 !important;
-    text-indent: 0 !important;
-  }
-  .selected {
-    color: #1d2c78 !important;
+    margin-left: 0.5rem;
   }
 }
 .facet-limit {
