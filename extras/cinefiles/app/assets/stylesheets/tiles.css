@@ -35,7 +35,6 @@ article header {
 @media only screen and (min-width: 1140px) {
   .wrapper {
     margin: 0 auto;
-    width: 1026px;
   }
 
   .footer-container .footer-column {
@@ -61,7 +60,6 @@ section.showcase .isotope-item {
   -webkit-perspective: 1000px;
   perspective: 1000px;
   box-sizing: border-box;
-  float: left;
   height: 22.5rem;
   margin: 0 15px 15px 0;
   overflow: hidden;
