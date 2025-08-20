@@ -84,7 +84,7 @@ module ApplicationHelper
     render partial: '/shared/pdfs', locals: { csid: pdf_csid, restricted: restricted }
   end
 
-  def render_alt_text(blob_csid, options)
+  def render_alt_text(blob_csid, options, is_external_link=false)
     document = options[:document]
     unless options[:field] == 'card_ss'
       prefix = 'Hearst Museum object'
@@ -104,7 +104,8 @@ module ApplicationHelper
     end
     object_name = unless document[:objname_txt].nil? then "titled #{document[:objname_txt][0]}" else 'no title available' end
     object_number = unless document[:objmusno_txt].nil? then "accession number #{document[:objmusno_txt][0]}" else 'no object accession number available' end
-    "#{prefix} #{object_name}, #{object_number}, #{brief_description}".html_safe
+    link_description = if is_external_link then '(opens in new tab)' else '' end
+    "#{prefix} #{object_name}, #{object_number}, #{brief_description} #{link_description}".html_safe
   end
 
   def render_media(options)
@@ -114,7 +115,7 @@ module ApplicationHelper
         content_tag(:a,
           content_tag(:img, '',
             src: render_csid(blob_csid, 'Medium'),
-            alt: render_alt_text(blob_csid, options),
+            alt: render_alt_text(blob_csid, options, is_external_link=true),
             class: 'thumbclass'
           ),
           href: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{blob_csid}/derivatives/OriginalJpeg/content",
@@ -279,8 +280,15 @@ module ApplicationHelper
       else
         'x' + CGI.escape(musno).gsub('%', '@').gsub('.', '@2E').downcase
       end
+      link_text = 'ark:/21549/' + ark
 
-      link_to "ark:/21549/" + ark, "https://n2t.net/ark:/21549/" + ark
+      link_to(
+        link_text,
+        'https://n2t.net/' + link_text,
+        aria: {
+          label: 'permalink: ' + link_text
+        }
+      )
     end.join.html_safe
   end
 
