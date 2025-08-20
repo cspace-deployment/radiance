@@ -7,29 +7,29 @@
   font-size: 1.25em;
   font-weight: 100;
   padding: 1em 1em 1em;
-}
-.site-footer a.nav-link {
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  &:hover:not([aria-disabled]) {
-    text-decoration: underline;
+  a.nav-link {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover:not([aria-disabled]) {
+      text-decoration: underline;
+    }
   }
-}
-.site-footer p {
-  line-height: 1.5;
-}
-.site-footer ul li:not(.social) {
-  max-width: 12em;
-  padding: 4px 20px 16px;
-}
-.site-footer .blacklight-logo {
-  width: 6.25em;
-}
-.site-footer .footer-logo {
-  max-width: 150px;
-  object-fit: cover;
-  width: 100%;
+  p {
+    line-height: 1.5;
+  }
+  ul li:not(.social) {
+    max-width: 12em;
+    padding: 4px 20px 16px;
+  }
+  .blacklight-logo {
+    width: 6.25em;
+  }
+  .footer-logo {
+    max-width: 150px;
+    object-fit: cover;
+    width: 100%;
+  }
 }
 .site-footer-text {
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
@@ -126,13 +126,6 @@ div {
   font-size: 1rem;
 }
 
-.panel-title {
-  font-family: RobotoLight, Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  font-size: 0.875rem;
-  padding-right: 12px;
-}
-
 .panel-heading {
   padding-right: 1px;
 }
@@ -171,7 +164,6 @@ h2.index_title > a {
 .field-value {
   font-family: RobotoLight, Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 0.875rem;
   margin-left: 11em;
   padding-left: 4px;
 }

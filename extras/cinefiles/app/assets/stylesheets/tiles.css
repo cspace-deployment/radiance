@@ -62,12 +62,11 @@ section.showcase .isotope-item {
   perspective: 1000px;
   box-sizing: border-box;
   float: left;
-  font-size: 0.875rem;
   height: 22.5rem;
   margin: 0 15px 15px 0;
   overflow: hidden;
   position: relative;
-  width: 18.75rem;
+  width: 20rem;
   z-index: 1;
 }
 
@@ -81,7 +80,7 @@ section.showcase .isotope-item img {
 }
 
 section.showcase .isotope-item p {
-  padding: 0 15px;
+  padding: 0 8px;
 }
 
 .isotope-item:focus .flipper,
@@ -115,7 +114,7 @@ section.showcase .isotope-item p {
 }
 
 .isotope-item .flipper .flipper-text {
-  margin-left: 20px;
+  margin-left: 16px;
   position: absolute;
   text-align: left;
   top: 20.4rem;
@@ -130,7 +129,7 @@ section.showcase .isotope-item p {
   opacity: .93;
   position: absolute;
   top: 19.4rem;
-  width: 18.75rem;
+  width: 20rem;
   z-index: 3;
 }
 
@@ -185,10 +184,6 @@ section.showcase .isotope-item p {
 
 .isotope-item .back .citation {
   color: #5C686A;
-  font-size: 0.8125rem;
-}
-
-.isotope-item .back .desc {
   font-size: 0.875rem;
 }
 
