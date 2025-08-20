@@ -45,7 +45,13 @@
     </nav>
     <%= render partial: 'shared/header_navbar' %>
 
-  <main id="main-container" class="<%= container_classes %> py-2" role="main" aria-label="<%= t('blacklight.main.aria.main_container') %>">
+  <main
+    id="main-container"
+    aria-label="<%= t('blacklight.main.aria.main_container') %>"
+    class="<%= container_classes %> py-2"
+    role="main"
+    tabindex="-1"
+  >
     <%= content_for(:container_header) %>
 
     <%= render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
