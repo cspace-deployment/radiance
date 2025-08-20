@@ -4,23 +4,32 @@
     <%= render_nav_actions do |config, action|%>
       <li><%= action %></li>
     <% end %>
-    <li class="nav-item"><a class="nav-link" target="_blank" href="https://hearstmuseum.berkeley.edu/portal-feedback/">Feedback</a></li>
+    <li class="nav-item">
+      <a
+        aria-label="Feedback (external link opens in new tab)"
+        class="nav-link"
+        target="_blank"
+        href="https://hearstmuseum.berkeley.edu/portal-feedback/"
+      >
+        Feedback
+      </a>
+    </li>
 
-  <% if has_user_authentication_provider? %>
-    <% if current_user %>
-    <li class="nav-item">
-      <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, class: 'nav-link' %>
-    </li>
-    <% unless current_user.to_s.blank? -%>
-    <li class="nav-item">
-      <%= link_to current_user, edit_user_registration_path, class: 'nav-link' %>
-    </li>
+    <% if has_user_authentication_provider? %>
+      <% if current_user %>
+      <li class="nav-item">
+        <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, class: 'nav-link' %>
+      </li>
+      <% unless current_user.to_s.blank? -%>
+      <li class="nav-item">
+        <%= link_to current_user, edit_user_registration_path, class: 'nav-link' %>
+      </li>
+      <% end %>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to t('blacklight.header_links.login'), new_user_session_path, class: 'nav-link' %>
+      </li>
+      <% end %>
     <% end %>
-    <% else %>
-    <li class="nav-item">
-      <%= link_to t('blacklight.header_links.login'), new_user_session_path, class: 'nav-link' %>
-    </li>
-    <% end %>
-  <% end %>
   </ul>
 </div>
