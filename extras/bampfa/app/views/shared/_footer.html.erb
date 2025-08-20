@@ -3,7 +3,7 @@
   <div class="row" >
     <ul aria-label="secondary navigation links" class="w-100 d-md-flex flex-wrap justify-content-between">
       <li>
-        <a href="https://bampfa.org/collection/" class="nav-link">Home</a>
+        <a aria-current="<%= current_page?('/', check_parameters: true) ? 'page' : false %>" href="/" class="nav-link">Home</a>
       </li>
       <li class="text-nowrap">
         <a href="https://bampfa.org/about/" class="nav-link">About BAMPFA</a>
