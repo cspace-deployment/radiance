@@ -391,18 +391,6 @@ main:focus-visible {
   }
 }
 
-.button:hover {
-  background: #25399E;
-  text-decoration: none;
-  color: white
-}
-.load-more .button:hover {
-  background: #25399E
-}
-.header-top ul li:last-child a:hover {
-  background: #1bdba6;
-  color: #25399E
-}
 a {
   display: inline-block;
   &:hover .color_overlay {
