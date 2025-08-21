@@ -103,7 +103,7 @@ module ApplicationHelper
       brief_description += ' Notice: Image restricted due to its potentially sensitive nature. Contact Museum to request access.'
     end
     object_name = unless document[:objname_txt].nil? then "titled #{document[:objname_txt][0]}" else 'no title available' end
-    object_number = unless document[:objmusno_txt].nil? then "accession number #{document[:objmusno_txt][0]}" else 'no object accession number available' end
+    object_number = unless document[:objmusno_txt].nil? then "museum number #{document[:objmusno_txt][0]}" else 'no object museum number available' end
     link_description = if is_external_link then '(opens in new tab)' else '' end
     "#{prefix} #{object_name}, #{object_number}, #{brief_description} #{link_description}".html_safe
   end
