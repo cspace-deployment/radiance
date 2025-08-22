@@ -24,6 +24,5 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
-  get '/add_gallery_items' => "gallery#add_gallery_items"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

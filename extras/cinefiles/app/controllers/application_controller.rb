@@ -1,0 +1,26 @@
+require 'uri'
+
+class ApplicationController < ActionController::Base
+  helper Openseadragon::OpenseadragonHelper
+  # Adds a few additional behaviors into the application controller
+  include Blacklight::Controller
+  layout :determine_layout if respond_to? :layout
+
+  private
+
+  # Method used by sessions controller to sign out a user. You can overwrite
+  # it in your ApplicationController to provide a custom hook for a custom
+  # scope. Notice that differently from +after_sign_in_path_for+ this method
+  # receives a symbol with the scope, and not the resource.
+  #
+  # By default it is the root_path.
+  def after_sign_out_path_for(resource_or_scope)
+    scope = Devise::Mapping.find_scope!(resource_or_scope)
+    router_name = Devise.mappings[scope].router_name
+    context = router_name ? send(router_name) : self
+    # Redirect back to the page the user was on when they logged out, if possible
+    uri = URI(request.referrer)
+    referrer_path = unless uri.path == '/users/edit' then uri.path else nil end
+    referrer_path || (context.respond_to?(:root_path) ? context.root_path : "/")
+  end
+end
