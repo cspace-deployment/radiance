@@ -111,9 +111,18 @@ article .documentHeader {
 
 .navbar.topbar {
   min-width: 600px;
+  .navbar-toggler {
+    margin: 0.25rem;
+  }
 }
-.navbar-brand img {
-  width: 600px;
+.navbar-brand {
+  &:focus-visible {
+    box-shadow: none !important;
+    outline-offset: -0.2rem;
+  }
+  img {
+    width: 600px;
+  }
 }
 .navbar-dark .navbar-nav {
   flex-wrap: wrap;

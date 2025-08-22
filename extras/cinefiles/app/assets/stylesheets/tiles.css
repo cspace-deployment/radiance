@@ -24,12 +24,6 @@ article header {
     margin: 0 0 5px 0;
     width: 150px;
   }
-
-  article {
-    float: left;
-    min-height: 400px;
-    width: 100%;
-  }
 }
 
 @media only screen and (min-width: 1140px) {
@@ -60,7 +54,7 @@ section.showcase .isotope-item {
   -webkit-perspective: 1000px;
   perspective: 1000px;
   box-sizing: border-box;
-  height: 22.5rem;
+  height: 24rem;
   margin: 0 15px 15px 0;
   overflow: hidden;
   position: relative;
@@ -78,6 +72,7 @@ section.showcase .isotope-item img {
 }
 
 section.showcase .isotope-item p {
+  margin-bottom: 0.5rem;
   padding: 0 8px;
 }
 
@@ -162,7 +157,7 @@ section.showcase .isotope-item p {
   backface-visibility: hidden;
   background-color: #eee;
   border: 1px solid #e6e6e6;
-  height: 25.5rem;
+  height: 24rem;
   left: 0;
   position: absolute;
   transform: rotateY(0deg);
