@@ -1,27 +1,32 @@
 // css that is shared by all portals
-.btn:focus-visible, .btn.focus-visible,
-.modal:focus-visible .modal-content,
-.x3dom-canvas:focus-visible,
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible {
-  box-shadow: 0 0 0 0.1rem white !important;
-  outline-color: var(--secondary) !important;
-  outline-offset: 0.2rem;
-  outline-style: auto !important;
-  outline-width: 0.1rem !important;
+.btn:focus, .btn.focus,
+.modal:focus .modal-content,
+.x3dom-canvas:focus,
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+*[tabindex="0"]:focus,
+*[tabindex="-1"]:focus {
+  box-shadow: 0 0 0 5px white !important;
+  outline-color: var(--dark) !important;
+  outline-offset: 2px;
+  outline-style: solid !important;
+  outline-width: 2px !important;
 }
-.btn-primary:focus-visible, .btn-primary.focus-visible,
-.navbar.navbar-search select:focus-visible,
-.navbar.navbar-search input:focus-visible,
-.toggle-bookmark input:focus-visible,
-a:not(.btn):not(.nav-link):focus-visible,
-*[tabindex="-1"]:focus-visible {
+.btn-primary:focus, .btn-primary.focus,
+input.form-control:focus,
+select.form-control:focus,
+.navbar.navbar-search select:focus,
+.navbar.navbar-search input:focus,
+.toggle-bookmark input:focus,
+a:not(.btn):not(.nav-link):not(.navbar-brand):focus,
+*[tabindex="0"]:focus,
+*[tabindex="-1"]:focus {
   outline-color: var(--primary) !important;
 }
-main:focus-visible {
-  outline-offset: -0.4rem;
+main:focus {
+  outline-offset: -6px !important;
 }
 .btn.clear-bookmarks {
   height: 2.423rem;

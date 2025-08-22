@@ -111,32 +111,33 @@ article .documentHeader {
 
 .navbar.topbar {
   min-width: 600px;
-  .navbar-toggler {
-    margin: 0.25rem;
-  }
-}
-.navbar-brand {
-  &:focus-visible {
+  *:focus {
     box-shadow: none !important;
-    outline-offset: -0.2rem;
+    outline-color: white !important;
+    outline-offset: -2px;
   }
-  img {
+  .navbar-brand:focus {
+    outline-offset: -6px;
+  }
+  .navbar-brand img {
     width: 600px;
   }
-}
-.navbar-dark .navbar-nav {
-  flex-wrap: wrap;
-  .nav-link {
-    background-color: #757575;
-    border-radius: 4px;
-    box-shadow: inset 0px 0px 10px 0px gray;
-    color: white;
-    margin: 3px;
-    padding: 0.5rem;
-    &:hover, &:focus {
-      background-color: #707070;
+  .navbar-nav {
+    flex-wrap: wrap;
+    .nav-link {
+      background-color: #757575;
+      border-radius: 4px;
       color: white;
+      margin: 2px 3px;
+      padding: 0.5rem;
+      &:hover, &:focus {
+        background-color: #707070;
+        color: white;
+      }
     }
+  }
+  .navbar-toggler {
+    margin: 0.25rem;
   }
 }
 
