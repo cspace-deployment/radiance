@@ -1,5 +1,4 @@
 <% doc_presenter = show_presenter(document) %>
-<%= _artist = nil %>
 <%# default partial to display solr document fields in catalog show view -%>
 
 <div class="row">
@@ -41,9 +40,3 @@
     <% end %>
   </div>
 </div>
-
-<% unless _artist.nil? %>
-  <section aria-labelledby="show-preview-title" class="row show-preview-container">
-    <%= render :partial => '/catalog/show_preview', :locals => {:artist => _artist} %>
-  </section>
-<% end %>
