@@ -60,11 +60,6 @@
       <%= content_for?(:content) ? yield(:content) : yield %>
     </div>
 
-    <% if action_name == 'show' && @document.present? %>
-      <%= render :partial => '/catalog/show_preview' %>
-    <% end %>
-  </main>
-
     <%= render partial: 'shared/footer' %>
     <%= render partial: 'shared/modal' %>
   </body>

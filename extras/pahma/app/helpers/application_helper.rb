@@ -121,7 +121,7 @@ module ApplicationHelper
           href: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{blob_csid}/derivatives/OriginalJpeg/content",
           # href: "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{blob_csid}/content",
           target: 'original',
-          style: 'padding: 3px;',
+          style: 'padding: 4px;',
           class: 'hrefclass d-inline-block')
       end.join.html_safe
     end
@@ -138,7 +138,7 @@ module ApplicationHelper
             class: 'thumbclass'
           ),
           class: 'd-inline-block',
-          style: 'padding: 3px;')
+          style: 'padding: 4px;')
       end.join.html_safe
     end
   end
