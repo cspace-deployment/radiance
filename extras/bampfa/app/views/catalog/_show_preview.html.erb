@@ -1,11 +1,7 @@
-<% doc_presenter = show_presenter(@document) %>
-<% _artist = doc_presenter.document['artistcalc_s'] %>
-<hr>
-<section aria-labelledby="show-preview-title" class="row show-preview-container">
-  <div class="show-preview-heading">
-    <h2 id="show-preview-title">More Works by <%= _artist %></h2>
-  </div>
-  <div class="show-preview">
-    <%= generate_artist_preview(_artist) %>
-  </div>
-</section>
+<div class="show-preview-heading">
+  <hr>
+  <h2 id="show-preview-title">More Works by <%= artist %></h2>
+</div>
+<div class="show-preview">
+  <%= generate_artist_preview(artist) %>
+</div>

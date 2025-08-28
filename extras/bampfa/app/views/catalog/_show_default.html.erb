@@ -1,8 +1,9 @@
 <% doc_presenter = show_presenter(document) %>
+<%= _artist = nil %>
 <%# default partial to display solr document fields in catalog show view -%>
 
 <div class="row">
-  <div class="col-sm-12 col-md-7">
+  <div class="col-12 col-md-6">
     <!-- images -->
     <% unless document[:blob_ss].nil? %>
       <div class="show-gallery">
@@ -21,7 +22,7 @@
     <% end %>
   </div>
   <!-- metadata -->
-  <div class="col-sm-12 col-md-5 show-metadata-container">
+  <div class="col-12 col-md-6 show-metadata-container">
     <% document_show_fields(document).each do |field_name, field| -%>
       <% unless field_name == "blob_ss" %>
         <% if should_render_show_field? document, field %>
@@ -40,3 +41,9 @@
     <% end %>
   </div>
 </div>
+
+<% unless _artist.nil? %>
+  <section aria-labelledby="show-preview-title" class="row show-preview-container">
+    <%= render :partial => '/catalog/show_preview', :locals => {:artist => _artist} %>
+  </section>
+<% end %>

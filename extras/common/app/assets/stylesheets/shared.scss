@@ -54,9 +54,15 @@ main:focus {
   height: 1.5em;
   width: 1.5em;
 }
-.document .index-document-functions,
-.page-sidebar .show-tools {
-  min-width: 9em;
+
+.document {
+  .index-document-functions {
+    min-width: 9em;
+  }
+  .show-tools {
+    margin-bottom: 16px;
+    min-width: 11em;
+  }
 }
 .document-thumbnail img {
   max-height: 240px;
@@ -248,9 +254,6 @@ main:focus {
 }
 .page-sidebar {
   min-width: 14em;
-  .show-tools {
-    margin-bottom: 20px;
-  }
 }
 .pagination {
   min-width: 12em;
@@ -388,6 +391,12 @@ main:focus {
       clear: unset;
       width: revert;
     }
+  }
+  .w-md-25 {
+    width: 25% !important;
+  }
+  .w-md-75 {
+    width: 75% !important;
   }
 }
 @media (min-width: 1200px) {
