@@ -15,6 +15,9 @@
 //= require 'blacklight_range_limit'
 //= require 'blacklight_advanced_search'
 
+// Depended on by modal and slideshow_modal
+//= require focus
+
 // Depended on by slideshow_modal
 //= require modal
 

@@ -29,13 +29,15 @@ en:
           other: '<strong>%{start_num}</strong> <span aria-hidden="true">-</span><span class="sr-only">to</span> <strong>%{end_num}</strong> of <strong>%{total_num}</strong>'
         single_item_found: "<strong>1</strong> %{entry_name} found"
       per_page:
-        aria_label: 'Results'
+        aria_label: 'sort and pagination'
       start_over: 'Reset'
       view:
         gallery: "Gallery view"
         list: "List view"
         slideshow: "Slideshow view"
         masonry: "Masonry view"
+    skip_links:
+      first_result: "Skip to search results"
   blacklight_gallery:
     catalog:
       grid_slideshow:
