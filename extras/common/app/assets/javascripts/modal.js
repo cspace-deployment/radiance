@@ -49,19 +49,6 @@ const focusableDescendantsSelector = ':where(button, input:not([type="hidden"]),
 
 const isValidTabindex = v => !Number.isNaN(Number.parseInt(v, 10))
 
-const putFocus = el => {
-  if (el) {
-    let counter = 0
-    const attemptFocus = setInterval(() => {
-      el.focus()
-      if (el === document.activeElement || ++counter > 4) {
-        // Abort after success or five attempts
-        clearInterval(attemptFocus)
-      }
-    }, 100)
-  }
-}
-
 const cacheAriaHidden = el => {
   return new Promise((resolve) => {
     if (el.hasAttribute('aria-hidden')) {
@@ -103,8 +90,8 @@ const restoreTabIndex = el => {
 }
 
 const toggleBackgroundElementsDisabled = (disable, modalId) => {
-  // The modal element is a child of <body>. When the modal opens we need to disable its siblings.
-  // Any of these siblings' descendants that can receive focus must also be disabled.
+  /* The modal element is a child of <body>. When the modal opens we need to disable its siblings.
+   * Any of these siblings' descendants that can receive focus must also be disabled. */
   const bodyEl = $('body')[0]
   const backgroundElements = Array.from(bodyEl.children)
   backgroundElements.forEach(el => {
@@ -137,7 +124,8 @@ const toggleBackgroundElementsDisabled = (disable, modalId) => {
 }
 
 const onModalShown = e => {
-  // When the modal is open, content outside the modal should not be accessible via keyboard or assistive technology.
+  /* When the modal is open, content outside the modal should not be accessible via
+   * keyboard or assistive technology. */
   const modalEl = e.target
   const modalTitle = modalEl.querySelector('#modal-title').textContent
   const focusTrap = new FocusTrap(modalEl)
@@ -154,8 +142,8 @@ const onModalShown = e => {
 }
 
 const onModalWillHide = modalTitle => {
-  // Return the elements outside the modal to their original state.
-  // Return focus to the element that triggered the modal.
+  /* 1. Return the elements outside the modal to their original state.
+   * 2. Return focus to the element that triggered the modal. */
   const selector = `:contains("${modalTitle}")`
   const modalTrigger = $(`${Blacklight.modal.triggerLinkSelector}${selector}, ${Blacklight.modal.triggerFormSelector}${selector}`)
   toggleBackgroundElementsDisabled(false)
@@ -167,6 +155,6 @@ const onModalInitialized = e => {
   $(e.target).on('shown.bs.modal', onModalShown)
 }
 
-window.addEventListener('load', () => {
+Blacklight.onLoad(() => {
   $('body').on('loaded.blacklight.blacklight-modal', onModalInitialized)
 })

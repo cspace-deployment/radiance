@@ -166,7 +166,9 @@ main:focus {
       width: 1px;
       z-index: 1;
     }
-    &:hover .caption-area, &:focus-within .caption-area {
+    &:hover .caption-area,
+    &:focus-within .caption-area,
+    &.toggling-checkbox .caption-area {
       clip: revert-layer;
       height: revert-layer;
       margin: revert-layer;

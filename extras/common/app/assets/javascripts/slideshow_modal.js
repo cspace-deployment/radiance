@@ -84,4 +84,4 @@ const onSlideshowLoaded = () => {
   }
 }
 
-window.addEventListener('load', onSlideshowLoaded)
+Blacklight.onLoad(onSlideshowLoaded)
