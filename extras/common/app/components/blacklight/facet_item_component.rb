@@ -73,8 +73,14 @@ module Blacklight
     # @return [String]
     # @private
     def render_facet_value
-      tag.span(class: "facet-label") do
-        link_to_unless(@suppress_link, label, href, class: "facet-select", rel: "nofollow")
+        tag.span(class: "facet-label") do
+        link_to_unless(
+          @suppress_link,
+          label,
+          helpers.with_screen_reader_alert(href, "Added #{@facet_item.facet_config.label}: \"#{label}\" to search constraints."),
+          class: "facet-select",
+          rel: "nofollow"
+        )
       end + render_facet_count
     end
 
@@ -87,7 +93,11 @@ module Blacklight
       tag.span(class: "facet-label") do
         tag.span(label, class: "selected") +
           # remove link
-          link_to(href, class: "remove", rel: "nofollow") do
+          link_to(
+            helpers.with_screen_reader_alert(href, "Removed #{@facet_item.facet_config.label}: \"#{label}\" from search constraints."),
+            class: "remove",
+            rel: "nofollow"
+          ) do
             tag.span('✖', class: "remove-icon", aria: { hidden: true }) +
               tag.span(helpers.t(:'blacklight.search.facets.selected.remove', label: @facet_item.facet_config.label, value: label), class: 'sr-only visually-hidden')
           end
