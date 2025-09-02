@@ -1,6 +1,13 @@
 module UrlHelper
   include Blacklight::UrlHelperBehavior
 
+  # Adds a query parameter containing a message to be provided to screen readers
+  # after navigating to the href.
+  def with_screen_reader_alert(href, msg)
+    sr_alert = ERB::Util.url_encode(msg)
+    href + "&sr_alert=#{sr_alert}"
+  end
+
   # Search History and Saved Searches display
   def link_to_previous_search(params, index, count)
     Deprecation.silence(SearchHistoryConstraintsHelper) do

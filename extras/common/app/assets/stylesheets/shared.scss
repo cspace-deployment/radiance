@@ -28,9 +28,6 @@ a:not(.btn):not(.nav-link):not(.navbar-brand):focus,
 main:focus {
   outline-offset: -6px !important;
 }
-.btn.clear-bookmarks {
-  height: 2.423rem;
-}
 .advanced-search-form {
   .advanced.page-header {
     align-items: center;
@@ -54,7 +51,9 @@ main:focus {
   height: 1.5em;
   width: 1.5em;
 }
-
+.btn.clear-bookmarks {
+  height: 2.423rem;
+}
 .document {
   .index-document-functions {
     min-width: 9em;

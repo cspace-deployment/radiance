@@ -8,7 +8,10 @@
     <% end %>
   </span>
   <% if @remove_path.present? %>
-    <%= link_to(@remove_path, class: 'btn btn-outline-secondary remove') do %>
+    <%= link_to(
+        helpers.with_screen_reader_alert(@remove_path, "Removed #{@label}: \"#{@value}\" from search constraints."),
+        class: 'btn btn-outline-secondary remove'
+    ) do %>
       <span class="remove-icon" aria-hidden="true">✖</span>
       <span class="sr-only visually-hidden">
         <%= if @label.blank?
