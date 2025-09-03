@@ -3,9 +3,12 @@ module UrlHelper
 
   # Adds a query parameter containing a message to be provided to screen readers
   # after navigating to the href.
-  def with_screen_reader_alert(href, msg)
+  def with_screen_reader_alert(href, msg, focus_target = nil)
     sr_alert = ERB::Util.url_encode(msg)
-    href + "&sr_alert=#{sr_alert}"
+    uri = URI.parse(href)
+    parsed_query = Rack::Utils.parse_query(uri.query)
+    uri.query = parsed_query.merge(sr_alert: sr_alert).to_query
+    uri.to_s
   end
 
   # Search History and Saved Searches display

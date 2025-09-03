@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
 
   def alert_screen_reader
     sr_alert = search_state.params.delete(:sr_alert)
-    if sr_alert
-      flash[:sr_alert] = sr_alert
+    unless sr_alert.blank?
+      flash[:sr_alert] = CGI.unescape(sr_alert)
       redirect_to view_context.search_action_path(search_state)
     end
   end
