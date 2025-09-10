@@ -1,13 +1,16 @@
 module UrlHelper
   include Blacklight::UrlHelperBehavior
 
-  # Adds a query parameter containing a message to be provided to screen readers
-  # after navigating to the href.
+  # Adds a query parameter containing a message to be provided to screen readers after navigating to the href.
+  # Optionally, adds a query parameter containing an ID or list of IDs of elements that could receive focus after navigation.
   def with_screen_reader_alert(href, msg, focus_target = nil)
-    sr_alert = ERB::Util.url_encode(msg)
     uri = URI.parse(href)
-    parsed_query = Rack::Utils.parse_query(uri.query)
-    uri.query = parsed_query.merge(sr_alert: sr_alert).to_query
+    query = if uri.query then CGI.parse(uri.query) else {} end
+    query[:sr_alert] = ERB::Util.url_encode(msg)
+    unless focus_target.blank?
+      query[:focus_target] = ERB::Util.url_encode(focus_target)
+    end
+    uri.query = URI.encode_www_form(query)
     uri.to_s
   end
 

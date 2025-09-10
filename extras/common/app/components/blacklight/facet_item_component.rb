@@ -73,11 +73,20 @@ module Blacklight
     # @return [String]
     # @private
     def render_facet_value
-        tag.span(class: "facet-label") do
+      tag.span(class: "facet-label") do
         link_to_unless(
           @suppress_link,
           label,
-          helpers.with_screen_reader_alert(href, "Added #{@facet_item.facet_config.label}: \"#{label}\" to search constraints."),
+          helpers.with_screen_reader_alert(
+            href,
+            "Added #{@facet_item.facet_config.label}: \"#{label}\" to search constraints",
+            focus_target = [
+              "remove-facet-#{@facet_item.facet_config.label}-#{label}".parameterize,
+              "facet-#{@facet_item.facet_config.label}-toggle-btn".parameterize,
+              'facet-panel-collapse-toggle-btn'
+            ]
+          ),
+          id: "add-facet-#{@facet_item.facet_config.label}-#{label}".parameterize,
           class: "facet-select",
           rel: "nofollow"
         )
@@ -90,12 +99,21 @@ module Blacklight
     #
     # @private
     def render_selected_facet_value
-      tag.span(class: "facet-label") do
+      tag.span(class: "facet-label d-flex") do
         tag.span(label, class: "selected") +
           # remove link
           link_to(
-            helpers.with_screen_reader_alert(href, "Removed #{@facet_item.facet_config.label}: \"#{label}\" from search constraints."),
+            helpers.with_screen_reader_alert(
+              href,
+              "Removed #{@facet_item.facet_config.label}: \"#{label}\" from search constraints",
+              focus_target = [
+                "add-facet-#{@facet_item.facet_config.label}-#{label}".parameterize,
+                "facet-#{@facet_item.facet_config.label}-toggle-btn".parameterize,
+                'facet-panel-collapse-toggle-btn'
+              ]
+            ),
             class: "remove",
+            id: "remove-facet-#{@facet_item.facet_config.label}-#{label}".parameterize,
             rel: "nofollow"
           ) do
             tag.span('✖', class: "remove-icon", aria: { hidden: true }) +

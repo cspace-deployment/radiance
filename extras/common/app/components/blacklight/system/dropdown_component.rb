@@ -3,8 +3,13 @@
 module Blacklight
   module System
     class DropdownComponent < ViewComponent::Base
-      renders_one :button, (lambda do |classes:, label:|
-        button_tag class: classes, aria: { expanded: false }, data: { toggle: 'dropdown', 'bs-toggle': 'dropdown' } do
+      renders_one :button, (lambda do |id:, classes:, label:|
+        button_tag(
+          id: id,
+          class: classes,
+          aria: { expanded: false },
+          data: { toggle: 'dropdown', 'bs-toggle': 'dropdown' }
+        ) do
           safe_join([label, content_tag(:span, '', class: 'caret')])
         end
       end)
@@ -29,7 +34,11 @@ module Blacklight
       end
 
       def before_render
-        button(classes: 'btn btn-outline-secondary dropdown-toggle', label: button_label) unless button
+        button(
+          id: "#{@id}-btn",
+          classes: 'btn btn-outline-secondary dropdown-toggle',
+          label: button_label
+        ) unless button
 
         return if options.any?
 
@@ -37,9 +46,10 @@ module Blacklight
           text, value = option_text_and_value(option)
           url = helpers.url_for(@search_state.params_for_search(@param => value))
           sr_alert = strip_tags(t(:sr_alert, default: :label, scope: "blacklight.search.#{@param}", @interpolation => text))
-           {
+          next_focus_target ="#{@id}-btn"
+          {
             text: text,
-            url: helpers.with_screen_reader_alert(url, sr_alert),
+            url: helpers.with_screen_reader_alert(url, sr_alert, next_focus_target),
             selected: @selected == value
           }
         end)

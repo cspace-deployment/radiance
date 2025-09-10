@@ -230,6 +230,9 @@ main:focus {
 }
 .facet-limit {
   margin-bottom: 5px;
+  .card-body {
+    padding: 0.5rem;
+  }
 }
 .input-group-sm > .input-group-append > .btn {
   height: calc(1.5em + 0.5rem + 2px);
