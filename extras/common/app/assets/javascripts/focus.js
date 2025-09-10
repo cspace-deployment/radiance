@@ -46,4 +46,35 @@ const setBookmarkCheckboxHandlers = () => {
   })
 }
 
-Blacklight.onLoad(setBookmarkCheckboxHandlers)
+const getFirstVisibleElement = ids => {
+  for (const id of ids) {
+    const el = document.getElementById(id)
+    if (el && el.checkVisibility()) {
+      return el
+    }
+  }
+}
+
+const putFocusOnTarget = () => {
+  const focusTargetEl = document.getElementById('focus-target')
+  if (focusTargetEl) {
+    const focusTargetData = focusTargetEl.dataset.focusTarget
+    if (focusTargetData) {
+      let focusTargetIds
+      try {
+        focusTargetIds = JSON.parse(focusTargetData)
+      } catch {
+        focusTargetIds = [focusTargetData]
+      }
+      const focusTarget = getFirstVisibleElement(focusTargetIds)
+      putFocus(focusTarget)
+    }
+  }
+}
+
+const manageFocus = () => {
+  putFocusOnTarget()
+  setBookmarkCheckboxHandlers()
+}
+
+Blacklight.onLoad(manageFocus)
