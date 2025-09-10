@@ -1,6 +1,7 @@
 <div class="card facet-limit blacklight-<%= @facet_field.key %> <%= 'facet-limit-active' if @facet_field.active? %>">
   <h3 class="card-header p-0 facet-field-heading" id="<%= @facet_field.html_id %>-header">
     <button
+      id="facet-<%= @facet_field.label.parameterize %>-toggle-btn"
       type="button"
       class="btn w-100 d-block btn-block p-2 text-start text-left collapse-toggle <%= "collapsed" if @facet_field.collapsed? %>"
       data-toggle="collapse"
