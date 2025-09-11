@@ -1,0 +1,10 @@
+<% parameterized_key = @key.to_s.parameterize %>
+
+<%= link_to helpers.with_screen_reader_alert(url, sr_alert="#{label} loaded", focus_target="#view-type-#{parameterized_key}"),
+  id: "view-type-#{parameterized_key}",
+  title: label,
+  class: "#{Array(@classes).join(' ')} view-type-#{parameterized_key} #{"active" if selected?}" do
+%>
+  <%= icon %>
+  <span class="caption"><%= label %></span>
+<% end %>

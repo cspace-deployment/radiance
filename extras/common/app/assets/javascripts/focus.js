@@ -46,9 +46,9 @@ const setBookmarkCheckboxHandlers = () => {
   })
 }
 
-const getFirstVisibleElement = ids => {
-  for (const id of ids) {
-    const el = document.getElementById(id)
+const getFirstVisibleElement = selectors => {
+  for (const selector of selectors) {
+    const el = document.querySelector(selector)
     if (el && el.checkVisibility()) {
       return el
     }
@@ -60,13 +60,13 @@ const putFocusOnTarget = () => {
   if (focusTargetEl) {
     const focusTargetData = focusTargetEl.dataset.focusTarget
     if (focusTargetData) {
-      let focusTargetIds
+      let focusTargetSelectors
       try {
-        focusTargetIds = JSON.parse(focusTargetData)
+        focusTargetSelectors = JSON.parse(focusTargetData)
       } catch {
-        focusTargetIds = [focusTargetData]
+        focusTargetSelectors = [focusTargetData]
       }
-      const focusTarget = getFirstVisibleElement(focusTargetIds)
+      const focusTarget = getFirstVisibleElement(focusTargetSelectors)
       putFocus(focusTarget)
     }
   }
