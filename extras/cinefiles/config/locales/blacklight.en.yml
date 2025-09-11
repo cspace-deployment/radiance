@@ -33,6 +33,8 @@ en:
         aria_label: 'sort and pagination'
         button_label_html: '%{count}<span class="d-none d-sm-inline" aria-hidden="true"> per page</span>'
         sr_alert: 'Showing %{count}'
+      sort:
+        sr_alert: 'Sorted by %{field}'
       view:
         gallery: "Gallery view"
         list: "List view"
