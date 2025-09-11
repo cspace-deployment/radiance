@@ -39,20 +39,24 @@ module RenderConstraintsHelper
   # @param [Blacklight::SearchState,ActionController::Parameters] params_or_search_state query parameters
   # @return [String]
   def render_constraints_query(index, params_or_search_state = search_state)
-    Deprecation.warn(Blacklight::RenderConstraintsHelperBehavior, 'render_constraints_query is deprecated')
-    search_state = convert_to_search_state(params_or_search_state)
+    if (advanced_query.nil? || advanced_query.keyword_queries.empty?)
+      Deprecation.warn(Blacklight::RenderConstraintsHelperBehavior, 'render_constraints_query is deprecated')
+      search_state = convert_to_search_state(params_or_search_state)
 
-    # So simple don't need a view template, we can just do it here.
-    return "".html_safe if search_state.query_param.blank?
+      # So simple don't need a view template, we can just do it here.
+      return "".html_safe if search_state.query_param.blank?
 
-    Deprecation.silence(Blacklight::RenderConstraintsHelperBehavior) do
-      render_constraint_element(
-        constraint_query_label(search_state.params),
-        search_state.query_param,
-        index,
-        classes: ["query"],
-        remove: remove_constraint_url(search_state)
-      )
+      Deprecation.silence(Blacklight::RenderConstraintsHelperBehavior) do
+        render_constraint_element(
+          constraint_query_label(search_state.params),
+          search_state.query_param,
+          index: index,
+          classes: ["query"],
+          remove: remove_constraint_url(search_state)
+        )
+      end
+    else
+      render_advanced_constraints_query(index, params_or_search_state)
     end
   end
 
@@ -85,15 +89,22 @@ module RenderConstraintsHelper
     Deprecation.warn(Blacklight::RenderConstraintsHelperBehavior, 'render_constraints_filters is deprecated')
     search_state = convert_to_search_state(params_or_search_state)
 
-    return "".html_safe unless search_state.filters.any?
+    content = "".html_safe
 
-    Deprecation.silence(Blacklight::RenderConstraintsHelperBehavior) do
-      safe_join(search_state.filters.map do |field|
-        filter_element = render_filter_element(field.key, field.values, search_state, index)
-        index += field.values.length
-        filter_element
-      end, "\n")
+    if search_state.filters.any?
+      Deprecation.silence(Blacklight::RenderConstraintsHelperBehavior) do
+        content << safe_join(search_state.filters.map do |field|
+          filter_element = render_filter_element(field.key, field.values, search_state, index)
+          index += field.values.length
+          filter_element
+        end, "\n")
+      end
     end
+    if advanced_query
+      content << render_advanced_constraints_filters(index, params_or_search_state)
+      index += advanced_query.filters.length
+    end
+    content
   end
 
   ##
@@ -150,5 +161,48 @@ module RenderConstraintsHelper
   def render_constraint_element(label, value, options = {})
     Deprecation.warn(Blacklight::RenderConstraintsHelperBehavior, 'render_constraints_element is deprecated')
     render(partial: "catalog/constraints_element", locals: { label: label, value: value, options: options })
+  end
+
+  private
+
+  # Overrides BlacklightAdvancedSearch::RenderConstraintsOverride.render_constraints_query to add index.
+  def render_advanced_constraints_query(index, my_params = params)
+    content = []
+    advanced_query.keyword_queries.each_pair do |field, query|
+      label = blacklight_config.search_fields[field][:label]
+      content << render_constraint_element(
+        label,
+        query,
+        index: index,
+        :remove =>
+          search_action_path(remove_advanced_keyword_query(field, my_params).except(:controller, :action))
+      )
+      index += 1
+    end
+    if (advanced_query.keyword_op == "OR" &&
+        advanced_query.keyword_queries.length > 1)
+      content.unshift content_tag(:span, "Any of:", class: 'operator')
+      content_tag :span, class: "inclusive_or appliedFilter well" do
+        safe_join(content.flatten, "\n")
+      end
+    else
+      safe_join(content.flatten, "\n")
+    end
+  end
+
+  # Overrides BlacklightAdvancedSearch::RenderConstraintsOverride.render_constraints_filters to add index.
+  def render_advanced_constraints_filters(index, my_params = params)
+    content = ''
+    advanced_query.filters.each_pair do |field, value_list|
+      label = facet_field_label(field)
+      +content << render_constraint_element(
+        label,
+        safe_join(Array(value_list), " <strong class='text-muted constraint-connector'>OR</strong> ".html_safe),
+        index: index,
+        :remove => search_action_path(remove_advanced_filter_group(field, my_params).except(:controller, :action))
+      )
+      index += 1
+    end
+    content
   end
 end
