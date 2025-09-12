@@ -11,7 +11,10 @@
 
 <li class="page-item <%= 'active' if page.current? %>">
   <%= link_to page_display,
-        url,
+        with_screen_reader_alert(
+          url,
+          sr_alert="page #{page_display} loaded"
+        ),
         :remote => remote,
         :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil,
         class: 'page-link',

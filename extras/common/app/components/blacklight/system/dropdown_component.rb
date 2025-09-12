@@ -46,7 +46,7 @@ module Blacklight
           text, value = option_text_and_value(option)
           url = helpers.url_for(@search_state.params_for_search(@param => value))
           sr_alert = strip_tags(t(:sr_alert, default: :label, scope: "blacklight.search.#{@param}", @interpolation => text))
-          next_focus_target ="#{@id}-btn"
+          next_focus_target ="##{@id}-btn"
           {
             text: text,
             url: helpers.with_screen_reader_alert(url, sr_alert, next_focus_target),

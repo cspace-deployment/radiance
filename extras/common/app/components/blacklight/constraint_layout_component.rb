@@ -22,12 +22,12 @@ module Blacklight
     #
     # @return [Array<String>]
     def focus_targets
-      focus_targets = ["remove-constraint-#{@index}"]
+      focus_targets = ["#remove-constraint-#{@index}"]
       if @index > 0
-        focus_targets << "remove-constraint-#{@index - 1}"
+        focus_targets << "#remove-constraint-#{@index - 1}"
       end
-      focus_targets << "facet-#{@label}-toggle-btn".parameterize
-      focus_targets << 'facet-panel-collapse-toggle-btn'
+      focus_targets << '#facets .facet-limit:first-child button'
+      focus_targets << '#facet-panel-collapse-toggle-btn'
       focus_targets
     end
   end
