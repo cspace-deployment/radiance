@@ -62,6 +62,8 @@ module BlacklightRangeLimit
     # @return [Blacklight::HiddenSearchStateComponent]
     def hidden_search_state
       hidden_search_params = @facet_field.search_state.params_for_search.except(:utf8, :page)
+      hidden_search_params[:sr_alert] = "Added \"#{@facet_field.label}\" range to search constraints"
+      hidden_search_params[:focus_target] = "#remove-facet-#{@facet_field.label.parameterize}-range"
       hidden_search_params[:range]&.except!(@facet_field.key)
       Blacklight::HiddenSearchStateComponent.new(params: hidden_search_params)
     end

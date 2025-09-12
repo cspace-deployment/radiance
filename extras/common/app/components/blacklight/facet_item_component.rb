@@ -17,7 +17,7 @@ module Blacklight
       @wrapping_element = wrapping_element
       @suppress_link = suppress_link
       @label_for_id = @facet_item.facet_config.label.parameterize
-      @value_for_id = @label.parameterize
+      @value_for_id = if @facet_item.facet_config.range then 'range' else @facet_item.value.to_s.parameterize end
     end
 
     def call
@@ -75,7 +75,6 @@ module Blacklight
     # @return [String]
     # @private
     def render_facet_value
-
       tag.span(class: "facet-label") do
         link_to_unless(
           @suppress_link,
@@ -108,7 +107,7 @@ module Blacklight
           link_to(
             helpers.with_screen_reader_alert(
               href,
-              "Removed #{@facet_item.facet_config.label}: \"#{label}\" from search constraints",
+              "Removed #{@facet_item.facet_config.label}: \"#{strip_tags(label)}\" from search constraints",
               focus_target = [
                 "#add-facet-#{@label_for_id}-#{@value_for_id}",
                 "#facet-#{@label_for_id}-toggle-btn",
