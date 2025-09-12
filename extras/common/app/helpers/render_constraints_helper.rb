@@ -4,6 +4,20 @@ module RenderConstraintsHelper
   include Blacklight::RenderConstraintsHelperBehavior
   include BlacklightAdvancedSearch::RenderConstraintsOverride
 
+  # Overrides BlacklightAdvancedSearch::RenderConstraintsOverride.query_has_constraints? to return
+  # true when the query has range limit constraints.
+  def query_has_constraints?(localized_params = params)
+    if is_advanced_search? localized_params
+      true
+    else
+      !(localized_params[:q].blank? &&
+        localized_params[:f].blank? &&
+        localized_params[:f_inclusive].blank?
+        localized_params[:range].blank?
+      )
+    end
+  end
+
   ##
   # Render the actual constraints, not including header or footer
   # info.
