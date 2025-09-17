@@ -132,6 +132,7 @@ GEM
       warden (~> 1.2.3)
     devise-guests (0.8.1)
       devise
+    diff-lcs (1.6.2)
     domain_name (0.6.20231109)
     erubi (1.12.0)
     execjs (2.9.1)
@@ -285,6 +286,23 @@ GEM
     rsolr (2.5.0)
       builder (>= 2.1.2)
       faraday (>= 0.9, < 3, != 2.0.0)
+    rspec-core (3.13.5)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-rails (7.0.2)
+      actionpack (>= 7.0)
+      activesupport (>= 7.0)
+      railties (>= 7.0)
+      rspec-core (~> 3.13)
+      rspec-expectations (~> 3.13)
+      rspec-mocks (~> 3.13)
+      rspec-support (~> 3.13)
+    rspec-support (3.13.5)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
@@ -359,6 +377,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
@@ -385,6 +404,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.1)
   rsolr (>= 1.0, < 3)
+  rspec-rails (~> 7.0.0)
   sassc-rails (~> 2.1)
   selenium-webdriver
   solr_wrapper (>= 0.3)

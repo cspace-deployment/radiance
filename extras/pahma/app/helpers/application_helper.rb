@@ -11,6 +11,10 @@ module ApplicationHelper
     label.html_safe
   end
 
+  def document_link_label document, label
+    "#{label}, museum number #{document['objmusno_s']}".html_safe
+  end
+
   def render_csid csid, derivative
     "https://webapps.cspace.berkeley.edu/pahma/imageserver/blobs/#{csid}/derivatives/#{derivative}/content"
   end
