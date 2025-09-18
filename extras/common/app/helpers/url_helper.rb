@@ -15,10 +15,10 @@ module UrlHelper
   end
 
   # Search History and Saved Searches display
-  def link_to_previous_search(params, index, count)
+  def link_to_previous_search(params, accessible_label = '')
     Deprecation.silence(SearchHistoryConstraintsHelper) do
       link_to(
-        render_search_to_s(params),
+        render_search_to_s(params, accessible_label),
         search_action_path(params),
         class: 'd-block'
       )
@@ -52,25 +52,13 @@ module UrlHelper
             else # String
               field_or_opts
             end
-    description = ''
-    if 'document' == doc['common_doctype_s'] then
-      date = unless doc['pubdate_s'].blank? then " published #{doc['pubdate_s']}" else '' end
-      source = unless doc['source_s'].blank? then " in #{doc['source_s']}" else '' end
-      author = unless doc['author_ss'].blank? then " by #{doc['author_ss'][0]}" else '' end
-      description = ", #{doc['doctype_s']}#{date}#{source}#{author}"
-    else
-      year = unless doc['film_year_i'].blank? then " (#{doc['film_year_i']})" else '' end
-      director = unless doc['film_director_ss'].blank? then ", directed by #{doc['film_director_ss'][0]}" else ', film' end
-      description = "#{year}#{director}"
-    end
-
     Deprecation.silence(Blacklight::UrlHelperBehavior) do
       link_to(
         label,
         url_for_document(doc),
         {
           **document_link_params(doc, opts),
-          aria: {label: "#{label}#{description}".html_safe}
+          aria: {label: document_link_label(doc, label)}
         }
       )
     end

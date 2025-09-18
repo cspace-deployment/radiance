@@ -54,11 +54,15 @@ cp -rv ${extra_dir}_tmp/common/lib/ lib
 rm -rf public/*
 cp -rv ${extra_dir}_tmp/common/public/ public
 
+rm -rf spec/*
+cp -rv ${extra_dir}_tmp/common/spec/ spec
+
 # now apply customizations, if any
 cp -rv ${extra_dir}_tmp/${tenant}/app/ app
 cp -rv ${extra_dir}_tmp/${tenant}/config/ config
 cp -rv ${extra_dir}_tmp/${tenant}/lib/ lib
 cp -rv ${extra_dir}_tmp/${tenant}/public/ public
+cp -rv ${extra_dir}_tmp/${tenant}/spec/ spec
 
 # get rid of the working directory, etc.
 rm -f app/assets/stylesheets/normalize.min.css

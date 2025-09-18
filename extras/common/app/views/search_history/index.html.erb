@@ -16,7 +16,10 @@
   <ul aria-labelledby="search-history-section-heading" class="search-history pl-0">
     <% @searches.each_with_index do |search,index| %>
     <li id="document_<%= index + 1 %>">
-      <%= link_to_previous_search(search_state.reset(search.query_params).to_hash, index, @searches.length) %>
+      <%= link_to_previous_search(
+        search_state.reset(search.query_params).to_hash,
+        accessible_label = "recent search #{index + 1} of #{@searches.length}: "
+      ) %>
     </li>
   <% end %>
   </ul>

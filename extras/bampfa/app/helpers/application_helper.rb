@@ -14,6 +14,10 @@ module ApplicationHelper
     label.html_safe
   end
 
+  def document_link_label document, label
+    "#{label}, accession number #{document['idnumber_s']}".html_safe
+  end
+
   def get_random_documents(query: '*', limit: 12)
     params = {
       :q => query,
@@ -219,6 +223,21 @@ module ApplicationHelper
     render partial: '/shared/pdfs', locals: { csid: pdf_csid, restricted: restricted }
   end
 
+  def render_alt_text blob_csid, document
+    prefix = document[:itemclass_s] || 'BAMPFA object'
+    total_pages = document[:blob_ss] ? document[:blob_ss].length : 1
+    if total_pages > 1
+      page_number = document[:blob_ss].find_index(blob_csid)
+      if page_number.is_a? Integer
+        prefix += " #{page_number + 1} of #{total_pages}"
+      end
+    end
+    title = unless document[:title_txt].nil? then "titled #{document[:title_txt][0]}" else 'no title available' end
+    materials = document[:materials_s] || 'of unknown materials'
+    object_number = unless document[:idnumber_s].nil? then "accession number #{document[:idnumber_s]}" else 'no accession number available' end
+    html_escape("#{prefix} #{title}, #{materials}, #{object_number}.")
+  end
+
   def render_media options = {}
     # return a list of cards or images
     content_tag(:div) do
@@ -236,21 +255,6 @@ module ApplicationHelper
           class: 'hrefclass d-inline-block')
       end.join.html_safe
     end
-  end
-
-  def render_alt_text blob_csid, document
-    prefix = document[:itemclass_s] || 'BAMPFA object'
-    total_pages = document[:blob_ss] ? document[:blob_ss].length : 1
-    if total_pages > 1
-      page_number = document[:blob_ss].find_index(blob_csid)
-      if page_number.is_a? Integer
-        prefix += " #{page_number + 1} of #{total_pages}"
-      end
-    end
-    title = unless document[:title_txt].nil? then "titled #{document[:title_txt][0]}" else 'no title available' end
-    materials = document[:materials_s] || 'of unknown materials'
-    object_number = unless document[:idnumber_s].nil? then "accession number #{document[:idnumber_s]}" else 'no accession number available' end
-    html_escape("#{prefix} #{title}, #{materials}, #{object_number}.")
   end
 
   def render_linkless_media options = {}

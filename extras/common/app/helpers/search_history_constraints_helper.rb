@@ -10,7 +10,7 @@ module SearchHistoryConstraintsHelper
   # Theoretically can may be DRY'd up with results page render_constraints,
   # maybe even using the very same HTML with different CSS?
   # But too tricky for now, too many changes to existing CSS. TODO.
-  def render_search_to_s(params)
+  def render_search_to_s(params, accessible_label = '')
     return render(Blacklight::ConstraintsComponent.for_search_history(search_state: convert_to_search_state(params))) unless overridden_search_history_constraints_helper_methods?
 
     Deprecation.warn(Blacklight::SearchHistoryConstraintsHelperBehavior, 'Calling out to potentially overridden helpers for backwards compatibility.')
@@ -23,7 +23,7 @@ module SearchHistoryConstraintsHelper
         end
         search_link
       end
-      tag.span('recent search: ', class: 'sr-only') + search
+      tag.span(accessible_label, class: 'sr-only') + search
     end
   end
   deprecation_deprecate render_search_to_s: 'Use Blacklight::ConstraintsComponent.for_search_history instead'
