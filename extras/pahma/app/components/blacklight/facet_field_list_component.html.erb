@@ -17,7 +17,7 @@
       <%= render_facet_limit_list @facet_field.paginator, @facet_field.key %>
     </ul>
     <%# backwards compatibility, ugh %>
-    <% if @layout == Blacklight::FacetFieldNoLayoutComponent && !@facet_field.in_modal? && @facet_field.modal_path %>
+    <% if @layout == Blacklight::FacetFieldNoLayoutComponent && !@facet_field.in_modal? && !@view_context.is_advanced_search? && @facet_field.modal_path %>
       <div class="more_facets">
         <%= link_to t("more_#{@facet_field.key}_html", scope: 'blacklight.search.facets', default: :more_html, field_name: @facet_field.label),
           @facet_field.modal_path,
